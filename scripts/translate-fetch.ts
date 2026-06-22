@@ -14,6 +14,7 @@ if (!locale) {
 const config = JSON.parse(readFileSync("/etc/.z-ai-config", "utf8"));
 
 const NOTES: Record<string, { name: string; native: string; notes: string }> = {
+  ru: { name: "Russian", native: "Русский", notes: "Use formal Russian. Phronesis = фронезис. Academic register." },
   fa: { name: "Persian", native: "فارسی", notes: "Use formal Persian. Phronesis = فرونسیس. Academic register." },
   zh: { name: "Mandarin", native: "中文", notes: "Use formal written Chinese. Phronesis = 实践智慧. Academic register." },
   tr: { name: "Turkish", native: "Türkçe", notes: "Use formal Turkish. Phronesis = fronesis. Academic register." },
@@ -101,7 +102,7 @@ Return the ${info.name} translation:`;
       throw new Error("no JSON in response");
     } catch (err) {
       console.error(`\n  ⚠ ${sectionKey} attempt ${attempt}: ${err}`);
-      if (attempt < 3) await sleep(5000);
+      if (attempt < 3) await sleep(15000);
     }
   }
 
@@ -124,7 +125,7 @@ async function main() {
       console.error(`✗ (${err})`);
       translated[section] = enMessages[section];
     }
-    await sleep(2000);
+    await sleep(8000);
   }
 
   const outPath = `/home/z/my-project/src/messages/${locale}.json`;
