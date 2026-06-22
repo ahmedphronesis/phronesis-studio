@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-/* Flowing animated mesh gradient — multi-color, alive */
+/* Flowing animated mesh gradient — paper palette (teal/terracotta/gold on cream) */
 export function MeshBackground({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
@@ -21,8 +21,7 @@ export function MeshBackground({ className = "" }: { className?: string }) {
           left: "10%",
           width: "50vw",
           height: "50vw",
-          background:
-            "radial-gradient(circle, rgba(180, 141, 60, 0.22) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(180, 141, 60, 0.18) 0%, transparent 60%)",
           filter: "blur(60px)",
         }}
       />
@@ -41,8 +40,7 @@ export function MeshBackground({ className = "" }: { className?: string }) {
           right: "5%",
           width: "45vw",
           height: "45vw",
-          background:
-            "radial-gradient(circle, rgba(15, 92, 94, 0.32) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(15, 92, 94, 0.18) 0%, transparent 60%)",
           filter: "blur(60px)",
         }}
       />
@@ -61,8 +59,7 @@ export function MeshBackground({ className = "" }: { className?: string }) {
           left: "30%",
           width: "40vw",
           height: "40vw",
-          background:
-            "radial-gradient(circle, rgba(181, 83, 42, 0.18) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(181, 83, 42, 0.12) 0%, transparent 60%)",
           filter: "blur(70px)",
         }}
       />

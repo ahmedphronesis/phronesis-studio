@@ -1,24 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Magnetic, TextReveal, EASE } from "../anim";
 import { MeshBackground } from "../MeshBackground";
 
 export function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section
       id="top"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden grain"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      {/* Animated mesh gradient background — full bleed */}
+      {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
       {/* Massive decorative Φ, full-bleed right side */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0, scale: 0.85, x: 100 }}
-        animate={{ opacity: 0.05, scale: 1, x: 0 }}
+        animate={{ opacity: 0.06, scale: 1, x: 0 }}
         transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
         className="absolute right-[-12%] top-1/2 -translate-y-1/2 hidden lg:block pointer-events-none select-none"
         style={{
@@ -31,7 +34,7 @@ export function Hero() {
         Φ
       </motion.div>
 
-      {/* Full-bleed content — no max-width container */}
+      {/* Full-bleed content */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 pb-32">
         <motion.div
           initial="hidden"
@@ -48,21 +51,21 @@ export function Hero() {
             className="flex items-center gap-4 mb-10"
           >
             <motion.span
-              className="h-px w-12 bg-gradient-to-r from-transparent via-gold to-gold"
+              className="h-px w-12 bg-gradient-to-r from-transparent via-teal to-teal"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1, ease: EASE, delay: 0.4 }}
               style={{ transformOrigin: "left" }}
             />
-            <span className="eyebrow">Educator · Systems Architect · Leadership Professional</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
           </motion.div>
 
           {/* Massive name — fills width on desktop */}
           <h1
-            className="display text-cream perspective-1000"
+            className="display text-ink perspective-1000"
             style={{ fontSize: "clamp(4rem, 14vw, 13rem)", lineHeight: 0.9 }}
           >
-            <TextReveal text="Ahmed Ali" delay={0.6} stagger={0.06} />
+            <TextReveal text={t("name")} delay={0.6} stagger={0.06} />
           </h1>
 
           {/* Two-column split — subtitle left, body right (asymmetric) */}
@@ -74,8 +77,8 @@ export function Hero() {
               }}
               className="lg:col-span-5"
             >
-              <p className="display-italic text-gold text-[clamp(1.5rem,3.6vw,2.8rem)] leading-[1.1]">
-                I build systems, shape minds, and lead teams.
+              <p className="display-italic text-teal text-[clamp(1.5rem,3.6vw,2.8rem)] leading-[1.1]">
+                {t("subtitle")}
               </p>
             </motion.div>
 
@@ -86,27 +89,28 @@ export function Hero() {
               }}
               className="lg:col-span-6 lg:col-start-7"
             >
-              <p className="text-base md:text-lg text-cream/85 leading-relaxed">
-                Aristotle called it <em className="text-gold not-italic" style={{ fontStyle: "italic", fontFamily: "var(--font-cormorant)" }}>phronesis</em>: the practical wisdom to perceive the gap between what is and what should be, and close it well. I bring that discipline to three crafts. In education, I teach and design learning systems. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations and teams run with precision. Each is available as a custom engagement, a structured consultation, or focused tutoring.
+              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
+                {t("body")}
               </p>
 
               {/* CTAs — magnetic */}
               <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <Magnetic strength={0.5}>
                   <a
-                    href="#contact"
-                    className="group inline-flex items-center gap-3 bg-gold hover:bg-gold-bright text-charcoal-darkest font-medium px-7 py-4 rounded-full transition-all duration-300 glow-gold"
+                    href="/correspondence"
+                    className="group inline-flex items-center gap-3 bg-teal hover:bg-teal-bright text-paper font-medium px-7 py-4 rounded-full transition-all duration-300 glow-teal"
                   >
-                    Begin a conversation
+                    {t("ctaPrimary")}
                     <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
                   </a>
                 </Magnetic>
                 <Magnetic strength={0.3}>
                   <a
-                    href="#work"
-                    className="link-underline inline-flex items-center gap-2 text-cream hover:text-gold transition-colors text-base px-3 py-2"
+                    href="/work"
+                    className="link-underline inline-flex items-center gap-2 text-ink hover:text-teal transition-colors text-base px-3 py-2"
                   >
-                    See selected work
+                    {t("ctaSecondary")}
+                    <ArrowUpRight size={16} />
                   </a>
                 </Magnetic>
               </div>
@@ -126,14 +130,14 @@ export function Hero() {
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ArrowDown size={16} className="text-gold mt-1" />
+              <ArrowDown size={16} className="text-teal mt-1" />
             </motion.div>
-            <p className="text-xs text-cream-dim leading-relaxed">
-              Four production platforms live. A decade across classrooms, operations, and code. Available for selective engagements.
+            <p className="text-xs text-ink-dim leading-relaxed body-serif-italic">
+              {t("footnote")}
             </p>
           </div>
-          <div className="text-xs text-cream-dim uppercase tracking-[0.25em]">
-            Al Ain · UAE
+          <div className="text-xs text-ink-dim uppercase tracking-[0.25em] font-mono">
+            {t("location")}
           </div>
         </motion.div>
       </div>

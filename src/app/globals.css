@@ -8,7 +8,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-cormorant);
-  --font-mono: var(--font-geist-mono);
+  --font-body: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains);
+  --font-arabic: var(--font-amiri);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -52,10 +54,12 @@
   --color-cream: var(--cream);
   --color-cream-soft: var(--cream-soft);
   --color-cream-dim: var(--cream-dim);
-  --color-charcoal: var(--charcoal);
-  --color-charcoal-light: var(--charcoal-light);
-  --color-charcoal-dark: var(--charcoal-dark);
-  --color-charcoal-darkest: var(--charcoal-darkest);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-dim: var(--ink-dim);
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-paper-dark: var(--paper-dark);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -63,29 +67,38 @@
 }
 
 /*
- * Studio of Phronesis — Premium Consultation Palette
- * Inspired by MSCS Academy: deep teals, forest greens, antique golds,
- * terracotta warmth, parchment cream. Multi-color, layered, alive.
+ * Studio of Phronesis — Paper Palette
+ * Warm parchment background, deep ink text, teal/terracotta/gold accents.
+ * Inspired by old manuscripts, classroom gradebooks, Bibliotheca Alexandrina.
  */
 :root {
   --radius: 0.5rem;
 
-  /* Deep forest charcoal — base, with subtle green warmth */
-  --charcoal-darkest: oklch(0.095 0.008 165);
-  --charcoal-dark: oklch(0.130 0.010 165);
-  --charcoal: oklch(0.170 0.012 165);
-  --charcoal-light: oklch(0.220 0.014 165);
+  /* Paper — warm cream, like aged manuscript pages */
+  --paper: oklch(0.95 0.018 80);
+  --paper-warm: oklch(0.91 0.022 78);
+  --paper-dark: oklch(0.86 0.020 75);
 
-  /* Rich teal — sophisticated depth */
-  --teal-deep: oklch(0.32 0.05 195);
-  --teal: oklch(0.42 0.07 195);
-  --teal-bright: oklch(0.55 0.09 195);
+  /* Ink — deep charcoal, like printed text */
+  --ink: oklch(0.22 0.012 60);
+  --ink-soft: oklch(0.32 0.012 60);
+  --ink-dim: oklch(0.48 0.010 60);
+
+  /* Cream — for accents on dark elements */
+  --cream: oklch(0.95 0.018 80);
+  --cream-soft: oklch(0.90 0.020 78);
+  --cream-dim: oklch(0.70 0.018 75);
+
+  /* Deep teal — academic, library binding */
+  --teal-deep: oklch(0.32 0.06 195);
+  --teal: oklch(0.42 0.08 195);
+  --teal-bright: oklch(0.55 0.10 195);
 
   /* Forest green — natural, grounded */
   --forest-deep: oklch(0.32 0.06 145);
   --forest: oklch(0.42 0.08 145);
 
-  /* Antique gold — the premium accent */
+  /* Antique gold — used SPARINGLY for premium moments */
   --gold-deep: oklch(0.60 0.09 75);
   --gold: oklch(0.72 0.115 78);
   --gold-bright: oklch(0.82 0.135 78);
@@ -94,44 +107,38 @@
   --terracotta: oklch(0.55 0.13 45);
   --terracotta-bright: oklch(0.65 0.15 45);
 
-  /* Parchment cream — soft, paper-like */
-  --cream: oklch(0.95 0.018 80);
-  --cream-soft: oklch(0.90 0.020 78);
-  --cream-dim: oklch(0.70 0.018 75);
-  --cream-faint: oklch(0.55 0.015 70);
-
-  /* Theme tokens */
-  --background: var(--charcoal-darkest);
-  --foreground: var(--cream);
-  --card: var(--charcoal-dark);
-  --card-foreground: var(--cream);
-  --popover: var(--charcoal-dark);
-  --popover-foreground: var(--cream);
-  --primary: var(--gold);
-  --primary-foreground: var(--charcoal-darkest);
-  --secondary: var(--teal-deep);
-  --secondary-foreground: var(--cream);
-  --muted: var(--charcoal);
-  --muted-foreground: var(--cream-dim);
-  --accent: var(--teal);
-  --accent-foreground: var(--cream);
-  --destructive: oklch(0.65 0.18 25);
-  --border: oklch(0.28 0.014 165);
-  --input: oklch(0.24 0.012 165);
-  --ring: var(--gold);
-  --chart-1: var(--gold);
-  --chart-2: var(--teal);
-  --chart-3: var(--terracotta);
+  /* Theme tokens — LIGHT MODE (paper) */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-warm);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-warm);
+  --popover-foreground: var(--ink);
+  --primary: var(--teal);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-dark);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-dark);
+  --muted-foreground: var(--ink-dim);
+  --accent: var(--terracotta);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.55 0.18 25);
+  --border: oklch(0.80 0.012 70);
+  --input: oklch(0.82 0.012 70);
+  --ring: var(--teal);
+  --chart-1: var(--teal);
+  --chart-2: var(--terracotta);
+  --chart-3: var(--gold);
   --chart-4: var(--forest);
-  --chart-5: var(--gold-bright);
-  --sidebar: var(--charcoal-dark);
-  --sidebar-foreground: var(--cream);
-  --sidebar-primary: var(--gold);
-  --sidebar-primary-foreground: var(--charcoal-darkest);
-  --sidebar-accent: var(--teal-deep);
-  --sidebar-accent-foreground: var(--cream);
+  --chart-5: var(--teal-bright);
+  --sidebar: var(--paper-warm);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--teal);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--paper-dark);
+  --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--border);
-  --sidebar-ring: var(--gold);
+  --sidebar-ring: var(--teal);
 }
 
 @layer base {
@@ -146,30 +153,43 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01", "cv01", "cv02";
-    /* Multi-layered animated background — depth and warmth */
-    background-color: var(--charcoal-darkest);
+    /* Paper texture — subtle, warm */
+    background-color: var(--paper);
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(180, 141, 60, 0.12), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, rgba(15, 92, 94, 0.18), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 0% 60%, rgba(181, 83, 42, 0.08), transparent 60%),
-      linear-gradient(180deg, oklch(0.095 0.008 165) 0%, oklch(0.130 0.010 165) 100%);
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(15, 92, 94, 0.06), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 100% 100%, rgba(181, 83, 42, 0.05), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 60%, rgba(180, 141, 60, 0.04), transparent 60%);
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+  /* Subtle paper grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   ::selection {
-    background: rgba(214, 175, 100, 0.30);
-    color: var(--cream);
+    background: rgba(15, 92, 94, 0.20);
+    color: var(--ink);
+  }
+  /* RTL support */
+  [dir="rtl"] {
+    text-align: right;
   }
 }
 
 /* Eyebrow / uppercase label */
 .eyebrow {
-  font-family: var(--font-inter);
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--teal);
 }
 
 .display {
@@ -185,6 +205,24 @@
   font-weight: 400;
 }
 
+.body-serif {
+  font-family: var(--font-source-serif);
+  font-weight: 400;
+}
+
+.body-serif-italic {
+  font-family: var(--font-source-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Arabic typography */
+.arabic {
+  font-family: var(--font-amiri);
+  direction: rtl;
+  text-align: right;
+}
+
 .link-underline {
   position: relative;
   display: inline-block;
@@ -196,7 +234,7 @@
   bottom: -2px;
   width: 100%;
   height: 1px;
-  background: var(--gold);
+  background: var(--teal);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
@@ -209,6 +247,12 @@
 .gold-rule {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+  opacity: 0.5;
+}
+
+.teal-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--teal) 50%, transparent);
   opacity: 0.4;
 }
 
@@ -217,62 +261,56 @@
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--charcoal-darkest);
+  background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--teal-deep);
   border-radius: 5px;
-  border: 2px solid var(--charcoal-darkest);
+  border: 2px solid var(--paper);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--teal);
 }
 
-.grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Drop cap — illuminated initial for chapter openings */
+.drop-cap::first-letter {
+  font-family: var(--font-cormorant);
+  font-size: 5rem;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+  color: var(--gold);
+  font-weight: 500;
 }
 
-/* Animated gradient mesh — used as a flowing background layer */
-.mesh-gradient {
-  background:
-    radial-gradient(at 20% 30%, rgba(180, 141, 60, 0.25) 0px, transparent 50%),
-    radial-gradient(at 80% 20%, rgba(15, 92, 94, 0.30) 0px, transparent 50%),
-    radial-gradient(at 70% 80%, rgba(181, 83, 42, 0.20) 0px, transparent 50%),
-    radial-gradient(at 30% 70%, rgba(74, 107, 62, 0.20) 0px, transparent 50%);
-  background-size: 200% 200%;
-  animation: meshFlow 18s ease-in-out infinite;
+/* Manuscript margin notes */
+.marginalia {
+  font-family: var(--font-source-serif);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  line-height: 1.5;
 }
 
-@keyframes meshFlow {
-  0%, 100% { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%; }
-  25% { background-position: 20% 10%, 80% 30%, 70% 70%, 30% 80%; }
-  50% { background-position: 30% 30%, 70% 50%, 50% 50%, 50% 50%; }
-  75% { background-position: 10% 40%, 90% 60%, 60% 40%, 40% 60%; }
-}
-
-/* 3D perspective utility */
+/* Perspective utilities */
 .perspective-1000 { perspective: 1000px; }
 .perspective-2000 { perspective: 2000px; }
 .preserve-3d { transform-style: preserve-3d; }
 .backface-hidden { backface-visibility: hidden; }
 
 /* Glow effects */
-.glow-gold {
-  box-shadow: 0 0 60px rgba(214, 175, 100, 0.25), 0 0 120px rgba(214, 175, 100, 0.10);
-}
 .glow-teal {
-  box-shadow: 0 0 60px rgba(15, 92, 94, 0.35), 0 0 120px rgba(15, 92, 94, 0.15);
+  box-shadow: 0 0 60px rgba(15, 92, 94, 0.20), 0 0 120px rgba(15, 92, 94, 0.10);
+}
+.glow-gold {
+  box-shadow: 0 0 60px rgba(180, 141, 60, 0.20), 0 0 120px rgba(180, 141, 60, 0.10);
 }
 
 /* Animated gradient border */
 .gradient-border {
   position: relative;
-  background: var(--charcoal-dark);
+  background: var(--paper-warm);
   border-radius: 1rem;
 }
 .gradient-border::before {
@@ -281,7 +319,7 @@
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, var(--gold), var(--teal), var(--terracotta), var(--gold));
+  background: linear-gradient(135deg, var(--teal), var(--terracotta), var(--gold), var(--teal));
   background-size: 300% 300%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
