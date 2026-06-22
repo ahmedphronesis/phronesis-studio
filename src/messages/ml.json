@@ -22,17 +22,17 @@
     "enterPrompt": "Enter"
   },
   "thesis": {
-    "eyebrow": "The Thesis",
-    "lead": "Every institution carries a gap. A school that teaches well but records poorly. A business that serves customers but bleeds quietly to invisible leaks. A team that works hard without a system to compound its effort. The gap is always there. The question is whether you have someone who can see it, name it, and close it without leaving a worse mess behind.",
-    "body1": "I am not a developer who happens to teach, nor a teacher who happens to code. I am a philosopher who has spent years learning to see gaps in systems, in workflows, in classrooms, in people, and to close them with precision.",
-    "body2": "The Greeks had a word for this. Phronesis: practical wisdom, the virtue of perceiving the right action in the right moment. It is not theory. It is not technique. It is the trained capacity to look at a messy reality and see what is missing.",
-    "body3": "I work across three disciplines. Education, where I teach and build learning platforms. Software, where I ship production systems for real clients. Leadership and operations, where I help teams and processes run with intent. Each engagement is shaped to the gap at hand.",
-    "pillar1Title": "Perceive the gap",
-    "pillar1Body": "Before any build, any class, any consultation, I sit with the situation until I see what others have stopped noticing. The spreadsheet nobody trusts. The lesson that never lands. The team that works hard without a system to compound its effort. The gap is always there. Most professionals never look for it.",
-    "pillar2Title": "Diagnose with rigor",
-    "pillar2Body": "A gap is not a request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I refuse to act on a misdiagnosis. The philosopher's discipline applied to a classroom, a codebase, or an operation's anatomy.",
-    "pillar3Title": "Close with precision",
-    "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it."
+    "eyebrow": "പ്രബന്ധം",
+    "lead": "ഓരോ സ്ഥാപനത്തിനും അതിന്റെ ഇപ്പോഴത്തെ അവസ്ഥയും അത് ആകാമാനം ഉള്ള അവസ്ഥയും തമ്മിൽ ഒരു അകലം ഉണ്ട്. നന്നായി പഠിപ്പിക്കുന്ന ഒരു സ്കൂൾ, പക്ഷേ അതിന്റെ ഫലങ്ങൾ അളക്കാൻ കഴിയുന്നില്ല. ഗ്രാഹകരെ സേവിക്കുന്ന ഒരു ബിസിനസ്സ്, പക്ഷേ ഒളിച്ചുവച്ചിരിക്കുന്ന പ്രവർത്തനക്ഷമതക്കുറവുകൾ കാരണം പണം നഷ്ടപ്പെടുന്നു. കഠിനമായി പ്രവർത്തിക്കുന്ന ഒരു ടീം, പക്ഷേ കാലക്രമേണ ശക്തിപ്പെടാൻ ആവശ്യമായ സംവിധാനങ്ങൾ ഇല്ല. ഈ അകലം ഓരോ സംഘടനയിലും നിലവിലുണ്ട്. ചോദ്യം എന്താണെന്നാൽ, ഈ അകലം ആരെങ്കിലും വ്യക്തമായി കാണാൻ കഴിയുമോ, നിഷ്കളങ്കമായി പേരിടാൻ കഴിയുമോ, ശ്രദ്ധാപൂർവ്വം അടയ്ക്കാൻ കഴിയുമോ എന്നതാണ്.",
+    "body1": "ഞാനൊരു പ്രോഗ്രാമർ ആയിരുന്നു അത് പഠിപ്പിക്കുന്നതിനായി എന്നതോ അല്ല, ഒരു അദ്ധ്യാപകനായിരുന്നു അത് കോഡ് ചെയ്യുന്നതിനായി എന്നതോ അല്ല. ഞാനൊരു തത്ത്വചിന്തകനാണ്, സംവിധാനങ്ങളിലും, പ്രവൃത്തിപ്രവാഹങ്ങളിലും, ക്ലാസ് മുറികളിലും, മനുഷ്യരിലും ഉള്ള വിടവുകൾ കണ്ടെത്താൻ വർഷങ്ങളോളം പഠിച്ചവനും, അവ കൃത്യതയോടെ അടയ്ക്കാൻ പഠിച്ചവനുമാണ്.",
+    "body2": "ഗ്രീക്കുകൾക്ക് ഇതിന് ഒരു വാക്കുണ്ടായിരുന്നു. ഫ്രോണേസിസ്: പ്രായോഗിക പ്രാവീണ്യം, ശരിയായ സമയത്ത് ശരിയായ പ്രവൃത്തി മനസ്സിലാക്കുന്നതിന്റെ ഗുണം. ഇത് സിദ്ധാന്തമല്ല. സാങ്കേതികവിദ്യയുമല്ല. ഒരു കെട്ടുപാടുകളുള്ള യാഥാർത്ഥ്യം നോക്കി, അതിൽ എന്താണ് കുറവുള്ളതെന്ന് കാണാൻ പരിശീലിപ്പിക്കപ്പെട്ട കഴിവാണിത്.",
+    "body3": "ഞാൻ മൂന്ന് വിഷയങ്ങളിലായി പ്രവർത്തിക്കുന്നു. ൻറെ വിദ്യാഭ്യാസം, അവിടെ ഞാൻ പഠിപ്പിക്കുകയും പഠന പ്ലാറ്റ്‌ഫോമുകൾ നിർമ്മിക്കുകയും ചെയ്യുന്നു. സോഫ്റ്റ്‌വെയർ, അവിടെ യാഥാർത്ഥ്യമായ ക്ലയന്റുകൾക്കായി പ്രൊഡക്ഷൻ സിസ്റ്റങ്ങൾ വിതരണം ചെയ്യുന്നു. ലീഡർഷിപ്പും ഓപ്പറേഷനും, അവിടെ ടീമുകളെയും പ്രക്രിയകളെയും ലക്ഷ്യബോധത്തോടെ പ്രവർത്തിക്കുന്നതിന് സഹായിക്കുന്നു. ഓരോ ഇടപാടും അനുഭവിക്കുന്ന കാര്യങ്ങളിലെ വിടവിനനുസരിച്ച് ആകൃതിയിലാക്കുന്നു.",
+    "pillar1Title": "വിടവ് മനസ്സിലാക്കുക",
+    "pillar1Body": "ഒരു നിർമ്മാണത്തിനും, ഒരു പാഠത്തിനും, ഒരു ചർച്ചയ്ക്കും മുമ്പ്, മറ്റുള്ളവർ കണ്ടെത്താൻ നിർത്തിയ കാര്യം വരെ ഞാൻ സന്ദർഭത്തിനൊപ്പം ഇരിക്കുന്നു. ആരും വിശ്വസിക്കാത്ത സ്പ്രെഡ്ഷീറ്റ്. എന്നിട്ടും കിട്ടാത്ത പാഠം. അതിന്റെ പ്രയത്നം ഇരട്ടിപ്പിക്കുന്ന ഒരു സംവിധാനമില്ലാതെ കഠിനമായി പ്രവർത്തിക്കുന്ന സംഘം. ആ വിടവ് എപ്പോഴും അവിടെയുണ്ട്. ഭൂരിഭാഗം വിദഗ്ധരും അത് തേടിപ്പോകില്ല.",
+    "pillar2Title": "കഠിനമായി രോഗനിർണയം നടത്തുക",
+    "pillar2Body": "ഒരു വിടവ് ഒരു അഭ്യർത്ഥനയല്ല. ഞാൻ അഭിനേതാക്കളെ, പ്രേരണകളെ, പരാജയത്തിന്റെ മാതൃകകളെ, അനുപാലന പരിധിയെ, ഡാറ്റയുടെ ഒഴുക്കിനെ വരച്ചു കാണിക്കുന്നു. ഞാൻ ഒരു തെറ്റായ രോഗനിർണയത്തിൽ പ്രവർത്തിക്കാൻ വിസമ്മതിക്കുന്നു. ഒരു ക്ലാസ്‌റൂമിൽ, കോഡ്ബേസിൽ, അല്ലെങ്കിൽ ഒരു പ്രവർത്തനത്തിന്റെ ശരീരശാസ്ത്രത്തിൽ പ്രയോഗിക്കുന്ന ഒരു തത്ത്വചിന്തകന്റെ ശാസ്ത്രീയ പഠനം.",
+    "pillar3Title": "കൃത്യമായി അവസാനിപ്പിക്കുക",
+    "pillar3Body": "ശരിയായ സംവിധാനം, ശരിയായ പാഠ്യപദ്ധതി, ശരിയായ പ്രവർത്തന ചാക്രികത. ക്വാർട്ടറുകൾക്ക് പകരം ആഴ്ചകളിൽ തന്നെ വിതരണം ചെയ്യുന്നു. ആദ്യ ദിവസം മുതൽ ഉല്പാദന നിലവാരമുള്ളതായി. നിയോഗിച്ച സ്ഥാപനത്തെ ശക്തിപ്പെടുത്തുന്നതിനും അതിന്റെ കാലാവധിക്ക് അപ്പുറം നിലനിൽക്കുന്നതിനും വേണ്ടി നിർമ്മിച്ചതാണ്."
   },
   "practice": {
     "eyebrow": "The Practice",

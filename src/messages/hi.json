@@ -22,17 +22,17 @@
     "enterPrompt": "Enter"
   },
   "thesis": {
-    "eyebrow": "The Thesis",
-    "lead": "Every institution carries a gap. A school that teaches well but records poorly. A business that serves customers but bleeds quietly to invisible leaks. A team that works hard without a system to compound its effort. The gap is always there. The question is whether you have someone who can see it, name it, and close it without leaving a worse mess behind.",
-    "body1": "I am not a developer who happens to teach, nor a teacher who happens to code. I am a philosopher who has spent years learning to see gaps in systems, in workflows, in classrooms, in people, and to close them with precision.",
-    "body2": "The Greeks had a word for this. Phronesis: practical wisdom, the virtue of perceiving the right action in the right moment. It is not theory. It is not technique. It is the trained capacity to look at a messy reality and see what is missing.",
-    "body3": "I work across three disciplines. Education, where I teach and build learning platforms. Software, where I ship production systems for real clients. Leadership and operations, where I help teams and processes run with intent. Each engagement is shaped to the gap at hand.",
-    "pillar1Title": "Perceive the gap",
-    "pillar1Body": "Before any build, any class, any consultation, I sit with the situation until I see what others have stopped noticing. The spreadsheet nobody trusts. The lesson that never lands. The team that works hard without a system to compound its effort. The gap is always there. Most professionals never look for it.",
-    "pillar2Title": "Diagnose with rigor",
-    "pillar2Body": "A gap is not a request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I refuse to act on a misdiagnosis. The philosopher's discipline applied to a classroom, a codebase, or an operation's anatomy.",
-    "pillar3Title": "Close with precision",
-    "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it."
+    "eyebrow": "प्रबन्धन निबंध",
+    "lead": "प्रत्येक संस्था में अपने वर्तमान स्वरूप और अपनी क्षमता के बीच एक अंतर होता है। एक ऐसा विद्यालय जो अच्छी तरह से पढ़ाता है, लेकिन अपने परिणामों को माप नहीं पाता। एक ऐसा व्यवसाय जो ग्राहकों की सेवा करता है, लेकिन छिपी हुई अक्षमताओं के कारण धन खो देता है। एक ऐसी टीम जो कड़ी मेहनत करती है, लेकिन समय के साथ अधिक मजबूत बनने के लिए उसमें कोई प्रणाली नहीं होती। यह अंतर प्रत्येक संगठन में मौजूद रहता है। सवाल यह है कि कोई इसे स्पष्ट रूप से देख सकता है,�, ईमानदारी से उसका नाम रख सकता है, और उसे सावधानीपूर्वक बंद कर सकता है।",
+    "body1": "मैं एक विकासकर्ता नहीं हूँ जो यादृच्छिक रूप से पढ़ाता हूँ, और न ही एक शिक्षक जो यादृच्छिक रूप से कोड करता हूँ। मैं एक दार्शनिक हूँ जिसने वर्षों तक प्रणालियों, कार्यप्रवाहों, कक्षाओं, लोगों में अंतरों को देखना और उन्हें सटीकता से बंद करना सीखा है।",
+    "body2": "यूनानियों के पास इसके लिए एक शब्द था। फ़्रोनेसिस: व्यावहारिक ज्ञान, सही कार्य को सही क्षण में जानने का गुण। यह कोई सिद्धांत नहीं है। यह कोई तकनीक नहीं है। यह एक ऐसी प्रशिक्षित क्षमता है जो एक बिखरी हुई वास्तविकता को देखकर उसमें कुछ न कुछ अनुपस्थित देखती है।",
+    "body3": "मैं तीन विषयों में काम करता हूँ। शिक्षा, जहाँ मैं पढ़ाता हूँ और सीखने के प्लेटफार्म बनाता हूँ। सॉफ्टवेयर, जहाँ मैं वास्तविक ग्राहकों के लिए उत्पादन सिस्टम भेजता हूँ। और नेतृत्व एवं संचालन, जहाँ मैं टीमों और प्रक्रियाओं को लक्षित रूप से काम करने में मदद करता हूँ। प्रत्येक कार्य उस विशिष्ट अंतर के अनुरूप आकारित किया जाता है।",
+    "pillar1Title": "अंतर को देखें",
+    "pillar1Body": "किसी भी निर्माण, किसी भी कक्षा, या किसी भी परामर्श से पहले, मैं विषय के साथ बैठता हूँ जब तक कि मैं वह देख न लूँ जो दूसरे नहीं देख पा रहे हैं। वह स्प्रेडशीट जिस पर कोई भरोसा नहीं करता। वह पाठ जो कभी भी अपना असर नहीं डाल पाता। वह टीम जो बिना किसी प्रणाली के मेहनत करती है जो उसके प्रयासों को बढ़ा सके। अंतर हमेशा मौजूद होता है। अधिकांश व्यवसायिक विशेषज्ञ कभी भी इसे ढूंढने की कोशिश नहीं करते।",
+    "pillar2Title": "कठोरता से निदान करें",
+    "pillar2Body": "एक अंतर यह नहीं है कि कोई अनुरोध करे। मैं अभिनेताओं, प्रोत्साहनों, विफलता के मोड, अनुपालन की सीमा, और डेटा प्रवाह का मानचित्र बनाता हूँ। मैं गलत निदान पर कार्य नहीं करने की अनुमति नहीं देता। एक कक्षा, कोडबेस, या संचालन की शारीरिक संरचना पर दार्शनिक अनुशासन का अनुप्रयोग।",
+    "pillar3Title": "सटीकता से बंद करें",
+    "pillar3Body": "सही प्रणाली, सही पाठ्यक्रम, सही संचालन चक्र। क्वार्टर के बजाय सप्ताहों में भेजा गया। दिन एक से ही उत्पादन-ग्रेड। इस तरह बनाया गया कि यह इस कार्य के बाद भी बना रहे, और उस संस्था को मजबूत करे जिसने इसे आदेश दिया था।"
   },
   "practice": {
     "eyebrow": "The Practice",
