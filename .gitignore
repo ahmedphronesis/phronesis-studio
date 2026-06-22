@@ -64,3 +64,14 @@ server.log
 
 # download folder (local test screenshots)
 /download/
+
+# local tooling
+/tool-results/
+/upload/
+/mini-services/.gitkeep
+/examples/
+
+# scaffold noise
+/skills/
+/examples/
+/mini-services/
