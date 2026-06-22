@@ -11,7 +11,7 @@
     "begin": "Começar"
   },
   "hero": {
-    "eyebrow": "Educador · Arquiteto de Sistemas · Profissional de Liderança",
+    "eyebrow": "Educador · Arquiteto de Sistemas · Profissional de Liderança e Gestão",
     "name": "Ahmed Ali",
     "subtitle": "Eu construo sistemas, moldo mentes e lidero equipes.",
     "body": "Aristóteles chamou-lhe frónesis: a sabedoria prática para perceber a lacuna entre o que é e o que deveria ser, e preenchê-la bem. Eu trago essa disciplina para três ofícios. Na educação, ensino e desenho sistemas de aprendizagem. No software, arqueto plataformas de produção para escolas, empresas e instituições. Na liderança, ajudo operações e equipes a funcionarem com precisão. Cada um está disponível como um envolvimento personalizado, uma consulta estruturada ou tutoria focada.",
@@ -23,16 +23,16 @@
   },
   "thesis": {
     "eyebrow": "A Tese",
-    "lead": "Cada instituição carrega uma lacuna. Uma escola que ensina bem, mas registra mal. Um negócio que serve clientes, mas sangra silenciosamente por vazios invisíveis. Uma equipe que trabalha duro sem um sistema para potencializar seus esforços. A lacuna está sempre lá. A questão é se você tem alguém que possa vê-la, nomeá-la e fechá-la sem deixar uma bagunça pior para trás.",
-    "body1": "Eu não sou um desenvolvedor que ensina por acaso, nem um professor que programa por acaso. Eu sou um filósofo que passou anos aprendendo a ver lacunas em sistemas, fluxos de trabalho, salas de aula, pessoas e a fechá-las com precisão.",
-    "body2": "Os gregos tinham uma palavra para isso. Frónesis: sabedoria prática, a virtude de perceber a ação certa no momento certo. Não é teoria. Não é técnica. É a capacidade treinada de olhar para uma realidade bagunçada e ver o que está faltando.",
-    "body3": "Trabalho em três disciplinas. Educação, onde ensino e construo plataformas de aprendizagem. Software, onde entrego sistemas de produção para clientes reais. Liderança e operações, onde ajudo equipes e processos a funcionarem com intencionalidade. Cada engajamento é moldado para a lacuna em questão.",
+    "lead": "Cada instituição tem uma lacuna entre o que ela é e o que poderia ser. Uma escola que ensina bem mas não consegue medir seus resultados. Uma empresa que serve clientes mas perde dinheiro com ineficiências ocultas. Uma equipe que trabalha arduamente mas carece de sistemas para se fortalecer com o tempo. A lacuna existe em toda organização. A questão é se alguém pode vê-la claramente, nomeá-la honestamente e fechá-la com cuidado.",
+    "body1": "Eu não sou um desenvolvedor que ensina por acaso, nem um professor que programa por acaso. Eu sou um filósofo que passou anos aprendendo a ver lacunas em sistemas, em fluxos de trabalho, em salas de aula, em pessoas, e a fechá-las com precisão.",
+    "body2": "Os gregos tinham uma palavra para isso. Frónesis: sabedoria prática, a virtude de perceber a ação certa no momento certo. Não é teoria. Não é técnica. É a capacidade treinada de olhar para uma realidade confusa e ver o que está faltando.",
+    "body3": "Eu trabalho em três disciplinas. Educação, onde ensino e construo plataformas de aprendizagem. Software, onde entrego sistemas de produção para clientes reais. Liderança e operações, onde ajudo equipes e processos a funcionarem com intenção. Cada engajamento é moldado para a lacuna em questão.",
     "pillar1Title": "Perceber a lacuna",
-    "pillar1Body": "Antes de qualquer construção, qualquer aula, qualquer consultoria, eu me sinto com a situação até ver o que outros pararam de notar. A planilha que ninguém confia. A aula que nunca cai. A equipe que trabalha duro sem um sistema para potencializar seus esforços. A lacuna está sempre lá. A maioria dos profissionais nunca procura por ela.",
+    "pillar1Body": "Antes de qualquer construção, qualquer aula, qualquer consultoria, eu sento com a situação até ver o que outros pararam de notar. A planilha que ninguém confia. A aula que nunca chega. A equipe que trabalha arduamente sem um sistema para compilar seu esforço. A lacuna está sempre lá. A maioria dos profissionais nunca procura por ela.",
     "pillar2Title": "Diagnosticar com rigor",
-    "pillar2Body": "Uma lacuna não é um pedido. Mapeio os atores, os incentivos, os modos de falha, o envelope de conformidade, os fluxos de dados. Recuso-me a agir com um diagnóstico incorreto. A disciplina do filósofo aplicada a uma sala de aula, um código-fonte ou à anatomia de uma operação.",
+    "pillar2Body": "Uma lacuna não é um pedido. Eu mapeio os atores, os incentivos, os modos de falha, o envelope de conformidade, os fluxos de dados. Eu me recuso a agir com um diagnóstico incorreto. A disciplina do filósofo aplicada a uma sala de aula, um código-fonte ou a anatomia de uma operação.",
     "pillar3Title": "Fechar com precisão",
-    "pillar3Body": "O sistema certo, o currículo certo, o ritmo operacional certo. Enviado em semanas, não em trimestres. Nível de produção desde o dia um. Construído para sobreviver ao engajamento e fortalecer a instituição que o comissionou."
+    "pillar3Body": "O sistema certo, o currículo certo, o ritmo operacional certo. Enviado em semanas, não em trimestres. De qualidade de produção desde o dia um. Construído para sobreviver ao engajamento e para fortalecer a instituição que o comissionou."
   },
   "practice": {
     "eyebrow": "A Prática",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "A arte de ver a lacuna e fechá-la bem.",
-    "description": "Educador, arquiteto de sistemas e profissional de liderança. Disponível para construções personalizadas, consultoria e tutoria, para instituições que pararam de se contentar com a lacuna.",
+    "description": "Educador, arquiteto de sistemas e profissional em liderança e gestão. Disponível para desenvolvimentos personalizados, consultoria e tutoria, para instituições que deixaram de se contentar com a lacuna.",
     "onThisPage": "Nesta página",
     "liveWork": "Trabalho ao vivo",
     "rights": "Todos os direitos reservados.",

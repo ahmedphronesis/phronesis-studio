@@ -11,7 +11,7 @@
     "begin": "Başla"
   },
   "hero": {
-    "eyebrow": "Eğitimci · Sistem Mimarısı · Liderlik Uzmanı",
+    "eyebrow": "Eğitimci · Sistem Mimarısı · Liderlik ve Yönetim Uzmanı",
     "name": "Ahmed Ali",
     "subtitle": "Sistemler inşa eder, zihinleri şekillendiririm ve ekipleri yönetirim.",
     "body": "Aristoteles bunu fronesis olarak adlandırmıştı: ne var ile ne olması gerektiği arasındaki boşluğu algılama ve bu boşluğu iyi bir şekilde kapatma pratiğindeki bilgeliği. Bu disiplini üç zanaata taşıyorum. Eğitimde, öğrenme sistemlerini öğretir ve tasarlardım. Yazılımda, okullar, işletmeler ve kurumlar için üretim platformları mimarisi yaparım. Liderlikte, operasyonların ve ekiplerin hassasiyetle çalışmasını sağlarım. Her biri özel bir işbirliği, yapılandırılmış bir danışmanlık veya odaklı ders olarak mevcuttur.",
@@ -23,16 +23,16 @@
   },
   "thesis": {
     "eyebrow": "Tez",
-    "lead": "Her kurum bir eksiklikle yükümlüdür. İyi öğretir ama kötü kayıtlar tutan bir okul. Müşterilere hizmet eder ama görünmez sızıntılara sessizce kanatan bir işletme. Çabuk çalışan ama çabasını biriktirecek bir sisteme sahip olmayan bir ekip. Eksiklik her zaman oradadır. Soru, bunu görebilen, adlandırabilen ve arkasında daha kötü bir dağınıklık bırakmadan kapatabilecek birine sahip olup olmadığınızdır.",
+    "lead": "Her kurum, ne olduğu ve ne olabileceği arasında bir boşluk taşır. Sonuçlarını ölçemeyen iyi öğreten bir okul. Müşterilere hizmet etmesine rağmen gizli verimsizliklere para kaybeden bir iş. Zamanla daha güçlü büyümek için sistemlere sahip olmayan çok çalışan bir ekip. Bu boşluk her kurumda mevcuttur. Soru, bunu net bir şekilde gören, dürçe adlandıran ve dikkatle kapatan birinin olup olmadığıdır.",
     "body1": "Öğretmenlik yapan bir geliştirici değil, kod yazan bir öğretmen değilim. Yıllarını sistemlerde, iş akışlarında, sınıflarda, insanlardaki boşlukları görmeyi ve onları hassasiyetle kapatmayı öğrenerek geçiren bir filozofum.",
-    "body2": "Bunun için Yunanlıların bir kelimesi vardı. Fronesis: pratik zeka, doğru anda doğru eylemi algıl meziyeti. Bu bir teori değil. Bir teknik değil. Dağınık bir gerçekliği görüp ne eksik olduğunu görmek için eğitilmiş bir kapasitedir.",
-    "body3": "Üç disiplin üzerinde çalışıyorum. Eğitim, burada öğretmenlik yapıp öğrenme platformları oluşturuyorum. Yazılım, burada gerçek müşteriler için üretim sistemleri gönderiyorum. Liderlik ve operasyonlar, burada ekiplerin ve süreçlerin amaçla çalışmasını sağlıyorum. Her etkileşim, eldeki boşluğa göre şekillendirilir.",
+    "body2": "Bunun için Yunanlıların bir kelimesi vardı. Fronesis: pratik zeka, doğru anda doğru eylemi algıl meziyeti. Bu bir teori değil. Bir teknik değil. Dağınık bir gerçeği bakıp ne eksik görüyorsa onu görmek için eğitilmiş bir kapasitedir.",
+    "body3": "Üç disiplin üzerinde çalışıyorum. Eğitim, burada öğretmenlik yapıp öğrenme platformları inşa ediyorum. Yazılım, burada gerçek müşteriler için üretim sistemleri gönderiyorum. Liderlik ve operasyonlar, burada ekiplerin ve süreçlerin amaçla çalışmasını sağlıyorum. Her etkileşim, eldeki boşluğa göre şekillenir.",
     "pillar1Title": "Boşluğu algıla",
-    "pillar1Body": "Herhangi bir geliştirme, ders danışmanlığından önce, durumu başkalarının fark etmeyi bıraktığına kadar incelerim. Kimse inanmadığı elektronik tablo. Asamayan ders. Çabuk çalışan ama çabasını biriktirecek bir sisteme sahip olmayan ekip. Boşluk her zaman oradadır. Çoğu profesyonel asla onun için arama yapmaz.",
+    "pillar1Body": "Herhangi bir inşa, ders danışmanlık önce, durumu başkalarının fark etmeyi bıraktığı noktaya kadar otururum. Güvenilmeyen elektronik tablo. Asamayan ders. Çabucak çalıştığı halde çabasını biriktirecek bir sistemi olmayan ekip. Boşluk her zaman oradadır. Çoğu profesyonel onu aramaz.",
     "pillar2Title": "Titizlikle teşhis et",
-    "pillar2Body": "Bir boşluk bir talep değildir. Aktörleri, teşvikleri, başarısızlık modlarını, uyum kapsamını, veri akışlarını haritalarım. Yanlış teşhisle hareket etmeyi reddederim. Filozofun disiplini, bir sınıfta, bir kod tabanında veya bir operasyonun anatomisinde uygulanır.",
+    "pillar2Body": "Bir boşluk bir talep değildir. Aktörleri, teşvikleri, başarısızlık modlarını, uyumluluk zarfını, veri akışlarını haritalarım. Yanlış teşhisle hareket etmeyi reddedirim. Bir sınıfa, bir kod tabanına veya bir operasyonun anatomisine uygulanan filozofun disiplini.",
     "pillar3Title": "Hassasiyetle kapat",
-    "pillar3Body": "Doğru sistem, doğru müfredat, doğru çalışma ritmi. Çeyrekler değil, haftalar içinde teslim edilir. İlk günden itibaren üretim kalitesinde. Etkileşimin ötesinde yaşayacak şekilde tasarlanmıştır ve onu sipariş eden kurumu güçlendirecek şekilde inşa edilmiştir."
+    "pillar3Body": "Doğru sistem, doğru müfredat, doğru çalışma temposu. Çeyrekler değil haftalar içinde teslim edilir. İlk günden itibaren üretim kalitesinde. Etkileşimin ötesinde yaşayacak ve onu sipariş eden kurumu güçlendirecek şekilde inşa edilmiştir."
   },
   "practice": {
     "eyebrow": "Uygulama",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "Boşluğu görmek ve onu iyi kapatma sanatı.",
-    "description": "Eğitimci, sistem mimarı ve liderlik uzmanı. Boşluğa razı olmayı bırakmış kurumlar için özel projeler, danışmanlık ve öğretim hizmetleri sunmaktayım.",
+    "description": "Eğitimci, sistem mimarı ve liderlik ve yönetim uzmanı. Aradaki boşluğa razı olmayı bırakmış kurumlar için özel çözümler, danışmanlık ve öğretim hizmetleri sunulmaktadır.",
     "onThisPage": "Bu sayfada",
     "liveWork": "Canlı çalışmalar",
     "rights": "Tüm hakları saklıdır.",

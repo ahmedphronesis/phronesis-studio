@@ -11,7 +11,7 @@
     "begin": "Begin"
   },
   "hero": {
-    "eyebrow": "Educator · Systems Architect · Leadership Professional",
+    "eyebrow": "Педагог · Системный архитектор · Специалист по лидерству и менеджменту",
     "name": "Ahmed Ali",
     "subtitle": "I build systems, shape minds, and lead teams.",
     "body": "Aristotle called it phronesis: the practical wisdom to perceive the gap between what is and what should be, and close it well. I bring that discipline to three crafts. In education, I teach and design learning systems. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations and teams run with precision. Each is available as a custom engagement, a structured consultation, or focused tutoring.",
@@ -22,17 +22,17 @@
     "enterPrompt": "Enter"
   },
   "thesis": {
-    "eyebrow": "The Thesis",
-    "lead": "Every institution carries a gap. A school that teaches well but records poorly. A business that serves customers but bleeds quietly to invisible leaks. A team that works hard without a system to compound its effort. The gap is always there. The question is whether you have someone who can see it, name it, and close it without leaving a worse mess behind.",
-    "body1": "I am not a developer who happens to teach, nor a teacher who happens to code. I am a philosopher who has spent years learning to see gaps in systems, in workflows, in classrooms, in people, and to close them with precision.",
-    "body2": "The Greeks had a word for this. Phronesis: practical wisdom, the virtue of perceiving the right action in the right moment. It is not theory. It is not technique. It is the trained capacity to look at a messy reality and see what is missing.",
-    "body3": "I work across three disciplines. Education, where I teach and build learning platforms. Software, where I ship production systems for real clients. Leadership and operations, where I help teams and processes run with intent. Each engagement is shaped to the gap at hand.",
-    "pillar1Title": "Perceive the gap",
-    "pillar1Body": "Before any build, any class, any consultation, I sit with the situation until I see what others have stopped noticing. The spreadsheet nobody trusts. The lesson that never lands. The team that works hard without a system to compound its effort. The gap is always there. Most professionals never look for it.",
-    "pillar2Title": "Diagnose with rigor",
-    "pillar2Body": "A gap is not a request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I refuse to act on a misdiagnosis. The philosopher's discipline applied to a classroom, a codebase, or an operation's anatomy.",
-    "pillar3Title": "Close with precision",
-    "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it."
+    "eyebrow": "Диссертация",
+    "lead": "У каждого учреждения есть разрыв между тем, чем оно является, и тем, чем оно могло бы быть. Школа, которая хорошо преподает, но не может измерить свои результаты. Бизнес, который обслуживает клиентов, но теряет деньги из-за скрытых неэффективностей. Команда, которая усердно работает, но не имеет систем для постоянного роста. Разрыв существует в каждой организации. Вопрос в том, сможет ли кто-то увидеть его ясно, назвать честно и закрыть тщательно.",
+    "body1": "Я не разработчик, который случайно преподает, и не учитель, который случайно пишет код. Я философ, который годами учился видеть разрывы в системах, рабочих процессах, классах, среди людей и закрывать их с точностью.",
+    "body2": "У греков было слово для этого. Фронезис: практическая мудрость, добродетель восприятия правильного действия в нужный момент. Это не теория. Это не техника. Это выработанная способность смотреть на запутанную реальность и видеть, чего не хватает.",
+    "body3": "Я работаю в трех дисциплинах. Образование, где я преподаю и создаю образовательные платформы. Программное обеспечение, где я запускаю производственные системы для реальных клиентов. Лидерство и операции, где я помогаю командам и процессам работать осознанно. Каждый проект адаптируется под конкретный разрыв.",
+    "pillar1Title": "Восприятие разрыва",
+    "pillar1Body": "Перед тем, как что-либо создавать, проводить занятия или консультировать, я погружаюсь в ситуацию, пока не увижу то, что другие перестали замечать. Таблица, которой никто не доверяет. Урок, который не доходит. Команда, которая усердно работает без системы для умножения своих усилий. Разрыв всегда есть. Большинство специалистов никогда его не ищут.",
+    "pillar2Title": "Точная диагностика",
+    "pillar2Body": "Разрыв — это не запрос. Я анализирую участников, стимулы, режимы сбоя, границы соответствия, потоки данных. Я не действую на основе неверного диагноза. Философская дисциплина, примененная к классу, кодовой базе или структуре операций.",
+    "pillar3Title": "Точное закрытие",
+    "pillar3Body": "Правильная система, правильная учебная программа, правильный операционный ритм. Запускается за недели, а не кварталы. Готовность к эксплуатации с первого дня. Создано для того, чтобы пережить проект и укрепить учреждение, его заказавшее."
   },
   "practice": {
     "eyebrow": "The Practice",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "The art of seeing the gap and closing it well.",
-    "description": "Educator, systems architect, and leadership professional. Available for custom builds, consultation, and tutoring, for institutions that have stopped settling for the gap.",
+    "description": "Педагог, архитектор систем и специалист в области лидерства и менеджмента. Готов к разработке индивидуальных решений, консультированию и обучению для учреждений, которые перестали мириться с существующим разрывом.",
     "onThisPage": "On this page",
     "liveWork": "Live work",
     "rights": "All rights reserved.",

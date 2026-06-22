@@ -11,7 +11,7 @@
     "begin": "Comenzar"
   },
   "hero": {
-    "eyebrow": "Educador · Arquitecto de Sistemas · Profesional de Liderazgo",
+    "eyebrow": "Educador · Arquitecto de Sistemas · Profesional de Liderazgo y Gestión",
     "name": "Ahmed Ali",
     "subtitle": "Construyo sistemas, formo mentes y lidero equipos.",
     "body": "Aristóteles lo llamó frónesis: la sabiduría práctica para percibir la brecha entre lo que es y lo que debería ser, y cerrarla bien. Llevo esa disciplina a tres oficios. En educación, enseño y diseño sistemas de aprendizaje. En software, arquitecto plataformas de producción para escuelas, empresas e instituciones. En liderazgo, ayudo a operaciones y equipos a funcionar con precisión. Cada uno está disponible como un compromiso personalizado, una consulta estructurada o tutoría enfocada.",
@@ -23,16 +23,16 @@
   },
   "thesis": {
     "eyebrow": "La Tesis",
-    "lead": "Cada institución lleva una brecha. Una escuela que enseña bien pero registra mal. Un negocio que sirve a clientes pero sangra silenciosamente por fugas invisibles. Un equipo que trabaja duro sin un sistema para multiplicar su esfuerzo. La brecha siempre está ahí. La pregunta es si tienes a alguien que pueda verla, nombrarla y cerrarla sin dejar un desastre mayor.",
-    "body1": "No soy un desarrollador que enseña por casualidad, ni un maestro que programa por casualidad. Soy un filósofo que ha pasado años aprendiendo a ver brechas en sistemas, flujos de trabajo, aulas, personas y cerrarlas con precisión.",
-    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento adecuado. No es teoría. No es técnica. Es la capacidad entrenada para mirar una realidad desordenada y ver lo que falta.",
-    "body3": "Trabajo en tres disciplinas. Educación, donde enseño y construyo plataformas de aprendizaje. Software, donde envío sistemas de producción para clientes reales. Liderazgo y operaciones, donde ayudo a equipos y procesos a funcionar con intención. Cada compromiso se adapta a la brecha de mano.",
-    "pillar1Title": "Percibir la brecha",
-    "pillar1Body": "Antes de cualquier construcción, cualquier clase, cualquier consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca llega. El equipo que trabaja duro sin un sistema para multiplicar su esfuerzo. La brecha siempre está ahí. La mayoría de los profesionales nunca buscan.",
-    "pillar2Title": "Diagnosticar con rigor",
-    "pillar2Body": "Una brecha no es una solicitud. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento, los flujos de datos. Me niego a actuar sobre un mal diagnóstico. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
-    "pillar3Title": "Cerrar con precisión",
-    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Enviado en semanas, no trimestres. De grado de producción desde el día uno. Construido para sobrevivir al compromiso y fortalecer la institución que lo encargó."
+    "lead": "Cada institución tiene una brecha entre lo que es y lo que podría ser. Una escuela que enseña bien pero no puede medir sus resultados. Un negocio que atiende a los clientes pero pierde dinero por ineficiencias ocultas. Un equipo que trabaja duro pero carece de sistemas para fortalecerse con el tiempo. La brecha existe en toda organización. La pregunta es si alguien puede verla con claridad, nombrarla honestamente y cerrarla con cuidado.",
+    "body1": "No soy un desarrollador que enseña por casualidad, ni un profesor que programa por casualidad. Soy un filósofo que ha pasado años aprendiendo a ver las brechas en sistemas, flujos de trabajo, aulas, personas y a cerrarlas con precisión.",
+    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento adecuado. No es teoría. No es técnica. Es la capacidad entrenada para observar una realidad desordenada y ver lo que falta.",
+    "body3": "Trabajo en tres disciplinas. Educación, donde enseño y construyo plataformas de aprendizaje. Software, donde implemento sistemas de producción para clientes reales. Liderazgo y operaciones, donde ayudo a equipos y procesos a funcionar con intención. Cada proyecto se adapta a la brecha específica.",
+    "pillar1Title": "Percepción de la brecha",
+    "pillar1Body": "Antes de cualquier construcción, clase o consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca llega. El equipo que trabaja duro sin un sistema para multiplicar su esfuerzo. La brecha siempre está ahí. La mayoría de los profesionales nunca buscan activamente.",
+    "pillar2Title": "Diagnóstico riguroso",
+    "pillar2Body": "Una brecha no es una petición. Mapeo los actores, los incentivos, los modos de fallo, el marco de cumplimiento y los flujos de datos. Me niego a actuar sobre un diagnóstico erróneo. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
+    "pillar3Title": "Cierre preciso",
+    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Implementado en semanas, no trimestres. De grado de producción desde el primer día. Construido para sobrevivir al proyecto y fortalecer la institución que lo encargó."
   },
   "practice": {
     "eyebrow": "La Práctica",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "El arte de ver la brecha y cerrarla bien.",
-    "description": "Educador, arquitecto de sistemas y profesional de liderazgo. Disponible para construcciones personalizadas, consulta y tutoría, para instituciones que han dejado de conformarse con la brecha.",
+    "description": "Educador, arquitecto de sistemas y profesional en liderazgo y gestión. Disponible para desarrollos personalizados, consultoría y tutoría, para instituciones que han dejado de conformarse con la brecha.",
     "onThisPage": "En esta página",
     "liveWork": "Trabajo en vivo",
     "rights": "Todos los derechos reservados.",

@@ -2,12 +2,17 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Magnetic, TextReveal, EASE } from "../anim";
 import { MeshBackground } from "../MeshBackground";
 
+// RTL languages where letter-by-letter animation would break character connection
+const RTL_LOCALES = ["ar", "fa", "he", "ur"];
+
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
+  const isRTL = RTL_LOCALES.includes(locale);
 
   return (
     <section
@@ -65,7 +70,19 @@ export function Hero() {
             className="display text-ink perspective-1000"
             style={{ fontSize: "clamp(4rem, 14vw, 13rem)", lineHeight: 0.9 }}
           >
-            <TextReveal text={t("name")} delay={0.6} stagger={0.06} />
+            {isRTL ? (
+              // For RTL languages (Arabic, Persian), don't split letters — it breaks character connection
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: EASE, delay: 0.6 }}
+                style={{ display: "inline-block" }}
+              >
+                {t("name")}
+              </motion.span>
+            ) : (
+              <TextReveal text={t("name")} delay={0.6} stagger={0.06} />
+            )}
           </h1>
 
           {/* Two-column split — subtitle left, body right (asymmetric) */}

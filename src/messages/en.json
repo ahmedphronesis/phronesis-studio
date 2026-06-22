@@ -11,7 +11,7 @@
     "begin": "Begin"
   },
   "hero": {
-    "eyebrow": "Educator · Systems Architect · Leadership Professional",
+    "eyebrow": "Educator · Systems Architect · Leadership and Management Professional",
     "name": "Ahmed Ali",
     "subtitle": "I build systems, shape minds, and lead teams.",
     "body": "Aristotle called it phronesis: the practical wisdom to perceive the gap between what is and what should be, and close it well. I bring that discipline to three crafts. In education, I teach and design learning systems. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations and teams run with precision. Each is available as a custom engagement, a structured consultation, or focused tutoring.",
@@ -23,7 +23,7 @@
   },
   "thesis": {
     "eyebrow": "The Thesis",
-    "lead": "Every institution carries a gap. A school that teaches well but records poorly. A business that serves customers but bleeds quietly to invisible leaks. A team that works hard without a system to compound its effort. The gap is always there. The question is whether you have someone who can see it, name it, and close it without leaving a worse mess behind.",
+    "lead": "Every institution has a gap between what it is and what it could be. A school that teaches well but cannot measure its results. A business that serves customers but loses money to hidden inefficiencies. A team that works hard but lacks the systems to grow stronger over time. The gap exists in every organization. The question is whether someone can see it clearly, name it honestly, and close it carefully.",
     "body1": "I am not a developer who happens to teach, nor a teacher who happens to code. I am a philosopher who has spent years learning to see gaps in systems, in workflows, in classrooms, in people, and to close them with precision.",
     "body2": "The Greeks had a word for this. Phronesis: practical wisdom, the virtue of perceiving the right action in the right moment. It is not theory. It is not technique. It is the trained capacity to look at a messy reality and see what is missing.",
     "body3": "I work across three disciplines. Education, where I teach and build learning platforms. Software, where I ship production systems for real clients. Leadership and operations, where I help teams and processes run with intent. Each engagement is shaped to the gap at hand.",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "The art of seeing the gap and closing it well.",
-    "description": "Educator, systems architect, and leadership professional. Available for custom builds, consultation, and tutoring, for institutions that have stopped settling for the gap.",
+    "description": "Educator, systems architect, and leadership and management professional. Available for custom builds, consultation, and tutoring, for institutions that have stopped settling for the gap.",
     "onThisPage": "On this page",
     "liveWork": "Live work",
     "rights": "All rights reserved.",

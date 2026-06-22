@@ -11,7 +11,7 @@
     "begin": "Commencer"
   },
   "hero": {
-    "eyebrow": "Éducateur · Architecte de systèmes · Professionnel du leadership",
+    "eyebrow": "Éducateur · Architecte de systèmes · Professionnel du leadership et de la gestion",
     "name": "Ahmed Ali",
     "subtitle": "Je construis des systèmes, je façonne les esprits et j'encadre des équipes.",
     "body": "Aristote l'appelait phronesis : la sagesse pratique pour percevoir l'écart entre ce qui est et ce qui devrait être, et pour le combler avec habileté. J'apporte cette discipline à trois métiers. En éducation, j'enseigne et je conçois des systèmes d'apprentissage. En logiciel, j'architecte des plateformes de production pour les écoles, les entreprises et les institutions. En leadership, j'aide les opérations et les équipes à fonctionner avec précision. Chacun est disponible en tant qu'engagement personnalisé, une consultation structurée ou un tutorat ciblé.",
@@ -23,16 +23,16 @@
   },
   "thesis": {
     "eyebrow": "La Thèse",
-    "lead": "Chaque institution porte un écart. Une école qui enseigne bien mais enregistre mal. Une entreprise qui sert ses clients mais saigne silencieusement à cause de fuites invisibles. Une équipe qui travaille dur sans système pour amplifier ses efforts. L'écart est toujours là. La question est de savoir si vous avez quelqu'un qui peut le voir, le nommer et le combler sans laisser un désordre pire derrière.",
-    "body1": "Je ne suis pas un développeur qui enseigne par hasard, ni un enseignant qui code par hasard. Je suis un philosophe qui a passé des années à apprendre à voir les écarts dans les systèmes, les flux de travail, les salles de classe, les personnes, et à les combler avec précision.",
-    "body2": "Les Grecs avaient un mot pour cela. Phronesis : sagesse pratique, la vertu de percevoir l'action juste au bon moment. Ce n'est pas une théorie. Ce n'est pas une technique. C'est la capacité formée à regarder une réalité désordonnée et à voir ce qui manque.",
-    "body3": "Je travaille dans trois disciplines. L'éducation, où j'enseigne et je construis des plateformes d'apprentissage. Le logiciel, où j'expédie des systèmes de production pour de vrais clients. Le leadership et les opérations, où j'aide les équipes et les processus à fonctionner avec intention. Chaque engagement est façonné pour l'écart en question.",
-    "pillar1Title": "Percevoir l'écart",
-    "pillar1Body": "Avant toute construction, toute classe, toute consultation, j'assieds avec la situation jusqu'à ce que je voie ce que les autres ont cessé de remarquer. Le tableau que personne ne fait confiance. Le cours qui ne passe jamais. L'équipe qui travaille dur sans système pour amplifier ses efforts. L'écart est toujours là. La plupart des professionnels ne cherchent jamais.",
+    "lead": "Chaque institution présente un écart entre ce qu'elle est et ce qu'elle pourrait être. Une école qui enseigne bien mais ne peut mesurer ses résultats. Une entreprise qui sert ses clients mais perd de l'argent à cause d'inefficacités cachées. Une équipe qui travaille dur mais manque de systèmes pour devenir plus forte avec le temps. L'écart existe dans chaque organisation. La question est de savoir si quelqu'un peut le voir clairement, le nommer honnêtement et le combler avec soin.",
+    "body1": "Je ne suis pas un développeur qui enseigne par hasard, ni un enseignant qui code par hasard. Je suis un philosophe qui a passé des années à apprendre à repérer les écarts dans les systèmes, les flux de travail, les salles de classe, les personnes, et à les combler avec précision.",
+    "body2": "Les Grecs avaient un mot pour cela. Phronesis : sagesse pratique, la vertu de percevoir l'action juste au bon moment. Ce n'est pas une théorie. Ce n'est pas une technique. C'est la capacité formée à regarder une réalité complexe et à voir ce qui manque.",
+    "body3": "Je travaille dans trois disciplines. L'éducation, où j'enseigne et je construis des plateformes d'apprentissage. Le logiciel, où je livre des systèmes de production pour de vrais clients. Le leadership et les opérations, où j'aide les équipes et les processus à fonctionner avec intention. Chaque engagement est adapté à l'écart en question.",
+    "pillar1Title": "Repérer l'écart",
+    "pillar1Body": "Avant toute construction, toute classe, toute consultation, j'analyse la situation jusqu'à ce que je voie ce que les autres ont cessé de remarquer. Le tableau que personne ne fait confiance. Le cours qui ne passe jamais. L'équipe qui travaille dur sans système pour capitaliser ses efforts. L'écart est toujours là. La plupart des professionnels ne cherchent jamais.",
     "pillar2Title": "Diagnostiquer avec rigueur",
-    "pillar2Body": "Un écart n'est pas une demande. Je cartographie les acteurs, les incitations, les modes de défaillance, l'envelople de conformité, les flux de données. Je refuse d'agir sur un mauvais diagnostic. La discipline du philosophe appliquée à une salle de classe, une base de code, ou l'anatomie d'une opération.",
+    "pillar2Body": "Un écart n'est pas une demande. Je cartographie les acteurs, les incitations, les modes de défaillance, le cadre de conformité, les flux de données. Je refuse d'agir sur un mauvais diagnostic. La discipline du philosophe appliquée à une salle de classe, une base de code, ou à l'anatomie d'une opération.",
     "pillar3Title": "Combler avec précision",
-    "pillar3Body": "Le bon système, le bon curriculum, le bon rythme opérationnel. Expédié en semaines, pas en trimestres. De qualité production dès le premier jour. Construit pour durer au-delà de l'engagement, et pour renforcer l'institution qui l'a commandé."
+    "pillar3Body": "Le bon système, le bon curriculum, le bon rythme de fonctionnement. Livré en semaines, pas en trimestres. De qualité production dès le premier jour. Construit pour durer au-delà de l'engagement, et pour renforcer l'institution qui l'a commandé."
   },
   "practice": {
     "eyebrow": "La Pratique",
@@ -147,7 +147,7 @@
   },
   "footer": {
     "tagline": "L'art de voir l'écart et de le combler bien.",
-    "description": "Éducateur, architecte de systèmes et professionnel du leadership. Disponible pour des constructions personnalisées, des consultations et du tutorat, pour les institutions qui ont cessé de se contenter de l'écart.",
+    "description": "Éducateur, architecte de systèmes et professionnel en leadership et en gestion. Disponible pour des développements sur mesure, des consultations et du tutorat, pour les institutions qui ont cessé de se contenter du statu quo.",
     "onThisPage": "Sur cette page",
     "liveWork": "Œuvre en direct",
     "rights": "Tous droits réservés.",
