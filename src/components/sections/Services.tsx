@@ -1,9 +1,15 @@
 "use client";
 
-import { Reveal, Stagger, FadeUp } from "../anim";
-import { Hammer, Eye, BookOpen } from "lucide-react";
+import { Reveal, Stagger, FadeUp, Tilt3D, Magnetic } from "../anim";
+import { Hammer, Eye, BookOpen, ArrowUpRight, type LucideIcon } from "lucide-react";
 
-const SERVICES = [
+const SERVICES: {
+  icon: LucideIcon;
+  eyebrow: string;
+  title: string;
+  description: string;
+  includes: string[];
+}[] = [
   {
     icon: Hammer,
     eyebrow: "Engagement I",
@@ -50,11 +56,21 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-32 md:py-44">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="services" className="relative py-32 md:py-44 overflow-hidden">
+      {/* Warm terracotta glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(181, 83, 42, 0.10), transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
-            <span className="h-px w-12 bg-brass/60" />
+            <span className="h-px w-12 bg-gold/60" />
             <span className="eyebrow">Ways to Engage</span>
           </div>
         </Reveal>
@@ -71,45 +87,72 @@ export function Services() {
           </p>
         </Reveal>
 
-        {/* Three service cards — horizontal layout on desktop */}
-        <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Service cards with 3D tilt and animated gradient borders on hover */}
+        <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-8 perspective-2000">
           <Stagger gap={0.16}>
             {SERVICES.map((s) => {
               const Icon = s.icon;
               return (
                 <FadeUp key={s.title}>
-                  <article className="group h-full p-8 md:p-9 rounded-2xl bg-charcoal-dark border border-border hover:border-brass/40 transition-all duration-500 hover:translate-y-[-4px] flex flex-col">
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="w-12 h-12 rounded-full bg-brass/10 border border-brass/30 flex items-center justify-center text-brass">
-                        <Icon size={20} strokeWidth={1.5} />
+                  <Tilt3D max={6} className="h-full">
+                    <article className="group h-full p-8 md:p-9 rounded-2xl bg-charcoal-dark border border-border hover:border-gold/50 transition-all duration-500 hover:translate-y-[-6px] flex flex-col relative overflow-hidden">
+                      {/* Animated gradient border on hover */}
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                        style={{
+                          background: "linear-gradient(135deg, var(--gold), var(--teal), var(--terracotta))",
+                          padding: "1px",
+                          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                          WebkitMaskComposite: "xor",
+                          maskComposite: "exclude",
+                        }}
+                      />
+
+                      <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
+                        <div className="flex items-center justify-between mb-8">
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/20 to-teal/10 border border-gold/30 flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-500">
+                            <Icon size={22} strokeWidth={1.5} />
+                          </div>
+                          <span className="text-[10px] uppercase tracking-[0.25em] text-cream-dim">
+                            {s.eyebrow}
+                          </span>
+                        </div>
+
+                        <h3 className="display text-cream text-3xl md:text-4xl leading-tight mb-5">
+                          {s.title}
+                        </h3>
+
+                        <p className="text-sm text-cream/75 leading-relaxed mb-7">
+                          {s.description}
+                        </p>
+
+                        <div className="gold-rule opacity-30 mb-6" />
+
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-3">
+                          What it includes
+                        </p>
+                        <ul className="space-y-2.5 mb-7 flex-1">
+                          {s.includes.map((i) => (
+                            <li key={i} className="flex items-start gap-3 text-xs text-cream/65 leading-relaxed">
+                              <span className="text-gold mt-[2px] flex-shrink-0">·</span>
+                              <span>{i}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <Magnetic strength={0.4}>
+                          <a
+                            href="#contact"
+                            className="inline-flex items-center gap-2 text-sm text-gold hover:text-gold-bright transition-colors pt-2"
+                          >
+                            Start a {s.title.toLowerCase()} engagement
+                            <ArrowUpRight size={14} />
+                          </a>
+                        </Magnetic>
                       </div>
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-cream-dim">
-                        {s.eyebrow}
-                      </span>
-                    </div>
-
-                    <h3 className="display text-cream text-2xl md:text-3xl leading-tight mb-5">
-                      {s.title}
-                    </h3>
-
-                    <p className="text-sm text-cream/75 leading-relaxed mb-7">
-                      {s.description}
-                    </p>
-
-                    <div className="gold-rule opacity-30 mb-6" />
-
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-3">
-                      What it includes
-                    </p>
-                    <ul className="space-y-2.5">
-                      {s.includes.map((i) => (
-                        <li key={i} className="flex items-start gap-3 text-xs text-cream/65 leading-relaxed">
-                          <span className="text-brass mt-[2px] flex-shrink-0">·</span>
-                          <span>{i}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
+                    </article>
+                  </Tilt3D>
                 </FadeUp>
               );
             })}

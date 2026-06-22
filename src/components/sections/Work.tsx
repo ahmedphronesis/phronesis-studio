@@ -1,6 +1,7 @@
 "use client";
 
-import { Reveal, Stagger, FadeUp } from "../anim";
+import { Reveal, FadeUp, Stagger, Tilt3D, Magnetic } from "../anim";
+import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 type Project = {
@@ -91,8 +92,18 @@ const PROJECTS: Project[] = [
 
 export function Work() {
   return (
-    <section id="work" className="relative py-32 md:py-44">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="work" className="relative py-32 md:py-44 overflow-hidden">
+      {/* Subtle gold glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 30% 30%, rgba(180, 141, 60, 0.08), transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -112,16 +123,13 @@ export function Work() {
           </p>
         </Reveal>
 
-        {/* Project list: editorial layout */}
-        <div className="mt-24">
-          <Stagger gap={0.18}>
-            {PROJECTS.map((p) => (
-              <FadeUp key={p.index}>
-                <ProjectRow project={p} />
-              </FadeUp>
-            ))}
-          </Stagger>
-        </div>
+        <Stagger gap={0.18} className="mt-24">
+          {PROJECTS.map((p) => (
+            <FadeUp key={p.index}>
+              <ProjectRow project={p} />
+            </FadeUp>
+          ))}
+        </Stagger>
       </div>
     </section>
   );
@@ -129,95 +137,106 @@ export function Work() {
 
 function ProjectRow({ project }: { project: Project }) {
   const isLink = Boolean(project.url);
-  const Tag = isLink ? "a" : "div";
-  const tagProps = isLink
-    ? {
-        href: project.url,
-        target: "_blank",
-        rel: "noopener noreferrer",
-      }
-    : {};
 
-  return (
-    <Tag
-      {...tagProps}
-      className={`group block py-12 md:py-16 border-t border-border/70 ${
-        isLink ? "cursor-pointer" : ""
-      }`}
-    >
-      <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-        {/* Index + metric */}
-        <div className="md:col-span-3">
-          <div className="flex md:flex-col items-baseline md:items-start gap-4 md:gap-6">
-            <span
-              className="display text-gold/40 text-5xl md:text-6xl leading-none"
+  const CardContent = (
+    <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+      {/* Index + metric */}
+      <div className="md:col-span-3">
+        <div className="flex md:flex-col items-baseline md:items-start gap-4 md:gap-6">
+          <span className="display text-gold/40 text-5xl md:text-6xl leading-none">
+            {project.index}
+          </span>
+          <div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="display text-cream text-4xl md:text-5xl leading-none"
             >
-              {project.index}
-            </span>
-            <div>
-              <div
-                className="display text-cream text-4xl md:text-5xl leading-none"
-              >
-                {project.metric}
-              </div>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-cream-dim mt-2">
-                {project.metricLabel}
-              </div>
+              {project.metric}
+            </motion.div>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-cream-dim mt-2">
+              {project.metricLabel}
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Title + category */}
-        <div className="md:col-span-5">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-3">
-            {project.category}
-          </p>
-          <h3
-            className={`display text-cream text-[clamp(2rem,3.5vw,3rem)] flex items-center gap-3 ${
-              isLink ? "group-hover:text-gold transition-colors" : ""
-            }`}
-          >
-            {project.name}
-            {isLink && (
-              <ArrowUpRight
-                size={28}
-                strokeWidth={1.5}
-                className="text-gold opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
-              />
-            )}
-          </h3>
-          <p className="text-sm md:text-base text-cream/80 leading-relaxed mt-5 max-w-xl">
-            {project.description}
-          </p>
-        </div>
-
-        {/* Features + stack */}
-        <div className="md:col-span-4">
-          <ul className="space-y-2 mb-7">
-            {project.features.map((f) => (
-              <li
-                key={f}
-                className="flex items-start gap-3 text-xs text-cream/70 leading-relaxed"
-              >
-                <span className="text-gold mt-[2px] flex-shrink-0">·</span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="pt-5 border-t border-border/60">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-2">
-              Stack
-            </p>
-            <p className="text-xs text-cream/65 leading-relaxed">{project.stack}</p>
-          </div>
+      {/* Title + category */}
+      <div className="md:col-span-5">
+        <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-3">
+          {project.category}
+        </p>
+        <h3
+          className={`display text-cream text-[clamp(2rem,3.5vw,3rem)] flex items-center gap-3 transition-colors ${
+            isLink ? "group-hover:text-gold" : ""
+          }`}
+        >
+          {project.name}
           {isLink && (
+            <ArrowUpRight
+              size={28}
+              strokeWidth={1.5}
+              className="text-gold opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+            />
+          )}
+        </h3>
+        <p className="text-sm md:text-base text-cream/80 leading-relaxed mt-5 max-w-xl">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Features + stack */}
+      <div className="md:col-span-4">
+        <ul className="space-y-2 mb-7">
+          {project.features.map((f) => (
+            <li
+              key={f}
+              className="flex items-start gap-3 text-xs text-cream/70 leading-relaxed"
+            >
+              <span className="text-gold mt-[2px] flex-shrink-0">·</span>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="pt-5 border-t border-border/60">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-2">
+            Stack
+          </p>
+          <p className="text-xs text-cream/65 leading-relaxed">{project.stack}</p>
+        </div>
+        {isLink && (
+          <Magnetic strength={0.3}>
             <div className="mt-5 inline-flex items-center gap-2 text-xs text-gold/80">
               <ExternalLink size={12} />
               <span className="link-underline">Visit live site</span>
             </div>
-          )}
-        </div>
+          </Magnetic>
+        )}
       </div>
-    </Tag>
+    </div>
+  );
+
+  if (isLink) {
+    return (
+      <Tilt3D max={2}>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block py-12 md:py-16 border-t border-border/70 cursor-pointer"
+        >
+          {CardContent}
+        </a>
+      </Tilt3D>
+    );
+  }
+  return (
+    <Tilt3D max={2}>
+      <div className="py-12 md:py-16 border-t border-border/70">
+        {CardContent}
+      </div>
+    </Tilt3D>
   );
 }
