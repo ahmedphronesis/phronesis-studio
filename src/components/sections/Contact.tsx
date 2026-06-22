@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { ArrowUpRight, Check, Loader2, Mail, Linkedin, MapPin } from "lucide-react";
+import { ArrowUpRight, Check, Loader2, Linkedin, MapPin } from "lucide-react";
 import { Reveal } from "../anim";
 
 const BUDGETS = [
   "Below 15K AED",
-  "15K – 30K AED",
-  "30K – 60K AED",
-  "60K – 120K AED",
+  "15K to 30K AED",
+  "30K to 60K AED",
+  "60K to 120K AED",
   "120K+ AED",
-  "I don't know yet — let's discuss",
+  "I don't know yet, let's discuss",
 ];
 
 export function Contact() {
@@ -74,7 +74,7 @@ export function Contact() {
 
         <Reveal delay={0.1}>
           <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            One paragraph is enough. What is the spreadsheet, the workflow, the system, the gap that nobody has time to fix? I read every message myself and reply within 48 hours.
+            One paragraph is enough. Whether you need a custom build, a consultation, or tutoring, tell me what gap needs closing. I read every message myself and reply within 48 hours.
           </p>
         </Reveal>
 
@@ -131,7 +131,7 @@ export function Contact() {
                   className="w-full bg-charcoal-dark/60 border border-border rounded-lg px-4 py-3.5 text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/40 transition-colors appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
-                    Select a range — or skip if you're not sure
+                    Select a range, or skip if you're not sure
                   </option>
                   {BUDGETS.map((b) => (
                     <option key={b} value={b}>
@@ -216,12 +216,6 @@ export function Contact() {
                   value="in/ahmedmahmoudsaeedahmedali"
                 />
                 <ContactLink
-                  icon={Mail}
-                  label="Gmail (backup)"
-                  href="mailto:ahmed.phronesis@gmail.com"
-                  value="ahmed.phronesis@gmail.com"
-                />
-                <ContactLink
                   icon={MapPin}
                   label="Location"
                   href={undefined}
@@ -242,10 +236,10 @@ export function Contact() {
 
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-cream-dim mb-3">
-                  Minimum engagement
+                  Engagement structure
                 </p>
                 <p className="text-sm text-cream/75 leading-relaxed">
-                  8,000 AED. Annual license + setup fee. No one-time payments. Custom scope, fixed timeline, production-grade from day one.
+                  Custom builds start at 8,000 AED with annual license plus setup fee. Consultation is hourly or fixed-scope, minimum 90 minutes. Tutoring is session-based, in person or online. Every engagement begins with a conversation.
                 </p>
               </div>
             </div>

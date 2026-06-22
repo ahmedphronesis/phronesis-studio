@@ -53,53 +53,65 @@
 
 /*
  * Studio of Phronesis — Warm Philosophical Palette
- * Deep warm charcoal background, cream text, antique gold accents.
+ * Deep layered charcoal background with rich depth,
+ * warm cream foreground, antique gold accents (premium feel).
  * No indigo. No blue. Editorial, restrained, premium.
  */
 :root {
   --radius: 0.5rem;
 
-  /* Warm charcoal background (not pure black) */
-  --charcoal-dark: oklch(0.145 0.008 65);
-  --charcoal: oklch(0.18 0.010 60);
-  --charcoal-light: oklch(0.22 0.012 60);
+  /* Layered warm charcoal — richer, deeper, with subtle warmth */
+  --charcoal-darkest: oklch(0.105 0.006 65);
+  --charcoal-dark: oklch(0.135 0.007 65);
+  --charcoal: oklch(0.170 0.008 65);
+  --charcoal-light: oklch(0.215 0.010 65);
 
-  /* Warm cream foreground */
+  /* Warm cream — paper-like, soft */
   --cream: oklch(0.95 0.018 80);
+  --cream-soft: oklch(0.90 0.016 78);
   --cream-dim: oklch(0.70 0.015 75);
+  --cream-faint: oklch(0.55 0.012 70);
 
-  /* Antique gold accent (not yellow, not orange) */
-  --gold: oklch(0.75 0.10 75);
-  --gold-bright: oklch(0.85 0.12 75);
+  /* Antique gold accent — the premium feel (restored) */
+  --gold: oklch(0.78 0.115 78);
+  --gold-bright: oklch(0.86 0.130 78);
+  --gold-deep: oklch(0.66 0.095 72);
+  --gold-faint: oklch(0.50 0.070 68);
+
+  /* Legacy aliases */
+  --brass: var(--gold);
+  --brass-bright: var(--gold-bright);
+  --brass-deep: var(--gold-deep);
+  --brass-faint: var(--gold-faint);
 
   /* Theme tokens */
-  --background: var(--charcoal-dark);
+  --background: var(--charcoal-darkest);
   --foreground: var(--cream);
-  --card: var(--charcoal);
+  --card: var(--charcoal-dark);
   --card-foreground: var(--cream);
-  --popover: var(--charcoal);
+  --popover: var(--charcoal-dark);
   --popover-foreground: var(--cream);
   --primary: var(--gold);
-  --primary-foreground: var(--charcoal-dark);
-  --secondary: var(--charcoal-light);
+  --primary-foreground: var(--charcoal-darkest);
+  --secondary: var(--charcoal);
   --secondary-foreground: var(--cream);
-  --muted: var(--charcoal-light);
+  --muted: var(--charcoal);
   --muted-foreground: var(--cream-dim);
   --accent: var(--charcoal-light);
   --accent-foreground: var(--cream);
   --destructive: oklch(0.65 0.18 25);
-  --border: oklch(0.30 0.015 60);
-  --input: oklch(0.26 0.012 60);
+  --border: oklch(0.28 0.012 65);
+  --input: oklch(0.24 0.010 65);
   --ring: var(--gold);
   --chart-1: var(--gold);
   --chart-2: oklch(0.70 0.08 50);
   --chart-3: oklch(0.60 0.06 40);
   --chart-4: oklch(0.80 0.10 85);
   --chart-5: oklch(0.65 0.05 30);
-  --sidebar: var(--charcoal);
+  --sidebar: var(--charcoal-dark);
   --sidebar-foreground: var(--cream);
   --sidebar-primary: var(--gold);
-  --sidebar-primary-foreground: var(--charcoal-dark);
+  --sidebar-primary-foreground: var(--charcoal-darkest);
   --sidebar-accent: var(--charcoal-light);
   --sidebar-accent-foreground: var(--cream);
   --sidebar-border: var(--border);
@@ -118,13 +130,18 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01", "cv01", "cv02";
+    /* Layered gradients for depth and richness, not flat */
+    background-color: var(--charcoal-darkest);
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 163, 92, 0.06), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201, 163, 92, 0.04), transparent);
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(214, 175, 100, 0.10), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 100% 100%, rgba(214, 175, 100, 0.06), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 60%, rgba(214, 175, 100, 0.04), transparent 60%),
+      linear-gradient(180deg, oklch(0.105 0.006 65) 0%, oklch(0.135 0.007 65) 100%);
     background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   ::selection {
-    background: rgba(201, 163, 92, 0.25);
+    background: rgba(214, 175, 100, 0.30);
     color: var(--cream);
   }
 }

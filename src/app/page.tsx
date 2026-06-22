@@ -1,10 +1,10 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Thesis } from "@/components/sections/Thesis";
-import { Audiences } from "@/components/sections/Audiences";
+import { Practice } from "@/components/sections/Practice";
+import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Method } from "@/components/sections/Method";
-import { Closing } from "@/components/sections/Closing";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
@@ -15,10 +15,10 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Thesis />
-        <Audiences />
+        <Practice />
+        <Services />
         <Work />
         <Method />
-        <Closing />
         <Contact />
       </main>
       <Footer />

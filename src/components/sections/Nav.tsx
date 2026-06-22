@@ -6,7 +6,8 @@ import { Menu, X } from "lucide-react";
 
 const LINKS = [
   { href: "#thesis", label: "Thesis" },
-  { href: "#audiences", label: "Whom I Serve" },
+  { href: "#practice", label: "Practice" },
+  { href: "#services", label: "Engagements" },
   { href: "#work", label: "Work" },
   { href: "#method", label: "Method" },
   { href: "#contact", label: "Begin" },
@@ -38,7 +39,7 @@ export function Nav() {
         {/* Wordmark */}
         <a href="#top" className="flex items-center gap-3 group">
           <span
-            className="text-2xl text-gold leading-none"
+            className="text-2xl text-brass leading-none"
             style={{ fontFamily: "var(--font-cormorant)" }}
             aria-hidden
           >

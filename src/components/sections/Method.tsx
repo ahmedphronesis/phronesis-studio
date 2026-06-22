@@ -7,31 +7,31 @@ const STEPS = [
     n: "01",
     title: "Perceive",
     subtitle: "The diagnostic",
-    body: "We sit together. I watch how work actually happens — not how the SOP says it does. I ask the questions nobody has asked: why does this take three days? Why does nobody trust this number? Why are you paying for software that doesn't do the one thing you need? The gap reveals itself in the silence after each question.",
+    body: "We sit together. I watch how work actually happens, not how the SOP says it does. I ask the questions nobody has asked: why does this take three days? Why does nobody trust this number? Why are you paying for software that doesn't do the one thing you need? The gap reveals itself in the silence after each question.",
     question: "What is actually broken, that you have stopped noticing?",
-    duration: "Day 1 – 3",
+    duration: "Day 1 to 3",
   },
   {
     n: "02",
     title: "Diagnose",
     subtitle: "The anatomy",
-    body: "A gap is not a feature request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I write a one-page diagnosis you can take to your board. I refuse to build on a misdiagnosis — most failed software projects die here, killed by builders who never diagnosed.",
+    body: "A gap is not a feature request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I write a one-page diagnosis you can take to your board. I refuse to build on a misdiagnosis. Most failed software projects die here, killed by builders who never diagnosed.",
     question: "What is the smallest system that closes this gap, and no more?",
-    duration: "Day 4 – 7",
+    duration: "Day 4 to 7",
   },
   {
     n: "03",
     title: "Close",
     subtitle: "The build",
-    body: "Production-grade from day one. Encrypted backups. Role-based access. Audit trails. Mobile-responsive. Multi-language when you need it. No 'we'll add that in v2' — if it's needed, it ships in v1. I work in two-week cycles so you see real software every fourteen days, not slideware.",
+    body: "Production-grade from day one. Encrypted backups. Role-based access. Audit trails. Mobile-responsive. Multi-language when you need it. No 'we'll add that in v2'. If it's needed, it ships in v1. I work in two-week cycles so you see real software every fourteen days, not slideware.",
     question: "What can I ship in fourteen days that proves the diagnosis was right?",
-    duration: "Day 8 – 21",
+    duration: "Day 8 to 21",
   },
   {
     n: "04",
     title: "Refine",
     subtitle: "The partnership",
-    body: "Software that ships and is forgotten is software that decays. I stay — not as a vendor, as a partner. Annual license includes updates, security patches, and the next gap I notice before you do. The contract is structured so my incentives stay aligned with yours: I only win when the system keeps closing the gap.",
+    body: "Software that ships and is forgotten is software that decays. I stay, not as a vendor, as a partner. Annual license includes updates, security patches, and the next gap I notice before you do. The contract is structured so my incentives stay aligned with yours: I only win when the system keeps closing the gap.",
     question: "What is the next gap this system is now ready to absorb?",
     duration: "Year 1 and beyond",
   },
@@ -56,7 +56,7 @@ export function Method() {
 
         <Reveal delay={0.1}>
           <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Four movements. The same discipline Aristotle described — applied to a system instead of a soul. None of the four can be skipped. Most builders skip the first two.
+            Four movements. The same discipline Aristotle described, applied to a system instead of a soul. None of the four can be skipped. Most builders skip the first two.
           </p>
         </Reveal>
 
@@ -65,7 +65,7 @@ export function Method() {
           {/* Vertical line on the left for desktop */}
           <div
             aria-hidden
-            className="hidden md:block absolute left-[7.5rem] top-4 bottom-4 w-px bg-gradient-to-b from-gold/40 via-gold/20 to-transparent"
+            className="hidden md:block absolute left-[7.5rem] top-4 bottom-4 w-px bg-gradient-to-b from-brass/40 via-brass/20 to-transparent"
           />
 
           <Stagger gap={0.18} className="space-y-16 md:space-y-24">

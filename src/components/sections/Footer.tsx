@@ -2,7 +2,8 @@
 
 const LINKS = [
   { href: "#thesis", label: "Thesis" },
-  { href: "#audiences", label: "Whom I Serve" },
+  { href: "#practice", label: "Practice" },
+  { href: "#services", label: "Engagements" },
   { href: "#work", label: "Work" },
   { href: "#method", label: "Method" },
   { href: "#contact", label: "Begin" },
@@ -46,7 +47,7 @@ export function Footer() {
               The art of seeing the gap and closing it well.
             </p>
             <p className="text-xs text-cream-dim mt-6 leading-relaxed max-w-sm">
-              Custom software, SaaS platforms, and educational systems — built by a philosopher, for organizations that have stopped settling for the gap.
+              Educator, systems architect, and leadership professional. Available for custom builds, consultation, and tutoring, for institutions that have stopped settling for the gap.
             </p>
           </div>
 
@@ -94,7 +95,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-cream-dim">
-            © {new Date().getFullYear()} Ahmed Ali — Studio of Phronesis. All rights reserved.
+            © {new Date().getFullYear()} Ahmed Ali, Studio of Phronesis. All rights reserved.
           </p>
           <p className="text-xs text-cream-dim display-italic">
             Al Ain · Abu Dhabi · United Arab Emirates

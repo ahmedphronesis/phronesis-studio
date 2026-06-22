@@ -42,7 +42,7 @@ const PROJECTS: Project[] = [
     metric: "390+",
     metricLabel: "interactive activities",
     description:
-      "An interactive learning platform for UAE Moral, Social & Cultural Studies, built for Grades 6–9. Standards-aligned to the UAE MSCS curriculum. Four grades, 130 lessons, 390+ activities — quizzes, timelines, maps, drag-and-drop, KWL charts, Venn diagrams, built-in timers, instant feedback. PDPL-compliant. Child Digital Safety Law 26/2025 aligned. ADEK Irtiqa'a aligned. Built for my own teaching practice.",
+      "An interactive learning platform for UAE Moral, Social & Cultural Studies, built for Grades 6 to 9. Standards-aligned to the UAE MSCS curriculum. Four grades, 130 lessons, 390+ activities: quizzes, timelines, maps, drag-and-drop, KWL charts, Venn diagrams, built-in timers, instant feedback. PDPL-compliant. Child Digital Safety Law 26/2025 aligned. ADEK Irtiqa'a aligned. Built for my own teaching practice.",
     features: [
       "Interactive quizzes with instant feedback",
       "Timelines, maps, drag-and-drop activities",
@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     metric: "7-tier",
     metricLabel: "competency framework",
     description:
-      "The operating system for Model United Nations programs. AI-powered diplomatic assessments across a seven-tier progressive framework — from Basic Delegate to Secretary-General. Eight immersive courses, 40+ lessons. Conference management: registrations, committees, delegates, voting. AI-powered research paper evaluation with originality detection. Performance analytics with XP, badges, progression. Built for UAE and GCC schools.",
+      "The operating system for Model United Nations programs. AI-powered diplomatic assessments across a seven-tier progressive framework, from Basic Delegate to Secretary-General. Eight immersive courses, 40+ lessons. Conference management: registrations, committees, delegates, voting. AI-powered research paper evaluation with originality detection. Performance analytics with XP, badges, progression. Built for UAE and GCC schools.",
     features: [
       "AI-powered diplomatic assessments (7 tiers)",
       "8 immersive courses, 40+ lessons",
@@ -77,15 +77,15 @@ const PROJECTS: Project[] = [
     metric: "∞",
     metricLabel: "ongoing broadcast",
     description:
-      "An independent educational podcast that promotes philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse — making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio.",
+      "An independent educational podcast that promotes philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio.",
     features: [
       "Bridges academic philosophy and public discourse",
-      "Ethics, logic, epistemology — made actionable",
+      "Ethics, logic, epistemology, made actionable",
       "Independent educational initiative",
       "Audience: diverse Arabic and English speakers",
       "Foundation for the Studio's cultural-organization work",
     ],
-    stack: "Independent production · Arabic & English · 2026 — present",
+    stack: "Independent production · Arabic & English · 2026 to present",
   },
 ];
 
@@ -108,11 +108,11 @@ export function Work() {
 
         <Reveal delay={0.1}>
           <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Not mockups. Not portfolios. Four real platforms — three of them live on the web today, the fourth broadcasting weekly. Each one started by perceiving a gap that someone else had stopped seeing.
+            Not mockups. Not portfolios. Four real platforms, three of them live on the web today, the fourth broadcasting weekly. Each one started by perceiving a gap that someone else had stopped seeing.
           </p>
         </Reveal>
 
-        {/* Project list — editorial layout */}
+        {/* Project list: editorial layout */}
         <div className="mt-24">
           <Stagger gap={0.18}>
             {PROJECTS.map((p) => (
