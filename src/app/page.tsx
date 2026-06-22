@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { Thesis } from "@/components/sections/Thesis";
 import { Practice } from "@/components/sections/Practice";
+import { Library } from "@/components/sections/Library";
 import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Method } from "@/components/sections/Method";
@@ -20,6 +21,7 @@ export default function Home() {
           <Marquee />
           <Thesis />
           <Practice />
+          <Library />
           <Services />
           <Work />
           <Method />

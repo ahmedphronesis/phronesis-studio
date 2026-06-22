@@ -3,9 +3,9 @@
 const LINKS = [
   { href: "#thesis", label: "Thesis" },
   { href: "#practice", label: "Practice" },
+  { href: "#library", label: "Library" },
   { href: "#services", label: "Engagements" },
   { href: "#work", label: "Work" },
-  { href: "#method", label: "Method" },
   { href: "#contact", label: "Begin" },
 ];
 
