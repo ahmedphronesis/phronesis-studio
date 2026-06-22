@@ -35,11 +35,11 @@ export function Nav() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
+      <nav className="w-full px-6 md:px-12 lg:px-20 h-20 flex items-center justify-between">
         {/* Wordmark */}
         <a href="#top" className="flex items-center gap-3 group">
           <span
-            className="text-2xl text-brass leading-none"
+            className="text-2xl text-gold leading-none"
             style={{ fontFamily: "var(--font-cormorant)" }}
             aria-hidden
           >

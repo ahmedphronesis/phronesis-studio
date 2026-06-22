@@ -1,17 +1,22 @@
 "use client";
 
-import { Reveal, Stagger, FadeUp, Tilt3D, Magnetic } from "../anim";
+import { Reveal, FadeUp, Magnetic } from "../anim";
+import { motion } from "framer-motion";
 import { Hammer, Eye, BookOpen, ArrowUpRight, type LucideIcon } from "lucide-react";
 
 const SERVICES: {
   icon: LucideIcon;
+  index: string;
   eyebrow: string;
   title: string;
   description: string;
   includes: string[];
+  accent: "gold" | "teal" | "terracotta";
+  bgTint: string;
 }[] = [
   {
     icon: Hammer,
+    index: "I",
     eyebrow: "Engagement I",
     title: "Custom Build",
     description:
@@ -23,9 +28,12 @@ const SERVICES: {
       "Mobile-responsive, multi-language when needed",
       "Annual license covers updates, security, and support",
     ],
+    accent: "gold",
+    bgTint: "rgba(180, 141, 60, 0.06)",
   },
   {
     icon: Eye,
+    index: "II",
     eyebrow: "Engagement II",
     title: "Consultation",
     description:
@@ -37,9 +45,12 @@ const SERVICES: {
       "Follow-up support during implementation",
       "Available in person (UAE) or remote (anywhere)",
     ],
+    accent: "teal",
+    bgTint: "rgba(15, 92, 94, 0.08)",
   },
   {
     icon: BookOpen,
+    index: "III",
     eyebrow: "Engagement III",
     title: "Tutoring",
     description:
@@ -51,23 +62,22 @@ const SERVICES: {
       "Foundational computer science and software thinking",
       "In person in Al Ain, or online anywhere in the world",
     ],
+    accent: "terracotta",
+    bgTint: "rgba(181, 83, 42, 0.06)",
   },
 ];
 
+const accentColor = {
+  gold: "var(--gold)",
+  teal: "var(--teal-bright)",
+  terracotta: "var(--terracotta-bright)",
+} as const;
+
 export function Services() {
   return (
-    <section id="services" className="relative py-32 md:py-44 overflow-hidden">
-      {/* Warm terracotta glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(181, 83, 42, 0.10), transparent 70%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="services" className="relative overflow-hidden">
+      {/* Section header — full-bleed */}
+      <div className="w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -75,89 +85,123 @@ export function Services() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <h2 className="display text-cream text-[clamp(2.2rem,5vw,4rem)] max-w-4xl mb-6">
-            Three ways to work together.
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Every engagement begins with a conversation. From there, the work takes one of three shapes, each with its own scope, cadence, and commercial structure. None is better than the others; the right choice depends on the gap.
-          </p>
-        </Reveal>
-
-        {/* Service cards with 3D tilt and animated gradient borders on hover */}
-        <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-8 perspective-2000">
-          <Stagger gap={0.16}>
-            {SERVICES.map((s) => {
-              const Icon = s.icon;
-              return (
-                <FadeUp key={s.title}>
-                  <Tilt3D max={6} className="h-full">
-                    <article className="group h-full p-8 md:p-9 rounded-2xl bg-charcoal-dark border border-border hover:border-gold/50 transition-all duration-500 hover:translate-y-[-6px] flex flex-col relative overflow-hidden">
-                      {/* Animated gradient border on hover */}
-                      <div
-                        aria-hidden
-                        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                        style={{
-                          background: "linear-gradient(135deg, var(--gold), var(--teal), var(--terracotta))",
-                          padding: "1px",
-                          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                          WebkitMaskComposite: "xor",
-                          maskComposite: "exclude",
-                        }}
-                      />
-
-                      <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
-                        <div className="flex items-center justify-between mb-8">
-                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/20 to-teal/10 border border-gold/30 flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-500">
-                            <Icon size={22} strokeWidth={1.5} />
-                          </div>
-                          <span className="text-[10px] uppercase tracking-[0.25em] text-cream-dim">
-                            {s.eyebrow}
-                          </span>
-                        </div>
-
-                        <h3 className="display text-cream text-3xl md:text-4xl leading-tight mb-5">
-                          {s.title}
-                        </h3>
-
-                        <p className="text-sm text-cream/75 leading-relaxed mb-7">
-                          {s.description}
-                        </p>
-
-                        <div className="gold-rule opacity-30 mb-6" />
-
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-3">
-                          What it includes
-                        </p>
-                        <ul className="space-y-2.5 mb-7 flex-1">
-                          {s.includes.map((i) => (
-                            <li key={i} className="flex items-start gap-3 text-xs text-cream/65 leading-relaxed">
-                              <span className="text-gold mt-[2px] flex-shrink-0">·</span>
-                              <span>{i}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Magnetic strength={0.4}>
-                          <a
-                            href="#contact"
-                            className="inline-flex items-center gap-2 text-sm text-gold hover:text-gold-bright transition-colors pt-2"
-                          >
-                            Start a {s.title.toLowerCase()} engagement
-                            <ArrowUpRight size={14} />
-                          </a>
-                        </Magnetic>
-                      </div>
-                    </article>
-                  </Tilt3D>
-                </FadeUp>
-              );
-            })}
-          </Stagger>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <Reveal className="lg:col-span-7" delay={0.05}>
+            <h2
+              className="display text-cream leading-[1.05]"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Three ways to<br />
+              <span className="display-italic text-gold">work together.</span>
+            </h2>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <p className="text-base md:text-lg text-cream/75 leading-relaxed">
+              Every engagement begins with a conversation. From there, the work takes one of three shapes, each with its own scope, cadence, and commercial structure. None is better than the others; the right choice depends on the gap.
+            </p>
+          </Reveal>
         </div>
+      </div>
+
+      {/* Full-bleed alternating engagement bands */}
+      <div className="flex flex-col">
+        {SERVICES.map((s, i) => {
+          const Icon = s.icon;
+          const color = accentColor[s.accent];
+          const isReversed = i % 2 === 1;
+
+          return (
+            <FadeUp key={s.title}>
+              <div
+                className="relative w-full py-20 md:py-32 border-t border-border/40 overflow-hidden"
+                style={{ backgroundColor: s.bgTint }}
+              >
+                {/* Giant background Roman numeral */}
+                <motion.div
+                  aria-hidden
+                  initial={{ opacity: 0, x: isReversed ? 60 : -60 }}
+                  whileInView={{ opacity: 0.05, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                  className={`absolute top-1/2 -translate-y-1/2 pointer-events-none select-none ${isReversed ? "right-[-2%]" : "left-[-2%]"}`}
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontStyle: "italic",
+                    fontSize: "min(35vw, 28rem)",
+                    lineHeight: 0.85,
+                    color,
+                  }}
+                >
+                  {s.index}
+                </motion.div>
+
+                <div className="relative w-full px-6 md:px-12 lg:px-20">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                    {/* Left: index + icon + title */}
+                    <div className={`lg:col-span-5 ${isReversed ? "lg:order-2 lg:col-start-8" : ""}`}>
+                      <p className="text-[11px] uppercase tracking-[0.22em] mb-6" style={{ color }}>
+                        {s.eyebrow}
+                      </p>
+                      <div className="flex items-center gap-5 mb-6">
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center border"
+                          style={{
+                            background: `linear-gradient(135deg, ${color}20, transparent)`,
+                            borderColor: `${color}40`,
+                            color,
+                          }}
+                        >
+                          <Icon size={26} strokeWidth={1.5} />
+                        </div>
+                      </div>
+                      <h3
+                        className="display text-cream leading-[1.05]"
+                        style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+                      >
+                        {s.title}
+                      </h3>
+                    </div>
+
+                    {/* Right: description + includes + CTA */}
+                    <div className={`lg:col-span-6 ${isReversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
+                      <p className="text-base md:text-lg text-cream/80 leading-relaxed mb-8">
+                        {s.description}
+                      </p>
+
+                      <div className="gold-rule opacity-30 mb-6" />
+
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-4">
+                        What it includes
+                      </p>
+                      <ul className="space-y-2.5 mb-10">
+                        {s.includes.map((it) => (
+                          <li key={it} className="flex items-start gap-3 text-sm text-cream/70 leading-relaxed">
+                            <span className="mt-[3px] flex-shrink-0" style={{ color }}>·</span>
+                            <span>{it}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Magnetic strength={0.4}>
+                        <a
+                          href="#contact"
+                          className="group inline-flex items-center gap-2 text-base transition-colors pt-2"
+                          style={{ color }}
+                        >
+                          Start a {s.title.toLowerCase()} engagement
+                          <ArrowUpRight
+                            size={16}
+                            className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                          />
+                        </a>
+                      </Magnetic>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          );
+        })}
       </div>
     </section>
   );

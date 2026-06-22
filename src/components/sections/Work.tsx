@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal, FadeUp, Stagger, Tilt3D, Magnetic } from "../anim";
+import { Reveal, FadeUp, Stagger, Magnetic } from "../anim";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
@@ -92,18 +92,9 @@ const PROJECTS: Project[] = [
 
 export function Work() {
   return (
-    <section id="work" className="relative py-32 md:py-44 overflow-hidden">
-      {/* Subtle gold glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 30% 30%, rgba(180, 141, 60, 0.08), transparent 70%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="work" className="relative overflow-hidden">
+      {/* Section header — full-bleed */}
+      <div className="w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -111,105 +102,102 @@ export function Work() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <h2 className="display text-cream text-[clamp(2.2rem,5vw,4rem)] max-w-4xl mb-6">
-            Four systems. Live. In production.
-          </h2>
-        </Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <Reveal className="lg:col-span-7" delay={0.05}>
+            <h2
+              className="display text-cream leading-[1.05]"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Four systems.<br />
+              <span className="display-italic text-gold">Live. In production.</span>
+            </h2>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <p className="text-base md:text-lg text-cream/75 leading-relaxed">
+              Not mockups. Not portfolios. Four real platforms, three of them live on the web today, the fourth broadcasting weekly. Each one started by perceiving a gap that someone else had stopped seeing.
+            </p>
+          </Reveal>
+        </div>
+      </div>
 
-        <Reveal delay={0.1}>
-          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Not mockups. Not portfolios. Four real platforms, three of them live on the web today, the fourth broadcasting weekly. Each one started by perceiving a gap that someone else had stopped seeing.
-          </p>
-        </Reveal>
-
-        <Stagger gap={0.18} className="mt-24">
-          {PROJECTS.map((p) => (
-            <FadeUp key={p.index}>
-              <ProjectRow project={p} />
-            </FadeUp>
-          ))}
-        </Stagger>
+      {/* Full-bleed project rows */}
+      <div className="flex flex-col">
+        {PROJECTS.map((p, i) => (
+          <ProjectRow key={p.index} project={p} isReversed={i % 2 === 1} />
+        ))}
       </div>
     </section>
   );
 }
 
-function ProjectRow({ project }: { project: Project }) {
+function ProjectRow({ project, isReversed }: { project: Project; isReversed: boolean }) {
   const isLink = Boolean(project.url);
 
   const CardContent = (
-    <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-      {/* Index + metric */}
-      <div className="md:col-span-3">
-        <div className="flex md:flex-col items-baseline md:items-start gap-4 md:gap-6">
-          <span className="display text-gold/40 text-5xl md:text-6xl leading-none">
-            {project.index}
-          </span>
-          <div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="display text-cream text-4xl md:text-5xl leading-none"
-            >
-              {project.metric}
-            </motion.div>
-            <div className="text-[10px] uppercase tracking-[0.22em] text-cream-dim mt-2">
-              {project.metricLabel}
-            </div>
-          </div>
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+      {/* Left: massive number + metric */}
+      <div className={`lg:col-span-4 ${isReversed ? "lg:order-2 lg:col-start-9" : ""}`}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="display text-gold leading-none"
+          style={{ fontSize: "clamp(5rem, 12vw, 11rem)" }}
+        >
+          {project.metric}
+        </motion.div>
+        <div className="text-xs uppercase tracking-[0.22em] text-cream-dim mt-3">
+          {project.metricLabel}
         </div>
+        <div className="display text-cream/30 text-3xl mt-6">{project.index}</div>
       </div>
 
-      {/* Title + category */}
-      <div className="md:col-span-5">
+      {/* Right: content */}
+      <div className={`lg:col-span-7 ${isReversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-6"}`}>
         <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-3">
           {project.category}
         </p>
         <h3
-          className={`display text-cream text-[clamp(2rem,3.5vw,3rem)] flex items-center gap-3 transition-colors ${
-            isLink ? "group-hover:text-gold" : ""
-          }`}
+          className={`display text-cream flex items-center gap-4 transition-colors ${isLink ? "group-hover:text-gold" : ""}`}
+          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.05 }}
         >
           {project.name}
           {isLink && (
             <ArrowUpRight
-              size={28}
+              size={36}
               strokeWidth={1.5}
               className="text-gold opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
             />
           )}
         </h3>
-        <p className="text-sm md:text-base text-cream/80 leading-relaxed mt-5 max-w-xl">
+        <p className="text-sm md:text-base text-cream/80 leading-relaxed mt-6 max-w-2xl">
           {project.description}
         </p>
-      </div>
 
-      {/* Features + stack */}
-      <div className="md:col-span-4">
-        <ul className="space-y-2 mb-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 mt-8">
           {project.features.map((f) => (
-            <li
+            <div
               key={f}
               className="flex items-start gap-3 text-xs text-cream/70 leading-relaxed"
             >
               <span className="text-gold mt-[2px] flex-shrink-0">·</span>
               <span>{f}</span>
-            </li>
+            </div>
           ))}
-        </ul>
-        <div className="pt-5 border-t border-border/60">
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-border/60">
           <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-2">
             Stack
           </p>
           <p className="text-xs text-cream/65 leading-relaxed">{project.stack}</p>
         </div>
+
         {isLink && (
           <Magnetic strength={0.3}>
-            <div className="mt-5 inline-flex items-center gap-2 text-xs text-gold/80">
-              <ExternalLink size={12} />
+            <div className="mt-6 inline-flex items-center gap-2 text-sm text-gold/90">
+              <ExternalLink size={14} />
               <span className="link-underline">Visit live site</span>
             </div>
           </Magnetic>
@@ -220,23 +208,19 @@ function ProjectRow({ project }: { project: Project }) {
 
   if (isLink) {
     return (
-      <Tilt3D max={2}>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block py-12 md:py-16 border-t border-border/70 cursor-pointer"
-        >
-          {CardContent}
-        </a>
-      </Tilt3D>
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block w-full py-16 md:py-24 border-t border-border/40 px-6 md:px-12 lg:px-20 cursor-pointer transition-colors hover:bg-charcoal-dark/40"
+      >
+        {CardContent}
+      </a>
     );
   }
   return (
-    <Tilt3D max={2}>
-      <div className="py-12 md:py-16 border-t border-border/70">
-        {CardContent}
-      </div>
-    </Tilt3D>
+    <div className="w-full py-16 md:py-24 border-t border-border/40 px-6 md:px-12 lg:px-20">
+      {CardContent}
+    </div>
   );
 }

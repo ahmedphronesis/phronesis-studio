@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal, Stagger, FadeUp } from "../anim";
+import { motion } from "framer-motion";
 
 const STEPS = [
   {
@@ -39,8 +40,9 @@ const STEPS = [
 
 export function Method() {
   return (
-    <section id="method" className="relative py-32 md:py-44 bg-charcoal/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="method" className="relative py-32 md:py-44 overflow-hidden bg-charcoal-dark/40">
+      {/* Full-bleed content */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -48,76 +50,63 @@ export function Method() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <h2 className="display text-cream text-[clamp(2.2rem,5vw,4rem)] max-w-4xl mb-6">
-            Phronesis, as a process.
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Four movements. The same discipline Aristotle described, applied to a system instead of a soul. None of the four can be skipped. Most builders skip the first two.
-          </p>
-        </Reveal>
-
-        {/* Timeline */}
-        <div className="mt-24 relative">
-          {/* Vertical line on the left for desktop */}
-          <div
-            aria-hidden
-            className="hidden md:block absolute left-[7.5rem] top-4 bottom-4 w-px bg-gradient-to-b from-brass/40 via-brass/20 to-transparent"
-          />
-
-          <Stagger gap={0.18} className="space-y-16 md:space-y-24">
-            {STEPS.map((s) => (
-              <FadeUp key={s.n}>
-                <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-start">
-                  {/* Number + duration */}
-                  <div className="md:col-span-3">
-                    <div className="flex md:flex-col items-baseline md:items-start gap-3 md:gap-2 relative">
-                      {/* Dot on the timeline */}
-                      <div
-                        aria-hidden
-                        className="hidden md:block absolute left-[-7.65rem] top-2 w-3 h-3 rounded-full bg-gold border-2 border-charcoal-dark"
-                      />
-                      <span
-                        className="display text-gold text-5xl md:text-6xl leading-none"
-                      >
-                        {s.n}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-cream-dim md:mt-3">
-                        {s.duration}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Title + body */}
-                  <div className="md:col-span-9 md:pl-2">
-                    <p className="text-xs uppercase tracking-[0.22em] text-gold/70 mb-2">
-                      {s.subtitle}
-                    </p>
-                    <h3 className="display text-cream text-3xl md:text-4xl mb-5">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-cream/80 leading-relaxed max-w-2xl">
-                      {s.body}
-                    </p>
-
-                    {/* Key question */}
-                    <div className="mt-7 pl-5 border-l-2 border-gold/40">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-1">
-                        The question that drives this step
-                      </p>
-                      <p className="display-italic text-gold text-lg md:text-xl">
-                        {s.question}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-          </Stagger>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-24">
+          <Reveal className="lg:col-span-7" delay={0.05}>
+            <h2
+              className="display text-cream leading-[1.05]"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Phronesis,<br />
+              <span className="display-italic text-gold">as a process.</span>
+            </h2>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <p className="text-base md:text-lg text-cream/75 leading-relaxed">
+              Four movements. The same discipline Aristotle described, applied to a system instead of a soul. None of the four can be skipped. Most builders skip the first two.
+            </p>
+          </Reveal>
         </div>
+
+        {/* Full-width 4-column timeline on desktop */}
+        <Stagger gap={0.16} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          {STEPS.map((s) => (
+            <FadeUp key={s.n}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="relative h-full p-6 md:p-7 rounded-2xl bg-charcoal-dark border border-border hover:border-gold/40 transition-colors"
+              >
+                <div className="flex items-baseline justify-between mb-6">
+                  <span className="display text-gold text-6xl md:text-7xl leading-none">
+                    {s.n}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-cream-dim">
+                    {s.duration}
+                  </span>
+                </div>
+
+                <p className="text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-2">
+                  {s.subtitle}
+                </p>
+                <h3 className="display text-cream text-3xl md:text-4xl mb-5">
+                  {s.title}
+                </h3>
+                <p className="text-xs md:text-sm text-cream/75 leading-relaxed mb-7">
+                  {s.body}
+                </p>
+
+                <div className="pt-5 border-t border-border/60">
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-cream-dim mb-2">
+                    The question
+                  </p>
+                  <p className="display-italic text-gold text-base leading-snug">
+                    {s.question}
+                  </p>
+                </div>
+              </motion.div>
+            </FadeUp>
+          ))}
+        </Stagger>
       </div>
     </section>
   );

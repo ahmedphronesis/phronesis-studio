@@ -18,9 +18,9 @@ const EXTERNAL = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-auto border-t border-border/70 bg-charcoal-dark">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 md:py-20">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-12">
+    <footer className="relative mt-auto border-t border-border/70 bg-charcoal-darkest">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-5">

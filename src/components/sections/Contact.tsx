@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { ArrowUpRight, Check, Loader2, Linkedin, MapPin } from "lucide-react";
-import { Reveal } from "../anim";
+import { Reveal, Magnetic } from "../anim";
 
 const BUDGETS = [
   "Below 15K AED",
@@ -57,8 +57,18 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 md:py-44 bg-charcoal/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="contact" className="relative overflow-hidden">
+      {/* Warm full-bleed background */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(180, 141, 60, 0.10), transparent 70%)",
+        }}
+      />
+
+      <div className="relative w-full px-6 md:px-12 lg:px-20 py-32 md:py-44">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -66,21 +76,26 @@ export function Contact() {
           </div>
         </Reveal>
 
+        {/* Massive headline — full width */}
         <Reveal delay={0.05}>
-          <h2 className="display text-cream text-[clamp(2.4rem,5.5vw,4.4rem)] max-w-4xl mb-6">
-            Tell me what gap needs closing.
+          <h2
+            className="display text-cream leading-[1.05] mb-8"
+            style={{ fontSize: "clamp(2.8rem, 7vw, 7rem)" }}
+          >
+            Tell me what gap<br />
+            <span className="display-italic text-gold">needs closing.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
+          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed mb-20">
             One paragraph is enough. Whether you need a custom build, a consultation, or tutoring, tell me what gap needs closing. I read every message myself and reply within 48 hours.
           </p>
         </Reveal>
 
-        <div className="mt-20 grid md:grid-cols-12 gap-12 lg:gap-20">
-          {/* Form */}
-          <Reveal className="md:col-span-8" delay={0.1}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Form — full-bleed left, takes 8 cols */}
+          <Reveal className="lg:col-span-8" delay={0.1}>
             <form onSubmit={onSubmit} className="space-y-7">
               <div className="grid sm:grid-cols-2 gap-7">
                 <Field label="Your name" name="name" placeholder="Ahmed Ali" required />
@@ -142,65 +157,67 @@ export function Contact() {
               </div>
 
               <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={submitting || done}
-                  className="group inline-flex items-center gap-3 bg-gold hover:bg-gold-bright disabled:opacity-60 disabled:cursor-not-allowed text-charcoal-dark font-medium px-8 py-4 rounded-full transition-all duration-300"
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    {done ? (
-                      <motion.span
-                        key="done"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        className="flex items-center gap-3"
-                      >
-                        <Check size={18} strokeWidth={2.5} />
-                        Inquiry received
-                      </motion.span>
-                    ) : submitting ? (
-                      <motion.span
-                        key="loading"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="flex items-center gap-3"
-                      >
-                        <Loader2 size={18} className="animate-spin" />
-                        Sending
-                      </motion.span>
-                    ) : (
-                      <motion.span
-                        key="idle"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="flex items-center gap-3"
-                      >
-                        Send the inquiry
-                        <ArrowUpRight
-                          size={18}
-                          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </button>
+                <Magnetic strength={0.4}>
+                  <button
+                    type="submit"
+                    disabled={submitting || done}
+                    className="group inline-flex items-center gap-3 bg-gold hover:bg-gold-bright disabled:opacity-60 disabled:cursor-not-allowed text-charcoal-darkest font-medium px-8 py-4 rounded-full transition-all duration-300 glow-gold"
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      {done ? (
+                        <motion.span
+                          key="done"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          className="flex items-center gap-3"
+                        >
+                          <Check size={18} strokeWidth={2.5} />
+                          Inquiry received
+                        </motion.span>
+                      ) : submitting ? (
+                        <motion.span
+                          key="loading"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center gap-3"
+                        >
+                          <Loader2 size={18} className="animate-spin" />
+                          Sending
+                        </motion.span>
+                      ) : (
+                        <motion.span
+                          key="idle"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center gap-3"
+                        >
+                          Send the inquiry
+                          <ArrowUpRight
+                            size={18}
+                            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          />
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                </Magnetic>
               </div>
             </form>
           </Reveal>
 
           {/* Sidebar */}
-          <Reveal className="md:col-span-4" delay={0.18}>
-            <div className="md:sticky md:top-32 space-y-10">
+          <Reveal className="lg:col-span-4" delay={0.18}>
+            <div className="lg:sticky lg:top-32 space-y-10">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-cream-dim mb-4">
                   Prefer email?
                 </p>
                 <a
                   href="mailto:ahmed@phronesis-studio.com"
-                  className="display-italic text-gold text-xl md:text-2xl link-underline"
+                  className="display-italic text-gold text-2xl md:text-3xl link-underline"
                 >
                   ahmed@phronesis-studio.com
                 </a>
@@ -296,8 +313,8 @@ function ContactLink({
 }) {
   const content = (
     <div className="flex items-center gap-4 group">
-      <div className="w-9 h-9 rounded-full border border-border group-hover:border-gold/60 flex items-center justify-center text-cream-dim group-hover:text-gold transition-colors">
-        <Icon size={14} strokeWidth={1.5} />
+      <div className="w-10 h-10 rounded-full border border-border group-hover:border-gold/60 flex items-center justify-center text-cream-dim group-hover:text-gold transition-colors">
+        <Icon size={15} strokeWidth={1.5} />
       </div>
       <div>
         <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim">{label}</p>

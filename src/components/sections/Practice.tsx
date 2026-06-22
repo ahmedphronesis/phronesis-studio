@@ -1,6 +1,7 @@
 "use client";
 
-import { Reveal, Stagger, FadeUp, Tilt3D } from "../anim";
+import { Reveal, FadeUp, Tilt3D } from "../anim";
+import { motion } from "framer-motion";
 import { GraduationCap, Code2, Compass, type LucideIcon } from "lucide-react";
 
 const DISCIPLINES: {
@@ -11,7 +12,8 @@ const DISCIPLINES: {
   description: string;
   capabilities: string[];
   proof: string;
-  accent: "gold" | "teal" | "terracotta";
+  accent: "teal" | "gold" | "terracotta";
+  bgTint: string;
 }[] = [
   {
     icon: GraduationCap,
@@ -29,6 +31,7 @@ const DISCIPLINES: {
     ],
     proof: "MSCS Academy · DiplomatiQ · Ain Al Khaleej School",
     accent: "teal",
+    bgTint: "rgba(15, 92, 94, 0.08)",
   },
   {
     icon: Code2,
@@ -46,6 +49,7 @@ const DISCIPLINES: {
     ],
     proof: "Real Estate Emperor · MSCS Academy · DiplomatiQ",
     accent: "gold",
+    bgTint: "rgba(180, 141, 60, 0.08)",
   },
   {
     icon: Compass,
@@ -63,6 +67,7 @@ const DISCIPLINES: {
     ],
     proof: "ISO 9001 / 45001 · Etisalat · Ain Al Khaleej School",
     accent: "terracotta",
+    bgTint: "rgba(181, 83, 42, 0.08)",
   },
 ];
 
@@ -72,26 +77,11 @@ const accentColor = {
   terracotta: "var(--terracotta-bright)",
 } as const;
 
-const accentGlow = {
-  gold: "rgba(214, 175, 100, 0.20)",
-  teal: "rgba(15, 92, 94, 0.30)",
-  terracotta: "rgba(181, 83, 42, 0.25)",
-} as const;
-
 export function Practice() {
   return (
-    <section id="practice" className="relative py-32 md:py-44 overflow-hidden">
-      {/* Subtle teal radial in background */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(15, 92, 94, 0.15), transparent 60%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="practice" className="relative overflow-hidden">
+      {/* Section header — full-bleed */}
+      <div className="w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-gold/60" />
@@ -99,104 +89,123 @@ export function Practice() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <h2 className="display text-cream text-[clamp(2.2rem,5vw,4rem)] max-w-4xl mb-6">
-            Three disciplines, one method.
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <p className="text-base md:text-lg text-cream/75 max-w-2xl leading-relaxed">
-            Most professionals specialize in one craft. I have spent a decade deliberately working across three. The disciplines are different. The method is the same: perceive the gap, diagnose with rigor, close with precision.
-          </p>
-        </Reveal>
-
-        {/* 3D tilt cards */}
-        <div className="mt-20 grid md:grid-cols-3 gap-6 lg:gap-8 perspective-2000">
-          <Stagger gap={0.16}>
-            {DISCIPLINES.map((d) => {
-              const Icon = d.icon;
-              const color = accentColor[d.accent];
-              const glow = accentGlow[d.accent];
-              return (
-                <FadeUp key={d.index}>
-                  <Tilt3D max={8} className="h-full">
-                    <article
-                      className="group h-full p-8 md:p-9 rounded-2xl bg-charcoal-dark border border-border relative overflow-hidden transition-all duration-500 hover:border-[color:var(--gold)]/40"
-                      style={{ transformStyle: "preserve-3d" }}
-                    >
-                      {/* Accent glow that follows card */}
-                      <div
-                        aria-hidden
-                        className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-700"
-                        style={{
-                          background: `radial-gradient(circle, ${glow} 0%, transparent 70%)`,
-                          filter: "blur(40px)",
-                        }}
-                      />
-
-                      <div style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
-                        <div className="flex items-center justify-between mb-8 relative">
-                          <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center border"
-                            style={{
-                              background: `linear-gradient(135deg, ${glow}, transparent)`,
-                              borderColor: `${color}40`,
-                              color,
-                            }}
-                          >
-                            <Icon size={22} strokeWidth={1.5} />
-                          </div>
-                          <span
-                            className="display text-5xl leading-none opacity-30"
-                            style={{ color }}
-                          >
-                            {d.index}
-                          </span>
-                        </div>
-
-                        <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color }}>
-                          {d.range}
-                        </p>
-
-                        <h3 className="display text-cream text-3xl md:text-4xl mb-5 leading-tight">
-                          {d.title}
-                        </h3>
-
-                        <p className="text-sm text-cream/75 leading-relaxed mb-7">
-                          {d.description}
-                        </p>
-
-                        <div className="gold-rule opacity-30 mb-6" />
-
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-3">
-                          Capabilities
-                        </p>
-                        <ul className="space-y-2.5 mb-7">
-                          {d.capabilities.map((c) => (
-                            <li key={c} className="flex items-start gap-3 text-xs text-cream/65 leading-relaxed">
-                              <span className="mt-[2px] flex-shrink-0" style={{ color }}>·</span>
-                              <span>{c}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="pt-5 border-t border-border/60">
-                          <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-1">
-                            Proof of work
-                          </p>
-                          <p className="text-sm text-cream/85 display-italic">
-                            {d.proof}
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </Tilt3D>
-                </FadeUp>
-              );
-            })}
-          </Stagger>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <Reveal className="lg:col-span-7" delay={0.05}>
+            <h2
+              className="display text-cream leading-[1.05]"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Three disciplines,<br />
+              <span className="display-italic text-gold">one method.</span>
+            </h2>
+          </Reveal>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <p className="text-base md:text-lg text-cream/75 leading-relaxed">
+              Most professionals specialize in one craft. I have spent a decade deliberately working across three. The disciplines are different. The method is the same: perceive the gap, diagnose with rigor, close with precision.
+            </p>
+          </Reveal>
         </div>
+      </div>
+
+      {/* Full-bleed alternating discipline bands */}
+      <div className="flex flex-col">
+        {DISCIPLINES.map((d, i) => {
+          const Icon = d.icon;
+          const color = accentColor[d.accent];
+          const isReversed = i % 2 === 1;
+
+          return (
+            <FadeUp key={d.index}>
+              <div
+                className="relative w-full py-20 md:py-32 border-t border-border/40 overflow-hidden"
+                style={{ backgroundColor: d.bgTint }}
+              >
+                {/* Giant background number — full-bleed */}
+                <motion.div
+                  aria-hidden
+                  initial={{ opacity: 0, x: isReversed ? 60 : -60 }}
+                  whileInView={{ opacity: 0.04, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                  className={`absolute top-1/2 -translate-y-1/2 pointer-events-none select-none ${isReversed ? "right-[-4%]" : "left-[-4%]"}`}
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontSize: "min(40vw, 32rem)",
+                    lineHeight: 0.85,
+                    color,
+                  }}
+                >
+                  {d.index}
+                </motion.div>
+
+                <div className="relative w-full px-6 md:px-12 lg:px-20">
+                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start ${isReversed ? "lg:flex-row-reverse" : ""}`}>
+                    {/* Left: icon + index + title */}
+                    <div className={`lg:col-span-5 ${isReversed ? "lg:order-2 lg:col-start-8" : ""}`}>
+                      <div className="flex items-center gap-5 mb-8">
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center border"
+                          style={{
+                            background: `linear-gradient(135deg, ${color}20, transparent)`,
+                            borderColor: `${color}40`,
+                            color,
+                          }}
+                        >
+                          <Icon size={26} strokeWidth={1.5} />
+                        </div>
+                        <span
+                          className="display text-6xl md:text-7xl leading-none opacity-40"
+                          style={{ color }}
+                        >
+                          {d.index}
+                        </span>
+                      </div>
+                      <p className="text-[11px] uppercase tracking-[0.22em] mb-4" style={{ color }}>
+                        {d.range}
+                      </p>
+                      <h3
+                        className="display text-cream leading-[1.05]"
+                        style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+                      >
+                        {d.title}
+                      </h3>
+                    </div>
+
+                    {/* Right: description + capabilities */}
+                    <div className={`lg:col-span-6 ${isReversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
+                      <p className="text-base md:text-lg text-cream/80 leading-relaxed mb-8">
+                        {d.description}
+                      </p>
+
+                      <div className="gold-rule opacity-30 mb-6" />
+
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-4">
+                        Capabilities
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
+                        {d.capabilities.map((c) => (
+                          <div key={c} className="flex items-start gap-3 text-xs text-cream/70 leading-relaxed">
+                            <span className="mt-[2px] flex-shrink-0" style={{ color }}>·</span>
+                            <span>{c}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="pt-5 border-t border-border/60">
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-cream-dim mb-1">
+                          Proof of work
+                        </p>
+                        <p className="text-sm md:text-base text-cream/85 display-italic">
+                          {d.proof}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          );
+        })}
       </div>
     </section>
   );
