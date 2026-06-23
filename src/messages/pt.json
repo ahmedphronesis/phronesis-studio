@@ -13,56 +13,158 @@
   "hero": {
     "eyebrow": "Educador · Arquiteto de Sistemas · Profissional de Liderança e Gestão",
     "name": "Ahmed Ali",
-    "subtitle": "Eu construo sistemas, moldo mentes e lidero equipes.",
-    "body": "Aristóteles chamou-lhe frónesis: a sabedoria prática para perceber a lacuna entre o que é e o que deveria ser, e preenchê-la bem. Eu trago essa disciplina para três ofícios. Na educação, ensino e desenho sistemas de aprendizagem. No software, arqueto plataformas de produção para escolas, empresas e instituições. Na liderança, ajudo operações e equipes a funcionarem com precisão. Cada um está disponível como um envolvimento personalizado, uma consulta estruturada ou tutoria focada.",
-    "ctaPrimary": "Comece uma conversa",
-    "ctaSecondary": "Veja trabalhos selecionados",
-    "footnote": "Quatro plataformas de produção em funcionamento. Uma década em salas de aula, operações e código. Disponível para envios seletivos.",
+    "subtitle": "Eu construo sistemas, modelo mentes e lidero equipas.",
+    "body": "Aristóteles chamou-lhe frónesis: a sabedoria prática para perceber a lacuna entre o que é e o que deveria ser, e preenchê-la com eficácia. Eu trago essa disciplina para três ofícios. Na educação, ensino e desenho sistemas de aprendizagem. No software, arqueto plataformas de produção para escolas, empresas e instituições. Na liderança, ajudo operações e equipas a funcionar com precisão. Cada um está disponível como um projeto personalizado, uma consulta estruturada ou tutoria focada.",
+    "ctaPrimary": "Começar uma conversa",
+    "ctaSecondary": "Ver trabalhos selecionados",
+    "footnote": "Quatro plataformas de produção em funcionamento. Uma década em salas de aula, operações e código. Disponível para projetos seletivos.",
     "location": "Al Ain · UAE",
     "enterPrompt": "Entrar"
   },
   "thesis": {
     "eyebrow": "A Tese",
-    "lead": "Cada instituição tem uma lacuna entre o que ela é e o que poderia ser. Uma escola que ensina bem mas não consegue medir seus resultados. Uma empresa que serve clientes mas perde dinheiro com ineficiências ocultas. Uma equipe que trabalha arduamente mas carece de sistemas para se fortalecer com o tempo. A lacuna existe em toda organização. A questão é se alguém pode vê-la claramente, nomeá-la honestamente e fechá-la com cuidado.",
-    "body1": "Eu não sou um desenvolvedor que ensina por acaso, nem um professor que programa por acaso. Eu sou um filósofo que passou anos aprendendo a ver lacunas em sistemas, em fluxos de trabalho, em salas de aula, em pessoas, e a fechá-las com precisão.",
-    "body2": "Os gregos tinham uma palavra para isso. Frónesis: sabedoria prática, a virtude de perceber a ação certa no momento certo. Não é teoria. Não é técnica. É a capacidade treinada de olhar para uma realidade confusa e ver o que está faltando.",
-    "body3": "Eu trabalho em três disciplinas. Educação, onde ensino e construo plataformas de aprendizagem. Software, onde entrego sistemas de produção para clientes reais. Liderança e operações, onde ajudo equipes e processos a funcionarem com intenção. Cada engajamento é moldado para a lacuna em questão.",
+    "lead": "Cada instituição possui uma lacuna entre o que ela é e o que ela poderia ser.\n\nUma escola pode oferecer um ensino excelente, ainda assim lutar para mensurar seu impacto.\nUma empresa pode servir bem seus clientes, mas perder valor através de ineficiências não percebidas, dados fragmentados e decisões presas em planilhas, threads de mensagens e memória institucional.\nUma equipe pode trabalhar incansavelmente, mas carecer dos sistemas necessários para se fortalecer ao longo do tempo.\n\nEstas lacunas são universais. Elas existem em toda organização, independentemente do tamanho, indústria ou missão. A verdadeira questão é se alguém pode reconhecê-las com clareza, defini-las com honestidade e fechá-las com disciplina e cuidado.",
+    "body1": "Não sou um desenvolvedor que ensina por acaso, nem um professor que programa por acaso. Sou um filósofo que passou anos aprendendo a identificar lacunas em sistemas, em fluxos de trabalho, em salas de aula, em pessoas e a fechá-las com precisão.",
+    "body2": "Os gregos tinham uma palavra para isto. Frónesis: sabedoria prática, a virtude de perceber a ação correta no momento certo. Não é teoria. Não é técnica. É a capacidade treinada de olhar para uma realidade caótica e ver o que está faltando.",
+    "body3": "Trabalho em três disciplinas. Educação, onde ensino e construo plataformas de aprendizagem. Software, onde entrego sistemas de produção para clientes reais. Liderança e operações, onde ajudo equipes e processos a funcionarem com intencionalidade. Cada projeto é moldado para a lacuna em questão.",
     "pillar1Title": "Perceber a lacuna",
-    "pillar1Body": "Antes de qualquer construção, qualquer aula, qualquer consultoria, eu sento com a situação até ver o que outros pararam de notar. A planilha que ninguém confia. A aula que nunca chega. A equipe que trabalha arduamente sem um sistema para compilar seu esforço. A lacuna está sempre lá. A maioria dos profissionais nunca procura por ela.",
+    "pillar1Body": "Antes de qualquer construção, qualquer aula, qualquer consulta, eu sento com a situação até ver o que outros pararam de notar. A planilha que ninguém confia. A aula que nunca chega. A equipe que trabalha duro sem um sistema para capitalizar seu esforço. A lacuna está sempre lá. A maioria dos profissionais nunca procura por ela.",
     "pillar2Title": "Diagnosticar com rigor",
-    "pillar2Body": "Uma lacuna não é um pedido. Eu mapeio os atores, os incentivos, os modos de falha, o envelope de conformidade, os fluxos de dados. Eu me recuso a agir com um diagnóstico incorreto. A disciplina do filósofo aplicada a uma sala de aula, um código-fonte ou a anatomia de uma operação.",
+    "pillar2Body": "Uma lacuna não é um pedido. Mapeio os atores, os incentivos, os modos de falha, o envelope de conformidade, os fluxos de dados. Recuso-me a agir sobre um diagnóstico errado. A disciplina do filósofo aplicada a uma sala de aula, a uma base de código ou à anatomia de uma operação.",
     "pillar3Title": "Fechar com precisão",
-    "pillar3Body": "O sistema certo, o currículo certo, o ritmo operacional certo. Enviado em semanas, não em trimestres. De qualidade de produção desde o dia um. Construído para sobreviver ao engajamento e para fortalecer a instituição que o comissionou."
+    "pillar3Body": "O sistema certo, o currículo certo, o caderno operacional certo. Entregues em semanas, não em trimestres. Pronto para produção desde o dia um. Construído para sobreviver ao projeto e para fortalecer a instituição que o encomendou.",
+    "leadSegments": [
+      {
+        "text": "Cada instituição tem uma ",
+        "color": "default"
+      },
+      {
+        "text": "lacuna",
+        "color": "gold"
+      },
+      {
+        "text": " entre o que ela é e o que ela poderia ser.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Uma escola pode oferecer um ensino excelente, ainda assim lutar para ",
+        "color": "default"
+      },
+      {
+        "text": "mensurar seu impacto",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Uma empresa pode servir bem seus clientes enquanto ",
+        "color": "default"
+      },
+      {
+        "text": "perde valor através de ineficiências não percebidas",
+        "color": "teal"
+      },
+      {
+        "text": ", dados fragmentados e decisões presas em planilhas, threads de mensagens e memória institucional.",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Uma equipe pode trabalhar incansavelmente, mas carecer dos ",
+        "color": "default"
+      },
+      {
+        "text": "sistemas necessários para se fortalecer",
+        "color": "teal"
+      },
+      {
+        "text": " ao longo do tempo.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Estas lacunas são ",
+        "color": "default"
+      },
+      {
+        "text": "universais",
+        "color": "gold"
+      },
+      {
+        "text": ". Elas existem em toda organização, independentemente do tamanho, indústria ou missão. A verdadeira questão é se alguém pode reconhecê-las com ",
+        "color": "default"
+      },
+      {
+        "text": "clareza",
+        "color": "teal"
+      },
+      {
+        "text": ", defini-las com ",
+        "color": "default"
+      },
+      {
+        "text": "honestidade",
+        "color": "teal"
+      },
+      {
+        "text": ", e fechá-las com ",
+        "color": "default"
+      },
+      {
+        "text": "disciplina e cuidado",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
     "eyebrow": "A Prática",
     "title": "Três disciplinas,",
     "titleItalic": "um método.",
-    "intro": "A maioria dos profissionais especializam-se numa única arte. Passei uma década deliberadamente a trabalhar em três áreas. As disciplinas são diferentes. O método é o mesmo: perceber a lacuna, diagnosticar com rigor e fechar com precisão.",
+    "intro": "A maioria dos profissionais especializa-se numa única arte. Passei uma década a trabalhar deliberadamente em três. As disciplinas são diferentes. O método é o mesmo: perceber a lacuna, diagnosticar com rigor e fechar com precisão.",
     "discipline1Title": "Educação",
     "discipline1Range": "Ensino · Currículo · Plataformas de Aprendizagem",
-    "discipline1Body": "Sou professor licenciado pela ADEK (Ensino Fundamental ao Médio, Currículo Americano) e Chefe de Faculdade para Model United Nations na minha escola. Desenvolvo aulas baseadas em investigação, alinhadas com os padrões, que atendem às expectativas da Irtiqa'a, diferencio para alunos de língua inglesa como segunda língua (ELLs) e aprendizes talentosos, e traduzo currículo em algo com que os alunos realmente se envolvam. Também construo plataformas de aprendizagem que comprimem semanas de trabalho administrativo em minutos.",
+    "discipline1Body": "Sou um docente licenciado pela ADEK (do 1º ao 12º ano, currículo americano) e Chefe de Faculdade do Model United Nations na minha escola. Desenho aulas baseadas em investigação e alinhadas com os padrões, que atendem às expectativas da Irtiqa'a, diferenciam para alunos de ELL e talentosos e traduzem o currículo numa coisa com a qual os alunos realmente se envolvem. Também construo plataformas de aprendizagem que comprimem semanas de trabalho administrativo em minutos.",
     "discipline2Title": "Arquitetura de Sistemas",
     "discipline2Range": "Construções personalizadas · Plataformas SaaS · Sistemas operacionais",
-    "discipline2Body": "Arquiteto software de produção para escolas, empresas e instituições. Plataformas de gestão de propriedade que gerem 400+ unidades para clientes pagantes. Plataformas educacionais com 390+ atividades interativas. Sistemas operacionais MUN com avaliações com IA. Cada um enviado, em uso, construído sozinho. O trabalho é Next.js, React, TypeScript, Prisma, PostgreSQL, implementado na Vercel. A disciplina é a rigor do filósofo aplicado a uma base de código.",
+    "discipline2Body": "Arquiteto software de produção para escolas, empresas e instituições. Plataformas de gestão imobiliária que gerem mais de 400 unidades para clientes pagantes. Plataformas educacionais com mais de 390 atividades interativas. Sistemas operacionais MUN com avaliações com IA. Cada um enviado, em uso, construído sozinho. O trabalho é Next.js, React, TypeScript, Prisma, PostgreSQL, implementado na Vercel. A disciplina é a rigor do filósofo aplicado a uma base de código.",
     "discipline3Title": "Liderança & Operações",
     "discipline3Range": "Padrões ISO · Liderança de equipaExcelência operacional",
-    "discipline3Body": "Gerí operações sob ISO 9001 e ISO 45001. Liderou equipas na educação, telecomunicações e instalações focadas em crianças. Fui o executivo de vendas de melhor desempenho em múltiplos KPIs na Etisalat, e introduzi o framework Net Promoter Score que impulsionou-o. Trago disciplina operacional a cada envolvimento, seja o entregável software, um currículo ou uma consulta estratégica.",
+    "discipline3Body": "Geriu operações sob as normas ISO 9001 e ISO 45001. Liderou equipas na educação, telecomunicações e instalações focadas em crianças. Fui o executivo de vendas de melhor desempenho em vários KPIs na Etisalat e introduzi a estrutura Net Promoter Score que a impulsionou. Trago uma disciplina operacional para cada envolvimento, quer o entregável seja software, um currículo ou uma consulta estratégica.",
     "capabilitiesLabel": "Capacidades",
     "proofLabel": "Prova do trabalho"
   },
   "library": {
     "eyebrow": "A Biblioteca · Obras Originais",
     "title": "Currículo original,",
-    "titleItalic": "construído bilíngue.",
-    "intro": "Estou a trabalhar em direção ao ideal de polímata dos nossos antepassados: um professor que pode construir o currículo, não apenas entregá-lo. Esta biblioteca é a prova. Os primeiros quatro guias abrangem Matemática, do 1º ao 4º ano, em inglês e árabe. Os do 5º ao 12º ano estão em produção. Mais disciplinas seguirão.",
+    "titleItalic": "construílo bilíngue.",
+    "intro": "Trabalho em direção ao ideal de polímata dos nossos antepassados: um professor que pode elaborar o currículo, não apenas entregá-lo. Esta biblioteca é a prova. Os quatro primeiros guias abrangem Matemática, do 1º ao 4º ano, em inglês e árabe. Os do 5º ao 12º ano estão em produção. Mais disciplinas seguirão.",
     "downloadPdf": "Transferir PDF",
-    "free": "Gratuito",
+    "free": "Grátis",
     "pages": "pp",
     "units": "unidades",
     "modules": "módulos",
     "comingSoon": "Do 5º ao 12º ano em produção",
-    "comingSoonBody": "A Matemática é a primeira disciplina. A série completa do 1º ao 12º ano será lançada assim que finalizada. Disciplinas adicionais, incluindo ciências, filosofia para jovens aprendizes e pensamento crítico, seguirão o mesmo formato bilíngue.",
+    "comingSoonBody": "A Matemática é a primeira disciplina. A série completa do 1º ao 12º ano será lançada à medida que for finalizada. Disciplinas adicionais, incluindo ciências, filosofia para jovens aprendizes e pensamento crítico, seguirão o mesmo formato bilíngue.",
     "requestAccess": "Solicitar acesso antecipado",
     "subtitle": "Um Guia de Aprendizagem Bilíngue para Iniciantes Absolutos"
   },
@@ -70,18 +172,18 @@
     "eyebrow": "Trabalhos Selecionados",
     "title": "O Atelier.",
     "titleItalic": "Quatro domínios, um método.",
-    "intro": "Cada domínio abaixo é uma prática separada com seus próprios estudos de caso, metodologia e prova de trabalho. Juntos, eles formam o portfólio do estúdio de sistemas de produção.",
+    "intro": "Cada domínio abaixo é uma prática distinta com os seus próprios estudos de caso, metodologia e prova de trabalho. Em conjunto, formam o portfólio do estúdio de sistemas de produção.",
     "tabProjects": "Projetos",
     "tabEducation": "Educação",
     "tabRealEstate": "Imobiliário",
     "tabFinance": "Finanças",
-    "tabProjectsDesc": "Sistemas e plataformas gerais construídas para instituições em todo os EAU e além.",
+    "tabProjectsDesc": "Sistemas e plataformas gerais construídas para instituições em todo o UAE e para além.",
     "tabEducationDesc": "Plataformas educacionais, currículos e sistemas de aprendizagem.",
-    "tabRealEstateDesc": "Plataformas de gestão de propriedades para proprietários e operadores de portfólio dos EAU.",
-    "tabFinanceDesc": "Um novo radical centro de comando de operações financeiras para empresas com múltiplas filiais.",
+    "tabRealEstateDesc": "Plataformas de gestão de propriedades para proprietários e operadores de portfólio do UAE.",
+    "tabFinanceDesc": "Um novo radical centro de comando de operações financeiras para empresas de múltiplas filiais.",
     "visitSite": "Visitar site ao vivo",
     "stack": "Tecnologia",
-    "features": "Recursos",
+    "features": "Funcionalidades",
     "category": "Categoria",
     "metric": "Métrica"
   },

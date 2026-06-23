@@ -5,34 +5,136 @@
     "disciplines": "学科",
     "library": "图书馆",
     "work": "作品",
-    "method": "方法",
-    "engagements": "参与",
-    "correspondence": "通信",
-    "begin": "开始"
+    "method": "方法论",
+    "engagements": "合作",
+    "correspondence": "通讯",
+    "begin": "启程"
   },
   "hero": {
-    "eyebrow": "教育工作者 · 系统架构师 · 领导力与管理专业人士",
+    "eyebrow": "教育工作者 · 系统架构师 · 领导与管理专家",
     "name": "Ahmed Ali",
     "subtitle": "我构建系统，塑造思想，引领团队。",
-    "body": "亚里士多德称之为实践智慧：能够察觉现实与应有状态之间的差距，并妥善弥合这一差距的智慧。我将这一原则应用于三个专业领域。在教育领域，我教授并设计学习系统；在软件领域，我为学校、企业和机构构建生产平台；在领导力领域，我帮助运营和团队精准运作。每项服务均可作为定制合作、结构化咨询或专注辅导的形式提供。",
-    "ctaPrimary": "开始对话",
+    "body": "亚里士多德称之为实践智慧：一种洞察现实与应有之差距，并妥善弥合的智慧。我将这种严谨的纪律应用于三项技艺。在教育领域，我教授并设计学习系统；在软件领域，我为学校、企业和机构构建生产级平台；在领导力领域，我助力运营与团队实现精准执行。每一项均可作为定制合作、结构化咨询或专项辅导的形式提供。",
+    "ctaPrimary": "开启对话",
     "ctaSecondary": "查看精选作品",
-    "footnote": "四个生产平台已上线。十年跨教室、运营和代码经验。可供选择性合作。",
-    "location": "阿布扎比 · 阿联酋",
-    "enterPrompt": "进入"
+    "footnote": "四个生产级平台已上线。十年深耕于课堂、运营与代码。现接受选择性合作。",
+    "location": "阿勒因 · 阿联酋",
+    "enterPrompt": "输入"
   },
   "thesis": {
     "eyebrow": "论文",
-    "lead": "每个机构都存在于其现状与可能达到的状态之间的差距。一所教学良好但无法衡量其成果的学校。一家服务客户却因隐藏的低效而亏损的企业。一个努力工作但缺乏随时间变得更强大体系的团队。这种差距存在于每个组织中。问题在于，是否有人能清晰地看到它，诚实地命名它，并谨慎地弥合它。",
-    "body1": "我并非碰巧教学的开发者，也非碰巧编码的教师。我是一名哲学家，多年来致力于学习发现系统、工作流程、教室和人们之间的差距，并以精确的方式弥合它们。",
-    "body2": "希腊人为此有一个词。Phronesis：实践智慧，即在正确时刻感知正确行动的美德。它不是理论，不是技巧，而是经过训练的能力，能够审视混乱的现实并发现缺失之处。",
-    "body3": "我横跨三个领域工作。教育领域，我在此教学并构建学习平台。软件领域，我为真实客户交付生产系统。领导与运营领域，我帮助团队和流程有目的地运行。每项工作都针对眼前的差距量身定制。",
-    "pillar1Title": "感知差距",
-    "pillar1Body": "在任何构建、课程或咨询之前，我会与现状共处，直到看到他人已停止注意的事物。那个没人信任的电子表格。那个从未见效的课程。那个努力工作却缺乏体系来积累其成果的团队。差距总是存在。大多数专业人士从不寻找它。",
+    "lead": "每个机构都存在其现状与潜能之间的差距。\n\n一所学校或许能提供卓越的教学，却难以衡量其成效。\n一家企业或许能很好地服务客户，却因隐性的低效、碎片化的数据，以及困于电子表格、信息流和机构记忆中的决策而流失价值。\n一个团队或许能不懈努力，却缺乏随时间推移而变得更强的体系。\n\n这些差距是普遍存在的。它们存在于每一个组织中，无论其规模、行业或使命如何。真正的问题在于，是否有人能以清晰的洞察力去识别它们，以坦诚的态度去定义它们，并以严谨的关怀去弥合它们。",
+    "body1": "我并非一位恰好从事教学的开发者，也非一位恰好会编程的教师。我是一位哲学家，多年来致力于洞察系统、工作流、课堂、乃至人性中的差距，并以精准的方式去弥合它们。",
+    "body2": "古希腊人为此有一个词：Phronesis，即实践智慧——一种在恰当的时机感知正确行动的德性。它并非理论，亦非技巧，而是一种经过训练的能力，能在纷繁的现实中发现缺失之物。",
+    "body3": "我的工作横跨三个领域：教育，我在此教学并构建学习平台；软件，在此我为真实客户交付生产级系统；领导与运营，在此我帮助团队和流程有目的地运行。每一次合作都针对眼前的差距量身定制。",
+    "pillar1Title": "洞察差距",
+    "pillar1Body": "在任何构建、课程或咨询之前，我都会深入审视情境，直至发现他人已然忽略之处。那份无人再信任的电子表格；那节始终无法触及学生的课程；那个努力工作却缺乏体系以积累成果的团队。差距永远存在，而大多数专业人士却从未去探寻。",
     "pillar2Title": "严谨诊断",
-    "pillar2Body": "差距不是请求。我映射参与者、激励因素、故障模式、合规范围和数据流。我不会基于错误诊断采取行动。将哲学学科应用于教室、代码库或运营结构中。",
-    "pillar3Title": "精确弥合",
-    "pillar3Body": "正确的系统、正确的课程、正确的运营节奏。在几周内交付，而非数月。从第一天起就达到生产级标准。构建得比项目周期更持久，并加强委托它的机构。"
+    "pillar2Body": "差距并非一个简单的需求。我会描绘出所有参与者、激励机制、失效模式、合规边界与数据流向。我绝不在误诊的基础上采取行动。将哲学家的严谨应用于课堂、代码库或运营的结构之中。",
+    "pillar3Title": "精准弥合",
+    "pillar3Body": "恰当的系统、恰当的课程、恰当的运营节奏。以周为单位交付，而非以季度。从第一天起即达到生产级标准。其构建旨在超越合作的周期，并强化委托它的机构。",
+    "leadSegments": [
+      {
+        "text": "每个机构都存在一个",
+        "color": "default"
+      },
+      {
+        "text": "差距",
+        "color": "gold"
+      },
+      {
+        "text": "，介于其现状与潜能之间。",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "一所学校或许能提供卓越的教学，却难以",
+        "color": "default"
+      },
+      {
+        "text": "衡量其成效",
+        "color": "teal"
+      },
+      {
+        "text": "。",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "一家企业或许能很好地服务客户，却因",
+        "color": "default"
+      },
+      {
+        "text": "隐性的低效",
+        "color": "teal"
+      },
+      {
+        "text": "、碎片化的数据，以及困于电子表格、信息流和机构记忆中的决策而流失价值。",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "一个团队或许能不懈努力，却缺乏",
+        "color": "default"
+      },
+      {
+        "text": "随时间推移而变得更强的体系",
+        "color": "teal"
+      },
+      {
+        "text": "。",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "这些差距是",
+        "color": "default"
+      },
+      {
+        "text": "普遍存在的",
+        "color": "gold"
+      },
+      {
+        "text": "。它们存在于每一个组织中，无论其规模、行业或使命如何。真正的问题在于，是否有人能以",
+        "color": "default"
+      },
+      {
+        "text": "清晰的洞察力",
+        "color": "teal"
+      },
+      {
+        "text": "去识别它们，以",
+        "color": "default"
+      },
+      {
+        "text": "坦诚的态度",
+        "color": "teal"
+      },
+      {
+        "text": "去定义它们，并以",
+        "color": "default"
+      },
+      {
+        "text": "严谨的关怀",
+        "color": "teal"
+      },
+      {
+        "text": "去弥合它们。",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
     "eyebrow": "实践",
@@ -114,43 +216,43 @@
   },
   "contact": {
     "eyebrow": "开始",
-    "title": "告诉我需要填补什么",
-    "titleItalic": "差距",
-    "intro": "一段文字就足够了。无论您需要定制开发、咨询指导还是培训辅导，请告诉我需要填补什么差距。我会亲自阅读每一条信息并在48小时内回复。",
-    "fieldName": "您的姓名",
+    "title": "告诉我您需要弥合的",
+    "titleItalic": "何种差距。",
+    "intro": "一段文字即可阐明。无论是需要定制开发、咨询辅导还是教学指导，请告知我您希望弥合的何种差距。本人会亲自审阅每一条讯息，并将于48小时内回复。",
+    "fieldName": "姓名",
     "fieldEmail": "电子邮箱",
-    "fieldCompany": "公司/机构（可选）",
-    "fieldGap": "您需要填补的差距",
-    "fieldBudget": "预算范围（可选）",
-    "fieldGapPlaceholder": "什么是已经损坏、重复或手工完成但不应如此的工作？每周或每月以这种方式进行，成本是多少？",
-    "fieldBudgetPlaceholder": "选择一个范围，如果不确定可以跳过",
+    "fieldCompany": "公司 / 机构（选填）",
+    "fieldGap": "您希望弥合的差距",
+    "fieldBudget": "预算范围（选填）",
+    "fieldGapPlaceholder": "哪些流程是陈旧的、重复的，或是本应自动化却仍在手动操作的？维持现状每周或每月会给您带来多少成本？",
+    "fieldBudgetPlaceholder": "请选择一个范围，或不确定则跳过",
     "budget1": "15,000 AED 以下",
     "budget2": "15,000 至 30,000 AED",
     "budget3": "30,000 至 60,000 AED",
     "budget4": "60,000 至 120,000 AED",
     "budget5": "120,000+ AED",
-    "budget6": "我还不确定，让我们讨论一下",
-    "submit": "发送咨询",
+    "budget6": "尚不确定，有待商议",
+    "submit": "提交咨询",
     "submitting": "发送中",
     "submitted": "咨询已收到",
-    "preferEmail": "更倾向于邮件联系？",
+    "preferEmail": "倾向于通过邮件联系？",
     "responseTimeLabel": "响应时间",
-    "responseTime": "48小时内亲自回复。无自动回复，无销售流程，无SDR。如果您的差距紧急，请在信息中提及。",
+    "responseTime": "48小时内，本人亲自回复。无自动回复，无销售流程，无销售开发代表。若您的问题紧急，请在讯息中注明。",
     "engagementLabel": "合作模式",
-    "engagementBody": "定制开发起价为8,000 AED，包含年度许可和设置费。咨询按小时或固定范围收费，最低90分钟。辅导基于课程进行，可线下或线上。每次合作都从对话开始。",
+    "engagementBody": "定制开发项目起价为8,000 AED，包含年度授权费与设置费。咨询按小时计费或按固定范围定价，最低时长90分钟。辅导课程可按次购买，支持线下或线上授课。所有合作均始于一次深入沟通。",
     "locationLabel": "所在地",
-    "location": "阿联酋，阿布扎比，艾因",
+    "location": "阿联酋，阿布扎比，艾因市",
     "linkedinLabel": "领英",
     "toastSuccess": "咨询已收到。",
-    "toastSuccessDesc": "我会亲自阅读每一条信息。预计在48小时内回复。",
-    "toastError": "无法发送咨询。"
+    "toastSuccessDesc": "本人会亲自审阅您的讯息。预计48小时内回复。",
+    "toastError": "咨询提交失败。"
   },
   "footer": {
-    "tagline": "洞察差距并优雅弥合的艺术。",
-    "description": "教育工作者、系统架构师以及领导与管理专业人士。为那些不再满足于现状差距的机构提供定制化构建、咨询和辅导服务。",
+    "tagline": "洞见差距，善加弥合的艺术。",
+    "description": "教育家、系统架构师，以及领导与管理领域的专业人士。为那些不再满足于现状、致力于弥合差距的机构，提供定制开发、咨询与辅导服务。",
     "onThisPage": "本页内容",
-    "liveWork": "实际项目",
-    "rights": "保留所有权利。",
+    "liveWork": "实战项目",
+    "rights": "版权所有。",
     "location": "艾因 · 阿布扎比 · 阿拉伯联合酋长国"
   },
   "language": {
@@ -158,214 +260,214 @@
     "select": "选择语言"
   },
   "about": {
-    "eyebrow": "The Studio",
-    "title": "About",
-    "titleItalic": "Ahmed Ali.",
-    "intro": "Educator, systems architect, and leadership and management professional. A philosopher by training, a teacher by license, a builder by craft. Below is the full record.",
-    "tabProfile": "Profile",
-    "tabProfileDesc": "The philosopher-educator narrative",
-    "tabExperience": "Experience",
-    "tabExperienceDesc": "8+ years across education, operations, telecom, and academia",
-    "tabEducation": "Education",
-    "tabEducationDesc": "Degrees, certifications, and professional credentials",
-    "tabInitiatives": "Initiatives",
-    "tabInitiativesDesc": "Leadership projects and community work",
-    "tabSkills": "Skills",
-    "tabSkillsDesc": "Core competencies, languages, and IT skills",
-    "profileTitle": "A philosopher who teaches, builds, and leads.",
-    "profileBody1": "As a Licensed UAE Educator and ADEK-Approved Moral, Social, and Cultural Studies and Islamic Education Teacher for Non-Arabic Speakers, I view teaching as a human art, a space where intellect, ethics, and empathy meet. My passion lies in guiding learners to think critically, act responsibly, and see knowledge not as information, but as a path to self-understanding and global awareness.",
-    "profileBody2": "Before entering education, I worked extensively in leadership, management, and business development, experiences that strengthened my ability to connect with people, organize effectively, and lead with purpose. These transferable skills now inform my teaching, helping me create structured, inclusive, and motivating learning environments that value every student's voice.",
-    "profileBody3": "Rooted in a background in philosophy and the humanities, I believe that education should awaken both the mind and the conscience. My goal is to cultivate in students the harmony between thought and action, the same harmony I continue to seek as an educator, learner, and human being.",
-    "profileSummary": "High-impact Operations Leader and Department Coordinator with 8+ years of progressive experience driving operational excellence, revenue growth, and team performance across Academia, Retail, Contact Centers, Telecommunications, and Family Entertainment sectors in the UAE, UK, and Egypt. Proven track record of achieving 21% year-one revenue growth, securing rapid successive promotions, and introducing performance frameworks that became organizational benchmarks. Experienced Internal Auditor (ISO 9001 and ISO 45001) with expertise in compliance, process optimization, and multi-site operations. Currently leading Non-Arabic Studies as Head of Department, overseeing curriculum delivery, staff coordination, and quality assurance across Grades 1 to 12. Bilingual in Arabic (native) and English (Academic IELTS Band 7), with strong cross-cultural leadership capabilities suited to diverse international markets.",
-    "profileTeachingExpertise": "ADEK-approved Social Studies and Islamic Education teacher with demonstrated expertise across Grades 1 to 12 in the American Curriculum. Skilled in inquiry-driven lesson design, effective differentiation for ELLs and gifted learners, and both in-class and distance learning delivery. Experienced in leading Model United Nations programmes, integrating educational technology platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy), and fostering critical thinking, cultural literacy, and global citizenship. Holds a valid UAE Teaching License and Academic IELTS Band 7.",
-    "experienceLabel": "Work Experience",
-    "exp1Role": "MSC Studies and Islamic Education B Teacher and Section Leader",
-    "exp1Org": "Ain Al Khaleej Private School, American Division, UAE",
-    "exp1Date": "Sep 2025 to Present",
-    "exp1Body": "Oversee the Non-Arabic Studies department across Grades 1 to 12, ensuring alignment with ADEK and Irtiqa'a quality standards.",
+    "eyebrow": "工作室",
+    "title": "关于",
+    "titleItalic": "艾哈迈德·阿里。",
+    "intro": "教育家、系统架构师以及领导与管理专业人士。受训于哲学，持有教师资格证，以构建为业。以下是完整履历。",
+    "tabProfile": "个人简介",
+    "tabProfileDesc": "哲学家-教育家的叙事",
+    "tabExperience": "工作经历",
+    "tabExperienceDesc": "横跨教育、运营、电信及学术界8年以上的经验",
+    "tabEducation": "教育背景",
+    "tabEducationDesc": "学位、认证与专业资质",
+    "tabInitiatives": "项目",
+    "tabInitiativesDesc": "领导项目与社区工作",
+    "tabSkills": "技能",
+    "tabSkillsDesc": "核心能力、语言及IT技能",
+    "profileTitle": "一位教学、构建与引领的哲学家。",
+    "profileBody1": "作为持证阿联酋教育工作者，并经阿布扎比教育部（ADEK）批准，担任非阿拉伯语人士的道德、社会与文化研究及伊斯兰教育教师，我将教学视为一门人文艺术，一个智慧、伦理与共情交汇的空间。我的热情在于引导学习者批判性地思考、负责任地行动，并将知识视为通往自我认知与全球视野的路径，而非仅仅是信息。",
+    "profileBody2": "投身教育之前，我曾广泛涉足领导、管理及业务发展领域，这些经历强化了我与人沟通、高效组织及以目标为导向的领导能力。这些可迁移技能如今影响着我的教学，助我构建结构化、包容性且富有激励性的学习环境，珍视每一位学生的声音。",
+    "profileBody3": "植根于哲学与人文学科的背景，我相信教育应同时启迪心智与良知。我的目标是在学生心中培育思想与行动的和谐，这种和谐也正是我作为一名教育者、学习者和人类所持续追求的。",
+    "profileSummary": "高效能运营领导者与部门协调员，拥有8年以上的渐进式经验，推动阿联酋、英国及埃及的学术界、零售业、呼叫中心、电信业及家庭娱乐等领域的运营卓越、收入增长与团队绩效。创下单一年度收入增长21%的业绩，获得快速连续晋升，并引入成为组织标杆的绩效框架。拥有（ISO 9001与ISO 45001）内部审计师经验，专精于合规、流程优化及多站点运营。现任非阿拉伯语研究系主任，领导1至12年级的课程交付、人员协调与质量保障。双语能力：阿拉伯语（母语）与英语（学术类雅思7分），具备适应多元化国际市场的强大跨文化领导力。",
+    "profileTeachingExpertise": "经阿布扎比教育部（ADEK）批准的社会研究与伊斯兰教育教师，在美国课程体系1至12年级教学方面具有专业知识。擅长探究式课程设计、针对英语学习者（ELL）与天才学习者的有效差异化教学，以及课堂教学与远程教学的授课方式。领导模拟联合国项目经验丰富，整合教育技术平台（HMH、Alef、Paradigm、MS Teams、Google Classroom、Canva、Teachy），并培养学生的批判性思维、文化素养与全球公民意识。持有有效阿联酋教师资格证及学术类雅思7分。",
+    "experienceLabel": "工作经历",
+    "exp1Role": "MSC研究与伊斯兰教育B教师及部门负责人",
+    "exp1Org": "阿因·哈利吉私立学校，美国部，阿联酋",
+    "exp1Date": "2025年9月至今",
+    "exp1Body": "监督1至12年级的非阿拉伯语研究部门，确保其符合阿布扎比教育部（ADEK）与伊尔蒂卡（Irtiqa'a）的质量标准。",
     "exp1Bullets": [
-      "Manage MSC Studies, Arabic B, and Islamic Education B for non-Arabic speakers",
-      "Lead curriculum design and differentiated instruction for ELLs and gifted students",
-      "Faculty Head for Model United Nations programme 2025/2026 and 2026/2027",
-      "Champion educational technology: HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy",
-      "Pioneered expert-level distance and blended learning delivery during school closures",
-      "Manage parent communication, progress reporting, and stakeholder engagement"
+      "为非阿拉伯语人士管理MSC研究、阿拉伯语B及伊斯兰教育B",
+      "领导针对英语学习者（ELL）与天才学生的课程设计与差异化教学",
+      "担任2025/2026及2026/2027学年模拟联合国项目负责人",
+      "倡导教育技术应用：HMH、Alef、Paradigm、MS Teams、Google Classroom、Canva、Teachy",
+      "在学校停课期间开创专家级远程与混合式教学模式",
+      "管理家长沟通、进度汇报及利益相关者参与"
     ],
-    "exp2Role": "Branch Operations Manager",
-    "exp2Org": "Cheeky Monkeys Playland LLC, UAE",
-    "exp2Date": "May 2024 to Sep 2025",
-    "exp2Body": "Oversaw daily operations of a 1,700 sqm child-focused facility, directing a cross-functional team of 12 across customer service, food operations, and event planning. Certified Internal Auditor maintaining full compliance with ISO 9001 and ISO 45001 standards.",
+    "exp2Role": "分店运营经理",
+    "exp2Org": "Cheeky Monkeys Playland LLC，阿联酋",
+    "exp2Date": "2024年5月至2025年9月",
+    "exp2Body": "管理一个占地1700平方米的儿童专用设施的日常运营，领导一个由12人组成的跨职能团队，涵盖客户服务、餐饮运营及活动策划。作为认证内部审计师，确保完全符合ISO 9001与ISO 45001标准。",
     "exp2Bullets": [
-      "Achieved 21% revenue growth in year one, verified by Head of Operations recommendation letter",
-      "Boosted 5-star customer feedback by 150%, transforming the branch's online reputation",
-      "Earned four rapid promotions and three salary increments within one year",
-      "Negotiated vendor partnerships that reduced operational costs while maintaining service quality",
-      "Partnered with senior leadership on strategic planning, staffing, and branch expansion initiatives",
-      "Downloadable reference: recommendation letter from Head of Operations available upon request"
+      "首年实现21%的收入增长，获运营主管推荐信证实",
+      "五星客户反馈提升150%，彻底改变分店的线上声誉",
+      "一年内获得四次快速晋升与三次薪资上调",
+      "谈判供应商合作，在维持服务质量的同时降低运营成本",
+      "与高层领导合作，参与战略规划、人员配置及分店扩张计划",
+      "可下载参考：运营主管推荐函，可按要求提供"
     ],
-    "exp3Role": "Sales Executive and Duty Manager",
-    "exp3Org": "e& Etisalat UAE, Al Ain Mall Branch",
-    "exp3Date": "Jul 2022 to Jun 2024",
-    "exp3Body": "Ranked as the highest-performing executive in 2023 at Al Ain Mall Branch, consistently leading in sales KPIs and customer engagement metrics.",
+    "exp3Role": "销售主管与值班经理",
+    "exp3Org": "e& Etisalat阿联酋，阿因购物中心分店",
+    "exp3Date": "2022年7月至2024年6月",
+    "exp3Body": "在2023年被评为阿因购物中心分店表现最佳的销售主管，持续在销售关键绩效指标（KPI）与客户参与度指标上领先。",
     "exp3Bullets": [
-      "Introduced Net Promoter Score (NPS) framework to Etisalat branch operations",
-      "Designed and led the first internal customer satisfaction training sessions",
-      "Frequently selected as Acting Duty Manager, overseeing branch operations",
-      "Mentored junior staff in product knowledge, upselling, and customer service",
-      "Certifications: Frontline for Retail Sales (2022), Mastering Sales Excellence (2024)"
+      "将净推荐值（NPS）框架引入Etisalat分店运营",
+      "设计与主持首批内部客户满意度培训课程",
+      "多次被选为代理值班经理，监督分店运营",
+      "指导初级员工的产品知识、增值销售与客户服务",
+      "认证：零售前线销售（2022年）、精通销售卓越（2024年）"
     ],
-    "exp4Role": "International Account Advisor",
-    "exp4Org": "Vodafone UK, Remote",
-    "exp4Date": "Mar 2019 to Jul 2022",
-    "exp4Body": "Managed a high-volume portfolio of UK-based customer accounts in a fast-paced, target-driven contact center environment.",
+    "exp4Role": "国际客户顾问",
+    "exp4Org": "Vodafone英国，远程",
+    "exp4Date": "2019年3月至2022年7月",
+    "exp4Body": "在快节奏、以目标为导向的呼叫中心环境中，管理庞大的英国客户账户组合。",
     "exp4Bullets": [
-      "Delivered exceptional service in telecom support, billing, and complex issue resolution",
-      "Provided peer mentoring and training to new team members",
-      "Consistently met daily performance targets and service-level agreements",
-      "Adapted communication style across diverse cultural contexts",
-      "Strengthened time management and organizational skills in remote setting"
+      "在电信支持、账单处理及复杂问题解决方面提供卓越服务",
+      "为新团队成员提供同侪辅导与培训",
+      "持续达成日常绩效目标与服务水平协议",
+      "适应不同文化背景的沟通风格",
+      "在远程环境中强化时间管理与组织能力"
     ],
-    "exp5Role": "Team Leader",
-    "exp5Org": "FEED, Alexandria, Egypt",
-    "exp5Date": "Feb 2017 to Feb 2019",
-    "exp5Body": "Led multiple divisions within a community permaculture initiative, managing and mentoring diverse volunteer teams.",
+    "exp5Role": "团队负责人",
+    "exp5Org": "FEED，埃及，亚历山大港",
+    "exp5Date": "2017年2月至2019年2月",
+    "exp5Body": "在一个社区永续倡议中领导多个部门，管理与指导多样化的志愿者团队。",
     "exp5Bullets": [
-      "Led 6 divisions: Natural Products, Sports, Plants, Carpentry, Translation, and PR",
-      "Developed sustainability and environmental education programmes",
-      "Oversaw public relations efforts, increasing project visibility and participation",
-      "Conducted regular performance evaluations and provided coaching",
-      "Coordinated multi-disciplinary project delivery across divisions"
+      "领导6个部门：天然产品、体育、植物、木工、翻译与公关",
+      "制定可持续性与环境教育项目",
+      "监督公关工作，提升项目知名度与参与度",
+      "进行定期绩效评估并提供辅导",
+      "协调跨部门的项目交付"
     ],
-    "exp6Role": "Research Assistant and Translator",
-    "exp6Org": "Emory University (with Dr. Rahimjon Abdugafurov)",
-    "exp6Date": "2017",
-    "exp6Body": "Transcribed and analyzed historical manuscripts in Islamic Civilization for Emory University research.",
+    "exp6Role": "研究助理与翻译",
+    "exp6Org": "埃默里大学（与Rahimjon Abdugafurov博士合作）",
+    "exp6Date": "2017年",
+    "exp6Body": "为埃默里大学研究项目，誊录与分析伊斯兰文明中的历史手稿。",
     "exp6Bullets": [
-      "Analyzed philosophical and theological contexts of historical texts",
-      "Produced English to Arabic academic translations for bilingual education",
-      "Contributed scholarly material for academic research settings"
+      "分析历史文本的哲学与神学背景",
+      "为双语教育产出英阿学术翻译",
+      "为学术研究环境贡献学术材料"
     ],
-    "educationLabel": "Education",
-    "edu1Degree": "Postgraduate Diploma in Education",
-    "edu1Institution": "Faculty of Education, Al-Azhar University",
-    "edu1Date": "Sep 2024 to Sep 2025",
-    "edu1Body": "One-year teacher preparation program with a focus on educational psychology, curriculum development, pedagogy, and effective instructional methods applicable to diverse subjects and learners.",
-    "edu2Degree": "Bachelor's Degree in Philosophy",
-    "edu2Institution": "Faculty of Arts, Alexandria University, Egypt",
-    "edu2Date": "Sep 2016 to May 2021",
-    "edu2Body": "Focused on logic, ethics, epistemology, metaphysics, education, psychology, and critical thinking. Developed strong analytical, research, academic, and teaching-relevant skills.",
-    "certificationsLabel": "Certifications",
+    "educationLabel": "教育背景",
+    "edu1Degree": "教育研究生文凭",
+    "edu1Institution": "爱资哈尔大学教育学院",
+    "edu1Date": "2024年9月至2025年9月",
+    "edu1Body": "为期一年的教师培养项目，专注于教育心理学、课程开发、教学法及适用于不同学科与学习者的有效教学方法。",
+    "edu2Degree": "哲学学士学位",
+    "edu2Institution": "埃及亚历山大港大学艺术学院",
+    "edu2Date": "2016年9月至2021年5月",
+    "edu2Body": "专注于逻辑学、伦理学、认识论、形而上学、教育学、心理学与批判性思维。培养了强大的分析、研究、学术及与教学相关的技能。",
+    "certificationsLabel": "认证",
     "certs": [
       {
-        "name": "Certified Professional Teaching License (Social Studies, Cycle 3)",
-        "issuer": "UAE MoE",
-        "date": "Valid until Feb 2029"
+        "name": "认证专业教师资格（社会研究，第三周期）",
+        "issuer": "阿联酋教育部",
+        "date": "有效期至2029年2月"
       },
       {
-        "name": "IELTS Academic Band 7",
-        "issuer": "British Council",
-        "date": "Valid until Aug 2027"
+        "name": "学术类雅思7分",
+        "issuer": "英国文化协会",
+        "date": "有效期至2027年8月"
       },
       {
-        "name": "AI for Educators (Level 1)",
+        "name": "面向教育者的人工智能（1级）",
         "issuer": "Teachy",
-        "date": "Oct 2025"
+        "date": "2025年10月"
       },
       {
-        "name": "Network Fundamentals and Network Security",
-        "issuer": "Mahara Tech and MCIT, Egypt",
-        "date": "Jun 2025"
+        "name": "网络基础与网络安全",
+        "issuer": "Mahara Tech与埃及信息和通信技术部",
+        "date": "2025年6月"
       },
       {
-        "name": "Certified Advanced Person-in-Charge (PIC)",
-        "issuer": "Dubai Municipality",
-        "date": "May 2025"
+        "name": "认证高级负责人",
+        "issuer": "迪拜市政府",
+        "date": "2025年5月"
       },
       {
-        "name": "Fire Warden Training (Level 2)",
-        "issuer": "Dubai Civil Defence",
-        "date": "Valid until Aug 2026"
+        "name": "消防管理员培训（2级）",
+        "issuer": "迪拜民防局",
+        "date": "有效期至2026年8月"
       },
       {
-        "name": "Mastering Sales Excellence",
-        "issuer": "e& Etisalat UAE",
-        "date": "Apr 2024"
+        "name": "精通销售卓越",
+        "issuer": "e& Etisalat阿联酋",
+        "date": "2024年4月"
       },
       {
-        "name": "Front Line for Retail Sales",
-        "issuer": "e& Etisalat UAE",
-        "date": "Aug 2022"
+        "name": "零售前线销售",
+        "issuer": "e& Etisalat阿联酋",
+        "date": "2022年8月"
       },
       {
-        "name": "Verification of Manuscripts in Philosophy and Theology",
-        "issuer": "Bibliotheca Alexandrina",
-        "date": "Nov 2021"
+        "name": "哲学与神学手稿鉴定",
+        "issuer": "亚历山大图书馆",
+        "date": "2021年11月"
       },
       {
-        "name": "Critical Thinking and Decision Making",
-        "issuer": "LinkedIn Learning",
-        "date": "Jul 2021"
+        "name": "批判性思维与决策制定",
+        "issuer": "领英学习",
+        "date": "2021年7月"
       }
     ],
-    "initiativesLabel": "Leadership Initiatives and Projects",
-    "init1Title": "Echoes of Wisdom Podcast",
-    "init1Subtitle": "Creator and Host, 2026 to Present",
-    "init1Body": "Produces and hosts a podcast dedicated to promoting Philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences.",
-    "init2Title": "Educational Youth Club",
-    "init2Subtitle": "Co-Founder and Member, Bibliotheca Alexandrina, Oct 2013 to Dec 2018",
-    "init2Body": "Co-founded an educational youth club in partnership with Bibliotheca Alexandrina to promote environmental awareness, critical thinking, and community engagement among high school students. Participated in multiple student programmes including YESBU, LYM (League of Young Masters), and ALYM (African League of Young Masters).",
-    "init3Title": "Waste Segregation Initiative",
-    "init3Subtitle": "General Coordinator, Bibliotheca Alexandrina and Alexandria Governorate, Feb 2015 to Feb 2017",
-    "init3Body": "Managed logistics and outreach for a citywide environmental awareness initiative targeting youth and local schools, collaborating with local government and educators.",
-    "init4Title": "3rd Annual International Conference",
-    "init4Subtitle": "Co-Organiser, Department of Philosophy, Alexandria University, Nov 2017",
-    "init4Body": "Co-organised the international conference on philosophical reading, creativity, and critical criticism.",
-    "skillsLabel": "Core Competencies",
+    "initiativesLabel": "领导项目与倡议",
+    "init1Title": "智慧回响播客",
+    "init1Subtitle": "创作者与主持人，2026年至今",
+    "init1Body": "制作并主持一档播客，致力于将哲学推广为一门具有日常生活、批判性思维与个人发展实际意义的教育领域。连接学术哲学与公共话语，使伦理、逻辑与认识论中的复杂思想对多元化受众变得易于理解且可付诸行动。",
+    "init2Title": "教育青年俱乐部",
+    "init2Subtitle": "联合创始人兼成员，亚历山大图书馆，2013年10月至2018年12月",
+    "init2Body": "与亚历山大图书馆合作，联合创办一个教育青年俱乐部，旨在提高高中生的环境意识、批判性思维与社区参与度。参与多个学生项目，包括YESBU、青年大师联盟及非洲青年大师联盟。",
+    "init3Title": "垃圾分类倡议",
+    "init3Subtitle": "总协调员，亚历山大图书馆与亚历山大省，2015年2月至2017年2月",
+    "init3Body": "管理一个面向青年与当地学校的全市性环境意识倡议的物流与外联工作，与当地政府及教育工作者合作。",
+    "init4Title": "第三届国际会议",
+    "init4Subtitle": "联合组织者，亚历山大港大学哲学系，2017年11月",
+    "init4Body": "联合组织了关于哲学阅读、创造力与批判性评论的国际会议。",
+    "skillsLabel": "核心能力",
     "skills": [
-      "Operations and Facility Management (Retail, Contact Center, Entertainment, Education)",
-      "Strategic Planning and Financial Forecasting",
-      "Sales Strategy, Revenue Growth and KPI Achievement",
-      "Team Leadership, Coaching and Performance Management",
-      "Safeguarding and Child Protection Awareness",
-      "ISO 9001 and ISO 45001 Compliance and Internal Audit",
-      "Curriculum Design and Academic Quality Assurance (ADEK, KHDA)",
-      "Client Acquisition, Retention and Stakeholder Management",
-      "Cross-Functional Collaboration and Change Management",
-      "Vendor Negotiation and Supply Chain Coordination",
-      "Educational Technology Integration and Digital Transformation",
-      "Differentiated Instruction and Inclusive Education Practices",
-      "Bilingual Communication: English (C1, IELTS 7) and Native Arabic"
+      "运营与设施管理（零售、呼叫中心、娱乐、教育）",
+      "战略规划与财务预测",
+      "销售策略、收入增长与关键绩效指标达成",
+      "团队领导、辅导与绩效管理",
+      "儿童保护与安全意识",
+      "ISO 9001与ISO 45001合规及内部审计",
+      "课程设计与学术质量保障（ADEK、KHDA）",
+      "客户获取、维系与利益相关者管理",
+      "跨职能协作与变革管理",
+      "供应商谈判与供应链协调",
+      "教育技术整合与数字化转型",
+      "差异化教学与包容性教育实践",
+      "双语沟通：英语（C1，雅思7分）及阿拉伯语（母语）"
     ],
-    "languagesLabel": "Languages",
+    "languagesLabel": "语言能力",
     "languages": [
       {
-        "name": "Arabic",
-        "level": "Native"
+        "name": "阿拉伯语",
+        "level": "母语"
       },
       {
-        "name": "English",
-        "level": "Fluent (C1, IELTS Band 7)"
+        "name": "英语",
+        "level": "流利（C1，雅思7分）"
       },
       {
-        "name": "Urdu",
-        "level": "Beginner"
+        "name": "乌尔都语",
+        "level": "初级"
       },
       {
-        "name": "Spanish",
-        "level": "Beginner"
+        "name": "西班牙语",
+        "level": "初级"
       }
     ],
-    "affiliationsLabel": "Affiliations",
+    "affiliationsLabel": "专业 affiliations",
     "affiliations": [
       {
-        "name": "British Philosophical Association (BPA)",
-        "date": "2025 to Present"
+        "name": "英国哲学协会（BPA）",
+        "date": "2025年至今"
       }
     ],
-    "itSkillsLabel": "IT Skills",
-    "itSkills": "CompTIA (A+, Network+, Linux+), Microsoft Office Suite, Google Workspace, Educational Technology Platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy)",
-    "sportsLabel": "Sports Coaching",
-    "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)"
+    "itSkillsLabel": "IT技能",
+    "itSkills": "CompTIA（A+、Network+、Linux+）、Microsoft Office套件、Google Workspace、教育技术平台（HMH、Alef、Paradigm、MS Teams、Google Classroom、Canva、Teachy）",
+    "sportsLabel": "体育教练",
+    "sports": "力量与体能教练，Swift足球学院，阿因（2023年至2024年）"
   },
   "workContent": {
     "visitSite": "Visit live site",

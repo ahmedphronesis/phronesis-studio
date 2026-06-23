@@ -1,55 +1,157 @@
 {
   "nav": {
-    "home": "Frontispiece",
+    "home": "आगामी",
     "studio": "परिचय",
-    "disciplines": "Disciplines",
-    "library": "The Library",
-    "work": "Work",
-    "method": "Method",
-    "engagements": "Engagements",
-    "correspondence": "Correspondence",
-    "begin": "Begin"
+    "disciplines": "अनुशासन",
+    "library": "पुस्तकालय",
+    "work": "कार्य",
+    "method": "विधि",
+    "engagements": "अभियान",
+    "correspondence": "पत्राचार",
+    "begin": "प्रारंभ"
   },
   "hero": {
     "eyebrow": "शिक्षक · सिस्टम आर्किटेक्ट · नेतृत्व और प्रबंधन पेशेवर",
-    "name": "Ahmed Ali",
-    "subtitle": "I build systems, shape minds, and lead teams.",
-    "body": "Aristotle called it phronesis: the practical wisdom to perceive the gap between what is and what should be, and close it well. I bring that discipline to three crafts. In education, I teach and design learning systems. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations and teams run with precision. Each is available as a custom engagement, a structured consultation, or focused tutoring.",
-    "ctaPrimary": "Begin a conversation",
-    "ctaSecondary": "See selected work",
-    "footnote": "Four production platforms live. A decade across classrooms, operations, and code. Available for selective engagements.",
-    "location": "Al Ain · UAE",
-    "enterPrompt": "Enter"
+    "name": "अहमद अली",
+    "subtitle": "मैं सिस्टम बनाता हूं, मनोवैज्ञानिक रूप से आकार देता हूं, और टीमों का नेतृत्व करता हूं।",
+    "body": "अरस्तू ने इसे 'व्यावहारिक ज्ञान' कहा: यह वह प्रायोगिक बुद्धि है जो जानती है कि जो है और जो होना चाहिए उनके बीच का अंतर, और उसे अच्छी तरह से भरती है। मैं इस अनुशासन को तीन कलाओं में लाता हूं। शिक्षा में, मैं सिखाता हूं और सीखने के सिस्टम डिजाइन करता हूं। सॉफ्टवेयर में, मैं स्कूलों, व्यवसायों और संस्थानों के लिए उत्पादन प्लेटफार्मों का आर्किटेक्ट हूं। नेतृत्व में, मैं संचालन और टीमों को सटीकता से चलाने में मदद करता हूं। प्रत्येक को एक कस्टम एंगेजमेंट, एक संरचित परामर्श, या एक लक्षित ट्यूटरिंग के रूप में उपलब्ध कराया जा सकता है।",
+    "ctaPrimary": "एक बातचीत शुरू करें",
+    "ctaSecondary": "चयनित कार्य देखें",
+    "footnote": "चार उत्पादन प्लेटफॉर्म लाइव हैं। कक्षाओं, संचालन और कोड में एक दशक। चयनात्मक एंगेजमेंट के लिए उपलब्ध।",
+    "location": "अल आइन · संयुक्त अरब अमीरात",
+    "enterPrompt": "प्रवेश करें"
   },
   "thesis": {
-    "eyebrow": "प्रबन्धन निबंध",
-    "lead": "प्रत्येक संस्था में अपने वर्तमान स्वरूप और अपनी क्षमता के बीच एक अंतर होता है। एक ऐसा विद्यालय जो अच्छी तरह से पढ़ाता है, लेकिन अपने परिणामों को माप नहीं पाता। एक ऐसा व्यवसाय जो ग्राहकों की सेवा करता है, लेकिन छिपी हुई अक्षमताओं के कारण धन खो देता है। एक ऐसी टीम जो कड़ी मेहनत करती है, लेकिन समय के साथ अधिक मजबूत बनने के लिए उसमें कोई प्रणाली नहीं होती। यह अंतर प्रत्येक संगठन में मौजूद रहता है। सवाल यह है कि कोई इसे स्पष्ट रूप से देख सकता है,�, ईमानदारी से उसका नाम रख सकता है, और उसे सावधानीपूर्वक बंद कर सकता है।",
-    "body1": "मैं एक विकासकर्ता नहीं हूँ जो यादृच्छिक रूप से पढ़ाता हूँ, और न ही एक शिक्षक जो यादृच्छिक रूप से कोड करता हूँ। मैं एक दार्शनिक हूँ जिसने वर्षों तक प्रणालियों, कार्यप्रवाहों, कक्षाओं, लोगों में अंतरों को देखना और उन्हें सटीकता से बंद करना सीखा है।",
-    "body2": "यूनानियों के पास इसके लिए एक शब्द था। फ़्रोनेसिस: व्यावहारिक ज्ञान, सही कार्य को सही क्षण में जानने का गुण। यह कोई सिद्धांत नहीं है। यह कोई तकनीक नहीं है। यह एक ऐसी प्रशिक्षित क्षमता है जो एक बिखरी हुई वास्तविकता को देखकर उसमें कुछ न कुछ अनुपस्थित देखती है।",
-    "body3": "मैं तीन विषयों में काम करता हूँ। शिक्षा, जहाँ मैं पढ़ाता हूँ और सीखने के प्लेटफार्म बनाता हूँ। सॉफ्टवेयर, जहाँ मैं वास्तविक ग्राहकों के लिए उत्पादन सिस्टम भेजता हूँ। और नेतृत्व एवं संचालन, जहाँ मैं टीमों और प्रक्रियाओं को लक्षित रूप से काम करने में मदद करता हूँ। प्रत्येक कार्य उस विशिष्ट अंतर के अनुरूप आकारित किया जाता है।",
-    "pillar1Title": "अंतर को देखें",
-    "pillar1Body": "किसी भी निर्माण, किसी भी कक्षा, या किसी भी परामर्श से पहले, मैं विषय के साथ बैठता हूँ जब तक कि मैं वह देख न लूँ जो दूसरे नहीं देख पा रहे हैं। वह स्प्रेडशीट जिस पर कोई भरोसा नहीं करता। वह पाठ जो कभी भी अपना असर नहीं डाल पाता। वह टीम जो बिना किसी प्रणाली के मेहनत करती है जो उसके प्रयासों को बढ़ा सके। अंतर हमेशा मौजूद होता है। अधिकांश व्यवसायिक विशेषज्ञ कभी भी इसे ढूंढने की कोशिश नहीं करते।",
-    "pillar2Title": "कठोरता से निदान करें",
-    "pillar2Body": "एक अंतर यह नहीं है कि कोई अनुरोध करे। मैं अभिनेताओं, प्रोत्साहनों, विफलता के मोड, अनुपालन की सीमा, और डेटा प्रवाह का मानचित्र बनाता हूँ। मैं गलत निदान पर कार्य नहीं करने की अनुमति नहीं देता। एक कक्षा, कोडबेस, या संचालन की शारीरिक संरचना पर दार्शनिक अनुशासन का अनुप्रयोग।",
+    "eyebrow": "प्रबंधन प्रबंधन",
+    "lead": "हर संस्था में अपनी वर्तमान स्थिति और अपनी संभावित क्षमता के बीच एक अंतर होता है।\n\nएक विद्यालय उत्कृष्ट शिक्षा प्रदान कर सकता है, लेकिन अपने प्रभाव को मापने में संघर्ष कर सकता है।\nएक व्यवसाय अपने ग्राहकों को अच्छी तरह से सेवा प्रदान कर सकता है, लेकिन अदृश्य अक्षमताओं, टूटे डेटा और स्प्रेडशीट, मैसेजिंग थ्रेड और संस्थागत स्मृति में फंसे निर्णयों के माध्यम से मूल्य खो सकता है।\nएक टीम लगातार परिश्रम कर सकती है, लेकिन समय के साथ और अधिक मजबूत बनने के लिए आवश्यक प्रणालियों से रह सकती है।\n\nये अंतर सार्वभौमिक हैं। वे हर संगठन में मौजूद हैं, चाहे उनका आकार, उद्योग या उद्देश्य कुछ भी हो। वास्तविक प्रश्न यह है कि क्या कोई इन्हें स्पष्टता से पहचान सकता है, ईमानदारी से परिभाषित कर सकता है और अनुशासन और देखभाल से बंद कर सकता है।",
+    "body1": "मैं एक विकासकर्ता नहीं हूं जो शिक्षण करने के लिए अवसर का लाभ उठाता हूं, या एक शिक्षक नहीं हूं जो कोडिंग करने के लिए अवसर का लाभ उठाता हूं। मैं एक दार्शनिक हूं जिन्होंने वर्षों तक प्रणालियों, कार्यप्रवाह, कक्षाओं, लोगों में अंतरों को देखना सीखा है, और उन्हें सटीकता से बंद करना सीखा है।",
+    "body2": "यूनानियों के पास इसके लिए एक शब्द था। फ्रोनेसिस: व्यावहारिक ज्ञान, उचित कार्य को उचित क्षण में अनुभव करने का गुण। यह सिद्धांत नहीं है। यह तकनीक नहीं है। यह एक गड़बड़ वास्तविकता को देखकर यह देखने की एक अभ्यास क्षमता है कि कुछ गायब है।",
+    "body3": "मैं तीन विषयों पर काम करता हूं। शिक्षा, जहाँ मैं शिक्षण देता हूं और सीखने के प्लेटफॉर्म बनाता हूं। सॉफ्टवेयर, जहाँ मैं वास्तविक ग्राहकों के लिए उत्पादन प्रणालियां भेजता हूं। नेतृत्व और संचालन, जहाँ मैं टीमों और प्रक्रियाओं को इरादे से चलाने में मदद करता हूं। प्रत्येक संलग्नन हाथ में उपस्थित अंतर के आकार का होता है।",
+    "pillar1Title": "अंतर को अनुभव करें",
+    "pillar1Body": "किसी भी निर्माण, किसी भी कक्षा, किसी भी परामर्श से पहले, मैं स्थिति के साथ बैठता हूं जब तक कि मैं वह नहीं देख लूँ जो दूसरे ध्यान नहीं दे रहे हैं। वह स्प्रेडशीट जिस पर कोई भरोसा नहीं करता। वह पाठ जो कभी ठीक से नहीं लगता। वह टीम जो बिना किसी प्रणाली के जिसका प्रयास बढ़ाने के लिए, लगातार परिश्रम करती है। अंतर हमेशा वहाँ मौजूद होता है। ज्यादातर व्यवसायिक व्यक्ति इसे कभी नहीं देखते।",
+    "pillar2Title": "कड़ाई से निदान करें",
+    "pillar2Body": "एक अंतर एक अनुरोध नहीं है। मैं कर्ताओं, प्रोत्साहनों, विफलता के मोड, अनुपालन लिफाफे, और डेटा प्रवाह का मानचित्र बनाता हूं। मैं गलत निदान पर कार्य नहीं करने के लिए तैयार हूं। एक कक्षा, एक कोडबेस, या एक संचालन की शरीररचना पर दार्शनिक की अनुशासन का अनुप्रयोग।",
     "pillar3Title": "सटीकता से बंद करें",
-    "pillar3Body": "सही प्रणाली, सही पाठ्यक्रम, सही संचालन चक्र। क्वार्टर के बजाय सप्ताहों में भेजा गया। दिन एक से ही उत्पादन-ग्रेड। इस तरह बनाया गया कि यह इस कार्य के बाद भी बना रहे, और उस संस्था को मजबूत करे जिसने इसे आदेश दिया था।"
+    "pillar3Body": "सही प्रणाली, सही पाठ्यक्रम, सही संचालन का गति। हफ्तों में भेजा गया, तिमाहियों में नहीं। दिन एक से ही उत्पादन-ग्रेड। इसे इस संलग्नन से अधिक समय तक जीने और इसे आदेश देने वाली संस्था को मजबूत करने के लिए बनाया गया।",
+    "leadSegments": [
+      {
+        "text": "हर संस्था में एक ",
+        "color": "default"
+      },
+      {
+        "text": "अंतर",
+        "color": "gold"
+      },
+      {
+        "text": " अपनी वर्तमान स्थिति और अपनी संभावित क्षमता के बीच होता है।",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "एक विद्यालय उत्कृष्ट शिक्षा प्रदान कर सकता है, लेकिन अपने प्रभाव को ",
+        "color": "default"
+      },
+      {
+        "text": "मापने में",
+        "color": "teal"
+      },
+      {
+        "text": " संघर्ष कर सकता है।",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "एक व्यवसाय अपने ग्राहकों को अच्छी तरह से सेवा प्रदान कर सकता है, लेकिन ",
+        "color": "default"
+      },
+      {
+        "text": "अदृश्य अक्षमताओं",
+        "color": "teal"
+      },
+      {
+        "text": " से, टूटे डेटा और स्प्रेडशीट, मैसेजिंग थ्रेड और संस्थागत स्मृति में फंसे निर्णयों से मूल्य खो सकता है।",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "एक टीम लगातार परिश्रम कर सकती है, लेकिन ",
+        "color": "default"
+      },
+      {
+        "text": "और अधिक मजबूत बनने के लिए आवश्यक प्रणालियों",
+        "color": "teal"
+      },
+      {
+        "text": " से रह सकती है।",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "ये अंतर ",
+        "color": "default"
+      },
+      {
+        "text": "सार्वभौमिक",
+        "color": "gold"
+      },
+      {
+        "text": " हैं। वे हर संगठन में मौजूद हैं, चाहे उनका आकार, उद्योग या उद्देश्य कुछ भी हो। वास्तविक प्रश्न यह है कि क्या कोई इन्हें ",
+        "color": "default"
+      },
+      {
+        "text": "स्पष्टता",
+        "color": "teal"
+      },
+      {
+        "text": " से, उन्हें ",
+        "color": "default"
+      },
+      {
+        "text": "ईमानदारी",
+        "color": "teal"
+      },
+      {
+        "text": " से परिभाषित कर सकता है, और उन्हें ",
+        "color": "default"
+      },
+      {
+        "text": "अनुशासन और देखभाल",
+        "color": "teal"
+      },
+      {
+        "text": " से बंद कर सकता है।",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
-    "eyebrow": "The Practice",
-    "title": "Three disciplines,",
-    "titleItalic": "one method.",
-    "intro": "Most professionals specialize in one craft. I have spent a decade deliberately working across three. The disciplines are different. The method is the same: perceive the gap, diagnose with rigor, close with precision.",
-    "discipline1Title": "Education",
-    "discipline1Range": "Teaching · Curriculum · Learning Platforms",
-    "discipline1Body": "I am an ADEK-licensed teacher (Grades 1 through 12, American Curriculum) and Faculty Head for Model United Nations at my school. I design inquiry-based, standards-aligned lessons that meet Irtiqa'a expectations, differentiate for ELLs and gifted learners, and translate curriculum into something students actually engage with. I also build learning platforms that compress weeks of administrative work into minutes.",
-    "discipline2Title": "Systems Architecture",
-    "discipline2Range": "Custom builds · SaaS platforms · Operational systems",
-    "discipline2Body": "I architect production-grade software for schools, businesses, and institutions. Property management platforms managing 400+ units for paying clients. Educational platforms with 390+ interactive activities. MUN operating systems with AI-powered assessments. Each shipped, in use, built alone. The work is Next.js, React, TypeScript, Prisma, PostgreSQL, deployed on Vercel. The discipline is philosopher's rigor applied to a codebase.",
-    "discipline3Title": "Leadership & Operations",
-    "discipline3Range": "ISO standards · Team leadership · Operational excellence",
-    "discipline3Body": "I have run operations under ISO 9001 and ISO 45001. I have led teams in education, telecom, and child-focused facilities. I have been the highest-performing sales executive across multiple KPIs at Etisalat, and introduced the Net Promoter Score framework that drove it. I bring operational discipline to every engagement, whether the deliverable is software, a curriculum, or a strategic consultation.",
-    "capabilitiesLabel": "Capabilities",
-    "proofLabel": "Proof of work"
+    "eyebrow": "अभ्यास",
+    "title": "तीन अनुशासन,",
+    "titleItalic": "एक विधि।",
+    "intro": "अधिकांश पेशेवर किसी एक कला में विशेषज्ञ होते हैं। मैंने जानबूझकर तीन क्षेत्रों में एक दशक तक काम किया है। ये अनुशासन भिन्न हैं, लेकिन विधि एक ही है: अंतर को देखें, कड़ी मेहनत से निदान करें, और सटीकता से उसे भरें।",
+    "discipline1Title": "शिक्षा",
+    "discipline1Range": "शिक्षण · पाठ्यक्रम · सीखने के प्लेटफॉर्म",
+    "discipline1Body": "मैं एक ADEK-लाइसेंस प्राप्त शिक्षक हूँ (कक्षा 1 से 12, अमेरिकी पाठ्यक्रम) और अपने स्कूल में मॉडल यूनाइटेड नेशंस के फैकल्टी हेड हूँ। मैं ऐसे प्रश्न-आधारित, मानक-संरेखित पाठ डिज़ाइन करता हूँ जो Irtiqa'a की अपेक्षाओं को पूरा करते हैं, ELLs और उत्कृष्ट छात्रों के लिए अलग-अलग रूप से तैयार किए जाते हैं, और पाठ्यक्रम को ऐसे रूप में बदलता हूँ जिसे छात्र वास्तव में अपनाते हैं। मैं ऐसे सीखने के प्लेटफॉर्म भी बनाता हूँ जो सप्ताहों के प्रशासनिक काम को मिनटों में संपीड़ित कर देते हैं।",
+    "discipline2Title": "सिस्टम आर्किटेक्चर",
+    "discipline2Range": "कस्टम बिल्ड्स · SaaS प्लेटफॉर्म · संचालन प्रणालियाँ",
+    "discipline2Body": "मैं स्कूलों, व्यवसायों और संस्थानों के लिए उत्पादन-ग्रेड सॉफ्टवेयर आर्किटेक्ट करता हूँ। 400+ इकाइयों का प्रबंधन करने वाले संपत्ति प्रबंधन प्लेटफॉर्म, जो भुगतान करने वाले ग्राहकों के लिए हैं। 390+ इंटरैक्टिव गतिविधियों वाले शैक्षणिक प्लेटफॉर्म। AI-संचालित मूल्यांकनों वाले MUN संचालन प्रणालियाँ। प्रत्येक जारी किया गया, उपयोग में, और अकेले बनाया गया। काम Next.js, React, TypeScript, Prisma, PostgreSQL है, और Vercel पर तैनात किया गया है। यह अनुशासन कोडबेस पर दार्शनिक कठोरता को लागू करना है।",
+    "discipline3Title": "नेतृत्व और संचालन",
+    "discipline3Range": "ISO मानक · टीम नेतृत्व · संचालन उत्कृष्टता",
+    "discipline3Body": "मैंने ISO 9001 और ISO 45001 के तहत संचालन चलाए हैं। मैंने शिक्षा, दूरसंचार, और बच्चों-केंद्रित सुविधाओं में टीमों का नेतृत्व किया है। मैंने Etisalat में कई KPIs पर सबसे बेहतर प्रदर्शन करने वाले बिक्री कार्यकारी रहा हूँ, और नेट प्रोमोटर स्कोर फ्रेमवर्क को पेश किया जिसने इसे आगे बढ़ाया। मैं हर एंगेजमेंट में संचालन अनुशासन लाता हूँ, चाहे प्रतिपाद्य सॉफ्टवेयर, एक पाठ्यक्रम, या एक रणनीतिक परामर्श हो।",
+    "capabilitiesLabel": "क्षमताएँ",
+    "proofLabel": "काम का प्रमाण"
   },
   "library": {
     "eyebrow": "The Library · Original Works",
