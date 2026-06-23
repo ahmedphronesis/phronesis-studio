@@ -1,89 +1,191 @@
 {
   "nav": {
-    "home": "Frontispiece",
-    "studio": "О себе",
-    "disciplines": "Disciplines",
-    "library": "The Library",
-    "work": "Work",
-    "method": "Method",
-    "engagements": "Engagements",
-    "correspondence": "Correspondence",
-    "begin": "Begin"
+    "home": "Фронтиспис",
+    "studio": "О нас",
+    "disciplines": "Дисциплины",
+    "library": "Библиотека",
+    "work": "Работы",
+    "method": "Методология",
+    "engagements": "Проекты",
+    "correspondence": "Контакты",
+    "begin": "Начать"
   },
   "hero": {
-    "eyebrow": "Педагог · Системный архитектор · Специалист по лидерству и менеджменту",
-    "name": "Ahmed Ali",
-    "subtitle": "I build systems, shape minds, and lead teams.",
-    "body": "Aristotle called it phronesis: the practical wisdom to perceive the gap between what is and what should be, and close it well. I bring that discipline to three crafts. In education, I teach and design learning systems. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations and teams run with precision. Each is available as a custom engagement, a structured consultation, or focused tutoring.",
-    "ctaPrimary": "Begin a conversation",
-    "ctaSecondary": "See selected work",
-    "footnote": "Four production platforms live. A decade across classrooms, operations, and code. Available for selective engagements.",
-    "location": "Al Ain · UAE",
-    "enterPrompt": "Enter"
+    "eyebrow": "Педагог · Системный архитектор · Специалист в области лидерства и менеджмента",
+    "name": "Ахмед Али",
+    "subtitle": "Я создаю системы, формирую умы и возглавляю команды.",
+    "body": "Аристотель называл это фронезисом: практической мудростью, позволяющей осознавать разрыв между тем, что есть, и тем, что должно быть, и успешно его преодолевать. Я применяю эту дисциплину в трех ремеслах. В образовании я преподаю и проектирую обучающие системы. В программном обеспечении я создаю производственные платформы для школ, бизнеса и учреждений. В области лидерства я помогаю операциям и командам функционировать с максимальной точностью. Каждая из этих услуг доступна в формате индивидуального сотрудничества, структурированной консультации или целенаправленного наставничества.",
+    "ctaPrimary": "Начать диалог",
+    "ctaSecondary": "Посмотреть избранные работы",
+    "footnote": "Четыре производственные платформы в эксплуатации. Десятилетний опыт в классах, операциях и программировании. Доступен для избирательного сотрудничества.",
+    "location": "Аль-Аин · ОАЭ",
+    "enterPrompt": "Войти"
   },
   "thesis": {
     "eyebrow": "Диссертация",
-    "lead": "У каждого учреждения есть разрыв между тем, чем оно является, и тем, чем оно могло бы быть. Школа, которая хорошо преподает, но не может измерить свои результаты. Бизнес, который обслуживает клиентов, но теряет деньги из-за скрытых неэффективностей. Команда, которая усердно работает, но не имеет систем для постоянного роста. Разрыв существует в каждой организации. Вопрос в том, сможет ли кто-то увидеть его ясно, назвать честно и закрыть тщательно.",
-    "body1": "Я не разработчик, который случайно преподает, и не учитель, который случайно пишет код. Я философ, который годами учился видеть разрывы в системах, рабочих процессах, классах, среди людей и закрывать их с точностью.",
-    "body2": "У греков было слово для этого. Фронезис: практическая мудрость, добродетель восприятия правильного действия в нужный момент. Это не теория. Это не техника. Это выработанная способность смотреть на запутанную реальность и видеть, чего не хватает.",
-    "body3": "Я работаю в трех дисциплинах. Образование, где я преподаю и создаю образовательные платформы. Программное обеспечение, где я запускаю производственные системы для реальных клиентов. Лидерство и операции, где я помогаю командам и процессам работать осознанно. Каждый проект адаптируется под конкретный разрыв.",
-    "pillar1Title": "Восприятие разрыва",
-    "pillar1Body": "Перед тем, как что-либо создавать, проводить занятия или консультировать, я погружаюсь в ситуацию, пока не увижу то, что другие перестали замечать. Таблица, которой никто не доверяет. Урок, который не доходит. Команда, которая усердно работает без системы для умножения своих усилий. Разрыв всегда есть. Большинство специалистов никогда его не ищут.",
-    "pillar2Title": "Точная диагностика",
-    "pillar2Body": "Разрыв — это не запрос. Я анализирую участников, стимулы, режимы сбоя, границы соответствия, потоки данных. Я не действую на основе неверного диагноза. Философская дисциплина, примененная к классу, кодовой базе или структуре операций.",
-    "pillar3Title": "Точное закрытие",
-    "pillar3Body": "Правильная система, правильная учебная программа, правильный операционный ритм. Запускается за недели, а не кварталы. Готовность к эксплуатации с первого дня. Создано для того, чтобы пережить проект и укрепить учреждение, его заказавшее."
+    "lead": "Каждое учреждение имеет разрыв между тем, чем оно является, и тем, чем оно может стать.\n\nШкола может предоставлять первоклассное обучение, но испытывать трудности с оценкой своего воздействия.\nБизнес может хорошо обслуживать своих клиентов, но терять ценность из-за незаметных неэффективностей, фрагментированных данных и решений, застрявших в электронных таблицах, переписке и институциональной памяти.\nКоманда может трудиться не покладая рук, но не иметь систем, необходимых для постоянного роста.\n\nЭти разрывы универсальны. Они существуют в каждой организации, независимо от размера, отрасли или миссии. Настоящий вопрос заключается в том, способен ли кто-то распознать их с ясностью, определить их с искренностью и устранить их с дисциплиной и заботой.",
+    "body1": "Я не разработчик, который случайно преподает, и не учитель, который случайно программирует. Я — философ, который годы учился видеть разрывы в системах, рабочих процессах, классах, людях и устранять их с точностью.",
+    "body2": "У греков было слово для этого. Фронезис: практическая мудрость, добродетель, позволяющая постичь верное действие в нужный момент. Это не теория. Это не техника. Это выработанная способность взглянуть на запутанную реальность и увидеть, чего в ней не хватает.",
+    "body3": "Я работаю на стыке трех дисциплин. Образование, где я преподаю и создаю образовательные платформы. Программное обеспечение, где я запускаю производственные системы для реальных клиентов. Лидерство и операции, где я помогаю командам и процессам функционировать осознанно. Каждый проект адаптируется под конкретный разрыв.",
+    "pillar1Title": "Распознать разрыв",
+    "pillar1Body": "Прежде чем приступать к любой разработке, проведению занятий или консультации, я вникаю в ситуацию, пока не увижу то, что другие перестали замечать. Электронная таблица, которой никто не доверяет. Урок, который не находит отклика. Команда, усердно работающая, но без системы для наращивания усилий. Разрыв всегда присутствует. Большинство профессионалов никогда его не ищут.",
+    "pillar2Title": "Диагностировать с точностью",
+    "pillar2Body": "Разрыв — это не запрос. Я моделирую действующих лиц, стимулы, режимы отказа, рамки соответствия требованиям и потоки данных. Я не действую на основе неверного диагноза. Философская дисциплина, примененная к классу, кодовой базе или структуре операций.",
+    "pillar3Title": "Устранить с точностью",
+    "pillar3Body": "Правильная система, правильная учебная программа, правильный операционный ритм. Запускается за недели, а не кварталы. Готовый к эксплуатации с первого дня. Созданный для того, чтобы пережить сам проект и укрепить учреждение, его заказавшее.",
+    "leadSegments": [
+      {
+        "text": "Каждое учреждение имеет ",
+        "color": "default"
+      },
+      {
+        "text": "разрыв",
+        "color": "gold"
+      },
+      {
+        "text": " между тем, чем оно является, и тем, чем оно может стать.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Школа может предоставлять первоклассное обучение, но испытывать трудности с ",
+        "color": "default"
+      },
+      {
+        "text": "оценкой своего воздействия",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Бизнес может хорошо обслуживать своих клиентов, но ",
+        "color": "default"
+      },
+      {
+        "text": "терять ценность из-за незаметных неэффективностей",
+        "color": "teal"
+      },
+      {
+        "text": ", фрагментированных данных и решений, застрявших в электронных таблицах, переписке и институциональной памяти.",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Команда может трудиться не покладая рук, но не иметь ",
+        "color": "default"
+      },
+      {
+        "text": "систем, необходимых для постоянного роста",
+        "color": "teal"
+      },
+      {
+        "text": " во времени.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Эти разрывы ",
+        "color": "default"
+      },
+      {
+        "text": "универсальны",
+        "color": "gold"
+      },
+      {
+        "text": ". Они существуют в каждой организации, независимо от размера, отрасли или миссии. Настоящий вопрос заключается в том, способен ли кто-то распознать их с ",
+        "color": "default"
+      },
+      {
+        "text": "ясностью",
+        "color": "teal"
+      },
+      {
+        "text": ", определить их с ",
+        "color": "default"
+      },
+      {
+        "text": "искренностью",
+        "color": "teal"
+      },
+      {
+        "text": ", и устранить их с ",
+        "color": "default"
+      },
+      {
+        "text": "дисциплиной и заботой",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
-    "eyebrow": "The Practice",
-    "title": "Three disciplines,",
-    "titleItalic": "one method.",
-    "intro": "Most professionals specialize in one craft. I have spent a decade deliberately working across three. The disciplines are different. The method is the same: perceive the gap, diagnose with rigor, close with precision.",
-    "discipline1Title": "Education",
-    "discipline1Range": "Teaching · Curriculum · Learning Platforms",
-    "discipline1Body": "I am an ADEK-licensed teacher (Grades 1 through 12, American Curriculum) and Faculty Head for Model United Nations at my school. I design inquiry-based, standards-aligned lessons that meet Irtiqa'a expectations, differentiate for ELLs and gifted learners, and translate curriculum into something students actually engage with. I also build learning platforms that compress weeks of administrative work into minutes.",
-    "discipline2Title": "Systems Architecture",
-    "discipline2Range": "Custom builds · SaaS platforms · Operational systems",
-    "discipline2Body": "I architect production-grade software for schools, businesses, and institutions. Property management platforms managing 400+ units for paying clients. Educational platforms with 390+ interactive activities. MUN operating systems with AI-powered assessments. Each shipped, in use, built alone. The work is Next.js, React, TypeScript, Prisma, PostgreSQL, deployed on Vercel. The discipline is philosopher's rigor applied to a codebase.",
-    "discipline3Title": "Leadership & Operations",
-    "discipline3Range": "ISO standards · Team leadership · Operational excellence",
-    "discipline3Body": "I have run operations under ISO 9001 and ISO 45001. I have led teams in education, telecom, and child-focused facilities. I have been the highest-performing sales executive across multiple KPIs at Etisalat, and introduced the Net Promoter Score framework that drove it. I bring operational discipline to every engagement, whether the deliverable is software, a curriculum, or a strategic consultation.",
-    "capabilitiesLabel": "Capabilities",
-    "proofLabel": "Proof of work"
+    "eyebrow": "Практика",
+    "title": "Три дисциплины,",
+    "titleItalic": "один метод.",
+    "intro": "Большинство специалистов сосредоточены на одном ремесле. Я целое десятилетие сознательно работал в трёх разных областях. Дисциплины различны. Метод единый: восприятие разрыва, диагностика с ригорностью, закрытие с точностью.",
+    "discipline1Title": "Образование",
+    "discipline1Range": "Преподавание · Учебные программы · Образовательные платформы",
+    "discipline1Body": "Я являюсь преподавателем, имеющим лицензию ADEK (классы 1-12, американская программа), и руководителем факультета Model United Nations в моей школе. Я разрабатываю уроки на основе исследования, соответствующие стандартам и отвечающие ожиданиям Irtiqa'a, адаптирую их для учащихся с ELL и одарённых детей, и преобразовываю учебную программу в то, с чем ученики действительно взаимодействуют. Я также создаю образовательные платформы, которые сокращают недели административной работы до минут.",
+    "discipline2Title": "Архитектура систем",
+    "discipline2Range": "Индивидуальные разработки · SaaS-платформы · Операционные системы",
+    "discipline2Body": "Я проектирую программное обеспечение производственного уровня для школ, бизнеса и учреждений. Платформы управления недвижимостью, обслуживающие 400+ объектов для платящих клиентов. Образовательные платформы с 390+ интерактивными активностями. Операционные системы MUN с оценками на базе искусственного интеллекта. Каждый проект запущен, используется и создан в одиночку. Технологический стек: Next.js, React, TypeScript, Prisma, PostgreSQL, развёртывание на Vercel. Дисциплина — это философская строгость, применённая к кодовой базе.",
+    "discipline3Title": "Лидерство и операции",
+    "discipline3Range": "Стандарты ISO · Командное лидерство · Операционное совершенство",
+    "discipline3Body": "Я управлял операциями в соответствии с ISO 9001 и ISO 45001. Я возглавлял команды в сфере образования, телекоммуникаций и учреждений, ориентированных на детей. Я был лучшим по продажам специалистом в Etisalat по множеству KPI и внедрил систему Net Promoter Score, которая обеспечила этот рост. Я привношу операционную дисциплину в каждое сотрудничество, будь то поставляемое программное обеспечение, учебная программа или стратегическая консультация.",
+    "capabilitiesLabel": "Компетенции",
+    "proofLabel": "Подтверждение компетенций"
   },
   "library": {
-    "eyebrow": "The Library · Original Works",
-    "title": "Original curriculum,",
-    "titleItalic": "built bilingual.",
-    "intro": "I am working toward the polymath ideal of our ancestors: a teacher who can build the curriculum, not just deliver it. This library is the proof. The first four guides cover Mathematics, Grades 1 to 4, in English and Arabic. Grades 5 to 12 are in production. More subjects will follow.",
-    "downloadPdf": "Download PDF",
-    "free": "Free",
-    "pages": "pp",
-    "units": "units",
-    "modules": "modules",
-    "comingSoon": "Grades 5 to 12 in production",
-    "comingSoonBody": "Mathematics is the first subject. The complete Grade 1 to 12 series will be released as it is finalized. Additional subjects, including science, philosophy for young learners, and critical thinking, will follow the same bilingual format.",
-    "requestAccess": "Request early access",
-    "subtitle": "A Bilingual Learning Guide for Absolute Beginners"
+    "eyebrow": "Библиотека · Оригинальные труды",
+    "title": "Оригинальная учебная программа,",
+    "titleItalic": "созданная двуязычной.",
+    "intro": "Я стремлюсь к идеалу полимата наших предков: учителю, способному не только преподносить, но и создавать учебную программу. Эта библиотека тому доказательство. Перв четыре руководства охватывают Математику, 1-4 классы, на английском и арабском языках. Материалы для 5-12 классов находятся в разработке. В дальнейшем появятся и другие предметы.",
+    "downloadPdf": "Скачать PDF",
+    "free": "Бесплатно",
+    "pages": "стр.",
+    "units": "единицы",
+    "modules": "модули",
+    "comingSoon": "Материалы для 5-12 классов в разработке",
+    "comingSoonBody": "Математика — первый предмет. Полная серия с 1 по 12 класс будет выпущена по мере завершения работы. Дополнительные предметы, включая науку, философию для юных учеников и критическое мышление, последуют в том же двуязычном формате.",
+    "requestAccess": "Запросить ранний доступ",
+    "subtitle": "Двуязычное руководство для абсолютных новичков"
   },
   "work": {
-    "eyebrow": "Selected Work",
-    "title": "The Workshop.",
-    "titleItalic": "Four domains, one method.",
-    "intro": "Each domain below is a separate practice with its own case studies, methodology, and proof of work. Together they form the studio's portfolio of production-grade systems.",
-    "tabProjects": "Projects",
-    "tabEducation": "Education",
-    "tabRealEstate": "Real Estate",
-    "tabFinance": "Finance",
-    "tabProjectsDesc": "General systems and platforms built for institutions across the UAE and beyond.",
-    "tabEducationDesc": "Educational platforms, curriculum, and learning systems.",
-    "tabRealEstateDesc": "Property management platforms for UAE landlords and portfolio operators.",
-    "tabFinanceDesc": "A radical new financial operations command center for multi-branch businesses.",
-    "visitSite": "Visit live site",
-    "stack": "Stack",
-    "features": "Features",
-    "category": "Category",
-    "metric": "Metric"
+    "eyebrow": "Избранные работы",
+    "title": "Мастерская.",
+    "titleItalic": "Четыре области, один метод.",
+    "intro": "Каждая из представленных ниже областей — это отдельная практика со своими кейсами, методологией и подтверждением эффективности. Вместе они формируют портфелио студии по созданию промышленных систем.",
+    "tabProjects": "Проекты",
+    "tabEducation": "Образование",
+    "tabRealEstate": "Недвижимость",
+    "tabFinance": "Финансы",
+    "tabProjectsDesc": "Общие системы и платформы, разработанные для учреждений в ОАЭ и за их пределами.",
+    "tabEducationDesc": "Образовательные платформы, учебные программы и системы обучения.",
+    "tabRealEstateDesc": "Платформы для управления недвижимостью для арендодателей и операторов портфелей в ОАЭ.",
+    "tabFinanceDesc": "Революционный новый центр управления финансовыми операциями для предприятий с множеством филиалов.",
+    "visitSite": "Перейти на сайт",
+    "stack": "Стек технологий",
+    "features": "Функции",
+    "category": "Категория",
+    "metric": "Метрика"
   },
   "method": {
     "eyebrow": "The Method",

@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Frontispice",
-    "studio": "À propos",
+    "studio": "À Propos",
     "disciplines": "Disciplines",
     "library": "La Bibliothèque",
     "work": "Œuvre",
@@ -11,75 +11,177 @@
     "begin": "Commencer"
   },
   "hero": {
-    "eyebrow": "Éducateur · Architecte de systèmes · Professionnel du leadership et de la gestion",
+    "eyebrow": "Éducateur · Architecte de systèmes · Professionnel en leadership et en gestion",
     "name": "Ahmed Ali",
-    "subtitle": "Je construis des systèmes, je façonne les esprits et j'encadre des équipes.",
-    "body": "Aristote l'appelait phronesis : la sagesse pratique pour percevoir l'écart entre ce qui est et ce qui devrait être, et pour le combler avec habileté. J'apporte cette discipline à trois métiers. En éducation, j'enseigne et je conçois des systèmes d'apprentissage. En logiciel, j'architecte des plateformes de production pour les écoles, les entreprises et les institutions. En leadership, j'aide les opérations et les équipes à fonctionner avec précision. Chacun est disponible en tant qu'engagement personnalisé, une consultation structurée ou un tutorat ciblé.",
+    "subtitle": "Je construis des systèmes, je façonne des esprits et j'encadre des équipes.",
+    "body": "Aristote l'a appelé phronesis : la sagesse pratique pour percevoir l'écart entre ce qui est et ce qui devrait être, et pour le combler avec maîtrise. J'apporte cette discipline à trois domaines. En éducation, j'enseigne et je conçois des systèmes d'apprentissage. En informatique, j'architecte des plateformes de production pour des écoles, des entreprises et des institutions. En leadership, j'aide les opérations et les équipes à fonctionner avec précision. Chacun est disponible sous la forme d'une collaboration sur mesure, d'une consultation structurée ou d'un tutorat ciblé.",
     "ctaPrimary": "Commencer une conversation",
-    "ctaSecondary": "Voir les œuvres sélectionnées",
-    "footnote": "Quatre plateformes de production en ligne. Une décennie dans les salles de classe, les opérations et le code. Disponible pour des engagements sélectifs.",
+    "ctaSecondary": "Voir une sélection des réalisations",
+    "footnote": "Quatre plateformes de production en ligne. Une décennie dans les salles de classe, les opérations et le code. Disponible pour des collaborations sélectives.",
     "location": "Al Ain · Émirats Arabes Unis",
     "enterPrompt": "Entrer"
   },
   "thesis": {
     "eyebrow": "La Thèse",
-    "lead": "Chaque institution présente un écart entre ce qu'elle est et ce qu'elle pourrait être. Une école qui enseigne bien mais ne peut mesurer ses résultats. Une entreprise qui sert ses clients mais perd de l'argent à cause d'inefficacités cachées. Une équipe qui travaille dur mais manque de systèmes pour devenir plus forte avec le temps. L'écart existe dans chaque organisation. La question est de savoir si quelqu'un peut le voir clairement, le nommer honnêtement et le combler avec soin.",
-    "body1": "Je ne suis pas un développeur qui enseigne par hasard, ni un enseignant qui code par hasard. Je suis un philosophe qui a passé des années à apprendre à repérer les écarts dans les systèmes, les flux de travail, les salles de classe, les personnes, et à les combler avec précision.",
-    "body2": "Les Grecs avaient un mot pour cela. Phronesis : sagesse pratique, la vertu de percevoir l'action juste au bon moment. Ce n'est pas une théorie. Ce n'est pas une technique. C'est la capacité formée à regarder une réalité complexe et à voir ce qui manque.",
-    "body3": "Je travaille dans trois disciplines. L'éducation, où j'enseigne et je construis des plateformes d'apprentissage. Le logiciel, où je livre des systèmes de production pour de vrais clients. Le leadership et les opérations, où j'aide les équipes et les processus à fonctionner avec intention. Chaque engagement est adapté à l'écart en question.",
-    "pillar1Title": "Repérer l'écart",
-    "pillar1Body": "Avant toute construction, toute classe, toute consultation, j'analyse la situation jusqu'à ce que je voie ce que les autres ont cessé de remarquer. Le tableau que personne ne fait confiance. Le cours qui ne passe jamais. L'équipe qui travaille dur sans système pour capitaliser ses efforts. L'écart est toujours là. La plupart des professionnels ne cherchent jamais.",
+    "lead": "Toute institution présente un écart entre ce qu'elle est et ce qu'elle pourrait être.\n\nUne école peut dispenser un enseignement excellent tout en éprouvant des difficultés à mesurer son impact.\nUne entreprise peut servir ses clients de manière satisfaisante tout en perdant de la valeur à cause d'inefficacités invisibles, de données fragmentées et de décisions piégées dans des feuilles de calcul, des fils de discussion et la mémoire institutionnelle.\nUne équipe peut travailler sans relâche mais manquer des systèmes nécessaires pour devenir plus forte avec le temps.\n\nCes écarts sont universels. Ils existent dans chaque organisation, quelle que soit sa taille, son secteur ou sa mission. La vraie question est de savoir si quelqu'un peut les reconnaître avec clarté, les définir avec honnêteté et les combler avec discipline et soin.",
+    "body1": "Je ne suis pas un développeur qui enseigne par hasard, ni un professeur qui code par hasard. Je suis un philosophe qui a passé des années à apprendre à voir les failles dans les systèmes, les flux de travail, les salles de classe, les personnes, et à les combler avec précision.",
+    "body2": "Les Grecs avaient un mot pour cela. La phronesis : la sagesse pratique, la vertu de percevoir l'action juste au bon moment. Ce n'est pas une théorie. Ce n'est pas une technique. C'est la capacité formée à regarder une réalité désordonnée et à voir ce qui manque.",
+    "body3": "Je travaille dans trois disciplines. L'éducation, où j'enseigne et je construis des plateformes d'apprentissage. Le logiciel, où je livre des systèmes de production pour de vrais clients. Le leadership et les opérations, où j'aide les équipes et les processus à fonctionner avec intention. Chaque mission est adaptée à la faille en question.",
+    "pillar1Title": "Percevoir l'écart",
+    "pillar1Body": "Avant toute construction, toute classe, toute consultation, je m'imprègne de la situation jusqu'à voir ce que les autres ont cessé de remarquer. La feuille de calcul dont personne ne se fie. Le cours qui ne passe jamais. L'équipe qui travaille dur sans système pour amplifier ses efforts. L'écart est toujours là. La plupart des professionnels ne le cherchent jamais.",
     "pillar2Title": "Diagnostiquer avec rigueur",
-    "pillar2Body": "Un écart n'est pas une demande. Je cartographie les acteurs, les incitations, les modes de défaillance, le cadre de conformité, les flux de données. Je refuse d'agir sur un mauvais diagnostic. La discipline du philosophe appliquée à une salle de classe, une base de code, ou à l'anatomie d'une opération.",
+    "pillar2Body": "Un écart n'est pas une demande. Je cartographie les acteurs, les incitations, les modes de défaillance, le cadre de conformité, les flux de données. Je refuse d'agir sur un mauvais diagnostic. La discipline du philosophe appliquée à une salle de classe, une base de code ou à l'anatomie d'une opération.",
     "pillar3Title": "Combler avec précision",
-    "pillar3Body": "Le bon système, le bon curriculum, le bon rythme de fonctionnement. Livré en semaines, pas en trimestres. De qualité production dès le premier jour. Construit pour durer au-delà de l'engagement, et pour renforcer l'institution qui l'a commandé."
+    "pillar3Body": "Le bon système, le bon programme, le bon rythme de fonctionnement. Livré en semaines, pas en trimestres. De qualité production dès le premier jour. Construit pour durer au-delà de la mission et pour renforcer l'institution qui l'a commandée.",
+    "leadSegments": [
+      {
+        "text": "Toute institution a un ",
+        "color": "default"
+      },
+      {
+        "text": "écart",
+        "color": "gold"
+      },
+      {
+        "text": " entre ce qu'elle est et ce qu'elle pourrait être.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Une école peut dispenser un enseignement excellent tout en éprouvant des difficultés à ",
+        "color": "default"
+      },
+      {
+        "text": "mesurer son impact",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Une entreprise peut servir ses clients de manière satisfaisante tout en ",
+        "color": "default"
+      },
+      {
+        "text": "perdre de la valeur à cause d'inefficacités invisibles",
+        "color": "teal"
+      },
+      {
+        "text": ", de données fragmentées et de décisions piégées dans des feuilles de calcul, des fils de discussion et la mémoire institutionnelle.",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Une équipe peut travailler sans relâche mais manquer des ",
+        "color": "default"
+      },
+      {
+        "text": "systèmes nécessaires pour devenir plus forte",
+        "color": "teal"
+      },
+      {
+        "text": " avec le temps.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Ces écarts sont ",
+        "color": "default"
+      },
+      {
+        "text": "universels",
+        "color": "gold"
+      },
+      {
+        "text": ". Ils existent dans chaque organisation, quelle que soit sa taille, son secteur ou sa mission. La vraie question est de savoir si quelqu'un peut les reconnaître avec ",
+        "color": "default"
+      },
+      {
+        "text": "clarté",
+        "color": "teal"
+      },
+      {
+        "text": ", les définir avec ",
+        "color": "default"
+      },
+      {
+        "text": "honnêteté",
+        "color": "teal"
+      },
+      {
+        "text": ", et les combler avec ",
+        "color": "default"
+      },
+      {
+        "text": "discipline et soin",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
     "eyebrow": "La Pratique",
     "title": "Trois disciplines,",
     "titleItalic": "une méthode.",
-    "intro": "La plupart des professionnels se spécialisent dans un métier. J'ai passé une décade à travailler délibérément dans trois domaines. Les disciplines sont différentes. La méthode est la même : percevoir l'écart, diagnostiquer avec rigueur, combler avec précision.",
+    "intro": "La plupart des professionnels se spécialisent dans un seul domaine. J'ai passé une décade à travailler délibérément à travers trois d'entre eux. Les disciplines sont différentes. La méthode est la même : percevoir l'écart, diagnostiquer avec rigueur, combler avec précision.",
     "discipline1Title": "Éducation",
     "discipline1Range": "Enseignement · Curriculum · Plateformes d'apprentissage",
-    "discipline1Body": "Je suis enseignant agréé par l'ADEK (Grades 1 à 12, Curriculum Américain) et Chef de Faculté pour les Nations Unies à mon école. Je conçois des leçons basées sur l'enquête, alignées sur les standards, qui répondent aux attentes d'Irtiqa'a, différencient pour les ELL et les élèves doués, et traduisent le curriculum en quelque chose que les élèves s'engagent réellement. Je construis aussi des plateformes d'apprentissage qui comparent des semaines de travail administratif en minutes.",
-    "discipline2Title": "Architecture de systèmes",
-    "discipline2Range": "Constructions personnalisées · Plateformes SaaS · Systèmes opérationnels",
-    "discipline2Body": "J'architecte des logiciels de production pour les écoles, les entreprises et les institutions. Des plateformes de gestion immobilière gérant 400+ unités pour des clients payants. Des plateformes éducatives avec 390+ activités interactives. Des systèmes de fonctionnement MUN avec des évaluations alimentées par IA. Chacune expédiée, en usage, construite seule. Le travail est Next.js, React, TypeScript, Prisma, PostgreSQL, déployé sur Vercel. La discipline est la rigueur du philosophe appliquée à une base de code.",
-    "discipline3Title": "Leadership et Opérations",
-    "discipline3Range": "Standards ISO · Leadership d'équipe · Excellence opérationnelle",
-    "discipline3Body": "J'ai géré des opérations sous ISO 9001 et ISO 45001. J'ai mené des équipes dans l'éducation, les télécommunications et les installations axées sur l'enfant. J'ai été le directeur des ventes le plus performant sur plusieurs KPI chez Etisalat, et j'ai introduit le cadre Net Promoter Score qui l'a propulsé. J'apporte la discipline opérationnelle à chaque engagement, que le livrable soit un logiciel, un curriculum ou une consultation stratégique.",
-    "capabilitiesLabel": "Capacités",
-    "proofLabel": "Preuve de travail"
+    "discipline1Body": "Je suis un enseignant agréé par l'ADEK (de la 1ère à la 12ème année, programme américain) et Responsable du programme des Nations Unies dans mon établissement. Je conçois des leçons basées sur l'enquête et alignées sur les normes, qui répondent aux attentes d'Irtiqa'a, qui sont différenciées pour les élèves allophones et les élèves doués, et qui transforment le programme en quelque chose avec lequel les élèves s'impliquent réellement. Je construis également des plateformes d'apprentissage qui compressent des semaines de travail administratif en quelques minutes.",
+    "discipline2Title": "Architecture des systèmes",
+    "discipline2Range": "Développements sur mesure · Plateformes SaaS · Systèmes opérationnels",
+    "discipline2Body": "J'architecte des logiciels de production pour les écoles, les entreprises et les institutions. Des plateformes de gestion immobilière gérant plus de 400 unités pour des clients payants. Des plateformes éducatives avec plus de 390 activités interactives. Des systèmes de fonctionnement de MUN avec des évaluations alimentées par l'IA. Chaque projet est livré, en service, construit seul. Le travail repose sur Next.js, React, TypeScript, Prisma, PostgreSQL, déployé sur Vercel. La discipline est la rigueur du philosophe appliquée à une base de code.",
+    "discipline3Title": "Leadership & Opérations",
+    "discipline3Range": "Normes ISO · Leadership d'équipe · Excellence opérationnelle",
+    "discipline3Body": "J'ai dirigé des opérations conformes aux normes ISO 9001 et ISO 45001. J'ai mené des équipes dans les domaines de l'éducation, des télécommunications et des installations axées sur l'enfance. J'ai été le meilleur commercial d'Etisalat selon plusieurs indicateurs clés de performance (KPI), et j'ai introduit le cadre du Net Promoter Score qui a propulsé cette performance. J'apporte une discipline opérationnelle à chaque engagement, que la prestation soit un logiciel, un curriculum ou une consultation stratégique.",
+    "capabilitiesLabel": "Compétences",
+    "proofLabel": "Preuves du travail"
   },
   "library": {
     "eyebrow": "La Bibliothèque · Œuvres Originales",
-    "title": "Curriculum original,",
+    "title": "Programme d'origine,",
     "titleItalic": "construit bilingue.",
-    "intro": "Je travaille vers l'idéal de polymathie de nos ancêtres : un enseignant qui peut construire le curriculum, pas seulement le livrer. Cette bibliothèque est la preuve. Les quatre premiers guides couvrent les Mathématiques, Grades 1 à 4, en anglais et en arabe. Les Grades 5 à 12 sont en production. D'autres matières suivront.",
-    "downloadPdf": "Télécharger PDF",
+    "intro": "Je travaille vers l'idéal de polymathie de nos ancêtres : un enseignant capable de construire le programme, et non seulement de le dispenser. Cette bibliothèque en est la preuve. Les quatre premiers guides couvrent les Mathématiques, des classes 1 à 4, en anglais et en arabe. Les classes 5 à 12 sont en cours de production. D'autres matières suivront.",
+    "downloadPdf": "Télécharger le PDF",
     "free": "Gratuit",
     "pages": "pp",
     "units": "unités",
     "modules": "modules",
-    "comingSoon": "Grades 5 à 12 en production",
-    "comingSoonBody": "Les Mathématiques sont la première matière. La série complète Grade 1 à 12 sera publiée une fois finalisée. D'autres matières, dont les sciences, la philosophie pour jeunes apprenants et la pensée critique, suivront le même format bilingue.",
+    "comingSoon": "Classes 5 à 12 en production",
+    "comingSoonBody": "Les Mathématiques sont la première matière. La série complète des classes 1 à 12 sera publiée dès sa finalisation. D'autres matières, notamment les sciences, la philosophie pour les jeunes apprenants et la pensée critique, suivront le même format bilingue.",
     "requestAccess": "Demander un accès anticipé",
-    "subtitle": "Un Guide d'Apprentissage Bilingue pour Absolument Débutants"
+    "subtitle": "Un Guide d'Apprentissage Bilingue pour les Absolus Débutants"
   },
   "work": {
-    "eyebrow": "Œuvre Sélectionnée",
+    "eyebrow": "Œuvres sélectionnées",
     "title": "L'Atelier.",
     "titleItalic": "Quatre domaines, une méthode.",
-    "intro": "Chaque domaine ci-dessous est une pratique distincte avec ses propres études de cas, méthodologie et preuve de travail. Ensemble, ils forment le portfolio du studio de systèmes de production.",
+    "intro": "Chaque domaine ci-dessous est une pratique distincte avec ses propres études de cas, méthodologie et preuves de travail. Ensemble, ils forment le portfolio de systèmes de production du studio.",
     "tabProjects": "Projets",
     "tabEducation": "Éducation",
     "tabRealEstate": "Immobilier",
     "tabFinance": "Finance",
-    "tabProjectsDesc": "Systèmes et plateformes généraux construits pour des institutions aux EAU et au-delà.",
-    "tabEducationDesc": "Plateformes éducatives, curriculum et systèmes d'apprentissage.",
-    "tabRealEstateDesc": "Plateformes de gestion immobilière pour propriétaires et opérateurs de portefeuille aux EAU.",
-    "tabFinanceDesc": "Un tout nouveau centre de commandement d'opérations financières pour entreprises multi-succursales.",
-    "visitSite": "Visiter le site en direct",
+    "tabProjectsDesc": "Systèmes et plateformes généraux construits pour des institutions à travers les Émirats arabes unis et au-delà.",
+    "tabEducationDesc": "Plateformes éducatives, programmes d'études et systèmes d'apprentissage.",
+    "tabRealEstateDesc": "Plateformes de gestion immobilière pour les propriétaires et les gestionnaires de portefeuilles des Émirats arabes unis.",
+    "tabFinanceDesc": "Un centre de commandement radical pour les opérations financières destiné aux entreprises multi-succursales.",
+    "visitSite": "Visiter le site en ligne",
     "stack": "Pile technologique",
     "features": "Fonctionnalités",
     "category": "Catégorie",
