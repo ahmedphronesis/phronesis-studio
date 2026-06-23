@@ -52,7 +52,7 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute right-0 mt-2 w-56 max-h-[70vh] overflow-y-auto rounded-2xl bg-paper-warm border border-border shadow-xl z-50 p-2"
+            className="fixed left-4 right-4 top-20 md:absolute md:left-auto md:right-0 md:top-auto md:mt-2 md:w-56 md:max-h-[70vh] max-h-[60vh] overflow-y-auto rounded-2xl bg-paper-warm border border-border shadow-xl z-[100] p-2"
           >
             <p className="text-[10px] uppercase tracking-[0.2em] text-ink-dim px-3 py-2 font-mono">
               {t("label")}

@@ -13,6 +13,15 @@ export function Thesis() {
     { n: "III", title: t("pillar3Title"), body: t("pillar3Body") },
   ];
 
+  // Get the lead segments for colored rendering
+  // Falls back to plain text if segments aren't available (non-English locales)
+  let leadSegments: { text: string; color: string }[] | null = null;
+  try {
+    leadSegments = t.raw("leadSegments") as { text: string; color: string }[];
+  } catch {
+    leadSegments = null;
+  }
+
   return (
     <section id="thesis" className="relative py-32 md:py-44 overflow-hidden">
       <div
@@ -34,10 +43,49 @@ export function Thesis() {
 
         <Reveal delay={0.05}>
           <p
-            className="display text-ink leading-[1.1] body-serif-italic"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", maxWidth: "100%" }}
+            className="display text-ink leading-[1.3] body-serif-italic"
+            style={{ fontSize: "clamp(1.6rem, 3.8vw, 3.2rem)", maxWidth: "100%" }}
           >
-            {t("lead")}
+            {leadSegments ? (
+              leadSegments.map((seg, i) => {
+                if (seg.text.includes("\n")) {
+                  // Handle newlines
+                  const parts = seg.text.split("\n");
+                  return (
+                    <span key={i}>
+                      {parts.map((part, j) => (
+                        <span key={j}>
+                          {part && (
+                            <span style={{
+                              color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
+                              fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
+                              fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
+                            }}>
+                              {part}
+                            </span>
+                          )}
+                          {j < parts.length - 1 && <br />}
+                        </span>
+                      ))}
+                    </span>
+                  );
+                }
+                return (
+                  <span
+                    key={i}
+                    style={{
+                      color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
+                      fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
+                      fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
+                    }}
+                  >
+                    {seg.text}
+                  </span>
+                );
+              })
+            ) : (
+              t("lead")
+            )}
           </p>
         </Reveal>
 
