@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Frontispício",
-    "studio": "O Estúdio",
+    "studio": "Sobre",
     "disciplines": "Disciplinas",
     "library": "A Biblioteca",
     "work": "Trabalho",
@@ -156,5 +156,214 @@
   "language": {
     "label": "Língua",
     "select": "Selecionar língua"
+  },
+  "about": {
+    "eyebrow": "The Studio",
+    "title": "About",
+    "titleItalic": "Ahmed Ali.",
+    "intro": "Educator, systems architect, and leadership and management professional. A philosopher by training, a teacher by license, a builder by craft. Below is the full record.",
+    "tabProfile": "Profile",
+    "tabProfileDesc": "The philosopher-educator narrative",
+    "tabExperience": "Experience",
+    "tabExperienceDesc": "8+ years across education, operations, telecom, and academia",
+    "tabEducation": "Education",
+    "tabEducationDesc": "Degrees, certifications, and professional credentials",
+    "tabInitiatives": "Initiatives",
+    "tabInitiativesDesc": "Leadership projects and community work",
+    "tabSkills": "Skills",
+    "tabSkillsDesc": "Core competencies, languages, and IT skills",
+    "profileTitle": "A philosopher who teaches, builds, and leads.",
+    "profileBody1": "As a Licensed UAE Educator and ADEK-Approved Moral, Social, and Cultural Studies and Islamic Education Teacher for Non-Arabic Speakers, I view teaching as a human art, a space where intellect, ethics, and empathy meet. My passion lies in guiding learners to think critically, act responsibly, and see knowledge not as information, but as a path to self-understanding and global awareness.",
+    "profileBody2": "Before entering education, I worked extensively in leadership, management, and business development, experiences that strengthened my ability to connect with people, organize effectively, and lead with purpose. These transferable skills now inform my teaching, helping me create structured, inclusive, and motivating learning environments that value every student's voice.",
+    "profileBody3": "Rooted in a background in philosophy and the humanities, I believe that education should awaken both the mind and the conscience. My goal is to cultivate in students the harmony between thought and action, the same harmony I continue to seek as an educator, learner, and human being.",
+    "profileSummary": "High-impact Operations Leader and Department Coordinator with 8+ years of progressive experience driving operational excellence, revenue growth, and team performance across Academia, Retail, Contact Centers, Telecommunications, and Family Entertainment sectors in the UAE, UK, and Egypt. Proven track record of achieving 21% year-one revenue growth, securing rapid successive promotions, and introducing performance frameworks that became organizational benchmarks. Experienced Internal Auditor (ISO 9001 and ISO 45001) with expertise in compliance, process optimization, and multi-site operations. Currently leading Non-Arabic Studies as Head of Department, overseeing curriculum delivery, staff coordination, and quality assurance across Grades 1 to 12. Bilingual in Arabic (native) and English (Academic IELTS Band 7), with strong cross-cultural leadership capabilities suited to diverse international markets.",
+    "profileTeachingExpertise": "ADEK-approved Social Studies and Islamic Education teacher with demonstrated expertise across Grades 1 to 12 in the American Curriculum. Skilled in inquiry-driven lesson design, effective differentiation for ELLs and gifted learners, and both in-class and distance learning delivery. Experienced in leading Model United Nations programmes, integrating educational technology platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy), and fostering critical thinking, cultural literacy, and global citizenship. Holds a valid UAE Teaching License and Academic IELTS Band 7.",
+    "experienceLabel": "Work Experience",
+    "exp1Role": "MSC Studies and Islamic Education B Teacher and Section Leader",
+    "exp1Org": "Ain Al Khaleej Private School, American Division, UAE",
+    "exp1Date": "Sep 2025 to Present",
+    "exp1Body": "Oversee the Non-Arabic Studies department, managing MSC Studies, Arabic B, and Islamic Education B delivery for non-Arabic speakers across Grades 1 to 12, ensuring alignment with ADEK and Irtiqa'a quality standards. Lead curriculum design, lesson planning, and differentiated instruction strategies for diverse learner profiles including ELLs and gifted students. Appointed Faculty Head for Model United Nations (MUN) programme (2025/2026 and 2026/2027).",
+    "exp1Bullets": [
+      "Oversee Non-Arabic Studies department across Grades 1 to 12",
+      "Faculty Head for Model United Nations programme 2025/2026 and 2026/2027",
+      "Champion educational technology: HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy",
+      "Pioneered expert-level distance and blended learning delivery",
+      "Manage parent communication and stakeholder engagement"
+    ],
+    "exp2Role": "Branch Operations Manager",
+    "exp2Org": "Cheeky Monkeys Playland LLC, UAE",
+    "exp2Date": "May 2024 to Sep 2025",
+    "exp2Body": "Achieved 15% revenue growth in the first year despite a decline in footfall. Earned four rapid promotions, three salary increments, and early completion of probation within one year. Oversaw daily operations of a 1,700 sqm child-focused facility, directing a cross-functional team of 12.",
+    "exp2Bullets": [
+      "15% revenue growth in year one despite footfall decline",
+      "Four rapid promotions and three salary increments in one year",
+      "Directed 12-person team across 1,700 sqm facility",
+      "Certified Internal Auditor: ISO 9001 and ISO 45001 compliance",
+      "Negotiated vendor partnerships to reduce operational costs"
+    ],
+    "exp3Role": "Sales Executive and Duty Manager",
+    "exp3Org": "e& Etisalat UAE, Al Ain Mall Branch",
+    "exp3Date": "Jul 2022 to Jun 2024",
+    "exp3Body": "Ranked as the highest-performing executive in 2023 at Al Ain Mall Branch. Introduced Net Promoter Score (NPS) to Etisalat branch operations, and personally designed and led the first internal training sessions. Frequently selected to serve as Acting Duty Manager.",
+    "exp3Bullets": [
+      "Highest-performing executive in 2023 at Al Ain Mall Branch",
+      "Introduced Net Promoter Score (NPS) framework to Etisalat operations",
+      "Designed and led first internal customer satisfaction training",
+      "Frequently served as Acting Duty Manager",
+      "Certifications: Frontline for Retail Sales (2022), Mastering Sales Excellence (2024)"
+    ],
+    "exp4Role": "International Account Advisor",
+    "exp4Org": "Vodafone UK, Remote",
+    "exp4Date": "Mar 2019 to Jul 2022",
+    "exp4Body": "Managed a high-volume portfolio of UK-based customer accounts, delivering exceptional service in telecom product support, billing inquiries, and complex issue resolution. Provided peer mentoring and training to new team members.",
+    "exp4Bullets": [
+      "Managed high-volume UK customer account portfolio",
+      "Peer mentoring and training for new team members",
+      "Consistently met SLAs and performance targets",
+      "Adapted communication across diverse cultural contexts",
+      "Strengthened time management in target-driven environment"
+    ],
+    "exp5Role": "Team Leader",
+    "exp5Org": "FEED, Alexandria, Egypt",
+    "exp5Date": "Feb 2017 to Feb 2019",
+    "exp5Body": "Led multiple divisions including Natural Products, Sports, Plants, Carpentry, Translation, and Public Relations within a community permaculture initiative. Managed and mentored a diverse team of volunteers.",
+    "exp5Bullets": [
+      "Led 6 divisions: Natural Products, Sports, Plants, Carpentry, Translation, PR",
+      "Managed and mentored diverse volunteer teams",
+      "Developed sustainability and environmental education programmes",
+      "Oversaw public relations and community outreach",
+      "Conducted performance evaluations and coaching"
+    ],
+    "exp6Role": "Research Assistant and Translator",
+    "exp6Org": "Emory University (with Dr. Rahimjon Abdugafurov)",
+    "exp6Date": "2017",
+    "exp6Body": "Transcribed and analyzed historical manuscripts in Islamic Civilization with a focus on philosophical and theological contexts. Produced English to Arabic translations of academic works for use in bilingual educational settings.",
+    "exp6Bullets": [
+      "Transcribed historical manuscripts in Islamic Civilization",
+      "Analyzed philosophical and theological contexts",
+      "Produced English to Arabic academic translations",
+      "Contributed scholarly material for bilingual education"
+    ],
+    "educationLabel": "Education",
+    "edu1Degree": "Postgraduate Diploma in Education",
+    "edu1Institution": "Faculty of Education, Al-Azhar University",
+    "edu1Date": "Sep 2024 to Sep 2025",
+    "edu1Body": "One-year teacher preparation program with a focus on educational psychology, curriculum development, pedagogy, and effective instructional methods applicable to diverse subjects and learners.",
+    "edu2Degree": "Bachelor's Degree in Philosophy",
+    "edu2Institution": "Faculty of Arts, Alexandria University, Egypt",
+    "edu2Date": "Sep 2016 to May 2021",
+    "edu2Body": "Focused on logic, ethics, epistemology, metaphysics, education, psychology, and critical thinking. Developed strong analytical, research, academic, and teaching-relevant skills.",
+    "certificationsLabel": "Certifications",
+    "certs": [
+      {
+        "name": "Certified Professional Teaching License (Social Studies, Cycle 3)",
+        "issuer": "UAE MoE",
+        "date": "Valid until Feb 2029"
+      },
+      {
+        "name": "IELTS Academic Band 7",
+        "issuer": "British Council",
+        "date": "Valid until Aug 2027"
+      },
+      {
+        "name": "AI for Educators (Level 1)",
+        "issuer": "Teachy",
+        "date": "Oct 2025"
+      },
+      {
+        "name": "Network Fundamentals and Network Security",
+        "issuer": "Mahara Tech and MCIT, Egypt",
+        "date": "Jun 2025"
+      },
+      {
+        "name": "Certified Advanced Person-in-Charge (PIC)",
+        "issuer": "Dubai Municipality",
+        "date": "May 2025"
+      },
+      {
+        "name": "Fire Warden Training (Level 2)",
+        "issuer": "Dubai Civil Defence",
+        "date": "Valid until Aug 2026"
+      },
+      {
+        "name": "Mastering Sales Excellence",
+        "issuer": "e& Etisalat UAE",
+        "date": "Apr 2024"
+      },
+      {
+        "name": "Front Line for Retail Sales",
+        "issuer": "e& Etisalat UAE",
+        "date": "Aug 2022"
+      },
+      {
+        "name": "Verification of Manuscripts in Philosophy and Theology",
+        "issuer": "Bibliotheca Alexandrina",
+        "date": "Nov 2021"
+      },
+      {
+        "name": "Critical Thinking and Decision Making",
+        "issuer": "LinkedIn Learning",
+        "date": "Jul 2021"
+      }
+    ],
+    "initiativesLabel": "Leadership Initiatives and Projects",
+    "init1Title": "Echoes of Wisdom Podcast",
+    "init1Subtitle": "Creator and Host, 2026 to Present",
+    "init1Body": "Produces and hosts a podcast dedicated to promoting Philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences.",
+    "init2Title": "Educational Youth Club",
+    "init2Subtitle": "Co-Founder and Member, Bibliotheca Alexandrina, Oct 2013 to Dec 2018",
+    "init2Body": "Co-founded an educational youth club in partnership with Bibliotheca Alexandrina to promote environmental awareness, critical thinking, and community engagement among high school students. Participated in multiple student programmes including YESBU, LYM (League of Young Masters), and ALYM (African League of Young Masters).",
+    "init3Title": "Waste Segregation Initiative",
+    "init3Subtitle": "General Coordinator, Bibliotheca Alexandrina and Alexandria Governorate, Feb 2015 to Feb 2017",
+    "init3Body": "Managed logistics and outreach for a citywide environmental awareness initiative targeting youth and local schools, collaborating with local government and educators.",
+    "init4Title": "3rd Annual International Conference",
+    "init4Subtitle": "Co-Organiser, Department of Philosophy, Alexandria University, Nov 2017",
+    "init4Body": "Co-organised the international conference on philosophical reading, creativity, and critical criticism.",
+    "skillsLabel": "Core Competencies",
+    "skills": [
+      "Operations and Facility Management (Retail, Contact Center, Entertainment, Education)",
+      "Strategic Planning and Financial Forecasting",
+      "Sales Strategy, Revenue Growth and KPI Achievement",
+      "Team Leadership, Coaching and Performance Management",
+      "Safeguarding and Child Protection Awareness",
+      "ISO 9001 and ISO 45001 Compliance and Internal Audit",
+      "Curriculum Design and Academic Quality Assurance (ADEK, KHDA)",
+      "Client Acquisition, Retention and Stakeholder Management",
+      "Cross-Functional Collaboration and Change Management",
+      "Vendor Negotiation and Supply Chain Coordination",
+      "Educational Technology Integration and Digital Transformation",
+      "Differentiated Instruction and Inclusive Education Practices",
+      "Bilingual Communication: English (C1, IELTS 7) and Native Arabic"
+    ],
+    "languagesLabel": "Languages",
+    "languages": [
+      {
+        "name": "Arabic",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Fluent (C1, IELTS Band 7)"
+      },
+      {
+        "name": "Urdu",
+        "level": "Beginner"
+      },
+      {
+        "name": "Spanish",
+        "level": "Beginner"
+      }
+    ],
+    "affiliationsLabel": "Affiliations",
+    "affiliations": [
+      {
+        "name": "British Philosophical Association (BPA)",
+        "date": "2025 to Present"
+      }
+    ],
+    "itSkillsLabel": "IT Skills",
+    "itSkills": "CompTIA (A+, Network+, Linux+), Microsoft Office Suite, Google Workspace, Educational Technology Platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy)",
+    "sportsLabel": "Sports Coaching",
+    "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)"
   }
 }

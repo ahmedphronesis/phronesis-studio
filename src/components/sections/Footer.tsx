@@ -9,6 +9,7 @@ export function Footer() {
 
   const LINKS = [
     { href: "/", label: t("home") },
+    { href: "/about", label: t("studio") },
     { href: "/work", label: t("work") },
     { href: "/library", label: t("library") },
     { href: "/method", label: t("method") },

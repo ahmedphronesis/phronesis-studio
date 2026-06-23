@@ -75,3 +75,5 @@ server.log
 /skills/
 /examples/
 /mini-services/
+upload/
+tool-results/
