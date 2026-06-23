@@ -23,10 +23,7 @@ export function Nav() {
     { href: "/correspondence", label: t("correspondence") },
   ] as const;
 
-  // Anchor links on the home page
-  const ANCHOR_LINKS = [
-    { href: "/#vouches", label: t("vouches") },
-  ] as const;
+  // Vouches is accessible from the home page — no separate nav link needed
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -70,14 +67,14 @@ export function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-7 lg:gap-8">
           {LINKS.map((l) => {
             const isActive = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
             return (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`text-sm transition-colors ${
+                  className={`text-sm whitespace-nowrap transition-colors ${
                     isActive
                       ? "text-teal"
                       : "text-ink-soft hover:text-teal"
@@ -88,16 +85,6 @@ export function Nav() {
               </li>
             );
           })}
-          {ANCHOR_LINKS.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                className="text-sm text-ink-soft hover:text-teal transition-colors"
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
         </ul>
 
         {/* Right side: language + CTA */}
