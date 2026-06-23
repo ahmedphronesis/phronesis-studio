@@ -2,10 +2,21 @@
 
 import { Reveal, Stagger, FadeUp } from "../anim";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+
+// Colored segments only for English — selective emphasis, not random
+const EN_LEAD_SEGMENTS = [
+  { text: "Every institution has a ", color: "default" },
+  { text: "gap", color: "gold" },
+  { text: " between what it is and what it could be.\n\nA school may deliver excellent teaching yet struggle to measure its impact.\nA business may serve its customers well while losing value through unseen inefficiencies, fragmented data, and decisions trapped in spreadsheets, messaging threads, and institutional memory.\nA team may work tirelessly but lack the systems needed to grow stronger over time.\n\nThese gaps are universal. They exist in every organization, regardless of size, industry, or mission. The real question is whether someone can recognize them with clarity, define them with honesty, and close them with ", color: "default" },
+  { text: "discipline and care", color: "teal" },
+  { text: ".", color: "default" },
+];
 
 export function Thesis() {
   const t = useTranslations("thesis");
+  const locale = useLocale();
+  const isEnglish = locale === "en";
 
   const pillars = [
     { n: "I", title: t("pillar1Title"), body: t("pillar1Body") },
@@ -13,13 +24,47 @@ export function Thesis() {
     { n: "III", title: t("pillar3Title"), body: t("pillar3Body") },
   ];
 
-  // Get the lead segments for colored rendering
-  // Falls back to plain text if segments aren't available (non-English locales)
-  let leadSegments: { text: string; color: string }[] | null = null;
-  try {
-    leadSegments = t.raw("leadSegments") as { text: string; color: string }[];
-  } catch {
-    leadSegments = null;
+  function renderLead() {
+    // For English: render with selective colored highlights
+    if (isEnglish) {
+      return EN_LEAD_SEGMENTS.map((seg, i) => {
+        if (seg.text.includes("\n")) {
+          const parts = seg.text.split("\n");
+          return (
+            <span key={i}>
+              {parts.map((part, j) => (
+                <span key={j}>
+                  {part && (
+                    <span style={{
+                      color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
+                      fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
+                      fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
+                    }}>
+                      {part}
+                    </span>
+                  )}
+                  {j < parts.length - 1 && <br />}
+                </span>
+              ))}
+            </span>
+          );
+        }
+        return (
+          <span
+            key={i}
+            style={{
+              color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
+              fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
+              fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
+            }}
+          >
+            {seg.text}
+          </span>
+        );
+      });
+    }
+    // For all other languages: render the translated lead text, no coloring
+    return t("lead");
   }
 
   return (
@@ -46,46 +91,7 @@ export function Thesis() {
             className="display text-ink leading-[1.3] body-serif-italic"
             style={{ fontSize: "clamp(1.6rem, 3.8vw, 3.2rem)", maxWidth: "100%" }}
           >
-            {leadSegments ? (
-              leadSegments.map((seg, i) => {
-                if (seg.text.includes("\n")) {
-                  // Handle newlines
-                  const parts = seg.text.split("\n");
-                  return (
-                    <span key={i}>
-                      {parts.map((part, j) => (
-                        <span key={j}>
-                          {part && (
-                            <span style={{
-                              color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
-                              fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
-                              fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
-                            }}>
-                              {part}
-                            </span>
-                          )}
-                          {j < parts.length - 1 && <br />}
-                        </span>
-                      ))}
-                    </span>
-                  );
-                }
-                return (
-                  <span
-                    key={i}
-                    style={{
-                      color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
-                      fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
-                      fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
-                    }}
-                  >
-                    {seg.text}
-                  </span>
-                );
-              })
-            ) : (
-              t("lead")
-            )}
+            {renderLead()}
           </p>
         </Reveal>
 

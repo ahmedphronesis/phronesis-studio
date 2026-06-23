@@ -32,29 +32,7 @@
     "pillar2Title": "Diagnose with rigor",
     "pillar2Body": "A gap is not a request. I map the actors, the incentives, the failure modes, the compliance envelope, the data flows. I refuse to act on a misdiagnosis. The philosopher's discipline applied to a classroom, a codebase, or an operation's anatomy.",
     "pillar3Title": "Close with precision",
-    "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it.",
-    "leadSegments": [
-      {
-        "text": "Every institution has a ",
-        "color": "default"
-      },
-      {
-        "text": "gap",
-        "color": "gold"
-      },
-      {
-        "text": " between what it is and what it could be.\n\nA school may deliver excellent teaching yet struggle to measure its impact.\nA business may serve its customers well while losing value through unseen inefficiencies, fragmented data, and decisions trapped in spreadsheets, messaging threads, and institutional memory.\nA team may work tirelessly but lack the systems needed to grow stronger over time.\n\nThese gaps are universal. They exist in every organization, regardless of size, industry, or mission. The real question is whether someone can recognize them with clarity, define them with honesty, and close them with ",
-        "color": "default"
-      },
-      {
-        "text": "discipline and care",
-        "color": "teal"
-      },
-      {
-        "text": ".",
-        "color": "default"
-      }
-    ]
+    "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it."
   },
   "practice": {
     "eyebrow": "The Practice",
