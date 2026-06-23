@@ -17,6 +17,7 @@ export function Nav() {
     { href: "/", label: t("home") },
     { href: "/about", label: t("studio") },
     { href: "/work", label: t("work") },
+    { href: "/echoes", label: t("echoes") },
     { href: "/library", label: t("library") },
     { href: "/method", label: t("method") },
     { href: "/correspondence", label: t("correspondence") },

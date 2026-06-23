@@ -9,7 +9,8 @@
     "engagements": "همکاری‌ها",
     "correspondence": "مکاتبات",
     "begin": "شروع",
-    "vouches": "Vouches"
+    "vouches": "Vouches",
+    "echoes": "Echoes"
   },
   "hero": {
     "eyebrow": "آموزگار · معمار سیستم‌ها · متخصص رهبری و مدیریت",
@@ -702,5 +703,17 @@
         "file": "/references/Recommendation - Bibliotheca Alexandrina - Ahmed Ali.pdf"
       }
     ]
+  },
+  "echoes": {
+    "eyebrow": "The Cultural Flagship",
+    "title": "Echoes of",
+    "titleItalic": "Wisdom.",
+    "intro": "A bilingual philosophy podcast bridging academic thought and public discourse. Eight episodes exploring ethics, logic, epistemology, and the questions that shape our world. Written and presented in both English and Arabic.",
+    "episode": "Episode",
+    "season": "Season",
+    "writtenBy": "Written and presented by Ahmed Ali",
+    "readEpisode": "Read episode",
+    "readArabic": "Read in Arabic",
+    "readEnglish": "Read in English"
   }
 }
