@@ -31,11 +31,9 @@ PROJECT_DIR = '/home/z/my-project'
 EN_PATH = f'{PROJECT_DIR}/src/messages/en.json'
 LOCALE_PATH = f'{PROJECT_DIR}/src/messages/{LOCALE}.json'
 
-# Load English source
 with open(EN_PATH, 'r') as f:
     en = json.load(f)
 
-# Load existing locale file
 with open(LOCALE_PATH, 'r') as f:
     existing = json.load(f)
 
@@ -62,29 +60,45 @@ Source JSON:
 
 Return the {NAME} translation:"""
 
-    try:
-        result = subprocess.run(
-            ['timeout', '120', 'z-ai', 'chat', '-m', 'glm-4.6', '-p', prompt],
-            capture_output=True, text=True, timeout=130
-        )
-        output = result.stdout
+    for attempt in range(3):
+        try:
+            result = subprocess.run(
+                ['timeout', '180', 'z-ai', 'chat', '-m', 'glm-4.6', '-p', prompt],
+                capture_output=True, text=True, timeout=190
+            )
+            output = result.stdout
 
-        # Extract content from CLI response
-        match = re.search(r'"content":\s*"([\s\S]*?)",\s*"role"', output)
-        if not match:
-            return None
+            # Extract content from CLI response
+            match = re.search(r'"content":\s*"([\s\S]*?)",\s*"role"', output)
+            if not match:
+                if attempt < 2:
+                    time.sleep(10)
+                    continue
+                return None
 
-        content = match.group(1).replace('\\n', '\n').replace('\\"', '"').replace("\\'", "'")
+            # Properly unescape using json.loads
+            raw_content = match.group(1)
+            content = json.loads('"' + raw_content + '"')
 
-        # Extract JSON from content
-        json_match = re.search(r'\{[\s\S]*\}', content)
-        if not json_match:
-            return None
+            # Remove markdown fences if present
+            content = content.strip()
+            if content.startswith('```'):
+                content = re.sub(r'^```(?:json)?\s*\n?', '', content)
+                content = re.sub(r'\s*```$', '', content)
 
-        return json.loads(json_match.group(0))
-    except Exception as e:
-        print(f"    Error: {e}")
-        return None
+            # Parse as JSON
+            json_match = re.search(r'\{[\s\S]*\}', content)
+            if json_match:
+                return json.loads(json_match.group(0))
+
+            if attempt < 2:
+                time.sleep(10)
+        except Exception as e:
+            if attempt < 2:
+                time.sleep(10)
+            else:
+                print(f"    Error: {e}")
+    return None
 
 print(f"\n=== Full translation to {NAME} ({LOCALE}) ===")
 start_time = time.time()
@@ -104,7 +118,6 @@ for section in SECTIONS:
     translated = translate_json(section_json, section)
     if translated:
         existing[section] = translated
-        # Save after each section
         with open(LOCALE_PATH, 'w') as f:
             json.dump(existing, f, indent=2, ensure_ascii=False)
             f.write('\n')
@@ -112,7 +125,7 @@ for section in SECTIONS:
     else:
         print("✗ (using existing/fallback)")
 
-    time.sleep(3)
+    time.sleep(5)
 
 elapsed = round(time.time() - start_time)
 print(f"\n✓ Complete ({elapsed}s)")

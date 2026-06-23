@@ -4,7 +4,7 @@
     "studio": "Acerca de",
     "disciplines": "Disciplinas",
     "library": "La Biblioteca",
-    "work": "Trabajo",
+    "work": "Trabajos",
     "method": "Método",
     "engagements": "Compromisos",
     "correspondence": "Correspondencia",
@@ -14,36 +14,36 @@
     "eyebrow": "Educador · Arquitecto de Sistemas · Profesional en Liderazgo y Gestión",
     "name": "Ahmed Ali",
     "subtitle": "Construyo sistemas, formo mentes y lidero equipos.",
-    "body": "Aristóteles lo llamó frónesis: la sabiduría práctica para percibir la brecha entre lo que es y lo que debería ser, y cerrarla bien. Llevo esa disciplina a tres oficios. En educación, enseño y diseño sistemas de aprendizaje. En software, arquitecto plataformas de producción para escuelas, empresas e instituciones. En liderazgo, ayudo a que las operaciones y los equipos funcionen con precisión. Cada uno está disponible como un compromiso personalizado, una consulta estructurada o tutoría enfocada.",
+    "body": "Aristóteles lo denominó frónesis: la sabiduría práctica para percibir la brecha entre lo que es y lo que debería ser, y cerrarla eficazmente. Llevo esa disciplina a tres oficios. En la educación, enseño y diseño sistemas de aprendizaje. En el software, arquitecto plataformas de producción para escuelas, empresas e instituciones. En el liderazgo, ayudo a las operaciones y equipos a funcionar con precisión. Cada uno está disponible como un proyecto personalizado, una consulta estructurada o tutorías enfocadas.",
     "ctaPrimary": "Iniciar una conversación",
     "ctaSecondary": "Ver trabajos seleccionados",
-    "footnote": "Cuatro plataformas de producción en funcionamiento. Una década en aulas, operaciones y código. Disponible para compromisos selectivos.",
+    "footnote": "Cuatro plataformas de producción en funcionamiento. Una década en aulas, operaciones y código. Disponible para proyectos selectivos.",
     "location": "Al Ain · EAU",
     "enterPrompt": "Entrar"
   },
   "thesis": {
     "eyebrow": "La Tesis",
-    "lead": "Cada institución tiene un vacío entre lo que es y lo que podría ser.\n\nUna escuela puede impartir una enseñanza excelente pero luchar por medir su impacto.\nUna empresa puede servir bien a sus clientes mientras pierde valor a través de ineficiencias no vistas, datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de mensajería y memoria institucional.\nUn equipo puede trabajar incansablemente pero carecer de los sistemas necesarios para fortalecerse con el tiempo.\n\nEstos vacíos son universales. Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlos con claridad, definirlos con honestidad y cerrarlos con disciplina y cuidado.",
-    "body1": "No soy un desarrollador que por casualidad enseña, ni un profesor que por casualidad programa. Soy un filósofo que ha pasado años aprendiendo a ver vacíos en sistemas, flujos de trabajo, aulas, personas y a cerrarlos con precisión.",
-    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento adecuado. No es teoría. No es técnica. Es la capacidad entrenada para mirar una realidad desordenada y ver lo que falta.",
-    "body3": "Trabajo en tres disciplinas. Educación, donde enseño y construyo plataformas de aprendizaje. Software, donde implemento sistemas de producción para clientes reales. Liderazgo y operaciones, donde ayudo a equipos y procesos a funcionar con intención. Cada compromiso se adapta al vacío en cuestión.",
-    "pillar1Title": "Percepción del vacío",
-    "pillar1Body": "Antes de cualquier construcción, clase o consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca llega. El equipo que trabaja duro sin un sistema para multiplicar sus esfuerzos. El vacío siempre está ahí. La mayoría de los profesionales nunca buscan.",
+    "lead": "Toda institución presenta una brecha entre lo que es y lo que podría llegar a ser.\n\nUna escuela puede impartir una enseñanza excelente y, sin embargo, tener dificultades para medir su impacto.\nUna empresa puede atender bien a sus clientes, pero perder valor a través de ineficiencias no percibidas, datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de conversación y memoria institucional.\nUn equipo puede trabajar incansablemente, pero carecer de los sistemas necesarios para fortalecerse con el tiempo.\n\nEstas brechas son universales. Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlas con claridad, definirlas con honestidad y cerrarlas con disciplina y cuidado.",
+    "body1": "No soy un desarrollador que se dedica a enseñar, ni un docente que se dedica a programar. Soy un filósofo que ha pasado años aprendiendo a detectar brechas en sistemas, flujos de trabajo, aulas, personas y a cerrarlas con precisión.",
+    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento oportuno. No es teoría. No es una técnica. Es la capacidad entrenada para observar una realidad compleja y ver lo que falta.",
+    "body3": "Trabajo en tres disciplinas. La educación, donde imparto clases y construyo plataformas de aprendizaje. El software, donde desarrollo sistemas de producción para clientes reales. El liderazgo y las operaciones, donde ayudo a equipos y procesos a funcionar con intención. Cada proyecto se adapta a la brecha específica que se debe abordar.",
+    "pillar1Title": "Percepción de la brecha",
+    "pillar1Body": "Antes de construir, impartir clase o realizar una consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca cala. El equipo que trabaja duro sin un sistema que potencie sus esfuerzos. La brecha siempre está ahí. La mayoría de los profesionales nunca la buscan.",
     "pillar2Title": "Diagnóstico riguroso",
-    "pillar2Body": "Un vacío no es una petición. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento, los flujos de datos. Me niego a actuar sobre un diagnóstico erróneo. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
-    "pillar3Title": "Cierre con precisión",
-    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Implementado en semanas, no en trimestres. De grado de producción desde el primer día. Construido para sobrevivir al compromiso y fortalecer la institución que lo encargó.",
+    "pillar2Body": "Una brecha no es una petición. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento y los flujos de datos. Me niego a actuar sobre un diagnóstico erróneo. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
+    "pillar3Title": "Cierre preciso",
+    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Desarrollado en semanas, no en trimestres. De grado de producción desde el primer día. Construido para sobrevivir al proyecto y para fortalecer la institución que lo encargó.",
     "leadSegments": [
       {
-        "text": "Cada institución tiene un ",
+        "text": "Toda institución tiene una ",
         "color": "default"
       },
       {
-        "text": "vacío",
+        "text": "brecha",
         "color": "gold"
       },
       {
-        "text": " entre lo que es y lo que podría ser.",
+        "text": " entre lo que es y lo que podría llegar a ser.",
         "color": "default"
       },
       {
@@ -51,7 +51,7 @@
         "color": "default"
       },
       {
-        "text": "Una escuela puede impartir una enseñanza excelente pero luchar por ",
+        "text": "Una escuela puede impartir una enseñanza excelente y, sin embargo, tener dificultades para ",
         "color": "default"
       },
       {
@@ -67,15 +67,15 @@
         "color": "default"
       },
       {
-        "text": "Una empresa puede servir bien a sus clientes mientras ",
+        "text": "Una empresa puede atender bien a sus clientes, pero ",
         "color": "default"
       },
       {
-        "text": "pierde valor a través de ineficiencias no vistas",
+        "text": "perder valor a través de ineficiencias no percibidas",
         "color": "teal"
       },
       {
-        "text": ", datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de mensajería y memoria institucional.",
+        "text": ", datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de conversación y memoria institucional.",
         "color": "default"
       },
       {
@@ -83,7 +83,7 @@
         "color": "default"
       },
       {
-        "text": "Un equipo puede trabajar incansablemente pero carecer de los ",
+        "text": "Un equipo puede trabajar incansablemente, pero carecer de los ",
         "color": "default"
       },
       {
@@ -99,7 +99,7 @@
         "color": "default"
       },
       {
-        "text": "Estos vacíos son ",
+        "text": "Estas brechas son ",
         "color": "default"
       },
       {
@@ -107,7 +107,7 @@
         "color": "gold"
       },
       {
-        "text": ". Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlos con ",
+        "text": ". Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlas con ",
         "color": "default"
       },
       {
@@ -115,7 +115,7 @@
         "color": "teal"
       },
       {
-        "text": ", definirlos con ",
+        "text": ", definirlas con ",
         "color": "default"
       },
       {
@@ -123,7 +123,7 @@
         "color": "teal"
       },
       {
-        "text": ", y cerrarlos con ",
+        "text": ", y cerrarlas con ",
         "color": "default"
       },
       {
@@ -143,13 +143,13 @@
     "intro": "La mayoría de los profesionales se especializan en un solo oficio. He pasado una década deliberadamente trabajando en tres. Las disciplinas son diferentes. El método es el mismo: percibir la brecha, diagnosticar con rigor y cerrar con precisión.",
     "discipline1Title": "Educación",
     "discipline1Range": "Enseñanza · Currículo · Plataformas de aprendizaje",
-    "discipline1Body": "Soy docente con licencia de ADEK (Grados 1 al 12, Currículo Americano) y Jefe de Facultad para las Naciones Unidas Modelo en mi escuela. Diseño lecciones basadas en la indagación, alineadas con los estándares, que cumplen con las expectativas de Irtiqa'a, diferencian para estudiantes de inglés como lengua extranjera y talentosos, y traducen el currículo en algo con lo que los estudiantes realmente se involucran. También construyo plataformas de aprendizaje que comprimen semanas de trabajo administrativo en minutos.",
+    "discipline1Body": "Soy docente con licencia de la ADEK (Grados 1 a 12, Currículo Americano) y Jefe de Facultad de las Naciones Unidas Modelo en mi escuela. Diseño clases basadas en la indagación y alineadas con los estándares que cumplen con las expectativas de Irtiqa'a, diferencio para estudiantes de inglés como lengua extranjera (ELL) y para alumnos con altas capacidades, y traduzco el currículo en algo con lo que los estudiantes realmente se comprometen. También construyo plataformas de aprendizaje que comprimen semanas de trabajo administrativo en minutos.",
     "discipline2Title": "Arquitectura de Sistemas",
-    "discipline2Range": "Construcciones personalizadas · Plataformas SaaS · Sistemas operativos",
-    "discipline2Body": "Arquitecto de software de grado de producción para escuelas, negocios e instituciones. Plataformas de gestión inmobiliaria que gestionan 400+ unidades para clientes de pago. Plataformas educativas con 390+ actividades interactivas. Sistemas operativos de Naciones Unidas Modelo con evaluaciones con IA. Cada uno enviado, en uso, construido solo. El trabajo es Next.js, React, TypeScript, Prisma, PostgreSQL, desplegado en Vercel. La disciplina es el rigor del filósofo aplicado a una base de código.",
+    "discipline2Range": "Desarrollos personalizados · Plataformas SaaS · Sistemas operativos",
+    "discipline2Body": "Arquitecto software de producción para escuelas, empresas e instituciones. Plataformas de gestión inmobiliaria que administran más de 400 unidades para clientes de pago. Plataformas educativas con más de 390 actividades interactivas. Sistemas operativos para MUN con evaluaciones con IA. Cada uno enviado, en uso, construido en solitario. El trabajo es Next.js, React, TypeScript, Prisma, PostgreSQL, desplegado en Vercel. La disciplina es la rigor filosófico aplicado a una base de código.",
     "discipline3Title": "Liderazgo y Operaciones",
-    "discipline3Range": "Estándares ISO · Liderazgo de equipo · Excelencia operativa",
-    "discipline3Body": "He gestionado operaciones bajo ISO 9001 e ISO 45001. He liderado equipos en educación, telecomunicaciones y instalaciones enfocadas en niños. He sido el ejecutivo de ventas con mejor rendimiento en múltiples KPI en Etisalat, e introduje el marco Net Promoter Score que impulsó su crecimiento. Llevo disciplina operativa a cada compromiso, ya sea el entregable sea software, un currículo o una consulta estratégica.",
+    "discipline3Range": "Estándares ISO · Liderazgo de equipos · Excelencia operativa",
+    "discipline3Body": "He dirigido operaciones bajo las normas ISO 9001 e ISO 45001. He liderado equipos en educación, telecomunicaciones y centros enfocados en la infancia. He sido el ejecutivo de ventas con mejor rendimiento en múltiples KPI en Etisalat, e introduje el marco de Net Promoter Score que impulsó su crecimiento. Llevo una disciplina operativa a cada proyecto, ya sea el resultado final un software, un currículo o una consulta estratégica.",
     "capabilitiesLabel": "Capacidades",
     "proofLabel": "Prueba del trabajo"
   },
@@ -157,32 +157,32 @@
     "eyebrow": "La Biblioteca · Obras Originales",
     "title": "Currículo original,",
     "titleItalic": "construido bilingüe.",
-    "intro": "Aspiro al ideal de polígloto de nuestros antepasados: un docente que puede construir el currículo, no solo impartirlo. Esta biblioteca es la prueba. Las primeras cuatro guías abarcan Matemáticas, de 1º a 4º grado, en inglés y árabe. Los grados 5º a 12º están en producción. Más asignaturas seguirán.",
+    "intro": "Aspiro al ideal de polígloto de nuestros antepasados: un docente capaz de elaborar el currículo, no solo de impartirlo. Esta biblioteca es la prueba. Las primeras cuatro guías abarcan Matemáticas, de 1º a 4º grado, en inglés y árabe. Los grados 5º a 12º están en producción. Más asignaturas seguirán.",
     "downloadPdf": "Descargar PDF",
     "free": "Gratis",
     "pages": "pp",
     "units": "unidades",
     "modules": "módulos",
     "comingSoon": "Grados 5º a 12º en producción",
-    "comingSoonBody": "Las Matemáticas son la primera asignatura. La serie completa de 1º a 12º grado se publicará a medida que se finalice. Otras asignaturas, incluyendo ciencias, filosofía para jóvenes estudiantes y pensamiento crítico, seguirán el mismo formato bilingüe.",
+    "comingSoonBody": "Las Matemáticas son la primera asignatura. La serie completa de 1º a 12º grado se publicará una vez finalizada. Otras asignaturas, incluyendo ciencias, filosofía para jóvenes estudiantes y pensamiento crítico, seguirán el mismo formato bilingüe.",
     "requestAccess": "Solicitar acceso anticipado",
-    "subtitle": "Una Guía de Aprendizaje Bilingüe para Principiantos Absolutos"
+    "subtitle": "Una guía de aprendizaje bilingüe para principiantes absolutos"
   },
   "work": {
-    "eyebrow": "Trabajo Seleccionado",
+    "eyebrow": "Trabajo seleccionado",
     "title": "El Taller.",
     "titleItalic": "Cuatro dominios, un método.",
-    "intro": "Cada dominio de abajo es una práctica separada con sus propios estudios de caso, metodología y prueba de trabajo. Juntos forman el portafolio del estudio de sistemas de producción.",
+    "intro": "Cada dominio de abajo es una práctica independiente con sus propios casos de estudio, metodología y prueba de trabajo. En conjunto, forman el portafolio del estudio de sistemas de grado de producción.",
     "tabProjects": "Proyectos",
     "tabEducation": "Educación",
     "tabRealEstate": "Bienes Raíces",
     "tabFinance": "Finanzas",
     "tabProjectsDesc": "Sistemas y plataformas generales construidas para instituciones en los EAU y más allá.",
-    "tabEducationDesc": "Plataformas educativas, currículo y sistemas de aprendizaje.",
-    "tabRealEstateDesc": "Plataformas de gestión de propiedades para arrendatarios y operadores de carteras de los EAU.",
-    "tabFinanceDesc": "Un nuevo centro de comando radical para operaciones financieras para empresas con múltiples sucursales.",
-    "visitSite": "Visitar sitio en vivo",
-    "stack": "Tecnología",
+    "tabEducationDesc": "Plataformas educativas, currículos y sistemas de aprendizaje.",
+    "tabRealEstateDesc": "Plataformas de gestión de propiedades para propietarios y operadores de carteras de los EAU.",
+    "tabFinanceDesc": "Un nuevo y revolucionario centro de operaciones financieras para empresas con múltiples sucursales.",
+    "visitSite": "Visitar el sitio en vivo",
+    "stack": "Tecnologías",
     "features": "Características",
     "category": "Categoría",
     "metric": "Métrica"
