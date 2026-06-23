@@ -11,43 +11,145 @@
     "begin": "Comenzar"
   },
   "hero": {
-    "eyebrow": "Educador · Arquitecto de Sistemas · Profesional de Liderazgo y Gestión",
+    "eyebrow": "Educador · Arquitecto de Sistemas · Profesional en Liderazgo y Gestión",
     "name": "Ahmed Ali",
     "subtitle": "Construyo sistemas, formo mentes y lidero equipos.",
-    "body": "Aristóteles lo llamó frónesis: la sabiduría práctica para percibir la brecha entre lo que es y lo que debería ser, y cerrarla bien. Llevo esa disciplina a tres oficios. En educación, enseño y diseño sistemas de aprendizaje. En software, arquitecto plataformas de producción para escuelas, empresas e instituciones. En liderazgo, ayudo a operaciones y equipos a funcionar con precisión. Cada uno está disponible como un compromiso personalizado, una consulta estructurada o tutoría enfocada.",
+    "body": "Aristóteles lo llamó frónesis: la sabiduría práctica para percibir la brecha entre lo que es y lo que debería ser, y cerrarla adecuadamente. Llevo esa disciplina a tres oficios. En educación, enseño y diseño sistemas de aprendizaje. En software, arquitecto plataformas de producción para escuelas, empresas e instituciones. En liderazgo, ayudo a que las operaciones y los equipos funcionen con precisión. Cada uno está disponible como un proyecto personalizado, una consulta estructurada o tutorías enfocadas.",
     "ctaPrimary": "Comenzar una conversación",
     "ctaSecondary": "Ver trabajos seleccionados",
-    "footnote": "Cuatro plataformas de producción en funcionamiento. Una década aulas, operaciones y código. Disponible para compromisos selectivos.",
+    "footnote": "Cuatro plataformas de producción en funcionamiento. Una década en aulas, operaciones y código. Disponible para proyectos selectivos.",
     "location": "Al Ain · EAU",
     "enterPrompt": "Entrar"
   },
   "thesis": {
     "eyebrow": "La Tesis",
-    "lead": "Cada institución tiene una brecha entre lo que es y lo que podría ser. Una escuela que enseña bien pero no puede medir sus resultados. Un negocio que atiende a los clientes pero pierde dinero por ineficiencias ocultas. Un equipo que trabaja duro pero carece de sistemas para fortalecerse con el tiempo. La brecha existe en toda organización. La pregunta es si alguien puede verla con claridad, nombrarla honestamente y cerrarla con cuidado.",
-    "body1": "No soy un desarrollador que enseña por casualidad, ni un profesor que programa por casualidad. Soy un filósofo que ha pasado años aprendiendo a ver las brechas en sistemas, flujos de trabajo, aulas, personas y a cerrarlas con precisión.",
-    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento adecuado. No es teoría. No es técnica. Es la capacidad entrenada para observar una realidad desordenada y ver lo que falta.",
-    "body3": "Trabajo en tres disciplinas. Educación, donde enseño y construyo plataformas de aprendizaje. Software, donde implemento sistemas de producción para clientes reales. Liderazgo y operaciones, donde ayudo a equipos y procesos a funcionar con intención. Cada proyecto se adapta a la brecha específica.",
+    "lead": "Toda institución tiene una brecha entre lo que es y lo que podría ser.\n\nUna escuela puede impartir una enseñanza excelente pero luchar por medir su impacto.\nUna empresa puede servir bien a sus clientes mientras pierde valor a través de ineficiencias no vistas, datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de mensajería y memoria institucional.\nUn equipo puede trabajar incansablemente pero carecer de los sistemas necesarios para fortalecerse con el tiempo.\n\nEstas brechas son universales. Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlas con claridad, definirlas con honestidad y cerrarlas con disciplina y cuidado.",
+    "body1": "No soy un desarrollador que por casualidad enseña, ni un profesor que por casualidad programa. Soy un filósofo que ha pasado años aprendiendo a ver las brechas en sistemas, flujos de trabajo, aulas, personas y a cerrarlas con precisión.",
+    "body2": "Los griegos tenían una palabra para esto. Frónesis: sabiduría práctica, la virtud de percibir la acción correcta en el momento oportuno. No es teoría. No es técnica. Es la capacidad entrenada para observar una realidad desordenada y ver lo que falta.",
+    "body3": "Trabajo en tres disciplinas. Educación, donde enseño y construyo plataformas de aprendizaje. Software, donde implemento sistemas de producción para clientes reales. Liderazgo y operaciones, donde ayudo a los equipos y procesos a funcionar con intención. Cada compromiso se adapta a la brecha de que se trate.",
     "pillar1Title": "Percepción de la brecha",
-    "pillar1Body": "Antes de cualquier construcción, clase o consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca llega. El equipo que trabaja duro sin un sistema para multiplicar su esfuerzo. La brecha siempre está ahí. La mayoría de los profesionales nunca buscan activamente.",
+    "pillar1Body": "Antes de cualquier construcción, clase o consulta, me siento con la situación hasta ver lo que otros han dejado de notar. La hoja de cálculo en la que nadie confía. La lección que nunca llega. El equipo que trabaja duro sin un sistema para multiplicar sus esfuerzos. La brecha siempre está ahí. La mayoría de los profesionales nunca buscan.",
     "pillar2Title": "Diagnóstico riguroso",
-    "pillar2Body": "Una brecha no es una petición. Mapeo los actores, los incentivos, los modos de fallo, el marco de cumplimiento y los flujos de datos. Me niego a actuar sobre un diagnóstico erróneo. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
-    "pillar3Title": "Cierre preciso",
-    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Implementado en semanas, no trimestres. De grado de producción desde el primer día. Construido para sobrevivir al proyecto y fortalecer la institución que lo encargó."
+    "pillar2Body": "Una brecha no es una petición. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento, los flujos de datos. Me niego a actuar sobre un diagnóstico erróneo. La disciplina del filósofo aplicada a un aula, una base de código o la anatomía de una operación.",
+    "pillar3Title": "Cierre con precisión",
+    "pillar3Body": "El sistema adecuado, el currículo adecuado, el ritmo operativo adecuado. Implementado en semanas, no en trimestres. De grado de producción desde el primer día. Construido para sobrevivir al compromiso y fortalecer la institución que lo encargó.",
+    "leadSegments": [
+      {
+        "text": "Toda institución tiene una ",
+        "color": "default"
+      },
+      {
+        "text": "brecha",
+        "color": "gold"
+      },
+      {
+        "text": " entre lo que es y lo que podría ser.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Una escuela puede impartir una enseñanza excelente pero luchar por ",
+        "color": "default"
+      },
+      {
+        "text": "medir su impacto",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Una empresa puede servir bien a sus clientes mientras ",
+        "color": "default"
+      },
+      {
+        "text": "pierde valor a través de ineficiencias no vistas",
+        "color": "teal"
+      },
+      {
+        "text": ", datos fragmentados y decisiones atrapadas en hojas de cálculo, hilos de mensajería y memoria institucional.",
+        "color": "default"
+      },
+      {
+        "text": "\n",
+        "color": "default"
+      },
+      {
+        "text": "Un equipo puede trabajar incansablemente pero carecer de los ",
+        "color": "default"
+      },
+      {
+        "text": "sistemas necesarios para fortalecerse",
+        "color": "teal"
+      },
+      {
+        "text": " con el tiempo.",
+        "color": "default"
+      },
+      {
+        "text": "\n\n",
+        "color": "default"
+      },
+      {
+        "text": "Estas brechas son ",
+        "color": "default"
+      },
+      {
+        "text": "universales",
+        "color": "gold"
+      },
+      {
+        "text": ". Existen en toda organización, sin importar su tamaño, industria o misión. La verdadera pregunta es si alguien puede reconocerlas con ",
+        "color": "default"
+      },
+      {
+        "text": "claridad",
+        "color": "teal"
+      },
+      {
+        "text": ", definirlas con ",
+        "color": "default"
+      },
+      {
+        "text": "honestidad",
+        "color": "teal"
+      },
+      {
+        "text": ", y cerrarlas con ",
+        "color": "default"
+      },
+      {
+        "text": "disciplina y cuidado",
+        "color": "teal"
+      },
+      {
+        "text": ".",
+        "color": "default"
+      }
+    ]
   },
   "practice": {
     "eyebrow": "La Práctica",
     "title": "Tres disciplinas,",
     "titleItalic": "un método.",
-    "intro": "La mayoría de los profesionales se especializan en un oficio. He pasado una década deliberadamente trabajando en tres. Las disciplinas son diferentes. El método es el mismo: percibir la brecha, diagnosticar con rigor, cerrar con precisión.",
+    "intro": "La mayoría de los profesionales se especializan en un solo oficio. He pasado una década deliberadamente trabajando en tres. Las disciplinas son diferentes. El método es el mismo: percibir la brecha, diagnosticar con rigor y cerrar con precisión.",
     "discipline1Title": "Educación",
-    "discipline1Range": "Enseñanza · Currículo · Plataformas de Aprendizaje",
-    "discipline1Body": "Soy profesor con licencia de ADEK (Grados 1 a 12, Currículo Americano) y Jefe de Facultad para Naciones Unidas Modelo en mi escuela. Diseño lecciones basadas en la indagación, alineadas con estándares, que cumplen con las expectativas de Irtiqa'a, diferencian para estudiantes ELL y con capacidades excepcionales, y traducen el currículo en algo con lo que los estudiantes realmente se comprometen. También construyo plataformas de aprendizaje que comprimen semanas de trabajo administrativo en minutos.",
+    "discipline1Range": "Enseñanza · Currículo · Plataformas de aprendizaje",
+    "discipline1Body": "Soy docente con licencia de ADEK (Grados 1 a 12, Currículo Americano) y Jefe de Facultad para las Naciones Unidas Modelo en mi escuela. Diseño lecciones basadas en la indagación, alineadas con los estándares, que cumplen con las expectativas de Irtiqa'a, diferencian para estudiantes de inglés como lengua extranjera y para talentosos, y traducen el currículo en algo con lo que los estudiantes realmente se involucran. También construyo plataformas de aprendizaje que comprimen semanas de trabajo administrativo en minutos.",
     "discipline2Title": "Arquitectura de Sistemas",
-    "discipline2Range": "Construcciones personalizadas · Plataformas SaaS · Sistemas operativos",
-    "discipline2Body": "Arquitecto software de grado de producción para escuelas, empresas e instituciones. Plataformas de gestión de propiedades que administran 400+ unidades para clientes que pagan. Plataformas educativas con 390+ actividades interactivas. Sistemas operativos de Naciones Unidas Modelo con evaluaciones con IA. Cada uno enviado, en uso, construido solo. El trabajo es Next.js, React, TypeScript, Prisma, PostgreSQL, desplegado en Vercel. La disciplina es el rigor del filósofo aplicado a una base de código.",
+    "discipline2Range": "Desarrollos personalizados · Plataformas SaaS · Sistemas operativos",
+    "discipline2Body": "Arquitecto de software de producción para escuelas, empresas e instituciones. Plataformas de gestión inmobiliaria que administran 400+ unidades para clientes de pago. Plataformas educativas con 390+ actividades interactivas. Sistemas operativos para Naciones Unidas Modelo con evaluaciones con IA. Cada uno enviado, en uso, construido solo. El trabajo es Next.js, React, TypeScript, Prisma, PostgreSQL, desplegado en Vercel. La disciplina es el rigor del filósofo aplicado a una base de código.",
     "discipline3Title": "Liderazgo y Operaciones",
-    "discipline3Range": "Estándares ISO · Liderazgo de equipo · Excelencia operativa",
-    "discipline3Body": "He dirigido operaciones bajo ISO 9001 e ISO 45001. He liderado equipos en educación, telecomunicaciones y instalaciones enfocadas en niños. He sido el ejecutivo de ventas con mejor rendimiento en múltiples KPI en Etisalat, e introduje el marco Net Promoter Score que lo impulsó. Llevo disciplina operativa a cada compromiso, ya sea el entregable software, un currículo o una consulta estratégica.",
+    "discipline3Range": "Estándares ISO · Liderazgo de equipos · Excelencia operativa",
+    "discipline3Body": "He dirigido operaciones bajo ISO 9001 e ISO 45001. He liderado equipos en educación, telecomunicaciones y instalaciones enfocadas en niños. He sido el ejecutivo de ventas con mejor rendimiento en múltiples KPI en Etisalat, e introduje el marco Net Promoter Score que impulsó su crecimiento. Llevo disciplina operativa a cada compromiso, ya sea el entregable sea software, un currículo o una consulta estratégica.",
     "capabilitiesLabel": "Capacidades",
     "proofLabel": "Prueba del trabajo"
   },
@@ -55,22 +157,22 @@
     "eyebrow": "La Biblioteca · Obras Originales",
     "title": "Currículo original,",
     "titleItalic": "construido bilingüe.",
-    "intro": "Trabajo hacia el ideal de polímata de nuestros antepasados: un maestro que puede construir el currículo, no solo impartirlo. Esta biblioteca es la prueba. Las primeras cuatro guías cubren Matemáticas, Grados 1 a 4, en inglés y árabe. Los Grados 5 a 12 están en producción. Más materias seguirán.",
+    "intro": "Aspiro al ideal de polígloto de nuestros antepasados: un docente que puede construir el currículo, no solo impartirlo. Esta biblioteca es la prueba. Las primeras cuatro guías abarcan Matemáticas, de 1º a 4º grado, en inglés y árabe. Los grados 5º a 12º están en producción. Más asignaturas seguirán.",
     "downloadPdf": "Descargar PDF",
     "free": "Gratis",
     "pages": "pp",
     "units": "unidades",
     "modules": "módulos",
-    "comingSoon": "Grados 5 a 12 en producción",
-    "comingSoonBody": "Las Matemáticas son la primera materia. La serie completa de Grado 1 a 12 se lanzará a medida que se finalice. Materias adicionales, incluyendo ciencias, filosofía para jóvenes estudiantes y pensamiento crítico, seguirán el mismo formato bilingüe.",
+    "comingSoon": "Grados 5º a 12º en producción",
+    "comingSoonBody": "Las Matemáticas son la primera asignatura. La serie completa de 1º a 12º grado se publicará a medida que se finalice. Asignaturas adicionales, incluyendo ciencias, filosofía para jóvenes estudiantes y pensamiento crítico, seguirán el mismo formato bilingüe.",
     "requestAccess": "Solicitar acceso anticipado",
     "subtitle": "Una Guía de Aprendizaje Bilingüe para Principiantos Absolutos"
   },
   "work": {
-    "eyebrow": "Trabajo Seleccionado",
+    "eyebrow": "Trabajo seleccionado",
     "title": "El Taller.",
     "titleItalic": "Cuatro dominios, un método.",
-    "intro": "Cada dominio a continuación es una práctica separada con sus propios estudios de caso, metodología y prueba del trabajo. Juntos forman el portafolio del estudio de sistemas de grado de producción.",
+    "intro": "Cada dominio de abajo es una práctica separada con sus propios estudios de caso, metodología y prueba de trabajo. Juntos forman el portafolio del estudio de sistemas de producción.",
     "tabProjects": "Proyectos",
     "tabEducation": "Educación",
     "tabRealEstate": "Bienes Raíces",
@@ -78,7 +180,7 @@
     "tabProjectsDesc": "Sistemas y plataformas generales construidas para instituciones en los EAU y más allá.",
     "tabEducationDesc": "Plataformas educativas, currículo y sistemas de aprendizaje.",
     "tabRealEstateDesc": "Plataformas de gestión de propiedades para arrendatarios y operadores de carteras de los EAU.",
-    "tabFinanceDesc": "Un nuevo centro de mando radical para operaciones financieras para empresas con múltiples sucursales.",
+    "tabFinanceDesc": "Un nuevo radical centro de operaciones financieras para empresas con múltiples sucursales.",
     "visitSite": "Visitar sitio en vivo",
     "stack": "Tecnología",
     "features": "Características",
@@ -89,25 +191,25 @@
     "eyebrow": "El Método",
     "title": "Frónesis,",
     "titleItalic": "como un proceso.",
-    "intro": "Cuatro movimientos. La misma disciplina que Aristóteles describió, aplicada a un sistema en lugar de un alma. Ninguna de las cuatro puede omitirse. La mayoría de constructores omiten las primeras dos.",
-    "step1Title": "Percibir",
+    "intro": "Cuatro movimientos. La misma disciplina que Aristóteles describió, aplicada a un sistema en lugar de un alma. Ninguno de los cuatro puede omitirse. La mayoría de constructores omiten los primeros dos.",
+    "step1Title": "Percebir",
     "step1Subtitle": "El diagnóstico",
-    "step1Body": "Nos sentimos juntos. Observo cómo realmente sucede el trabajo, no cómo dice que lo hace el SOP. Hago las preguntas que nadie ha hecho: ¿por qué esto toma tres días? ¿por qué nadie confía en este número? ¿por qué pagas por software que no hace la única cosa que necesitas? La brecha se revela en el silencio después de cada pregunta.",
+    "step1Body": "Sentados juntos. Observo cómo realmente ocurre el trabajo, no cómo dice que ocurre el SOP. Hago preguntas que nadie ha hecho: ¿por qué esto toma tres días? ¿por qué nadie confía en este número? ¿por qué estás pagando por software que no hace la única cosa que necesitas? La brecha se revela en el silencio después de cada pregunta.",
     "step1Question": "¿Qué está realmente roto, que has dejado de notar?",
     "step1Duration": "Día 1 a 3",
     "step2Title": "Diagnosticar",
     "step2Subtitle": "La anatomía",
-    "step2Body": "Una brecha no es una solicitud de función. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento, los flujos de datos. Escribo un diagnóstico de una página que puedes llevar a tu junta. Me niego a construir sobre un mal diagnóstico. La mayoría de los proyectos de software fallan aquí, asesinados por constructores que nunca diagnosticaron.",
-    "step2Question": "¿Cuál es el sistema más pequeño que cierra esta brecha, y no más?",
+    "step2Body": "Una brecha no es una solicitud de característica. Mapeo los actores, los incentivos, los modos de fallo, el entorno de cumplimiento, los flujos de datos. Escribo un diagnóstico de una página que puedes llevar a tu junta. Me niego a construir sobre un mal diagnóstico. La mayoría de los proyectos de software fallados mueren aquí, eliminados por constructores que nunca diagnosticaron.",
+    "step2Question": "¿Cuál es el sistema más pequeño que cierra esta brecha, y nada más?",
     "step2Duration": "Día 4 a 7",
     "step3Title": "Cerrar",
     "step3Subtitle": "La construcción",
-    "step3Body": "De grado de producción desde el día uno. Copias de seguridad cifradas. Acceso basado en roles. Rastros de auditoría. Responsive móvil. Multiidioma cuando lo necesitas. Sin 'lo agregaremos en la v2'. Si se necesita, se envía en la v1. Trabajo en ciclos de dos semanas para que veas software real cada catorce días, no solo diapositivas.",
+    "step3Body": "De grado de producción desde el primer día. Copias de seguridad cifradas. Acceso basado en roles. Rastros de auditoría. Responsive para móviles. Multiidioma cuando lo necesites. Sin 'lo añadiremos en la v2'. Si es necesario, se envía en la v1. Trabajo en ciclos de dos semanas para que veas software real cada catorce días, no solo diapositivas.",
     "step3Question": "¿Qué puedo enviar en catorce días que demuestre que el diagnóstico era correcto?",
     "step3Duration": "Día 8 a 21",
     "step4Title": "Refinar",
     "step4Subtitle": "La asociación",
-    "step4Body": "Software que se envía y se olvida es software que se degrada. Me quedo, no como proveedor, como socio. La licencia anual incluye actualizaciones, parches de seguridad y la siguiente brecha que noto antes que tú. El contrato está estructurado para que mis incentivos se mantengan alineados con los tuyos: solo gano cuando el sistema sigue cerrando la brecha.",
+    "step4Body": "El software que se envía y se olvida es software que decae. Me quedo, no como proveedor, sino como socio. La licencia anual incluye actualizaciones, parches de seguridad y la siguiente brecha que noto antes que tú. El contrato está estructurado para que mis incentivos se mantengan alineados con los tuyos: solo gano cuando el sistema sigue cerrando la brecha.",
     "step4Question": "¿Cuál es la siguiente brecha que este sistema ahora está listo para absorber?",
     "step4Duration": "Año 1 y más allá",
     "theQuestion": "La pregunta"
@@ -116,33 +218,33 @@
     "eyebrow": "Comenzar",
     "title": "Dime qué brecha",
     "titleItalic": "necesita cerrarse.",
-    "intro": "Un párrafo es suficiente. Ya necesites una construcción personalizada, una consulta o tutoría, dime qué brecha necesita cerrarse. Leo cada mensaje personalmente y respondo en 48 horas.",
+    "intro": "Un párrafo es suficiente. Ya sea que necesites una construcción personalizada, una consulta o tutoría, dime qué brecha necesita cerrarse. Leo cada mensaje personalmente y respondo en un plazo de 48 horas.",
     "fieldName": "Tu nombre",
     "fieldEmail": "Correo electrónico",
     "fieldCompany": "Empresa / Institución (opcional)",
     "fieldGap": "La brecha que necesitas cerrar",
     "fieldBudget": "Rango de presupuesto (opcional)",
-    "fieldGapPlaceholder": "¿Qué está roto, repetido o hecho a mano que no debería ser? ¿Qué te cuesta, semanal o mensualmente, seguir haciéndolo así?",
-    "fieldBudgetPlaceholder": "Selecciona un rango, o omite si no estás seguro",
+    "fieldGapPlaceholder": "¿Qué está roto, repetido o hecho a mano que no debería serlo? ¿Qué te cuesta, semanal o mensualmente, seguir haciéndolo de esta manera?",
+    "fieldBudgetPlaceholder": "Selecciona un rango, o omítelo si no estás seguro",
     "budget1": "Menos de 15K AED",
     "budget2": "15K a 30K AED",
     "budget3": "30K a 60K AED",
     "budget4": "60K a 120K AED",
     "budget5": "120K+ AED",
-    "budget6": "Todavía no lo sé, hablemos",
+    "budget6": "Todavía no lo sé, hablemos de ello",
     "submit": "Enviar la consulta",
     "submitting": "Enviando",
     "submitted": "Consulta recibida",
     "preferEmail": "¿Prefieres correo electrónico?",
     "responseTimeLabel": "Tiempo de respuesta",
     "responseTime": "Dentro de 48 horas, personalmente. Sin respuestas automáticas, sin pipeline de ventas, sin SDR. Si tu brecha es urgente, menciónala en el mensaje.",
-    "engagementLabel": "Estructura del compromiso",
-    "engagementBody": "Las construcciones personalizadas comienzan en 8,000 AED con licencia anual más tarifa de configuración. La consulta es por hora o de alcance fijo, mínimo 90 minutos. La tutoría es por sesión, en persona o en línea. Cada compromiso comienza con una conversación.",
+    "engagementLabel": "Estructura de compromiso",
+    "engagementBody": "Las construcciones personalizadas comienzan en 8,000 AED con licencia anual más tarifa de configuración. La consulta es por hora o con alcance fijo, mínimo 90 minutos. La tutoría es por sesión, en persona o en línea. Todo compromiso comienza con una conversación.",
     "locationLabel": "Ubicación",
     "location": "Al Ain, Abu Dhabi, EAU",
     "linkedinLabel": "LinkedIn",
     "toastSuccess": "Consulta recibida.",
-    "toastSuccessDesc": "Leo cada mensaje personalmente. Espera una respuesta en 48 horas.",
+    "toastSuccessDesc": "Leo cada mensaje personalmente. Espera una respuesta en un plazo de 48 horas.",
     "toastError": "No se pudo enviar la consulta."
   },
   "footer": {
@@ -366,5 +468,295 @@
     "itSkills": "CompTIA (A+, Network+, Linux+), Microsoft Office Suite, Google Workspace, Educational Technology Platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy)",
     "sportsLabel": "Sports Coaching",
     "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)"
+  },
+  "workContent": {
+    "visitSite": "Visit live site",
+    "visitDemo": "Visit live demo",
+    "stack": "Stack",
+    "pillar": "Pillar",
+    "pillarOf": "Pillar {n}/{total}",
+    "replaces": "Replaces",
+    "projects": {
+      "p1": {
+        "name": "Real Estate Emperor",
+        "category": "Property Management SaaS",
+        "metricLabel": "units managed",
+        "description": "Cloud-based property management platform running in production for a paying client in Al Ain. Rent collection with payment allocation, per-building P&L, role-based access, multi-language.",
+        "features": [
+          "400+ units managed live",
+          "4 roles: owner, admin, accountant, staff",
+          "Multi-language: EN, AR, BN, UR",
+          "Automated daily backups with SHA-256"
+        ],
+        "stack": "Next.js 16 · React 19 · Prisma · PostgreSQL · Vercel"
+      },
+      "p2": {
+        "name": "MSCS Academy",
+        "category": "Educational Learning Platform",
+        "metricLabel": "activities",
+        "description": "Interactive learning platform for UAE Moral, Social & Cultural Studies, Grades 6 to 9. Standards-aligned, 130 lessons, 390+ activities.",
+        "features": [
+          "4 grades, 130 lessons",
+          "390+ interactive activities",
+          "UAE curriculum aligned",
+          "PDPL compliant"
+        ],
+        "stack": "Next.js · React · TypeScript · Tailwind · Vercel"
+      },
+      "p3": {
+        "name": "DiplomatiQ",
+        "category": "Model United Nations Platform",
+        "metricLabel": "competency framework",
+        "description": "The operating system for MUN programs. AI-powered diplomatic assessments, 8 immersive courses, 40+ lessons, conference management.",
+        "features": [
+          "7-tier AI competency framework",
+          "8 immersive courses",
+          "Conference management",
+          "AI research paper evaluation"
+        ],
+        "stack": "Next.js · React · TypeScript · AI · Vercel"
+      },
+      "p4": {
+        "name": "Echoes of Wisdom",
+        "category": "Philosophy Podcast · أصداء الحكمة",
+        "metricLabel": "ongoing broadcast",
+        "description": "Independent educational podcast promoting philosophy as accessible field of education. Bridges academic philosophy and public discourse.",
+        "features": [
+          "Bridges academic and public discourse",
+          "Ethics, logic, epistemology",
+          "Arabic & English",
+          "Cultural flagship of the studio"
+        ],
+        "stack": "Independent production · 2026 to present"
+      }
+    },
+    "education": {
+      "e1": {
+        "title": "MSCS Academy",
+        "subtitle": "Interactive Learning Platform · Grades 6 to 9",
+        "body": "A complete interactive learning platform for UAE Moral, Social & Cultural Studies. Four grades, 130 lessons, 390+ activities: quizzes, timelines, maps, drag-and-drop, KWL charts, Venn diagrams. Standards-aligned to the UAE MSCS curriculum. PDPL compliant. Child Digital Safety Law 26/2025 aligned. ADEK Irtiqa'a aligned. Built for my own teaching practice, then refined for general use.",
+        "stats": [
+          "4 grades",
+          "130 lessons",
+          "390+ activities",
+          "4 activity types"
+        ]
+      },
+      "e2": {
+        "title": "DiplomatiQ",
+        "subtitle": "MUN Operating System · UAE & GCC Schools",
+        "body": "The operating system for Model United Nations programs. AI-powered diplomatic assessments across a seven-tier progressive framework, from Basic Delegate to Secretary-General. Eight immersive courses, 40+ lessons. Conference management: registrations, committees, delegates, voting. AI-powered research paper evaluation with originality detection. Built for UAE and GCC schools.",
+        "stats": [
+          "7-tier framework",
+          "8 courses",
+          "40+ lessons",
+          "AI evaluation"
+        ]
+      },
+      "e3": {
+        "title": "Bilingual Mathematics Curriculum",
+        "subtitle": "Original Works · The Library",
+        "body": "A complete bilingual (English & Arabic) mathematics learning guide series, Grades 1 to 4 live, Grades 5 to 12 in production. Each guide: 21 to 31 pages, covering all units and modules per grade. From Zero to Ready-to-Teach. Built for absolute beginners, structured for classroom use, designed for the UAE's bilingual reality.",
+        "stats": [
+          "Grades 1 to 4 live",
+          "Grades 5 to 12 pending",
+          "21 to 31 pages each",
+          "Bilingual EN/AR"
+        ]
+      },
+      "e4": {
+        "title": "Echoes of Wisdom Podcast",
+        "subtitle": "أصداء الحكمة · Philosophy for the Public",
+        "body": "An independent educational podcast that promotes philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio.",
+        "stats": [
+          "Ongoing broadcast",
+          "Arabic & English",
+          "Independent",
+          "Cultural flagship"
+        ]
+      },
+      "e5": {
+        "title": "Ain Al Khaleej School",
+        "subtitle": "Current Teaching Role · Al Ain, UAE",
+        "body": "MSC Studies and Islamic Education Teacher at Ain Al Khaleej Private School, UAE. American Curriculum, Grades 1 to 12, ADEK-approved. Inquiry-based, standards-aligned lessons meeting ADEK and Irtiqa'a quality expectations. Differentiated instruction for ELLs and gifted learners. Faculty Head for Model United Nations program for 2025/2026 and 2026/2027 academic years.",
+        "stats": [
+          "Grades 1 to 12",
+          "American Curriculum",
+          "ADEK licensed",
+          "MUN Faculty Head"
+        ]
+      }
+    },
+    "realEstate": {
+      "category": "UAE Property Management · Cloud Platform",
+      "name": "Real Estate Emperor",
+      "tagline": "The operating system for UAE property portfolios.",
+      "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations — built for landlords managing 20 to 500 units across the Emirates.",
+      "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
+      "stats": [
+        {
+          "v": "400+",
+          "l": "Units managed"
+        },
+        {
+          "v": "26+",
+          "l": "Properties"
+        },
+        {
+          "v": "4",
+          "l": "Roles"
+        },
+        {
+          "v": "4",
+          "l": "Languages"
+        }
+      ],
+      "pillars": [
+        {
+          "title": "Rent Collection Intelligence",
+          "body": "Every payment recorded with allocation logic — current rent, advance, or historical debt. No more guessing who paid what. The system calculates collection rate per building as a clean percentage.",
+          "replaces": "Replaces: Excel + paper receipts"
+        },
+        {
+          "title": "Per-Building Performance",
+          "body": "Monthly P&L per property. Collection rate per building. Problem buildings surface themselves. Now you can decide — keep, raise rent, or sell — with numbers, not gut feel.",
+          "replaces": "Replaces: manual reporting"
+        },
+        {
+          "title": "Tenant Command Center",
+          "body": "Full tenant ledger, payment history, 0 to 100 tenant score, multi-unit groups with auto-split payments, deposit reservations. A ledger that never forgets.",
+          "replaces": "Replaces: WhatsApp + memory"
+        },
+        {
+          "title": "Operations & Trust",
+          "body": "Expense tracking, recurring utility bills (TAQA, DEWA, Etisalat, du), role-based access (owner, admin, accountant, staff), audit trail, automated daily backups with SHA-256, 4 languages.",
+          "replaces": "Replaces: tally + paper trail"
+        }
+      ],
+      "roiTitle": "Five stakeholders. Everyone wins.",
+      "roi": [
+        {
+          "role": "Owner / CEO",
+          "win": "See entire portfolio's financial health in 30 seconds.",
+          "metric": "Decisions in minutes"
+        },
+        {
+          "role": "CFO / MD",
+          "win": "Real per-building P&L, auto-generated reports for partners, banks, auditors.",
+          "metric": "Month-end in zero days"
+        },
+        {
+          "role": "Accountant",
+          "win": "No more chasing receipts. Every payment entered once, allocated correctly.",
+          "metric": "One missed payment pays for everything"
+        },
+        {
+          "role": "Staff / Reception",
+          "win": "Simple interface in their own language. Enter a payment in 10 seconds.",
+          "metric": "Accountability without bureaucracy"
+        },
+        {
+          "role": "IT / Technical",
+          "win": "No servers, no software, no updates. Bank-grade encryption, 99.9% uptime.",
+          "metric": "Zero IT burden"
+        }
+      ],
+      "trustTitle": "Bank-grade infrastructure. Zero IT burden.",
+      "trust": [
+        {
+          "t": "Encryption",
+          "d": "TLS 1.3 in transit, AES-256 at rest"
+        },
+        {
+          "t": "99.9% Uptime",
+          "d": "Vercel global CDN"
+        },
+        {
+          "t": "Daily Backups",
+          "d": "2 AM GST, 90-day retention, SHA-256"
+        },
+        {
+          "t": "Any Device",
+          "d": "Desktop, tablet, phone. No install."
+        },
+        {
+          "t": "Audit Trail",
+          "d": "Every action logged: who, what, when"
+        },
+        {
+          "t": "Multi-language",
+          "d": "English, Arabic, Bengali, Urdu"
+        }
+      ]
+    },
+    "finance": {
+      "category": "Financial Operations · Cloud Platform · Forthcoming",
+      "name": "Treasury Emperor",
+      "tagline": "The financial nervous system for multi-branch businesses.",
+      "description": "One dashboard for petty cash across every branch, invoice lifecycle, real-time P&L consolidation, debt service ratio monitoring, and cash flow forecasting. Built for SMEs and large companies that have outgrown spreadsheets but cannot afford an ERP.",
+      "statusLabel": "Status",
+      "statusBody": "In design. Available for founding clients who want to shape the architecture.",
+      "body1": "Most multi-branch businesses in the UAE run their daily finances on a fragile stack of Excel sheets, WhatsApp approvals, paper receipts, and the office manager's memory. Each branch is a financial island. The owner sees the truth only at month-end, when it is too late to act. Treasury Emperor closes that gap.",
+      "body2": "The platform sits between every branch and every stakeholder. Petty cash entries in Al Ain appear on the owner's dashboard in Sharjah within seconds. Invoices flow through approval chains automatically. P&L consolidates across branches without manual rollup. Debt service ratio warns you before the bank does. This is the operating system for company finance.",
+      "pillarsTitle": "Six pillars. One financial truth.",
+      "pillars": [
+        {
+          "title": "Multi-Branch Petty Cash",
+          "body": "Real-time petty cash ledger per branch, per staff member. Every entry geo-stamped and timestamped. Approval chains configurable per branch. The owner sees every branch's cash position on one screen, updated live.",
+          "replaces": "Replaces: Excel + WhatsApp approvals"
+        },
+        {
+          "title": "Invoice Lifecycle",
+          "body": "From issuance to payment, every invoice tracked. Auto-aging buckets (0 to 30, 31 to 60, 61 to 90, 90+). Recurring invoices for retainer clients. Late payment reminders sent automatically. E-invoice compliance ready.",
+          "replaces": "Replaces: manual invoice tracking"
+        },
+        {
+          "title": "Real-Time P&L Consolidation",
+          "body": "Per-branch P&L generated automatically. Portfolio-wide rollup across all branches, all currencies, all cost centers. Drill down from the group view to a single transaction in three clicks. Month-end close: zero days.",
+          "replaces": "Replaces: monthly manual consolidation"
+        },
+        {
+          "title": "Debt Service Ratio (DSR) Monitor",
+          "body": "Live DSR calculation across all loans, all branches. Early warning when DSR approaches covenant thresholds. Bank-ready reports generated on demand. Never be surprised by your banker again.",
+          "replaces": "Replaces: annual DSR surprises"
+        },
+        {
+          "title": "Cash Flow Forecasting",
+          "body": "13-week rolling cash flow forecast based on receivables aging, payable schedules, and recurring obligations. Scenario modeling: what if Branch B's largest client pays 30 days late? Know before it happens.",
+          "replaces": "Replaces: gut-feel cash management"
+        },
+        {
+          "title": "Audit-Grade Trail",
+          "body": "Every transaction, every approval, every edit logged with user, timestamp, IP, and device. Role-based access per branch. SHA-256 verified daily backups. Bank-grade encryption. Ready for any auditor, any bank, any partner.",
+          "replaces": "Replaces: paper trail + hope"
+        }
+      ],
+      "stakeholdersTitle": "Who Treasury Emperor serves.",
+      "stakeholders": [
+        {
+          "role": "Owner / CEO",
+          "win": "See every branch's cash position, P&L, and DSR on one screen. Decide in seconds, not days.",
+          "metric": "Group visibility, live"
+        },
+        {
+          "role": "CFO / Finance Head",
+          "win": "Auto-consolidated P&L, rolling cash flow forecast, bank-ready reports. Month-end closes itself.",
+          "metric": "Month-end in zero days"
+        },
+        {
+          "role": "Branch Manager",
+          "win": "Enter petty cash in 10 seconds. Approve invoices from your phone. See your branch's position in real time.",
+          "metric": "Branch autonomy, group control"
+        },
+        {
+          "role": "Accountant",
+          "win": "No more chasing receipts across branches. Every entry flows into consolidated reports automatically.",
+          "metric": "One source of truth"
+        }
+      ],
+      "ctaTitle": "Founding clients wanted.",
+      "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients — multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
+      "ctaButton": "Become a founding client"
+    }
   }
 }

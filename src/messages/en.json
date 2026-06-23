@@ -468,5 +468,295 @@
     "itSkills": "CompTIA (A+, Network+, Linux+), Microsoft Office Suite, Google Workspace, Educational Technology Platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy)",
     "sportsLabel": "Sports Coaching",
     "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)"
+  },
+  "workContent": {
+    "visitSite": "Visit live site",
+    "visitDemo": "Visit live demo",
+    "stack": "Stack",
+    "pillar": "Pillar",
+    "pillarOf": "Pillar {n}/{total}",
+    "replaces": "Replaces",
+    "projects": {
+      "p1": {
+        "name": "Real Estate Emperor",
+        "category": "Property Management SaaS",
+        "metricLabel": "units managed",
+        "description": "Cloud-based property management platform running in production for a paying client in Al Ain. Rent collection with payment allocation, per-building P&L, role-based access, multi-language.",
+        "features": [
+          "400+ units managed live",
+          "4 roles: owner, admin, accountant, staff",
+          "Multi-language: EN, AR, BN, UR",
+          "Automated daily backups with SHA-256"
+        ],
+        "stack": "Next.js 16 · React 19 · Prisma · PostgreSQL · Vercel"
+      },
+      "p2": {
+        "name": "MSCS Academy",
+        "category": "Educational Learning Platform",
+        "metricLabel": "activities",
+        "description": "Interactive learning platform for UAE Moral, Social & Cultural Studies, Grades 6 to 9. Standards-aligned, 130 lessons, 390+ activities.",
+        "features": [
+          "4 grades, 130 lessons",
+          "390+ interactive activities",
+          "UAE curriculum aligned",
+          "PDPL compliant"
+        ],
+        "stack": "Next.js · React · TypeScript · Tailwind · Vercel"
+      },
+      "p3": {
+        "name": "DiplomatiQ",
+        "category": "Model United Nations Platform",
+        "metricLabel": "competency framework",
+        "description": "The operating system for MUN programs. AI-powered diplomatic assessments, 8 immersive courses, 40+ lessons, conference management.",
+        "features": [
+          "7-tier AI competency framework",
+          "8 immersive courses",
+          "Conference management",
+          "AI research paper evaluation"
+        ],
+        "stack": "Next.js · React · TypeScript · AI · Vercel"
+      },
+      "p4": {
+        "name": "Echoes of Wisdom",
+        "category": "Philosophy Podcast · أصداء الحكمة",
+        "metricLabel": "ongoing broadcast",
+        "description": "Independent educational podcast promoting philosophy as accessible field of education. Bridges academic philosophy and public discourse.",
+        "features": [
+          "Bridges academic and public discourse",
+          "Ethics, logic, epistemology",
+          "Arabic & English",
+          "Cultural flagship of the studio"
+        ],
+        "stack": "Independent production · 2026 to present"
+      }
+    },
+    "education": {
+      "e1": {
+        "title": "MSCS Academy",
+        "subtitle": "Interactive Learning Platform · Grades 6 to 9",
+        "body": "A complete interactive learning platform for UAE Moral, Social & Cultural Studies. Four grades, 130 lessons, 390+ activities: quizzes, timelines, maps, drag-and-drop, KWL charts, Venn diagrams. Standards-aligned to the UAE MSCS curriculum. PDPL compliant. Child Digital Safety Law 26/2025 aligned. ADEK Irtiqa'a aligned. Built for my own teaching practice, then refined for general use.",
+        "stats": [
+          "4 grades",
+          "130 lessons",
+          "390+ activities",
+          "4 activity types"
+        ]
+      },
+      "e2": {
+        "title": "DiplomatiQ",
+        "subtitle": "MUN Operating System · UAE & GCC Schools",
+        "body": "The operating system for Model United Nations programs. AI-powered diplomatic assessments across a seven-tier progressive framework, from Basic Delegate to Secretary-General. Eight immersive courses, 40+ lessons. Conference management: registrations, committees, delegates, voting. AI-powered research paper evaluation with originality detection. Built for UAE and GCC schools.",
+        "stats": [
+          "7-tier framework",
+          "8 courses",
+          "40+ lessons",
+          "AI evaluation"
+        ]
+      },
+      "e3": {
+        "title": "Bilingual Mathematics Curriculum",
+        "subtitle": "Original Works · The Library",
+        "body": "A complete bilingual (English & Arabic) mathematics learning guide series, Grades 1 to 4 live, Grades 5 to 12 in production. Each guide: 21 to 31 pages, covering all units and modules per grade. From Zero to Ready-to-Teach. Built for absolute beginners, structured for classroom use, designed for the UAE's bilingual reality.",
+        "stats": [
+          "Grades 1 to 4 live",
+          "Grades 5 to 12 pending",
+          "21 to 31 pages each",
+          "Bilingual EN/AR"
+        ]
+      },
+      "e4": {
+        "title": "Echoes of Wisdom Podcast",
+        "subtitle": "أصداء الحكمة · Philosophy for the Public",
+        "body": "An independent educational podcast that promotes philosophy as an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio.",
+        "stats": [
+          "Ongoing broadcast",
+          "Arabic & English",
+          "Independent",
+          "Cultural flagship"
+        ]
+      },
+      "e5": {
+        "title": "Ain Al Khaleej School",
+        "subtitle": "Current Teaching Role · Al Ain, UAE",
+        "body": "MSC Studies and Islamic Education Teacher at Ain Al Khaleej Private School, UAE. American Curriculum, Grades 1 to 12, ADEK-approved. Inquiry-based, standards-aligned lessons meeting ADEK and Irtiqa'a quality expectations. Differentiated instruction for ELLs and gifted learners. Faculty Head for Model United Nations program for 2025/2026 and 2026/2027 academic years.",
+        "stats": [
+          "Grades 1 to 12",
+          "American Curriculum",
+          "ADEK licensed",
+          "MUN Faculty Head"
+        ]
+      }
+    },
+    "realEstate": {
+      "category": "UAE Property Management · Cloud Platform",
+      "name": "Real Estate Emperor",
+      "tagline": "The operating system for UAE property portfolios.",
+      "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations — built for landlords managing 20 to 500 units across the Emirates.",
+      "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
+      "stats": [
+        {
+          "v": "400+",
+          "l": "Units managed"
+        },
+        {
+          "v": "26+",
+          "l": "Properties"
+        },
+        {
+          "v": "4",
+          "l": "Roles"
+        },
+        {
+          "v": "4",
+          "l": "Languages"
+        }
+      ],
+      "pillars": [
+        {
+          "title": "Rent Collection Intelligence",
+          "body": "Every payment recorded with allocation logic — current rent, advance, or historical debt. No more guessing who paid what. The system calculates collection rate per building as a clean percentage.",
+          "replaces": "Replaces: Excel + paper receipts"
+        },
+        {
+          "title": "Per-Building Performance",
+          "body": "Monthly P&L per property. Collection rate per building. Problem buildings surface themselves. Now you can decide — keep, raise rent, or sell — with numbers, not gut feel.",
+          "replaces": "Replaces: manual reporting"
+        },
+        {
+          "title": "Tenant Command Center",
+          "body": "Full tenant ledger, payment history, 0 to 100 tenant score, multi-unit groups with auto-split payments, deposit reservations. A ledger that never forgets.",
+          "replaces": "Replaces: WhatsApp + memory"
+        },
+        {
+          "title": "Operations & Trust",
+          "body": "Expense tracking, recurring utility bills (TAQA, DEWA, Etisalat, du), role-based access (owner, admin, accountant, staff), audit trail, automated daily backups with SHA-256, 4 languages.",
+          "replaces": "Replaces: tally + paper trail"
+        }
+      ],
+      "roiTitle": "Five stakeholders. Everyone wins.",
+      "roi": [
+        {
+          "role": "Owner / CEO",
+          "win": "See entire portfolio's financial health in 30 seconds.",
+          "metric": "Decisions in minutes"
+        },
+        {
+          "role": "CFO / MD",
+          "win": "Real per-building P&L, auto-generated reports for partners, banks, auditors.",
+          "metric": "Month-end in zero days"
+        },
+        {
+          "role": "Accountant",
+          "win": "No more chasing receipts. Every payment entered once, allocated correctly.",
+          "metric": "One missed payment pays for everything"
+        },
+        {
+          "role": "Staff / Reception",
+          "win": "Simple interface in their own language. Enter a payment in 10 seconds.",
+          "metric": "Accountability without bureaucracy"
+        },
+        {
+          "role": "IT / Technical",
+          "win": "No servers, no software, no updates. Bank-grade encryption, 99.9% uptime.",
+          "metric": "Zero IT burden"
+        }
+      ],
+      "trustTitle": "Bank-grade infrastructure. Zero IT burden.",
+      "trust": [
+        {
+          "t": "Encryption",
+          "d": "TLS 1.3 in transit, AES-256 at rest"
+        },
+        {
+          "t": "99.9% Uptime",
+          "d": "Vercel global CDN"
+        },
+        {
+          "t": "Daily Backups",
+          "d": "2 AM GST, 90-day retention, SHA-256"
+        },
+        {
+          "t": "Any Device",
+          "d": "Desktop, tablet, phone. No install."
+        },
+        {
+          "t": "Audit Trail",
+          "d": "Every action logged: who, what, when"
+        },
+        {
+          "t": "Multi-language",
+          "d": "English, Arabic, Bengali, Urdu"
+        }
+      ]
+    },
+    "finance": {
+      "category": "Financial Operations · Cloud Platform · Forthcoming",
+      "name": "Treasury Emperor",
+      "tagline": "The financial nervous system for multi-branch businesses.",
+      "description": "One dashboard for petty cash across every branch, invoice lifecycle, real-time P&L consolidation, debt service ratio monitoring, and cash flow forecasting. Built for SMEs and large companies that have outgrown spreadsheets but cannot afford an ERP.",
+      "statusLabel": "Status",
+      "statusBody": "In design. Available for founding clients who want to shape the architecture.",
+      "body1": "Most multi-branch businesses in the UAE run their daily finances on a fragile stack of Excel sheets, WhatsApp approvals, paper receipts, and the office manager's memory. Each branch is a financial island. The owner sees the truth only at month-end, when it is too late to act. Treasury Emperor closes that gap.",
+      "body2": "The platform sits between every branch and every stakeholder. Petty cash entries in Al Ain appear on the owner's dashboard in Sharjah within seconds. Invoices flow through approval chains automatically. P&L consolidates across branches without manual rollup. Debt service ratio warns you before the bank does. This is the operating system for company finance.",
+      "pillarsTitle": "Six pillars. One financial truth.",
+      "pillars": [
+        {
+          "title": "Multi-Branch Petty Cash",
+          "body": "Real-time petty cash ledger per branch, per staff member. Every entry geo-stamped and timestamped. Approval chains configurable per branch. The owner sees every branch's cash position on one screen, updated live.",
+          "replaces": "Replaces: Excel + WhatsApp approvals"
+        },
+        {
+          "title": "Invoice Lifecycle",
+          "body": "From issuance to payment, every invoice tracked. Auto-aging buckets (0 to 30, 31 to 60, 61 to 90, 90+). Recurring invoices for retainer clients. Late payment reminders sent automatically. E-invoice compliance ready.",
+          "replaces": "Replaces: manual invoice tracking"
+        },
+        {
+          "title": "Real-Time P&L Consolidation",
+          "body": "Per-branch P&L generated automatically. Portfolio-wide rollup across all branches, all currencies, all cost centers. Drill down from the group view to a single transaction in three clicks. Month-end close: zero days.",
+          "replaces": "Replaces: monthly manual consolidation"
+        },
+        {
+          "title": "Debt Service Ratio (DSR) Monitor",
+          "body": "Live DSR calculation across all loans, all branches. Early warning when DSR approaches covenant thresholds. Bank-ready reports generated on demand. Never be surprised by your banker again.",
+          "replaces": "Replaces: annual DSR surprises"
+        },
+        {
+          "title": "Cash Flow Forecasting",
+          "body": "13-week rolling cash flow forecast based on receivables aging, payable schedules, and recurring obligations. Scenario modeling: what if Branch B's largest client pays 30 days late? Know before it happens.",
+          "replaces": "Replaces: gut-feel cash management"
+        },
+        {
+          "title": "Audit-Grade Trail",
+          "body": "Every transaction, every approval, every edit logged with user, timestamp, IP, and device. Role-based access per branch. SHA-256 verified daily backups. Bank-grade encryption. Ready for any auditor, any bank, any partner.",
+          "replaces": "Replaces: paper trail + hope"
+        }
+      ],
+      "stakeholdersTitle": "Who Treasury Emperor serves.",
+      "stakeholders": [
+        {
+          "role": "Owner / CEO",
+          "win": "See every branch's cash position, P&L, and DSR on one screen. Decide in seconds, not days.",
+          "metric": "Group visibility, live"
+        },
+        {
+          "role": "CFO / Finance Head",
+          "win": "Auto-consolidated P&L, rolling cash flow forecast, bank-ready reports. Month-end closes itself.",
+          "metric": "Month-end in zero days"
+        },
+        {
+          "role": "Branch Manager",
+          "win": "Enter petty cash in 10 seconds. Approve invoices from your phone. See your branch's position in real time.",
+          "metric": "Branch autonomy, group control"
+        },
+        {
+          "role": "Accountant",
+          "win": "No more chasing receipts across branches. Every entry flows into consolidated reports automatically.",
+          "metric": "One source of truth"
+        }
+      ],
+      "ctaTitle": "Founding clients wanted.",
+      "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients — multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
+      "ctaButton": "Become a founding client"
+    }
   }
 }
