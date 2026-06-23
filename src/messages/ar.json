@@ -1,16 +1,16 @@
 {
   "nav": {
-    "home": "المقدمة",
-    "studio": "نبذة",
-    "disciplines": "المجالات",
+    "home": "الغلاف",
+    "studio": "حول",
+    "disciplines": "التخصصات",
     "library": "المكتبة",
-    "work": "الأعمال",
+    "work": "العمل",
     "method": "المنهج",
     "engagements": "الالتزامات",
     "correspondence": "مراسلات",
     "begin": "ابدأ",
-    "vouches": "Vouches",
-    "echoes": "Philosophy"
+    "vouches": "ضمانات",
+    "echoes": "الفلسفة"
   },
   "hero": {
     "eyebrow": "مربي · مهندس أنظمة · متخصص في القيادة والإدارة",
