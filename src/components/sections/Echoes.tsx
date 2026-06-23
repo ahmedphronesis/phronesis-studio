@@ -30,7 +30,6 @@ export function Echoes() {
       .catch((e) => console.error(e));
   }, []);
 
-  // Default to Arabic view if user is on Arabic locale
   useEffect(() => {
     if (locale === "ar" || locale === "fa") {
       setViewLang("ar");
@@ -53,7 +52,7 @@ export function Echoes() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-16">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink leading-[1.05]" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
               {t("title")}<br />
@@ -65,19 +64,66 @@ export function Echoes() {
           </Reveal>
         </div>
 
-        {/* Arabic name */}
+        {/* Project showcase: Echoes of Wisdom */}
         <Reveal delay={0.15}>
-          <p
-            className="display text-gold/60 text-3xl md:text-5xl mb-12"
-            style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}
-          >
-            أَصْدَاءُ الحِكْمَةِ
-          </p>
+          <div className="p-8 md:p-12 rounded-3xl bg-paper-warm border border-border overflow-hidden mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              {/* Left: Project identity */}
+              <div className="lg:col-span-5">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-3 font-mono">
+                  {t("project1Tagline")}
+                </p>
+                <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02] mb-3">
+                  {t("project1Name")}
+                </h3>
+                <p
+                  className="display text-gold text-2xl md:text-4xl mb-6"
+                  style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}
+                >
+                  {t("project1NameArabic")}
+                </p>
+                <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mb-6">
+                  {t("project1Description")}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="text-xs uppercase tracking-wider text-ink-dim border border-border rounded-full px-3 py-1.5 font-mono">
+                    {t("project1Season")}
+                  </span>
+                  <span className="text-xs uppercase tracking-wider text-ink-dim border border-border rounded-full px-3 py-1.5 font-mono">
+                    {t("project1Episodes")}
+                  </span>
+                  <span className="text-xs uppercase tracking-wider text-teal border border-teal/30 rounded-full px-3 py-1.5 font-mono">
+                    Bilingual EN / AR
+                  </span>
+                </div>
+              </div>
+
+              {/* Right: Arabic tagline + decorative */}
+              <div className="lg:col-span-7 lg:col-start-7 flex items-center justify-center">
+                <div className="text-center">
+                  <p
+                    className="display text-teal/30 text-6xl md:text-8xl lg:text-9xl leading-none mb-4"
+                    style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}
+                  >
+                    {t("project1TaglineArabic")}
+                  </p>
+                  <p className="display-italic text-ink-dim text-lg md:text-xl">
+                    {t("project1Tagline")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
 
       {/* Episode grid */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <Reveal>
+          <h3 className="display text-ink text-2xl md:text-3xl mb-10">
+            {t("project1Season")} · {t("project1Episodes")}
+          </h3>
+        </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {episodes.map((ep, i) => (
             <FadeUp key={ep.number} delay={i * 0.06}>
@@ -85,7 +131,7 @@ export function Echoes() {
                 onClick={() => setSelected(ep)}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.4, ease: EASE }}
-                className="group w-full text-left p-6 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors h-full flex flex-col"
+                className="group w-full text-left p-6 rounded-2xl bg-paper border border-border hover:border-teal/40 transition-colors h-full flex flex-col"
               >
                 <div className="flex items-baseline justify-between mb-4">
                   <span className="display text-teal/40 text-5xl leading-none">
@@ -99,7 +145,7 @@ export function Echoes() {
                 </h3>
 
                 {viewLang === "ar" && (
-                  <p className="display text-ink-dim text-base mb-3" style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}>
+                  <p className="display text-ink-dim text-base mb-3" style={{ fontFamily: "var(--font-cormorant)" }}>
                     {ep.en_title}
                   </p>
                 )}
@@ -138,18 +184,16 @@ export function Echoes() {
               className="bg-paper rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal header */}
               <div className="sticky top-0 z-10 bg-paper/95 backdrop-blur-md px-6 md:px-10 py-5 border-b border-border flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <span className="display text-teal text-3xl">{String(selected.number).padStart(2, "0")}</span>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">
-                      {t("episode")} {selected.number} · {t("season")} 1
+                      {t("project1Name")} · {t("episode")} {selected.number} · {t("project1Season")}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  {/* Language toggle */}
                   <button
                     onClick={() => setViewLang(viewLang === "en" ? "ar" : "en")}
                     className="inline-flex items-center gap-2 text-xs text-ink-soft hover:text-teal transition-colors px-3 py-2 rounded-full border border-border hover:border-teal/40"
@@ -168,9 +212,7 @@ export function Echoes() {
                 </div>
               </div>
 
-              {/* Modal body */}
               <div className="px-6 md:px-10 py-8 md:py-12">
-                {/* Title */}
                 <div className="mb-8 pb-6 border-b border-border">
                   <h2 className="display text-ink text-3xl md:text-5xl leading-[1.1] mb-3">
                     {viewLang === "ar" ? selected.ar_title : selected.en_title}
@@ -186,11 +228,10 @@ export function Echoes() {
                     </p>
                   )}
                   <p className="text-xs text-ink-dim body-serif mt-4">
-                    {t("writtenBy")} · {t("season")} 1
+                    {t("writtenBy")} · {t("project1Name")} · {t("project1Season")}
                   </p>
                 </div>
 
-                {/* Full episode text */}
                 <div
                   className={`body-serif text-base md:text-lg text-ink-soft leading-[1.8] whitespace-pre-line ${viewLang === "ar" ? "text-right" : ""}`}
                   style={viewLang === "ar" ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.25rem", lineHeight: 2 } : {}}
@@ -198,7 +239,6 @@ export function Echoes() {
                   {viewLang === "ar" ? selected.ar_full : selected.en_full}
                 </div>
 
-                {/* Bottom language toggle */}
                 <div className="mt-12 pt-8 border-t border-border flex items-center justify-center">
                   <button
                     onClick={() => setViewLang(viewLang === "en" ? "ar" : "en")}

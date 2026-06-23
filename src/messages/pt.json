@@ -10,7 +10,7 @@
     "correspondence": "Correspondência",
     "begin": "Começar",
     "vouches": "Vouches",
-    "echoes": "Echoes"
+    "echoes": "Philosophy"
   },
   "hero": {
     "eyebrow": "Educador · Arquiteto de Sistemas · Profissional de Liderança e Gestão",
@@ -705,10 +705,17 @@
     ]
   },
   "echoes": {
-    "eyebrow": "The Cultural Flagship",
-    "title": "Echoes of",
-    "titleItalic": "Wisdom.",
-    "intro": "A bilingual philosophy podcast bridging academic thought and public discourse. Eight episodes exploring ethics, logic, epistemology, and the questions that shape our world. Written and presented in both English and Arabic.",
+    "eyebrow": "Original Philosophy",
+    "title": "Philosophy",
+    "titleItalic": "Works.",
+    "intro": "Original philosophical projects bridging academic thought and public discourse. Each work is written and presented in both English and Arabic, making complex ideas in ethics, logic, epistemology, and metaphysics accessible to diverse audiences.",
+    "project1Name": "Echoes of Wisdom",
+    "project1NameArabic": "أَصْدَاءُ الحِكْمَةِ",
+    "project1Tagline": "A Journey Through Philosophy",
+    "project1TaglineArabic": "رِحْلَةٌ في الفَلْسَفَةِ",
+    "project1Description": "A bilingual philosophy podcast exploring ethics, logic, epistemology, and the questions that shape our world. Eight episodes in Season 1, written and presented in both English and Arabic.",
+    "project1Season": "Season 1",
+    "project1Episodes": "8 episodes",
     "episode": "Episode",
     "season": "Season",
     "writtenBy": "Written and presented by Ahmed Ali",
