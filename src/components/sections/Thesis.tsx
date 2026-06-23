@@ -8,9 +8,7 @@ import { useTranslations, useLocale } from "next-intl";
 const EN_LEAD_SEGMENTS = [
   { text: "Every institution has a ", color: "default" },
   { text: "gap", color: "gold" },
-  { text: " between what it is and what it could be.\n\nA school may deliver excellent teaching yet struggle to measure its impact.\nA business may serve its customers well while losing value through unseen inefficiencies, fragmented data, and decisions trapped in spreadsheets, messaging threads, and institutional memory.\nA team may work tirelessly but lack the systems needed to grow stronger over time.\n\nThese gaps are universal. They exist in every organization, regardless of size, industry, or mission. The real question is whether someone can recognize them with clarity, define them with honesty, and close them with ", color: "default" },
-  { text: "discipline and care", color: "teal" },
-  { text: ".", color: "default" },
+  { text: " between what it is and what it could be.", color: "default" },
 ];
 
 export function Thesis() {
@@ -24,48 +22,15 @@ export function Thesis() {
     { n: "III", title: t("pillar3Title"), body: t("pillar3Body") },
   ];
 
-  function renderLead() {
-    // For English: render with selective colored highlights
-    if (isEnglish) {
-      return EN_LEAD_SEGMENTS.map((seg, i) => {
-        if (seg.text.includes("\n")) {
-          const parts = seg.text.split("\n");
-          return (
-            <span key={i}>
-              {parts.map((part, j) => (
-                <span key={j}>
-                  {part && (
-                    <span style={{
-                      color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
-                      fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
-                      fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
-                    }}>
-                      {part}
-                    </span>
-                  )}
-                  {j < parts.length - 1 && <br />}
-                </span>
-              ))}
-            </span>
-          );
-        }
-        return (
-          <span
-            key={i}
-            style={{
-              color: seg.color === "gold" ? "var(--gold)" : seg.color === "teal" ? "var(--teal)" : "inherit",
-              fontStyle: seg.color === "gold" || seg.color === "teal" ? "normal" : "italic",
-              fontFamily: seg.color === "gold" || seg.color === "teal" ? "var(--font-cormorant)" : "inherit",
-            }}
-          >
-            {seg.text}
-          </span>
-        );
-      });
-    }
-    // For all other languages: render the translated lead text, no coloring
-    return t("lead");
-  }
+  // Parse the lead text into: opening, examples, closing
+  const leadText = t("lead");
+  const leadParts = leadText.split("\n\n");
+  // leadParts[0] = opening sentence
+  // leadParts[1] = school/business/team examples (3 lines)
+  // leadParts[2] = closing paragraph
+  const opening = leadParts[0] || "";
+  const examples = (leadParts[1] || "").split("\n").filter((l) => l.trim());
+  const closing = leadParts[2] || "";
 
   return (
     <section id="thesis" className="relative py-32 md:py-44 overflow-hidden">
@@ -80,23 +45,72 @@ export function Thesis() {
 
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
-          <div className="flex items-center gap-4 mb-10">
+          <div className="flex items-center gap-4 mb-12">
             <span className="h-px w-12 bg-teal/60" />
             <span className="eyebrow">{t("eyebrow")}</span>
           </div>
         </Reveal>
 
+        {/* Opening sentence — large, prominent, with breathing room */}
         <Reveal delay={0.05}>
           <p
-            className="display text-ink leading-[1.3] body-serif-italic"
-            style={{ fontSize: "clamp(1.6rem, 3.8vw, 3.2rem)", maxWidth: "100%" }}
+            className="display text-ink leading-[1.4] mb-12 md:mb-16"
+            style={{ fontSize: "clamp(1.8rem, 4vw, 3.4rem)" }}
           >
-            {renderLead()}
+            {isEnglish ? (
+              EN_LEAD_SEGMENTS.map((seg, i) => (
+                <span
+                  key={i}
+                  style={{
+                    color: seg.color === "gold" ? "var(--gold)" : "inherit",
+                    fontStyle: seg.color === "gold" ? "normal" : "italic",
+                    fontFamily: seg.color === "gold" ? "var(--font-cormorant)" : "inherit",
+                  }}
+                >
+                  {seg.text}
+                </span>
+              ))
+            ) : (
+              <span className="display-italic">{opening}</span>
+            )}
           </p>
+        </Reveal>
+
+        {/* Examples — indented, separated, more line height, distinct background */}
+        <Reveal delay={0.1}>
+          <div
+            className="border-l-2 border-teal/30 pl-6 md:pl-10 py-2 mb-12 md:mb-16"
+            style={{ marginLeft: "1rem" }}
+          >
+            <div className="space-y-6 md:space-y-8">
+              {examples.map((example, i) => (
+                <p
+                  key={i}
+                  className="body-serif text-base md:text-xl text-ink-soft leading-[1.9]"
+                  style={locale === "ar" || locale === "fa" ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.3rem", lineHeight: 2.2 } : {}}
+                >
+                  {example}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Closing paragraph — distinct, slightly different treatment */}
+        <Reveal delay={0.15}>
+          <div className="pt-8 border-t border-border/40">
+            <p
+              className="body-serif-italic text-ink leading-[1.9] max-w-3xl"
+              style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
+            >
+              {closing}
+            </p>
+          </div>
         </Reveal>
 
         <div className="gold-rule my-20" />
 
+        {/* Three pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <Reveal className="lg:col-span-5" delay={0.05}>
             <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
