@@ -8,7 +8,8 @@
     "method": "روش",
     "engagements": "همکاری‌ها",
     "correspondence": "مکاتبات",
-    "begin": "شروع"
+    "begin": "شروع",
+    "vouches": "Vouches"
   },
   "hero": {
     "eyebrow": "آموزگار · معمار سیستم‌ها · متخصص رهبری و مدیریت",
@@ -656,5 +657,50 @@
       "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients — multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
       "ctaButton": "Become a founding client"
     }
+  },
+  "vouches": {
+    "eyebrow": "Vouches",
+    "title": "In their",
+    "titleItalic": "words.",
+    "intro": "Recommendations from those who have worked with me, taught me, and led me. Each is verifiable — formal letters are downloadable, LinkedIn recommendations link to the original.",
+    "downloadLetter": "Download letter",
+    "viewOnLinkedIn": "View on LinkedIn",
+    "linkedin": {
+      "quote": "I had the pleasure of working closely with Ahmed during his tenure as Store Manager for our Al Ain branch at Cheeky Monkeys Playland. Ahmed is a high-impact leader who manages with a rare blend of hard work and disciplined oversight.\n\nHe is remarkably results-driven, having achieved a 21% increase in branch sales within a year while boosting 5-star customer feedback by 150%. Beyond the numbers, Ahmed's greatest strength lies in his uncompromising commitment to operational standards. He utilized a firm, disciplined management style to ensure his team maintained peak performance, consistently securing an 'A' rating in municipality food health and safety inspections.\n\nAhmed is a dedicated ISO professional who leads by example. His ability to maintain a high-pressure environment while focusing on hygiene, cleanliness, and team accountability directly translated into enhanced customer satisfaction. I highly recommend Ahmed for any leadership role where operational excellence and measurable growth are the priorities.",
+      "author": "Rehmatullah Baridaie",
+      "title": "Facility Strategist and Retail Asset Management",
+      "company": "Cheeky Monkeys Playland, Al Ain",
+      "date": "April 7, 2026",
+      "linkedinUrl": "https://linkedin.com/in/ahmedmahmoudsaeedahmedali"
+    },
+    "letters": [
+      {
+        "title": "Emory University",
+        "subtitle": "Academic Recommendation",
+        "author": "Dr. Rahimjon Abdugafurov, Ph.D.",
+        "authorTitle": "Director for Interfaith Academic Partnerships, Emory University",
+        "date": "March 22, 2025",
+        "excerpt": "Mr. Ahmed Ali is a philosophy graduate with a strong passion for academic research. His attention to detail and ability to handle complex philosophical and historical content were exceptional. I highly recommend him for any opportunity that requires advanced research, transcription, and translation skills.",
+        "file": "/references/Recommendation - Emory University - Ahmed Ali.pdf"
+      },
+      {
+        "title": "Alexandria University",
+        "subtitle": "Academic Recommendation",
+        "author": "Prof. Ashraf Hassan Mansour",
+        "authorTitle": "Professor of Philosophy, Faculty of Arts, University of Alexandria",
+        "date": "2016 to present",
+        "excerpt": "Ahmed is a brilliant, hard worker student with an encyclopedic knowledge of all branches of Philosophy. He can deal with original philosophical texts very well, and his writing is excellent. He tends to think out of the box, has many critical thinking skills, and can deal with hard working conditions.",
+        "file": "/references/Recommendation - Alexandria University - Ahmed Ali.pdf"
+      },
+      {
+        "title": "Bibliotheca Alexandrina",
+        "subtitle": "Professional Recommendation",
+        "author": "Prof. Salah A. Soliman",
+        "authorTitle": "Professor of Pesticide Chemistry and Toxicology, Alexandria University and Bibliotheca Alexandrina",
+        "date": "December 19, 2018",
+        "excerpt": "Ahmed was an active member and general coordinator in the Waste Segregation Initiative in Alexandria Governorate. I strongly recommend him in joining any program as he will be a good candidate for it.",
+        "file": "/references/Recommendation - Bibliotheca Alexandrina - Ahmed Ali.pdf"
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
-import { useTranslations } from "next-intl";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Thesis } from "@/components/sections/Thesis";
+import { Vouches } from "@/components/sections/Vouches";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
 
@@ -13,6 +13,7 @@ export default function HomePage() {
         <main className="flex-1">
           <Hero />
           <Thesis />
+          <Vouches />
         </main>
         <Footer />
       </div>

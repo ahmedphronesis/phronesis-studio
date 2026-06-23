@@ -22,6 +22,11 @@ export function Nav() {
     { href: "/correspondence", label: t("correspondence") },
   ] as const;
 
+  // Anchor links on the home page
+  const ANCHOR_LINKS = [
+    { href: "/#vouches", label: t("vouches") },
+  ] as const;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -82,6 +87,16 @@ export function Nav() {
               </li>
             );
           })}
+          {ANCHOR_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className="text-sm text-ink-soft hover:text-teal transition-colors"
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Right side: language + CTA */}
