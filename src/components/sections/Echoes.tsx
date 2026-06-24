@@ -44,7 +44,7 @@ export function Echoes() {
   }, []);
 
   useEffect(() => {
-    if (locale === "ar" || locale === "fa") {
+    if (locale === "ar") {
       setViewLang("ar");
     }
   }, [locale]);
@@ -144,7 +144,7 @@ export function Echoes() {
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm text-teal group-hover:text-teal-bright transition-colors">
                     {t("readEpisode")}
-                    {locale === "ar" || locale === "fa" ? (
+                    {locale === "ar" ? (
                       <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                     ) : (
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

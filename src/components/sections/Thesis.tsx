@@ -87,7 +87,7 @@ export function Thesis() {
                 <p
                   key={i}
                   className="body-serif text-base md:text-xl text-ink-soft leading-[1.9]"
-                  style={locale === "ar" || locale === "fa" ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.3rem", lineHeight: 2.2 } : {}}
+                  style={locale === "ar" ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.3rem", lineHeight: 2.2 } : {}}
                 >
                   {example}
                 </p>

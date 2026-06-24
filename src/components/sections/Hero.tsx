@@ -6,13 +6,13 @@ import { useTranslations, useLocale } from "next-intl";
 import { Magnetic, TextReveal, EASE } from "../anim";
 import { MeshBackground } from "../MeshBackground";
 
-// RTL languages where letter-by-letter animation would break character connection
-const RTL_LOCALES = ["ar", "fa", "he", "ur"];
-
+// Arabic is the only RTL locale in this build.
+// Letter-by-letter TextReveal breaks Arabic character connections,
+// so we fall back to a single fade for RTL.
 export function Hero() {
   const t = useTranslations("hero");
   const locale = useLocale();
-  const isRTL = RTL_LOCALES.includes(locale);
+  const isRTL = locale === "ar";
 
   return (
     <section

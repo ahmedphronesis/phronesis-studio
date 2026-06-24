@@ -71,7 +71,7 @@ export function LanguageSwitcher() {
                       }`}
                     >
                       <span className="flex items-baseline gap-2">
-                        <span className="text-base" style={{ fontFamily: l === "ar" || l === "fa" ? "var(--font-amiri)" : undefined }}>
+                        <span className="text-base" style={{ fontFamily: l === "ar" ? "var(--font-amiri)" : undefined }}>
                           {info.native}
                         </span>
                       </span>

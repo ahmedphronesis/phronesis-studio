@@ -36,23 +36,6 @@
     "pillar3Title": "Close with precision",
     "pillar3Body": "The right system, the right curriculum, the right operating cadence. Shipped in weeks, not quarters. Production-grade from day one. Built to outlive the engagement, and to strengthen the institution that commissioned it."
   },
-  "practice": {
-    "eyebrow": "The Practice",
-    "title": "Three disciplines,",
-    "titleItalic": "one method.",
-    "intro": "Most professionals specialize in one craft. I have spent a decade deliberately working across three. The disciplines are different. The method is the same: perceive the gap, diagnose with rigor, close with precision.",
-    "discipline1Title": "Education",
-    "discipline1Range": "Teaching · Curriculum · Learning Platforms",
-    "discipline1Body": "I am an ADEK-licensed teacher (Grades 1 through 12, American Curriculum) and Faculty Head for Model United Nations at my school. I design inquiry-based, standards-aligned lessons that meet Irtiqa'a expectations, differentiate for ELLs and gifted learners, and translate curriculum into something students actually engage with. I also build learning platforms that compress weeks of administrative work into minutes.",
-    "discipline2Title": "Systems Architecture",
-    "discipline2Range": "Custom builds · SaaS platforms · Operational systems",
-    "discipline2Body": "I architect production-grade software for schools, businesses, and institutions. Property management platforms managing 400+ units for paying clients. Educational platforms with 390+ interactive activities. MUN operating systems with AI-powered assessments. Each shipped, in use, built alone. The work is Next.js, React, TypeScript, Prisma, PostgreSQL, deployed on Vercel. The discipline is philosopher's rigor applied to a codebase.",
-    "discipline3Title": "Leadership & Operations",
-    "discipline3Range": "ISO standards · Team leadership · Operational excellence",
-    "discipline3Body": "I have run operations under ISO 9001 and ISO 45001. I have led teams in education, telecom, and child-focused facilities. I have been the highest-performing sales executive across multiple KPIs at Etisalat, and introduced the Net Promoter Score framework that drove it. I bring operational discipline to every engagement, whether the deliverable is software, a curriculum, or a strategic consultation.",
-    "capabilitiesLabel": "Capabilities",
-    "proofLabel": "Proof of work"
-  },
   "library": {
     "eyebrow": "The Library · Original Works",
     "title": "Original curriculum,",
