@@ -57,7 +57,7 @@ export const metadata = {
     },
   },
   description:
-    "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect.",
+    "Perceiving the gap between what is and what should be — and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect in Al Ain, UAE.",
   keywords: [
     "Studio of Phronesis",
     "Ahmed Ali",
@@ -96,17 +96,17 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: ["ar_AR"],
-    url: "https://phronesis-studio.com",
+    url: "https://phronesis-studio.com/en",
     siteName: "Studio of Phronesis",
     title: "Studio of Phronesis — Ahmed Ali",
     description:
-      "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect.",
+      "Perceiving the gap between what is and what should be — and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect in Al Ain, UAE.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Φ — Studio of Phronesis",
+        alt: "Studio of Phronesis — Ahmed Ali",
       },
     ],
   },
@@ -114,7 +114,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Studio of Phronesis — Ahmed Ali",
     description:
-      "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems.",
+      "Perceiving the gap between what is and what should be — and closing it with discipline. Philosopher-educator-architect in Al Ain, UAE.",
     images: ["/og-image.png"],
   },
   robots: {
