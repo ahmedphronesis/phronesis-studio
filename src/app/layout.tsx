@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { FloatingEagle } from "@/components/FloatingEagle";
 
 // Root layout — provides the HTML shell and global CSS for ALL routes,
 // including /admin and /login which live outside the [locale] segment.
@@ -23,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <FloatingEagle />
+      </body>
     </html>
   );
 }
