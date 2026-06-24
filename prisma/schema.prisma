@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Existing — contact form submissions
 model Lead {
   id        String   @id @default(cuid())
   name      String
@@ -21,4 +22,46 @@ model Lead {
   updatedAt DateTime @updatedAt
 
   @@map("leads")
+}
+
+// New — editable site content per locale.
+// Each row holds one i18n namespace (e.g. "hero", "thesis") as a JSON blob.
+// Admin UI reads/writes these rows; i18n/request.ts loads from here at runtime.
+model SiteContent {
+  locale    String   // "en" | "ar"
+  namespace String   // "hero" | "thesis" | "about" | etc.
+  value     Json     // the full namespace object
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@id([locale, namespace])
+  @@map("site_content")
+}
+
+// New — Echoes podcast episodes (bilingual transcripts).
+// Replaces the static public/echoes-data.json file.
+model Episode {
+  number    Int      @id // 1, 2, 3, ...
+  enTitle   String
+  arTitle   String
+  enExcerpt String
+  arExcerpt String
+  enFull    String
+  arFull    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("episodes")
+}
+
+// New — audit log of admin-generated templates (for re-download / history).
+model TemplateLog {
+  id        String   @id @default(cuid())
+  template  String   // "demo-brief" | "software-quote" | etc.
+  clientName String?
+  payload   Json     // the form data used to generate the doc
+  fileName  String
+  createdAt DateTime @default(now())
+
+  @@map("template_logs")
 }

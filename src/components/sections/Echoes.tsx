@@ -28,20 +28,12 @@ type Season = {
   episodes: Episode[];
 };
 
-export function Echoes() {
+export function Echoes({ episodes }: { episodes: Episode[] }) {
   const t = useTranslations("echoes");
   const locale = useLocale();
-  const [allEpisodes, setAllEpisodes] = useState<Episode[]>([]);
   const [activeSeason, setActiveSeason] = useState<string | null>(null);
   const [selected, setSelected] = useState<Episode | null>(null);
   const [viewLang, setViewLang] = useState<"en" | "ar">("en");
-
-  useEffect(() => {
-    fetch("/echoes-data.json")
-      .then((r) => r.json())
-      .then((d) => setAllEpisodes(d))
-      .catch((e) => console.error(e));
-  }, []);
 
   useEffect(() => {
     if (locale === "ar") {
@@ -60,7 +52,7 @@ export function Echoes() {
       description: t("project1Description"),
       seasonLabel: t("project1Season"),
       episodesLabel: t("project1Episodes"),
-      episodes: allEpisodes,
+      episodes: episodes,
     },
   ];
 
