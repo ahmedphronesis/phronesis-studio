@@ -52,6 +52,9 @@ export const metadata = {
   },
   verification: {
     google: "I7i4WPjVKGFLNmDp1CU-rGfErnVn_MEzd4sv9zshhpI",
+    other: {
+      "msvalidate.01": "62274B38A3DCB37F0CB0238AC08F507A",
+    },
   },
   description:
     "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect.",
