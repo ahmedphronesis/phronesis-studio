@@ -29,13 +29,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
-              <span
-                className="text-3xl text-gold leading-none"
-                style={{ fontFamily: "var(--font-cormorant)" }}
+              <img
+                src="/logo-eagle.png"
+                alt=""
                 aria-hidden
-              >
-                Φ
-              </span>
+                className="h-11 w-11"
+              />
               <div className="leading-none">
                 <p
                   className="text-lg text-ink"

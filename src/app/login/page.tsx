@@ -51,13 +51,12 @@ export default function AdminLoginPage() {
         className="relative w-full max-w-md"
       >
         <div className="text-center mb-10">
-          <div
-            className="text-6xl text-[#B48D3C] leading-none mb-3"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+          <img
+            src="/logo-eagle.png"
+            alt=""
             aria-hidden
-          >
-            Φ
-          </div>
+            className="h-20 w-20 mx-auto mb-3"
+          />
           <h1
             className="text-2xl text-[#1A1A1A] tracking-wide"
             style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}

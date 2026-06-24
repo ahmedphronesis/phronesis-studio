@@ -45,9 +45,87 @@ const amiri = Amiri({
 });
 
 export const metadata = {
-  title: "Ahmed Ali — Studio of Phronesis",
+  metadataBase: new URL("https://phronesis-studio.com"),
+  title: {
+    default: "Studio of Phronesis — Ahmed Ali",
+    template: "%s · Studio of Phronesis",
+  },
   description:
     "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect.",
+  keywords: [
+    "Studio of Phronesis",
+    "Ahmed Ali",
+    "philosopher",
+    "educator",
+    "systems architect",
+    "Al Ain",
+    "UAE",
+    "custom software",
+    "educational platforms",
+    "Model United Nations",
+    "MUN",
+    "philosophy",
+    "phronesis",
+    "Aristotle",
+    "Bibliotheca Alexandrina",
+    "tutoring",
+    "consultancy",
+    "curriculum design",
+    "real estate software",
+    "property management",
+  ],
+  authors: [{ name: "Ahmed Ali" }],
+  creator: "Ahmed Ali",
+  publisher: "Studio of Phronesis",
+  applicationName: "Studio of Phronesis",
+  category: "education",
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: "/en",
+      ar: "/ar",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["ar_AR"],
+    url: "https://phronesis-studio.com",
+    siteName: "Studio of Phronesis",
+    title: "Studio of Phronesis — Ahmed Ali",
+    description:
+      "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Φ — Studio of Phronesis",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Studio of Phronesis — Ahmed Ali",
+    description:
+      "The art of seeing the gap and closing it well. Custom software, educational platforms, and operational systems.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [{ url: "/logo-eagle.png", type: "image/png" }],
+    apple: [{ url: "/logo-eagle.png" }],
+    shortcut: [{ url: "/logo-eagle.png" }],
+  },
 };
 
 export function generateStaticParams() {

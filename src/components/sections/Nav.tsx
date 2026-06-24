@@ -46,13 +46,12 @@ export function Nav() {
       <nav className="w-full px-6 md:px-12 lg:px-20 h-20 flex items-center justify-between">
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-3 group">
-          <span
-            className="text-2xl text-gold leading-none"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+          <img
+            src="/logo-eagle.png"
+            alt=""
             aria-hidden
-          >
-            Φ
-          </span>
+            className="h-9 w-9"
+          />
           <span className="flex flex-col leading-none">
             <span
               className="text-base text-ink tracking-wide"

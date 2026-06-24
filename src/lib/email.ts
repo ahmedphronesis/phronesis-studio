@@ -115,7 +115,7 @@ export async function sendLeadConfirmation(opts: {
           <!-- Header -->
           <tr>
             <td style="padding:40px 40px 24px;text-align:center;border-bottom:3px solid #B48D3C;">
-              <div style="font-family:Cambria,Georgia,serif;font-size:48px;color:#B48D3C;line-height:1;margin-bottom:8px;">Φ</div>
+              <img src="https://phronesis-studio.com/logo-eagle.png" alt="Studio of Phronesis" width="80" height="80" style="margin:0 auto 12px;display:block;" />
               <div style="font-family:Cambria,Georgia,serif;font-size:18px;letter-spacing:0.15em;color:#1A1A1A;font-weight:bold;">STUDIO OF PHRONESIS</div>
               <div style="font-family:Calibri,sans-serif;font-size:13px;color:#8A8A8A;font-style:italic;margin-top:4px;">Educator · Systems Architect · Leadership</div>
             </td>

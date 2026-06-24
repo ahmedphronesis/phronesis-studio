@@ -22,56 +22,67 @@ export function Hero() {
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
-      {/* Massive decorative Φ, full-bleed right side */}
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0, scale: 0.85, x: 100 }}
-        animate={{ opacity: 0.06, scale: 1, x: 0 }}
-        transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
-        className="absolute right-[-12%] top-1/2 -translate-y-1/2 hidden lg:block pointer-events-none select-none"
-        style={{
-          fontFamily: "var(--font-cormorant)",
-          fontSize: "min(70vw, 60rem)",
-          lineHeight: 0.85,
-          color: "var(--gold)",
-        }}
-      >
-        Φ
-      </motion.div>
-
       {/* Full-bleed content */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 pb-32">
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
           className="w-full"
         >
-          {/* Eyebrow */}
+          {/* The eagle as centerpiece — gold, heraldic, leading the page */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } },
+              hidden: { opacity: 0, scale: 0.85 },
+              visible: { opacity: 1, scale: 1, transition: { duration: 1.6, ease: EASE } },
             }}
-            className="flex items-center gap-4 mb-10"
+            className="flex items-center gap-5 mb-8"
           >
             <motion.span
-              className="h-px w-12 bg-gradient-to-r from-transparent via-teal to-teal"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, ease: EASE, delay: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.4, ease: EASE, delay: 0.4 }}
+              className="h-px w-16 bg-gradient-to-r from-transparent via-teal to-teal"
               style={{ transformOrigin: "left" }}
             />
-            <span className="eyebrow">{t("eyebrow")}</span>
+            <img
+              src="/logo-eagle.png"
+              alt=""
+              aria-hidden
+              className="h-[clamp(4rem,9vw,7rem)] w-auto"
+              style={{ filter: "drop-shadow(0 2px 8px rgba(180, 141, 60, 0.18))" }}
+            />
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, ease: EASE, delay: 0.6 }}
+              className="h-px w-16 bg-gradient-to-l from-transparent via-teal to-teal hidden sm:block"
+              style={{ transformOrigin: "right" }}
+            />
           </motion.div>
 
-          {/* Massive name — fills width on desktop */}
+          {/* Studio name in small caps, refined */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE, delay: 0.2 } },
+            }}
+            className="mb-6"
+          >
+            <p
+              className="text-[clamp(0.95rem,1.4vw,1.15rem)] text-ink-soft tracking-[0.4em] uppercase"
+              style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
+            >
+              Studio of Phronesis
+            </p>
+          </motion.div>
+
+          {/* The name — large but no longer dominant */}
           <h1
             className="display text-ink perspective-1000"
-            style={{ fontSize: "clamp(4rem, 14vw, 13rem)", lineHeight: 0.9 }}
+            style={{ fontSize: "clamp(3.5rem, 11vw, 9rem)", lineHeight: 0.95 }}
           >
             {isRTL ? (
-              // For RTL languages (Arabic, Persian), don't split letters — it breaks character connection
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -81,38 +92,45 @@ export function Hero() {
                 {t("name")}
               </motion.span>
             ) : (
-              <TextReveal text={t("name")} delay={0.6} stagger={0.06} />
+              <TextReveal text={t("name")} delay={0.6} stagger={0.05} />
             )}
           </h1>
 
-          {/* Two-column split — subtitle left, body right (asymmetric) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-8 lg:mt-12">
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 24 },
-                visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
-              }}
-              className="lg:col-span-5"
+          {/* Aphoristic subtitle — italic, teal, sets the philosophical tone */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE, delay: 0.1 } },
+            }}
+            className="mt-8 lg:mt-10 max-w-3xl"
+          >
+            <p
+              className="display-italic text-teal text-[clamp(1.6rem,3.2vw,2.6rem)] leading-[1.15]"
             >
-              <p className="display-italic text-teal text-[clamp(1.5rem,3.6vw,2.8rem)] leading-[1.1]">
-                {t("subtitle")}
-              </p>
-            </motion.div>
+              {t("subtitle")}
+            </p>
+          </motion.div>
 
+          {/* Eyebrow + body in a two-column split (asymmetric, editorial) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-12 lg:mt-16">
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 22 },
                 visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
               }}
-              className="lg:col-span-6 lg:col-start-7"
+              className="lg:col-span-5"
             >
+              <div className="flex items-center gap-4 mb-4">
+                <span className="h-px w-8 bg-teal/60" />
+                <span className="eyebrow">{t("eyebrow")}</span>
+              </div>
               <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
                 {t("body")}
               </p>
 
-              {/* CTAs — magnetic */}
-              <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <Magnetic strength={0.5}>
+              {/* Single CTA — a threshold, not a sales pitch */}
+              <div className="mt-10">
+                <Magnetic strength={0.4}>
                   <a
                     href="/correspondence"
                     className="group inline-flex items-center gap-3 bg-teal hover:bg-teal-bright text-paper font-medium px-7 py-4 rounded-full transition-all duration-300 glow-teal"
@@ -121,21 +139,35 @@ export function Hero() {
                     <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
                   </a>
                 </Magnetic>
-                <Magnetic strength={0.3}>
-                  <a
-                    href="/work"
-                    className="link-underline inline-flex items-center gap-2 text-ink hover:text-teal transition-colors text-base px-3 py-2"
-                  >
-                    {t("ctaSecondary")}
-                    <ArrowUpRight size={16} />
-                  </a>
-                </Magnetic>
+              </div>
+            </motion.div>
+
+            {/* Right column: Greek motto + scholarly convention */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 22 },
+                visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE, delay: 0.15 } },
+              }}
+              className="lg:col-span-5 lg:col-start-8"
+            >
+              <div className="border-l-2 border-gold/40 pl-6 py-2">
+                <p
+                  className="text-[clamp(1.4rem,2.4vw,2rem)] text-gold leading-tight mb-2"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
+                  aria-label="Phronesis — practical wisdom"
+                >
+                  ΦΡΟΝΗΣΙΣ
+                </p>
+                <p className="text-xs text-ink-dim body-serif-italic leading-relaxed">
+                  Greek: practical wisdom — the virtue of perceiving the right
+                  action in the right moment. Aristotle, <em>Nicomachean Ethics</em>, Book VI.
+                </p>
               </div>
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Bottom bar — full width */}
+        {/* Bottom bar — scholarly convention: established year + location */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -153,8 +185,8 @@ export function Hero() {
               {t("footnote")}
             </p>
           </div>
-          <div className="text-xs text-ink-dim uppercase tracking-[0.25em] font-mono">
-            {t("location")}
+          <div className="text-[10px] text-ink-dim uppercase tracking-[0.3em] font-mono">
+            EST. MMXXIV · {t("location")}
           </div>
         </motion.div>
       </div>

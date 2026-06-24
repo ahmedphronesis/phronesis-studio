@@ -103,13 +103,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <Menu size={20} />
           </button>
           <Link href="/admin" className="flex items-center gap-2">
-            <span
-              className="text-xl text-[#B48D3C]"
-              style={{ fontFamily: "Georgia, serif" }}
-              aria-hidden
-            >
-              Φ
-            </span>
+            <img src="/logo-eagle.png" alt="" aria-hidden className="h-7 w-7" />
             <span className="text-sm font-medium text-[#1A1A1A]">Admin</span>
           </Link>
           <div className="w-9" />
@@ -142,13 +136,7 @@ function SidebarContent({
           className="flex items-center gap-3"
           onClick={onClose}
         >
-          <span
-            className="text-3xl text-[#B48D3C] leading-none"
-            style={{ fontFamily: "Georgia, serif" }}
-            aria-hidden
-          >
-            Φ
-          </span>
+          <img src="/logo-eagle.png" alt="" aria-hidden className="h-10 w-10" />
           <div className="leading-tight">
             <p
               className="text-sm text-[#1A1A1A]"

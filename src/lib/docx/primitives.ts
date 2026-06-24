@@ -16,6 +16,7 @@ import {
   Packer,
   Paragraph,
   TextRun,
+  ImageRun,
   HeadingLevel,
   AlignmentType,
   Table,
@@ -33,11 +34,12 @@ import {
   type ParagraphChild,
   type ITableRowOptions,
 } from "docx";
+import { readFileSync } from "fs";
+import { resolve } from "path";
 
 // ─── Brand constants ────────────────────────────────────────────────────────
 
 export const BRAND = {
-  PHI: "Φ",
   STUDIO: "STUDIO OF PHRONESIS",
   TAGLINE: "Educator · Systems Architect · Leadership",
   DOMAIN: "phronesis-studio.com",
@@ -45,6 +47,41 @@ export const BRAND = {
   SIGNATURE: "Studio of Practical Wisdom",
   EMAIL: "ahmed@phronesis-studio.com",
 };
+
+// Cache the eagle logo buffer (loaded once per process)
+let eagleLogoBuffer: Buffer | null = null;
+function getEagleLogo(): Buffer {
+  if (eagleLogoBuffer) return eagleLogoBuffer;
+  // Try multiple resolution paths (works in both local dev and Vercel build)
+  const candidates = [
+    resolve(process.cwd(), "src/lib/docx/assets/logo-eagle.png"),
+    resolve(process.cwd(), "public/logo-eagle.png"),
+    resolve(__dirname, "assets/logo-eagle.png"),
+  ];
+  for (const p of candidates) {
+    try {
+      eagleLogoBuffer = readFileSync(p);
+      return eagleLogoBuffer;
+    } catch {
+      // try next
+    }
+  }
+  throw new Error("Could not load eagle logo from any candidate path");
+}
+
+/**
+ * Build an ImageRun for the eagle logo at the given pixel size.
+ * Used in DOCX headers and footers.
+ */
+function eagleImage(heightPx: number): ImageRun {
+  const buffer = getEagleLogo();
+  // Image is square (1280x1280), so width = height
+  return new ImageRun({
+    data: buffer,
+    transformation: { width: heightPx, height: heightPx },
+    type: "png",
+  });
+}
 
 export const COLORS = {
   TEAL: "0F5C5E",
@@ -113,21 +150,6 @@ function topOnlyBorder(color = COLORS.BORDER, size = 4) {
 }
 
 // ─── Atomic paragraph builders ──────────────────────────────────────────────
-
-export function phi(size = 48): Paragraph {
-  return new Paragraph({
-    alignment: AlignmentType.CENTER,
-    spacing: { before: 0, after: 60 },
-    children: [
-      new TextRun({
-        text: BRAND.PHI,
-        font: FONT_DISPLAY,
-        size,
-        color: COLORS.GOLD,
-      }),
-    ],
-  });
-}
 
 export function studioName(): Paragraph {
   return new Paragraph({
@@ -600,7 +622,7 @@ export function callout(
 }
 
 /**
- * Brand header — Φ wordmark + STUDIO OF PHRONESIS + tagline + gold rule.
+ * Brand header — eagle logo + STUDIO OF PHRONESIS + tagline + gold rule.
  * Used at the top of every template.
  */
 export function brandHeader(): (Paragraph | Table)[] {
@@ -612,27 +634,20 @@ export function brandHeader(): (Paragraph | Table)[] {
         new TableRow({
           children: [
             new TableCell({
-              width: { size: 12, type: WidthType.PERCENTAGE },
+              width: { size: 14, type: WidthType.PERCENTAGE },
               verticalAlign: "center",
               margins: { top: 0, bottom: 0, left: 0, right: 0 },
               children: [
                 new Paragraph({
                   alignment: AlignmentType.LEFT,
-                  children: [
-                    new TextRun({
-                      text: BRAND.PHI,
-                      font: FONT_DISPLAY,
-                      size: 64,
-                      color: COLORS.GOLD,
-                    }),
-                  ],
+                  children: [eagleImage(72)],
                 }),
               ],
             }),
             new TableCell({
-              width: { size: 88, type: WidthType.PERCENTAGE },
+              width: { size: 86, type: WidthType.PERCENTAGE },
               verticalAlign: "center",
-              margins: { top: 0, bottom: 0, left: 0, right: 0 },
+              margins: { top: 0, bottom: 0, left: 200, right: 0 },
               children: [
                 new Paragraph({
                   spacing: { after: 30 },
@@ -673,12 +688,12 @@ export function brandHeader(): (Paragraph | Table)[] {
 }
 
 /**
- * Brand footer — gold rule + centered Φ wordmark + location + domain.
+ * Brand footer — gold rule + centered eagle + STUDIO OF PHRONESIS + location + domain.
  */
 export function brandFooter(): Paragraph[] {
   return [
     new Paragraph({
-      spacing: { before: 480, after: 60 },
+      spacing: { before: 480, after: 120 },
       alignment: AlignmentType.CENTER,
       border: {
         top: { style: BorderStyle.SINGLE, size: 8, color: COLORS.GOLD },
@@ -686,9 +701,14 @@ export function brandFooter(): Paragraph[] {
         left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" },
         right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" },
       },
+      children: [eagleImage(48)],
+    }),
+    new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { before: 0, after: 40 },
       children: [
         new TextRun({
-          text: `${BRAND.PHI}   ${BRAND.STUDIO}`,
+          text: BRAND.STUDIO,
           font: FONT_DISPLAY,
           size: 18,
           characterSpacing: 80,
