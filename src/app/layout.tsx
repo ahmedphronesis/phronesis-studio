@@ -10,6 +10,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   verification: {
     google: "I7i4WPjVKGFLNmDp1CU-rGfErnVn_MEzd4sv9zshhpI",
+    other: {
+      "msvalidate.01": "62274B38A3DCB37F0CB0238AC08F507A",
+    },
   },
 };
 
