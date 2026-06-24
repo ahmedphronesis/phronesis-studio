@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
+import { sendLeadConfirmation, sendLeadNotification, isEmailConfigured } from "@/lib/email";
 
 const LeadSchema = z.object({
   name: z.string().min(2, "Name is required").max(120),
@@ -9,6 +10,8 @@ const LeadSchema = z.object({
   gap: z.string().min(20, "Tell me a little more about the gap — at least a sentence").max(4000),
   budget: z.string().max(60).optional().nullable(),
 });
+
+export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,6 +37,28 @@ export async function POST(req: NextRequest) {
         budget: budget ?? null,
       },
     });
+
+    // Send confirmation email to the lead + notification to the studio owner.
+    // Both are fire-and-forget — email failures should NOT break the API response.
+    // We log errors but still return 200 to the user.
+    if (isEmailConfigured()) {
+      // Fire-and-forget both emails in parallel
+      Promise.all([
+        sendLeadConfirmation({ leadName: name, leadEmail: email, gap }),
+        sendLeadNotification({
+          leadName: name,
+          leadEmail: email,
+          leadCompany: company ?? null,
+          leadGap: gap,
+          leadBudget: budget ?? null,
+          leadId: lead.id,
+        }),
+      ]).catch((err) => {
+        console.error("[/api/lead] email send failed:", err);
+      });
+    } else {
+      console.warn("[/api/lead] SMTP not configured — skipping email notifications");
+    }
 
     return NextResponse.json({ ok: true, id: lead.id });
   } catch (err) {
