@@ -16,12 +16,14 @@ import {
   X,
   ExternalLink,
   Loader2,
+  Send,
 } from "lucide-react";
 
 const NAV = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard },
   { href: "/admin/content", label: "Content", icon: FileText },
   { href: "/admin/leads", label: "Leads", icon: Inbox },
+  { href: "/admin/sent", label: "Sent Emails", icon: Send },
   { href: "/admin/templates", label: "Templates", icon: FileEdit },
   { href: "/admin/echoes", label: "Echoes", icon: Headphones },
   { href: "/admin/settings", label: "Settings", icon: Settings },

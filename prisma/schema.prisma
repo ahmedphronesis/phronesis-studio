@@ -65,3 +65,17 @@ model TemplateLog {
 
   @@map("template_logs")
 }
+
+// New — log of emails sent from the admin portal (replies, composed emails).
+model SentEmail {
+  id        String   @id @default(cuid())
+  toEmail   String
+  toName    String?
+  subject   String
+  bodyText  String
+  bodyHtml  String?
+  leadId    String?  // optional link to a Lead (when replying from inbox)
+  createdAt DateTime @default(now())
+
+  @@map("sent_emails")
+}

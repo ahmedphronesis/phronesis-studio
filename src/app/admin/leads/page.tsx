@@ -11,7 +11,9 @@ import {
   ExternalLink,
   X,
   AlertCircle,
+  Send,
 } from "lucide-react";
+import { ComposeEmailModal } from "@/components/admin/ComposeEmailModal";
 
 type Lead = {
   id: string;
@@ -31,6 +33,14 @@ export default function LeadsPage() {
   const [selected, setSelected] = useState<Lead | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [composeOpen, setComposeOpen] = useState(false);
+  const [composeState, setComposeState] = useState<{
+    to: string;
+    toName: string;
+    subject: string;
+    body: string;
+    leadId?: string;
+  }>({ to: "", toName: "", subject: "", body: "" });
 
   const loadLeads = useCallback(async () => {
     setLoading(true);
@@ -133,6 +143,16 @@ export default function LeadsPage() {
           >
             <Download size={14} />
             Export CSV
+          </button>
+          <button
+            onClick={() => {
+              setComposeState({ to: "", toName: "", subject: "", body: "" });
+              setComposeOpen(true);
+            }}
+            className="inline-flex items-center gap-2 bg-[#0F5C5E] hover:bg-[#1A6E70] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+          >
+            <Send size={14} />
+            Compose
           </button>
         </div>
       </header>
@@ -348,15 +368,33 @@ export default function LeadsPage() {
                 </Field>
               </div>
               <div className="px-6 py-4 border-t border-[#E5DDD0] flex items-center justify-between gap-3">
-                <a
-                  href={`mailto:${selected.email}?subject=Re: Your inquiry to Studio of Phronesis&body=Dear ${encodeURIComponent(
-                    selected.name
-                  )},%0D%0A%0D%0AThank you for reaching out to Studio of Phronesis. %0D%0A%0D%0A`}
-                  className="inline-flex items-center gap-2 bg-[#0F5C5E] hover:bg-[#1A6E70] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  <ExternalLink size={14} />
-                  Reply by email
-                </a>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setComposeState({
+                        to: selected.email,
+                        toName: selected.name,
+                        subject: `Re: Your inquiry to Studio of Phronesis`,
+                        body: `Dear ${selected.name.split(" ")[0]},\n\nThank you for reaching out to Studio of Phronesis. \n\n`,
+                        leadId: selected.id,
+                      });
+                      setComposeOpen(true);
+                    }}
+                    className="inline-flex items-center gap-2 bg-[#0F5C5E] hover:bg-[#1A6E70] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
+                  >
+                    <Send size={14} />
+                    Reply from ahmed@phronesis-studio.com
+                  </button>
+                  <a
+                    href={`mailto:${selected.email}?subject=Re: Your inquiry to Studio of Phronesis&body=Dear ${encodeURIComponent(
+                      selected.name
+                    )},%0D%0A%0D%0AThank you for reaching out to Studio of Phronesis. %0D%0A%0D%0A`}
+                    className="inline-flex items-center gap-2 bg-white border border-[#E5DDD0] hover:border-[#0F5C5E]/40 text-[#666] hover:text-[#0F5C5E] text-sm px-4 py-2.5 rounded-lg transition-colors"
+                  >
+                    <ExternalLink size={14} />
+                    Open in Gmail
+                  </a>
+                </div>
                 <button
                   onClick={() => onDelete(selected.id)}
                   disabled={deletingId === selected.id}
@@ -374,6 +412,16 @@ export default function LeadsPage() {
           </>
         )}
       </AnimatePresence>
+
+      <ComposeEmailModal
+        open={composeOpen}
+        onClose={() => setComposeOpen(false)}
+        initialTo={composeState.to}
+        initialToName={composeState.toName}
+        initialSubject={composeState.subject}
+        initialBody={composeState.body}
+        leadId={composeState.leadId}
+      />
     </div>
   );
 }
