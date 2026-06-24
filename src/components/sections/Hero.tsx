@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Magnetic, TextReveal, EASE } from "../anim";
 import { MeshBackground } from "../MeshBackground";
@@ -22,6 +22,33 @@ export function Hero() {
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
+      {/* Large semi-transparent eagle filling the right side — animated, ghostly */}
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, scale: 0.9, x: 60 }}
+        animate={{ opacity: 0.12, scale: 1, x: 0 }}
+        transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
+        className="absolute right-[-8%] top-1/2 -translate-y-1/2 hidden md:block pointer-events-none select-none"
+      >
+        <motion.img
+          src="/logo-eagle.png"
+          alt=""
+          className="w-[clamp(28rem,42vw,52rem)] h-auto"
+          style={{
+            filter: "drop-shadow(0 8px 32px rgba(180, 141, 60, 0.18))",
+          }}
+          animate={{
+            y: [0, -16, 0],
+            rotate: [0, 1.5, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
+
       {/* Full-bleed content */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 pb-32">
         <motion.div
@@ -30,54 +57,25 @@ export function Hero() {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
           className="w-full"
         >
-          {/* The eagle as centerpiece — gold, heraldic, leading the page */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.85 },
-              visible: { opacity: 1, scale: 1, transition: { duration: 1.6, ease: EASE } },
-            }}
-            className="flex items-center gap-5 mb-8"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.4, ease: EASE, delay: 0.4 }}
-              className="h-px w-16 bg-gradient-to-r from-transparent via-teal to-teal"
-              style={{ transformOrigin: "left" }}
-            />
-            <img
-              src="/logo-eagle.png"
-              alt=""
-              aria-hidden
-              className="h-[clamp(4rem,9vw,7rem)] w-auto"
-              style={{ filter: "drop-shadow(0 2px 8px rgba(180, 141, 60, 0.18))" }}
-            />
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, ease: EASE, delay: 0.6 }}
-              className="h-px w-16 bg-gradient-to-l from-transparent via-teal to-teal hidden sm:block"
-              style={{ transformOrigin: "right" }}
-            />
-          </motion.div>
-
-          {/* Studio name in small caps, refined */}
+          {/* Small eyebrow rule — no duplicate eagle or studio name (Nav handles that) */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 16 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE, delay: 0.2 } },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
             }}
-            className="mb-6"
+            className="flex items-center gap-4 mb-8"
           >
-            <p
-              className="text-[clamp(0.95rem,1.4vw,1.15rem)] text-ink-soft tracking-[0.4em] uppercase"
-              style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
-            >
-              Studio of Phronesis
-            </p>
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, ease: EASE, delay: 0.4 }}
+              className="h-px w-16 bg-gradient-to-r from-transparent via-teal to-teal"
+              style={{ transformOrigin: "left" }}
+            />
+            <span className="eyebrow">{t("eyebrow")}</span>
           </motion.div>
 
-          {/* The name — large but no longer dominant */}
+          {/* The name — large, leading the page */}
           <h1
             className="display text-ink perspective-1000"
             style={{ fontSize: "clamp(3.5rem, 11vw, 9rem)", lineHeight: 0.95 }}
@@ -105,26 +103,22 @@ export function Hero() {
             className="mt-8 lg:mt-10 max-w-3xl"
           >
             <p
-              className="display-italic text-teal text-[clamp(1.6rem,3.2vw,2.6rem)] leading-[1.15]"
+              className="display-italic text-teal text-[clamp(1.4rem,2.8vw,2.2rem)] leading-[1.2]"
             >
               {t("subtitle")}
             </p>
           </motion.div>
 
-          {/* Eyebrow + body in a two-column split (asymmetric, editorial) */}
+          {/* Two-column split — body left, Greek motto right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-12 lg:mt-16">
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 22 },
                 visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
               }}
-              className="lg:col-span-5"
+              className="lg:col-span-7"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <span className="h-px w-8 bg-teal/60" />
-                <span className="eyebrow">{t("eyebrow")}</span>
-              </div>
-              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
+              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed text-justify">
                 {t("body")}
               </p>
 
@@ -148,7 +142,7 @@ export function Hero() {
                 hidden: { opacity: 0, y: 22 },
                 visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE, delay: 0.15 } },
               }}
-              className="lg:col-span-5 lg:col-start-8"
+              className="lg:col-span-5"
             >
               <div className="border-l-2 border-gold/40 pl-6 py-2">
                 <p

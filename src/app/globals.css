@@ -180,6 +180,31 @@
   [dir="rtl"] {
     text-align: right;
   }
+
+  /* Scholarly justification — body paragraphs use justified text (book-like),
+     but lists, bullets, and headings stay left-aligned per typographic convention. */
+  .body-serif,
+  .body-serif-italic {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  /* Keep list items and bullets left-aligned (never justified) */
+  ul, ol, li {
+    text-align: left;
+  }
+  /* RTL: list items right-aligned */
+  [dir="rtl"] ul, [dir="rtl"] ol, [dir="rtl"] li {
+    text-align: right;
+  }
+  /* Display/headings stay left-aligned */
+  .display, .display-italic, h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+  [dir="rtl"] .display, [dir="rtl"] .display-italic, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    text-align: right;
+  }
 }
 
 /* Eyebrow / uppercase label */
