@@ -92,7 +92,10 @@ export async function generateDemoBrief(p: DemoBriefPayload): Promise<Buffer> {
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Demonstration Access Brief" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Demonstration Access Brief",
+    documentSubtitle: p.projectName,
+  });
   return packDoc(doc);
 }
 
@@ -167,7 +170,10 @@ export async function generateSoftwareQuote(p: SoftwareQuotePayload): Promise<Bu
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Software Quotation" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Software Quotation",
+    documentSubtitle: p.projectName,
+  });
   return packDoc(doc);
 }
 
@@ -229,7 +235,10 @@ export async function generateTutoringQuote(p: TutoringQuotePayload): Promise<Bu
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Tutoring Quotation" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Tutoring Quotation",
+    documentSubtitle: p.subject,
+  });
   return packDoc(doc);
 }
 
@@ -296,7 +305,10 @@ export async function generateConsultancyQuote(
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Consultancy Quotation" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Consultancy Quotation",
+    documentSubtitle: p.engagementTitle,
+  });
   return packDoc(doc);
 }
 
@@ -367,7 +379,10 @@ export async function generateEngagementLetter(
     body("Studio of Phronesis", { color: COLORS.INK_SOFT, size: 18 }),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Engagement Letter" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Engagement Letter",
+    documentSubtitle: p.engagementTitle,
+  });
   return packDoc(doc);
 }
 
@@ -424,7 +439,10 @@ export async function generateProjectBrief(
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Project Brief" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Project Brief",
+    documentSubtitle: p.projectName,
+  });
   return packDoc(doc);
 }
 
@@ -490,7 +508,10 @@ export async function generateInvoice(p: InvoicePayload): Promise<Buffer> {
     ),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: `Invoice ${p.invoiceNumber}` });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: `Invoice ${p.invoiceNumber}`,
+    documentSubtitle: `${p.clientName}${p.clientOrg ? ` · ${p.clientOrg}` : ""}`,
+  });
   return packDoc(doc);
 }
 
@@ -554,7 +575,10 @@ export async function generateWelcomeLetter(
     body("Studio of Phronesis", { color: COLORS.INK_SOFT, size: 18 }),
   ];
 
-  const doc = buildDocument(bodyElements, { documentTitle: "Welcome to the Studio" });
+  const doc = buildDocument(bodyElements, {
+    documentTitle: "Welcome to the Studio",
+    documentSubtitle: p.engagementTitle,
+  });
   return packDoc(doc);
 }
 

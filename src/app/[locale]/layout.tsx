@@ -2,9 +2,9 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing, localeNames, type Locale } from "@/i18n/routing";
 import { Cormorant_Garamond, Inter, Source_Serif_4, JetBrains_Mono, Amiri } from "next/font/google";
-import "../globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
+import { HtmlLangSetter } from "@/components/HtmlLangSetter";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -68,16 +68,15 @@ export default async function LocaleLayout({
   const localeInfo = localeNames[locale as Locale];
 
   return (
-    <html lang={locale} dir={localeInfo.dir} className="dark" suppressHydrationWarning>
-      <body
-        className={`${cormorant.variable} ${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} ${amiri.variable} antialiased bg-background text-foreground`}
-      >
-        <NextIntlClientProvider>
-          {children}
-        </NextIntlClientProvider>
-        <Toaster />
-        <SonnerToaster position="bottom-right" />
-      </body>
-    </html>
+    <div
+      className={`${cormorant.variable} ${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} ${amiri.variable} bg-background text-foreground`}
+    >
+      <HtmlLangSetter locale={locale} dir={localeInfo.dir} />
+      <NextIntlClientProvider>
+        {children}
+      </NextIntlClientProvider>
+      <Toaster />
+      <SonnerToaster position="bottom-right" />
+    </div>
   );
 }
