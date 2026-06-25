@@ -107,7 +107,7 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Studio of Phronesis — Ahmed Ali",
+        alt: "Studio of Phronesis · Ahmed Ali",
       },
     ],
   },
