@@ -28,12 +28,12 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.9, x: 60 }}
         animate={{ opacity: 0.12, scale: 1, x: 0 }}
         transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
-        className="absolute right-[-8%] top-1/2 -translate-y-1/2 hidden md:block pointer-events-none select-none"
+        className="absolute right-[-8%] top-1/2 -translate-y-1/2 block pointer-events-none select-none"
       >
         <motion.img
           src="/logo-eagle.png"
           alt=""
-          className="w-[clamp(28rem,42vw,52rem)] h-auto"
+          className="w-[clamp(16rem,42vw,52rem)] h-auto"
           style={{
             filter: "drop-shadow(0 8px 32px rgba(180, 141, 60, 0.18))",
           }}
