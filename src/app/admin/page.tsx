@@ -142,7 +142,7 @@ export default async function AdminOverviewPage() {
                 </div>
                 <div className="text-right flex-shrink-0">
                   <p className="text-xs text-[#666] font-mono">
-                    {lead.budget || "—"}
+                    {lead.budget || "·"}
                   </p>
                   <p className="text-[10px] text-[#999] mt-0.5">
                     {lead.createdAt.toLocaleDateString("en-US", {

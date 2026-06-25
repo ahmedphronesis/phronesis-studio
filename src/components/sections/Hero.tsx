@@ -148,12 +148,12 @@ export function Hero() {
                 <p
                   className="text-[clamp(1.4rem,2.4vw,2rem)] text-gold leading-tight mb-2"
                   style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-                  aria-label="Phronesis — practical wisdom"
+                  aria-label="Phronesis: practical wisdom"
                 >
                   ΦΡΟΝΗΣΙΣ
                 </p>
                 <p className="text-xs text-ink-dim body-serif-italic leading-relaxed">
-                  Greek: practical wisdom — the virtue of perceiving the right
+                  Greek: practical wisdom, the virtue of perceiving the right
                   action in the right moment. Aristotle, <em>Nicomachean Ethics</em>, Book VI.
                 </p>
               </div>

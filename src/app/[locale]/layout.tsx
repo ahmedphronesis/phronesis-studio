@@ -5,6 +5,7 @@ import { Cormorant_Garamond, Inter, Source_Serif_4, JetBrains_Mono, Amiri } from
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { HtmlLangSetter } from "@/components/HtmlLangSetter";
+import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -128,10 +129,23 @@ export const metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/logo-eagle.png", type: "image/png" }],
-    apple: [{ url: "/logo-eagle.png" }],
-    shortcut: [{ url: "/logo-eagle.png" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/favicon-512x512.png", color: "#0F5C5E" },
+    ],
   },
+  manifest: "/manifest.json",
+  themeColor: "#0F5C5E",
 };
 
 export function generateStaticParams() {
@@ -156,6 +170,9 @@ export default async function LocaleLayout({
       className={`${cormorant.variable} ${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} ${amiri.variable} bg-background text-foreground`}
     >
       <HtmlLangSetter locale={locale} dir={localeInfo.dir} />
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+      <PersonJsonLd />
       <NextIntlClientProvider>
         {children}
       </NextIntlClientProvider>

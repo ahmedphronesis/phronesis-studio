@@ -136,7 +136,7 @@ export default function SettingsPage() {
           Site Settings
         </h1>
         <p className="text-sm text-[#666] mt-1">
-          Brand-wide settings — footer, contact details, and links.
+          Brand-wide settings, footer, contact details, and links.
         </p>
       </header>
 
@@ -356,7 +356,7 @@ function EmailSetupSection() {
             <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded">
               ahmed@phronesis-studio.com
             </code>{" "}
-            — 100% free, no monthly fees
+           , 100% free, no monthly fees
           </p>
         </div>
       </div>
@@ -402,7 +402,7 @@ function EmailSetupSection() {
           {/* Step 1 */}
           <div>
             <h4 className="text-[#1A1A1A] font-medium mb-2">
-              Step 1 · Sign up for ImprovMX (free) — for{" "}
+              Step 1 · Sign up for ImprovMX (free), for{" "}
               <em>receiving</em> emails
             </h4>
             <ol className="list-decimal ml-5 space-y-1 text-[#666]">
@@ -446,7 +446,7 @@ MX    @     mx2.improvmx.com   20`}
           {/* Step 2 */}
           <div>
             <h4 className="text-[#1A1A1A] font-medium mb-2">
-              Step 2 · Sign up for Brevo (free) — for{" "}
+              Step 2 · Sign up for Brevo (free), for{" "}
               <em>sending</em> emails
             </h4>
             <ol className="list-decimal ml-5 space-y-1 text-[#666]">
@@ -466,7 +466,7 @@ MX    @     mx2.improvmx.com   20`}
                 In Brevo dashboard: <em>Settings → Senders & IP → Add a
                 sender</em>. Add{" "}
                 <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded text-xs">ahmed@phronesis-studio.com</code>{" "}
-                — Brevo will send a verification email to it (which
+               , Brevo will send a verification email to it (which
                 ImprovMX forwards to your Gmail).
               </li>
               <li>
@@ -506,7 +506,7 @@ MX     return.phronesis-studio.com  (Brevo's bounce MX)`}
 {`SMTP_HOST=smtp-relay.brevo.com
 SMTP_PORT=587
 SMTP_USER=(your Brevo account email)
-SMTP_PASS=(your Brevo SMTP key — starts with xkeysib-)
+SMTP_PASS=(your Brevo SMTP key, starts with xkeysib-)
 CONTACT_EMAIL=ahmed@phronesis-studio.com
 NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
             </pre>
@@ -532,7 +532,7 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
                 → Add another email address</em>
               </li>
               <li>
-                Name: <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded text-xs">Ahmed Ali — Studio of Phronesis</code>,
+                Name: <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded text-xs">Ahmed Ali, Studio of Phronesis</code>,
                 Email:{" "}
                 <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded text-xs">ahmed@phronesis-studio.com</code>
               </li>
@@ -547,7 +547,7 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
               <li>
                 Choose "Send through SMTP" (not "Send through Gmail"). Now
                 when you reply to inquiries from Gmail, the From address is
-                your custom domain — no "via gmail.com" header.
+                your custom domain, no "via gmail.com" header.
               </li>
             </ol>
           </div>
@@ -571,7 +571,7 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
           Send test email
         </h4>
         <p className="text-xs text-[#666] mb-3">
-          Optional — specify a different recipient, or leave blank to send
+          Optional, specify a different recipient, or leave blank to send
           to the configured NOTIFY_EMAIL.
         </p>
         <div className="flex gap-2">

@@ -46,7 +46,7 @@ export async function generateDemoBrief(p: DemoBriefPayload): Promise<Buffer> {
   const bodyElements: (Paragraph | Table)[] = [
     metadataTable([
       { label: "Prepared for", value: p.clientName },
-      { label: "Issued", value: `${issued} — GST` },
+      { label: "Issued", value: `${issued} · GST` },
     ]),
     spacer(240),
 
@@ -151,7 +151,7 @@ export async function generateSoftwareQuote(p: SoftwareQuotePayload): Promise<Bu
       [
         { label: "Setup Fee (one-time)", value: p.setupFee, valueColor: COLORS.TEAL },
         { label: "Annual License", value: p.annualLicense, valueColor: COLORS.TEAL },
-        { label: "Total — First Year", value: p.totalFirstYear, valueColor: COLORS.GOLD },
+        { label: "Total, First Year", value: p.totalFirstYear, valueColor: COLORS.GOLD },
       ],
       { firstColumnWidth: 50 }
     ),
@@ -637,7 +637,7 @@ export const TEMPLATES = [
   {
     id: "welcome-letter",
     name: "Welcome Letter",
-    description: "Onboarding letter sent after a deal closes — kickoff details and what to expect.",
+    description: "Onboarding letter sent after a deal closes: kickoff details and what to expect.",
     icon: "👋",
   },
 ] as const;

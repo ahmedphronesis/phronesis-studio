@@ -223,7 +223,7 @@ export function sectionHeading(text: string, color = COLORS.TEAL): Paragraph {
     spacing: { before: 400, after: 180 },
     children: [
       new TextRun({
-        text: "—  ",
+        text: "•  ",
         font: FONT_DISPLAY,
         size: 22,
         color: COLORS.GOLD,
@@ -272,7 +272,7 @@ export function bullet(text: string, color = COLORS.TEAL): Paragraph {
     indent: { left: 480, hanging: 280 },
     children: [
       new TextRun({
-        text: "—  ",
+        text: "•  ",
         font: FONT_BODY,
         size: 22,
         color: COLORS.GOLD,

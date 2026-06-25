@@ -277,7 +277,7 @@ export default function ContentEditorPage() {
           </div>
 
           <p className="text-xs text-[#999] mt-3 px-1">
-            Tip: Edit the JSON above. Keys must stay exactly as shown — only
+            Tip: Edit the JSON above. Keys must stay exactly as shown, only
             translate the values. Save to publish. The site picks up changes
             on the next request.
           </p>

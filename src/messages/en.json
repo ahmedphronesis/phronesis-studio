@@ -15,8 +15,8 @@
   "hero": {
     "eyebrow": "Philosopher · Educator · Architect",
     "name": "Ahmed Ali",
-    "subtitle": "Perceiving the gap between what is and what should be — and closing it with discipline.",
-    "body": "Three disciplines, one method. In education, I design learning systems and teach across Grades 1 to 12. In software, I architect production platforms for schools, businesses, and institutions. In leadership, I help operations run with precision under ISO standards. Each engagement begins with diagnosis and closes with disciplined execution — available as a custom build, a structured consultation, or focused tutoring.",
+    "subtitle": "Perceiving the gap between what is and what should be, and closing it with discipline.",
+    "body": "A philosopher once wrote that wisdom begins in the recognition of what is absent. I have spent a decade learning to see what is missing, in classrooms and in code, in ledgers and in lesson plans. What I offer is not three separate trades, but one habit of attention applied wherever it is needed. If your institution carries a gap it has not yet named, I would consider it a privilege to walk with you in naming it, and in closing it with care.",
     "ctaPrimary": "Begin a conversation",
     "ctaSecondary": "See selected work",
     "footnote": "Four production platforms live. A decade across classrooms, operations, and code. Available for selective engagements.",
@@ -474,7 +474,7 @@
       "category": "UAE Property Management · Cloud Platform",
       "name": "Real Estate Emperor",
       "tagline": "The operating system for UAE property portfolios.",
-      "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations — built for landlords managing 20 to 500 units across the Emirates.",
+      "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations, built for landlords managing 20 to 500 units across the Emirates.",
       "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
       "stats": [
         {
@@ -497,12 +497,12 @@
       "pillars": [
         {
           "title": "Rent Collection Intelligence",
-          "body": "Every payment recorded with allocation logic — current rent, advance, or historical debt. No more guessing who paid what. The system calculates collection rate per building as a clean percentage.",
+          "body": "Every payment recorded with allocation logic, current rent, advance, or historical debt. No more guessing who paid what. The system calculates collection rate per building as a clean percentage.",
           "replaces": "Replaces: Excel + paper receipts"
         },
         {
           "title": "Per-Building Performance",
-          "body": "Monthly P&L per property. Collection rate per building. Problem buildings surface themselves. Now you can decide — keep, raise rent, or sell — with numbers, not gut feel.",
+          "body": "Monthly P&L per property. Collection rate per building. Problem buildings surface themselves. Now you can decide, keep, raise rent, or sell, with numbers, not gut feel.",
           "replaces": "Replaces: manual reporting"
         },
         {
@@ -638,7 +638,7 @@
         }
       ],
       "ctaTitle": "Founding clients wanted.",
-      "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients — multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
+      "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients, multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
       "ctaButton": "Become a founding client"
     }
   },
@@ -646,7 +646,7 @@
     "eyebrow": "Vouches",
     "title": "In their",
     "titleItalic": "words.",
-    "intro": "Recommendations from those who have worked with me, taught me, and led me. Each is verifiable — formal letters are downloadable, LinkedIn recommendations link to the original.",
+    "intro": "Recommendations from those who have worked with me, taught me, and led me. Each is verifiable, formal letters are downloadable, LinkedIn recommendations link to the original.",
     "downloadLetter": "Download letter",
     "viewOnLinkedIn": "View on LinkedIn",
     "linkedin": {

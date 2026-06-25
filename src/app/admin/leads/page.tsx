@@ -219,7 +219,7 @@ export default function LeadsPage() {
                   </td>
                   <td className="px-5 py-4">
                     <span className="text-xs text-[#666] font-mono">
-                      {lead.budget || "—"}
+                      {lead.budget || "·"}
                     </span>
                   </td>
                   <td className="px-5 py-4">

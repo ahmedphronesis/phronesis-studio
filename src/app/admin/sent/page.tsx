@@ -256,7 +256,7 @@ export default function SentEmailsPage() {
                       to: selected.toEmail,
                       toName: selected.toName || "",
                       subject: selected.subject.startsWith("Re:") ? selected.subject : `Re: ${selected.subject}`,
-                      body: `\n\n\n— On ${new Date(selected.createdAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}, you wrote:\n\n${selected.bodyText.split("\n").map((line) => `> ${line}`).join("\n")}`,
+                      body: `\n\n\n· On ${new Date(selected.createdAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}, you wrote:\n\n${selected.bodyText.split("\n").map((line) => `> ${line}`).join("\n")}`,
                     });
                     setSelected(null);
                     setComposeOpen(true);

@@ -45,7 +45,7 @@ const SCHEMAS: TemplateSchema[] = [
     icon: "🔑",
     fields: [
       { key: "clientName", label: "Client Name", type: "text", placeholder: "Mohammed Mosa Ali", defaultValue: "" },
-      { key: "projectName", label: "Project Name", type: "text", placeholder: "Al Ain Properties — Real Estate Platform", defaultValue: "" },
+      { key: "projectName", label: "Project Name", type: "text", placeholder: "Al Ain Properties, Real Estate Platform", defaultValue: "" },
       { key: "projectDescription", label: "Project Description", type: "textarea", placeholder: "A bilingual, mobile-responsive website engineered for property listings, WhatsApp-driven inquiries, and a full administrative dashboard.", defaultValue: "" },
       { key: "websiteUrl", label: "Website URL", type: "text", placeholder: "https://your-demo.vercel.app", defaultValue: "" },
       { key: "adminUrl", label: "Admin Dashboard URL", type: "text", placeholder: "https://your-demo.vercel.app/admin", defaultValue: "/admin" },
@@ -89,7 +89,7 @@ const SCHEMAS: TemplateSchema[] = [
       ]},
       { key: "setupFee", label: "Setup Fee (one-time)", type: "text", placeholder: "8,000 AED" },
       { key: "annualLicense", label: "Annual License", type: "text", placeholder: "12,000 AED / year" },
-      { key: "totalFirstYear", label: "Total — First Year", type: "text", placeholder: "20,000 AED" },
+      { key: "totalFirstYear", label: "Total, First Year", type: "text", placeholder: "20,000 AED" },
       { key: "terms", label: "Terms & Conditions", type: "list", defaultValue: [
         "50% setup fee due on commencement, 50% on delivery",
         "Annual license covers updates, security patches, and support",
@@ -209,7 +209,7 @@ const SCHEMAS: TemplateSchema[] = [
       { key: "issueDate", label: "Issue Date", type: "text", placeholder: "24 June 2026" },
       { key: "dueDate", label: "Due Date", type: "text", placeholder: "24 July 2026" },
       { key: "lineItems", label: "Line Items", type: "object-list", subFields: [
-        { key: "description", label: "Description", placeholder: "Custom software build — setup fee" },
+        { key: "description", label: "Description", placeholder: "Custom software build, setup fee" },
         { key: "qty", label: "Qty", placeholder: "1" },
         { key: "unitPrice", label: "Unit Price", placeholder: "8,000 AED" },
         { key: "total", label: "Total", placeholder: "8,000 AED" },
@@ -228,7 +228,7 @@ const SCHEMAS: TemplateSchema[] = [
   {
     id: "welcome-letter",
     name: "Welcome Letter",
-    description: "Onboarding letter sent after a deal closes — kickoff details and what to expect.",
+    description: "Onboarding letter sent after a deal closes, kickoff details and what to expect.",
     icon: "👋",
     fields: [
       { key: "clientName", label: "Client Name", type: "text", placeholder: "Mohammed Ali" },
@@ -343,7 +343,7 @@ export default function TemplatesPage() {
             Templates
           </h1>
           <p className="text-sm text-[#666] mt-1">
-            Pick a template, fill in the form, download a polished .docx —
+            Pick a template, fill in the form, download a polished .docx ·
             ready to send.
           </p>
         </header>
@@ -540,7 +540,7 @@ function FieldRenderer({
         <div className="space-y-2">
           {items.map((item, i) => (
             <div key={i} className="flex items-start gap-2">
-              <span className="text-[#0F5C5E] mt-2.5 text-sm">—</span>
+              <span className="text-[#0F5C5E] mt-2.5 text-sm">·</span>
               <input
                 type="text"
                 value={item}

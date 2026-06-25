@@ -45,7 +45,7 @@ function getTransport(): nodemailer.Transporter {
 
 function getFrom(): { name: string; address: string } {
   const email = process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com";
-  const name = process.env.CONTACT_NAME || "Ahmed Ali — Studio of Phronesis";
+  const name = process.env.CONTACT_NAME || "Ahmed Ali · Studio of Phronesis";
   return { name, address: email };
 }
 
@@ -115,9 +115,9 @@ export async function sendLeadConfirmation(opts: {
           <!-- Header -->
           <tr>
             <td style="padding:40px 40px 24px;text-align:center;border-bottom:3px solid #B48D3C;">
-              <img src="https://phronesis-studio.com/logo-eagle.png" alt="Studio of Phronesis" width="80" height="80" style="margin:0 auto 12px;display:block;" />
+              <img src="https://phronesis-studio.com/logo-email.png" alt="Studio of Phronesis" width="100" height="100" style="margin:0 auto 12px;display:block;border:0;outline:none;text-decoration:none;" />
               <div style="font-family:Cambria,Georgia,serif;font-size:18px;letter-spacing:0.15em;color:#1A1A1A;font-weight:bold;">STUDIO OF PHRONESIS</div>
-              <div style="font-family:Calibri,sans-serif;font-size:13px;color:#8A8A8A;font-style:italic;margin-top:4px;">Educator · Systems Architect · Leadership</div>
+              <div style="font-family:Calibri,sans-serif;font-size:13px;color:#8A8A8A;font-style:italic;margin-top:4px;">Philosopher · Educator · Architect</div>
             </td>
           </tr>
 
@@ -139,9 +139,9 @@ export async function sendLeadConfirmation(opts: {
 
               <p style="font-size:15px;color:#4A4A4A;margin:24px 0 8px;">In the meantime, you may find it useful to review:</p>
               <ul style="font-size:14px;color:#4A4A4A;padding-left:22px;margin:0 0 16px;">
-                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/work" style="color:#0F5C5E;text-decoration:none;">Selected work</a> — production platforms currently in use</li>
-                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/method" style="color:#0F5C5E;text-decoration:none;">The method</a> — how I diagnose, design, build, and embed</li>
-                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/library" style="color:#0F5C5E;text-decoration:none;">The library</a> — free downloadable guides</li>
+                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/work" style="color:#0F5C5E;text-decoration:none;">Selected work</a>: production platforms currently in use</li>
+                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/method" style="color:#0F5C5E;text-decoration:none;">The method</a>: how I diagnose, design, build, and embed</li>
+                <li style="margin-bottom:6px;"><a href="https://phronesis-studio.com/en/library" style="color:#0F5C5E;text-decoration:none;">The library</a>: free downloadable guides</li>
               </ul>
 
               <p style="font-size:15px;color:#4A4A4A;margin:24px 0 0;">If your inquiry is urgent, you may reply directly to this email.</p>
@@ -197,7 +197,7 @@ phronesis-studio.com · Studio of Practical Wisdom`;
 
   await sendEmail({
     to: leadEmail,
-    subject: "Your inquiry has been received — Studio of Phronesis",
+    subject: "Your inquiry has been received: Studio of Phronesis",
     text,
     html,
     replyTo: process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com",
