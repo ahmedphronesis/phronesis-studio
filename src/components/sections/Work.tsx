@@ -132,7 +132,7 @@ export function Work() {
 /* ==================== EDUCATION TAB ==================== */
 function EducationTab() {
   const tc = useTranslations("workContent");
-  const eduKeys = ["e1", "e2", "e3", "e4"] as const;
+  const eduKeys = ["e1", "e2", "e3", "e4", "e5"] as const;
   const urls: Record<string, string | undefined> = {
     e1: "https://mscs-academy.vercel.app",
     e2: "https://mun-diplomatiq.vercel.app",

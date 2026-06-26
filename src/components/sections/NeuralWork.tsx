@@ -377,32 +377,39 @@ export function NeuralWork() {
                   strokeDasharray="0.5 1.5"
                 />
 
-                {/* ΦΡΟΝΗΣΙΣ label — overlaid at the center, ON TOP of the image */}
-                {/* Semi-transparent white backdrop for legibility */}
-                <rect
-                  x={CENTER.x - 11}
-                  y={CENTER.y + 5.5}
-                  width="22"
-                  height="6"
-                  rx="3"
+                {/* ΦΡΟΝΗΣΙΣ label — EXACTLY at the center of the circle */}
+                {/* White backdrop circle for legibility over the image */}
+                <circle
+                  cx={CENTER.x}
+                  cy={CENTER.y}
+                  r="5.5"
                   fill="#FFFFFF"
                   opacity="0.92"
                 />
+                <circle
+                  cx={CENTER.x}
+                  cy={CENTER.y}
+                  r="5.5"
+                  fill="none"
+                  stroke="#B48D3C"
+                  strokeWidth="0.15"
+                  opacity="0.5"
+                />
                 <text
                   x={CENTER.x}
-                  y={CENTER.y + 9.2}
+                  y={CENTER.y + 0.8}
                   textAnchor="middle"
                   fill="#B48D3C"
-                  style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "3.2px", fontWeight: 600, letterSpacing: "0.3px" }}
+                  style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "2.6px", fontWeight: 600, letterSpacing: "0.2px" }}
                 >
                   ΦΡΟΝΗΣΙΣ
                 </text>
                 <text
                   x={CENTER.x}
-                  y={CENTER.y + 11.2}
+                  y={CENTER.y + 2.5}
                   textAnchor="middle"
                   fill="#0F5C5E"
-                  style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "1.1px", letterSpacing: "0.25px" }}
+                  style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "0.85px", letterSpacing: "0.2px" }}
                 >
                   {t("neural.centerMethod").toUpperCase()}
                 </text>
@@ -461,66 +468,69 @@ export function NeuralWork() {
                     {/* Domain label — top of cloud */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 5}
+                      y={cloud.y - 5.5}
                       textAnchor="middle"
                       fill={hueHex}
                       opacity={isDimmed ? 0.5 : 0.85}
                       style={{
                         fontFamily: "var(--font-jetbrains), monospace",
-                        fontSize: "1.5px",
-                        letterSpacing: "0.2px",
+                        fontSize: "1.1px",
+                        letterSpacing: "0.15px",
                         textTransform: "uppercase",
                         transition: "opacity 0.4s",
                       }}
                     >
-                      {t(`neural.clouds.${cloud.id}.domain`)}
+                      {t(`neural.clouds.${cloud.id}.domain`).length > 28
+                        ? t(`neural.clouds.${cloud.id}.domain`).substring(0, 25) + "…"
+                        : t(`neural.clouds.${cloud.id}.domain`)}
                     </text>
-                    {/* Program name — center of cloud, largest text */}
+                    {/* Program name — center of cloud */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 1.5}
+                      y={cloud.y - 2.5}
                       textAnchor="middle"
                       fill="#1A1A1A"
                       opacity={isDimmed ? 0.6 : 1}
                       style={{
                         fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "3.2px",
+                        fontSize: "2.3px",
                         fontWeight: 600,
                         transition: "opacity 0.4s",
                       }}
                     >
-                      {t(cloud.nameKey)}
+                      {t(cloud.nameKey).length > 22
+                        ? t(cloud.nameKey).substring(0, 19) + "…"
+                        : t(cloud.nameKey)}
                     </text>
                     {/* Short description — below name */}
                     <text
                       x={cloud.x}
-                      y={cloud.y + 2.5}
+                      y={cloud.y + 0.5}
                       textAnchor="middle"
                       fill="#4A4A4A"
-                      opacity={isDimmed ? 0.4 : 0.75}
+                      opacity={isDimmed ? 0.4 : 0.7}
                       style={{
                         fontFamily: "var(--font-source-serif), serif",
-                        fontSize: "1.7px",
+                        fontSize: "1.2px",
                         transition: "opacity 0.4s",
                       }}
                     >
-                      {/* Truncate to fit cloud width */}
-                      {t(cloud.descKey).length > 38
-                        ? t(cloud.descKey).substring(0, 35) + "…"
+                      {t(cloud.descKey).length > 28
+                        ? t(cloud.descKey).substring(0, 25) + "…"
                         : t(cloud.descKey)}
                     </text>
                     {/* Click hint — only on active cloud */}
                     {isActive && (
                       <text
                         x={cloud.x}
-                        y={cloud.y + 6}
+                        y={cloud.y + 4}
                         textAnchor="middle"
                         fill={hueHex}
                         opacity="0.85"
                         style={{
                           fontFamily: "var(--font-jetbrains), monospace",
-                          fontSize: "1.2px",
-                          letterSpacing: "0.25px",
+                          fontSize: "0.9px",
+                          letterSpacing: "0.2px",
                           textTransform: "uppercase",
                         }}
                       >
@@ -531,8 +541,8 @@ export function NeuralWork() {
                     {isSelected && !isActive && (
                       <circle
                         cx={cloud.x}
-                        cy={cloud.y + 7}
-                        r="0.6"
+                        cy={cloud.y + 5}
+                        r="0.5"
                         fill={hueHex}
                         opacity="0.7"
                       />
