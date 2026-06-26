@@ -3,28 +3,41 @@ import { routing } from "./routing";
 import { db } from "@/lib/db";
 
 /**
- * Load messages from the SiteContent table (editable via /admin).
- * Falls back to the static JSON file if the DB is unreachable or empty,
- * so the site never breaks even if the DB is down.
+ * Load messages by MERGING the static JSON file with the SiteContent DB rows.
  *
- * Per-request caching: Next.js's React cache() dedupes within a single request,
- * so multiple useTranslations() calls in the same render only hit the DB once.
+ * Strategy:
+ *   1. Start with the full JSON file (messages/{locale}.json) as the base.
+ *      This ensures every namespace — including new ones not yet in the DB —
+ *      is always available.
+ *   2. Override with DB rows for the same namespaces. This means admin edits
+ *      (made via /admin/content) take precedence over the JSON defaults.
+ *   3. If the DB is unreachable, fall back to JSON-only (site never breaks).
+ *
+ * This merge pattern allows:
+ *   - New namespaces (e.g. 'neural', 'metadata') to ship via JSON immediately
+ *     without requiring a DB migration or admin seed.
+ *   - Admin to override any namespace by creating a DB row for it.
+ *   - The site to remain fully functional even if Neon is down.
  */
 async function loadMessages(locale: string): Promise<Record<string, unknown>> {
+  // Always load the JSON base — this is the source of truth for new namespaces
+  const base = (await import(`../messages/${locale}.json`)).default;
+
   try {
     const rows = await db.siteContent.findMany({ where: { locale } });
     if (rows.length === 0) {
-      // DB has no content for this locale — fall back to JSON file
-      return (await import(`../messages/${locale}.json`)).default;
+      // DB has no content for this locale — use JSON only
+      return base;
     }
-    const out: Record<string, unknown> = {};
+    // Merge: start with JSON base, then override with DB rows
+    const out: Record<string, unknown> = { ...base };
     for (const row of rows) {
       out[row.namespace] = row.value;
     }
     return out;
   } catch (err) {
-    console.error(`[i18n] DB load failed for ${locale}, falling back to JSON:`, err);
-    return (await import(`../messages/${locale}.json`)).default;
+    console.error(`[i18n] DB load failed for ${locale}, using JSON only:`, err);
+    return base;
   }
 }
 
