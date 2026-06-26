@@ -119,7 +119,12 @@ export function Hero() {
               className="lg:col-span-7"
             >
               <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
-                {t("body")}
+                {t("body").split("\n\n").map((para, i, arr) => (
+                  <span key={i}>
+                    {para}
+                    {i < arr.length - 1 && <><br /><br /></>}
+                  </span>
+                ))}
               </p>
 
               {/* Single CTA — a threshold, not a sales pitch */}
