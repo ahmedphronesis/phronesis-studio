@@ -54,7 +54,7 @@ export function Contact() {
         style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(15, 92, 94, 0.06), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 py-32 md:py-44">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />

@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden"
     >
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />

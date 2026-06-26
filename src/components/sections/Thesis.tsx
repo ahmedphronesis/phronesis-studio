@@ -33,7 +33,7 @@ export function Thesis() {
   const closing = leadParts[2] || "";
 
   return (
-    <section id="thesis" className="relative py-32 md:py-44 overflow-hidden">
+    <section id="thesis" className="relative py-12 md:py-16 overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"

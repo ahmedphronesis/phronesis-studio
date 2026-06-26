@@ -15,7 +15,7 @@ export function Method() {
   ];
 
   return (
-    <section id="method" className="relative py-32 md:py-44 overflow-hidden bg-paper-warm/40">
+    <section id="method" className="relative py-12 md:py-16 overflow-hidden bg-paper-warm/40">
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
