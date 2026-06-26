@@ -367,10 +367,10 @@
 }
 
 /* Hide the <br className="br-rtl-hide" /> between title and titleItalic
-   on Arabic pages, so phrases like "الأعمال" + "الفلسفية." render as a
-   single line "الأعمال الفلسفية." instead of being split across two lines.
-   English pages keep the line break for the editorial two-line title effect. */
-[dir="rtl"] .br-rtl-hide {
+   on ALL pages (not just Arabic), so titles like "In their words." or
+   "About Ahmed Ali." render on a single line instead of being split
+   across two lines with a massive gap in the center. */
+.br-rtl-hide {
   display: none;
 }
 

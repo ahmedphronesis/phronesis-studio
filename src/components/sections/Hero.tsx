@@ -49,8 +49,8 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Full-bleed content */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 pb-20">
+      {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 pb-44 md:pb-52">
         <motion.div
           initial="hidden"
           animate="visible"
