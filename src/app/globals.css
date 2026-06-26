@@ -353,8 +353,8 @@
 [dir="rtl"] .body-serif,
 [dir="rtl"] .body-serif-italic {
   font-family: var(--font-amiri);
-  text-align: right;                   /* Override justify — Arabic justifies poorly */
-  text-justify: initial;
+  text-align: justify;                   /* Justify Arabic body text per user request */
+  text-justify: inter-word;
   hyphens: initial;
   -webkit-hyphens: initial;
   line-height: 2.1 !important;         /* Generous line-height for Arabic diacritics */
