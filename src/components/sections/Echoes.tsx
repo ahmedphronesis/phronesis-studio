@@ -211,7 +211,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             )}
             {locale === "en" && (
               <p className="display text-gold/70 text-lg mb-5" style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}>
-                تاريخ الفلسفة — من الألف إلى الياء
+                تاريخ الفلسفة: من الألف إلى الياء
               </p>
             )}
             <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
