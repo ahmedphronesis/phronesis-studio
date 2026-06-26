@@ -103,9 +103,7 @@
     "stack": "Stack",
     "features": "Features",
     "category": "Category",
-    "metric": "Metric",
-    "tabPhilosophy": "Philosophy",
-    "tabPhilosophyDesc": "Original philosophical works, forthcoming projects, and cultural initiatives."
+    "metric": "Metric"
   },
   "method": {
     "eyebrow": "The Method",
@@ -737,24 +735,6 @@
       "ctaTitle": "Founding clients wanted.",
       "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients, multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
       "ctaButton": "Become a founding client"
-    },
-    "philosophy": {
-      "title": "History of Philosophy",
-      "subtitle": "From A to Z · Forthcoming",
-      "status": "Forthcoming",
-      "body": [
-        "A comprehensive intellectual project surveying the history of philosophy across all civilizations, from the dawn of human consciousness to the present moment — no gaps, no bias, no boredom.",
-        "Not confined to Western philosophy: every philosophical tradition — ancient Egyptian, Indian, Chinese, Islamic, African, Indigenous American — is presented as a living tradition in its own right, with its own internal structure and its own original contribution to human thought.",
-        "The substance is complete and the design is rigorous; the final format of release — whether an audio series, a television programme, a book, or scattered essays — remains under consideration."
-      ],
-      "forthcoming": [
-        {
-          "title": "Echoes of Wisdom",
-          "subtitle": "Bilingual Philosophy Podcast",
-          "status": "Ongoing",
-          "body": "An independent educational podcast that makes philosophy an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio."
-        }
-      ]
     }
   },
   "vouches": {
