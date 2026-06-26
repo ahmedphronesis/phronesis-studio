@@ -33,14 +33,15 @@ type Cloud = {
   url?: string;
 };
 
-// 16:9 viewBox (100 × 56.25). Clouds arranged in a wide oval.
+// 16:9 viewBox (100 × 56.25). Clouds arranged in a wide oval, pushed outward
+// to accommodate the larger cloud sizes (scale 0.48) and the central Vitruvian Man.
 const CLOUDS: Cloud[] = [
-  { id: "realestate", x: 50, y: 8,  hue: "teal",       nameKey: "neural.clouds.realestate.name",    descKey: "neural.clouds.realestate.desc",    rationaleKey: "neural.clouds.realestate.rationale",    url: "https://real-estate-emperor.vercel.app" },
-  { id: "mscs",       x: 88, y: 22, hue: "gold",       nameKey: "neural.clouds.mscs.name",          descKey: "neural.clouds.mscs.desc",          rationaleKey: "neural.clouds.mscs.rationale",          url: "https://mscs-academy.vercel.app" },
-  { id: "diplomatiq", x: 88, y: 40, hue: "gold",       nameKey: "neural.clouds.diplomatiq.name",    descKey: "neural.clouds.diplomatiq.desc",    rationaleKey: "neural.clouds.diplomatiq.rationale",    url: "https://mun-diplomatiq.vercel.app" },
-  { id: "treasury",   x: 50, y: 50, hue: "terracotta", nameKey: "neural.clouds.treasury.name",      descKey: "neural.clouds.treasury.desc",      rationaleKey: "neural.clouds.treasury.rationale" },
-  { id: "math",       x: 12, y: 40, hue: "gold",       nameKey: "neural.clouds.math.name",          descKey: "neural.clouds.math.desc",          rationaleKey: "neural.clouds.math.rationale" },
-  { id: "echoes",     x: 12, y: 22, hue: "forest",     nameKey: "neural.clouds.echoes.name",        descKey: "neural.clouds.echoes.desc",        rationaleKey: "neural.clouds.echoes.rationale" },
+  { id: "realestate", x: 50, y: 6,  hue: "teal",       nameKey: "neural.clouds.realestate.name",    descKey: "neural.clouds.realestate.desc",    rationaleKey: "neural.clouds.realestate.rationale",    url: "https://real-estate-emperor.vercel.app" },
+  { id: "mscs",       x: 90, y: 18, hue: "gold",       nameKey: "neural.clouds.mscs.name",          descKey: "neural.clouds.mscs.desc",          rationaleKey: "neural.clouds.mscs.rationale",          url: "https://mscs-academy.vercel.app" },
+  { id: "diplomatiq", x: 90, y: 40, hue: "gold",       nameKey: "neural.clouds.diplomatiq.name",    descKey: "neural.clouds.diplomatiq.desc",    rationaleKey: "neural.clouds.diplomatiq.rationale",    url: "https://mun-diplomatiq.vercel.app" },
+  { id: "treasury",   x: 50, y: 52, hue: "terracotta", nameKey: "neural.clouds.treasury.name",      descKey: "neural.clouds.treasury.desc",      rationaleKey: "neural.clouds.treasury.rationale" },
+  { id: "math",       x: 10, y: 40, hue: "gold",       nameKey: "neural.clouds.math.name",          descKey: "neural.clouds.math.desc",          rationaleKey: "neural.clouds.math.rationale" },
+  { id: "echoes",     x: 10, y: 18, hue: "forest",     nameKey: "neural.clouds.echoes.name",        descKey: "neural.clouds.echoes.desc",        rationaleKey: "neural.clouds.echoes.rationale" },
 ];
 
 const CENTER = { x: 50, y: 28 };
@@ -325,56 +326,78 @@ export function NeuralWork() {
                 );
               })}
 
-              {/* ── Center: Vitruvian Man image + ΦΡΟΝΗΣΙΣ ring ── */}
+              {/* ── Center: Vitruvian Man image as the primary visual ── */}
               <g>
-                {/* Pulsing rings */}
-                <circle cx={CENTER.x} cy={CENTER.y} r="9" fill="none" stroke="#0F5C5E" strokeWidth="0.15" opacity="0.3">
-                  <animate attributeName="r" values="9;16;16" dur="3s" repeatCount="indefinite" />
+                {/* Pulsing rings — emit from the image */}
+                <circle cx={CENTER.x} cy={CENTER.y} r="14" fill="none" stroke="#0F5C5E" strokeWidth="0.18" opacity="0.3">
+                  <animate attributeName="r" values="14;22;22" dur="3s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0;0" dur="3s" repeatCount="indefinite" />
                 </circle>
-                <circle cx={CENTER.x} cy={CENTER.y} r="9" fill="none" stroke="#0F5C5E" strokeWidth="0.12" opacity="0.2">
-                  <animate attributeName="r" values="9;18;18" dur="3s" begin="1s" repeatCount="indefinite" />
+                <circle cx={CENTER.x} cy={CENTER.y} r="14" fill="none" stroke="#0F5C5E" strokeWidth="0.15" opacity="0.2">
+                  <animate attributeName="r" values="14;25;25" dur="3s" begin="1s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.3;0;0" dur="3s" begin="1s" repeatCount="indefinite" />
                 </circle>
 
-                {/* FIX #3: Vitruvian Man image as subtle watermark */}
+                {/* FIX #3: Vitruvian Man image — much larger, properly centered, visible */}
                 <image
                   href="/vitruvian-man.jpg"
-                  x={CENTER.x - 11}
-                  y={CENTER.y - 13}
-                  width="22"
-                  height="26"
-                  opacity="0.18"
+                  x={CENTER.x - 18}
+                  y={CENTER.y - 18}
+                  width="36"
+                  height="36"
+                  opacity="0.32"
                   filter="url(#vitruvianDuotone)"
                   preserveAspectRatio="xMidYMid meet"
+                  clipPath="circle(18px at 50% 50%)"
                 />
 
-                {/* ΦΡΟΝΗΣΙΣ ring — small, below the image */}
+                {/* Decorative ring around the Vitruvian Man image */}
                 <circle
                   cx={CENTER.x}
-                  cy={CENTER.y + 14}
-                  r="4.5"
-                  fill="#FFFFFF"
-                  stroke="#0F5C5E"
-                  strokeWidth="0.3"
-                  opacity="0.95"
+                  cy={CENTER.y}
+                  r="19"
+                  fill="none"
+                  stroke="#B48D3C"
+                  strokeWidth="0.25"
+                  opacity="0.5"
                 />
-                <circle cx={CENTER.x} cy={CENTER.y + 14} r="3.5" fill="none" stroke="#B48D3C" strokeWidth="0.12" opacity="0.5" />
+                <circle
+                  cx={CENTER.x}
+                  cy={CENTER.y}
+                  r="20.5"
+                  fill="none"
+                  stroke="#0F5C5E"
+                  strokeWidth="0.18"
+                  opacity="0.4"
+                  strokeDasharray="0.5 1.5"
+                />
+
+                {/* ΦΡΟΝΗΣΙΣ label — overlaid at the center, ON TOP of the image */}
+                {/* Semi-transparent white backdrop for legibility */}
+                <rect
+                  x={CENTER.x - 11}
+                  y={CENTER.y + 5.5}
+                  width="22"
+                  height="6"
+                  rx="3"
+                  fill="#FFFFFF"
+                  opacity="0.92"
+                />
                 <text
                   x={CENTER.x}
-                  y={CENTER.y + 13.5}
+                  y={CENTER.y + 9.2}
                   textAnchor="middle"
                   fill="#B48D3C"
-                  style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.6px", fontWeight: 500 }}
+                  style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "3.2px", fontWeight: 600, letterSpacing: "0.3px" }}
                 >
                   ΦΡΟΝΗΣΙΣ
                 </text>
                 <text
                   x={CENTER.x}
-                  y={CENTER.y + 15.5}
+                  y={CENTER.y + 11.2}
                   textAnchor="middle"
                   fill="#0F5C5E"
-                  style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "0.7px", letterSpacing: "0.2px" }}
+                  style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: "1.1px", letterSpacing: "0.25px" }}
                 >
                   {t("neural.centerMethod").toUpperCase()}
                 </text>
@@ -390,8 +413,8 @@ export function NeuralWork() {
                   cloud.hue === "teal" ? "cloudFillTeal" :
                   cloud.hue === "gold" ? "cloudFillGold" :
                   cloud.hue === "terracotta" ? "cloudFillTerracotta" : "cloudFillForest";
-                // FIX #1: scale increased from 0.22 to 0.36 (clouds 60% larger)
-                const scale = isActive ? 0.40 : 0.36;
+                // FIX #1: clouds even larger (scale 0.48/0.52) so text is readable
+                const scale = isActive ? 0.52 : 0.48;
                 const tx = cloud.x - 50 * scale;
                 const ty = cloud.y - 30 * scale;
 
@@ -428,50 +451,51 @@ export function NeuralWork() {
                       }}
                     />
 
-                    {/* FIX #2: Text rendered INSIDE the SVG, positioned at cloud center */}
-                    {/* Domain label */}
+                    {/* FIX #2: Text rendered INSIDE the SVG, positioned at cloud center.
+                        FIX #1 (this round): font sizes increased ~80% for readability. */}
+                    {/* Domain label — top of cloud */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 3.5}
+                      y={cloud.y - 5}
                       textAnchor="middle"
                       fill={hueHex}
                       opacity={isDimmed ? 0.5 : 0.85}
                       style={{
                         fontFamily: "var(--font-jetbrains), monospace",
-                        fontSize: "0.85px",
-                        letterSpacing: "0.15px",
+                        fontSize: "1.5px",
+                        letterSpacing: "0.2px",
                         textTransform: "uppercase",
                         transition: "opacity 0.4s",
                       }}
                     >
                       {t(`neural.clouds.${cloud.id}.domain`)}
                     </text>
-                    {/* Program name */}
+                    {/* Program name — center of cloud, largest text */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 1}
+                      y={cloud.y - 1.5}
                       textAnchor="middle"
                       fill="#1A1A1A"
                       opacity={isDimmed ? 0.6 : 1}
                       style={{
                         fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "1.8px",
-                        fontWeight: 500,
+                        fontSize: "3.2px",
+                        fontWeight: 600,
                         transition: "opacity 0.4s",
                       }}
                     >
                       {t(cloud.nameKey)}
                     </text>
-                    {/* Short description */}
+                    {/* Short description — below name */}
                     <text
                       x={cloud.x}
-                      y={cloud.y + 1.5}
+                      y={cloud.y + 2.5}
                       textAnchor="middle"
                       fill="#4A4A4A"
-                      opacity={isDimmed ? 0.4 : 0.7}
+                      opacity={isDimmed ? 0.4 : 0.75}
                       style={{
                         fontFamily: "var(--font-source-serif), serif",
-                        fontSize: "0.95px",
+                        fontSize: "1.7px",
                         transition: "opacity 0.4s",
                       }}
                     >
@@ -484,14 +508,14 @@ export function NeuralWork() {
                     {isActive && (
                       <text
                         x={cloud.x}
-                        y={cloud.y + 4}
+                        y={cloud.y + 6}
                         textAnchor="middle"
                         fill={hueHex}
-                        opacity="0.8"
+                        opacity="0.85"
                         style={{
                           fontFamily: "var(--font-jetbrains), monospace",
-                          fontSize: "0.7px",
-                          letterSpacing: "0.2px",
+                          fontSize: "1.2px",
+                          letterSpacing: "0.25px",
                           textTransform: "uppercase",
                         }}
                       >
@@ -502,10 +526,10 @@ export function NeuralWork() {
                     {isSelected && !isActive && (
                       <circle
                         cx={cloud.x}
-                        cy={cloud.y + 5}
-                        r="0.4"
+                        cy={cloud.y + 7}
+                        r="0.6"
                         fill={hueHex}
-                        opacity="0.6"
+                        opacity="0.7"
                       />
                     )}
                   </g>
