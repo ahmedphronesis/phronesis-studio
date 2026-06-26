@@ -463,74 +463,52 @@ export function NeuralWork() {
                       }}
                     />
 
-                    {/* FIX #2: Text rendered INSIDE the SVG, positioned at cloud center.
-                        FIX #1 (this round): font sizes increased ~80% for readability. */}
+                    {/* Cloud text — NO truncation, NO description (rationale panel has full text) */}
                     {/* Domain label — top of cloud */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 5.5}
+                      y={cloud.y - 4}
                       textAnchor="middle"
                       fill={hueHex}
                       opacity={isDimmed ? 0.5 : 0.85}
                       style={{
                         fontFamily: "var(--font-jetbrains), monospace",
-                        fontSize: "1.1px",
-                        letterSpacing: "0.15px",
+                        fontSize: "1.0px",
+                        letterSpacing: "0.1px",
                         textTransform: "uppercase",
                         transition: "opacity 0.4s",
                       }}
                     >
-                      {t(`neural.clouds.${cloud.id}.domain`).length > 28
-                        ? t(`neural.clouds.${cloud.id}.domain`).substring(0, 25) + "…"
-                        : t(`neural.clouds.${cloud.id}.domain`)}
+                      {t(`neural.clouds.${cloud.id}.domain`)}
                     </text>
-                    {/* Program name — center of cloud */}
+                    {/* Program name — center of cloud, NO truncation */}
                     <text
                       x={cloud.x}
-                      y={cloud.y - 2.5}
+                      y={cloud.y - 1}
                       textAnchor="middle"
                       fill="#1A1A1A"
                       opacity={isDimmed ? 0.6 : 1}
                       style={{
                         fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "2.3px",
+                        fontSize: "1.6px",
                         fontWeight: 600,
                         transition: "opacity 0.4s",
                       }}
                     >
-                      {t(cloud.nameKey).length > 22
-                        ? t(cloud.nameKey).substring(0, 19) + "…"
-                        : t(cloud.nameKey)}
-                    </text>
-                    {/* Short description — below name */}
-                    <text
-                      x={cloud.x}
-                      y={cloud.y + 0.5}
-                      textAnchor="middle"
-                      fill="#4A4A4A"
-                      opacity={isDimmed ? 0.4 : 0.7}
-                      style={{
-                        fontFamily: "var(--font-source-serif), serif",
-                        fontSize: "1.2px",
-                        transition: "opacity 0.4s",
-                      }}
-                    >
-                      {t(cloud.descKey).length > 28
-                        ? t(cloud.descKey).substring(0, 25) + "…"
-                        : t(cloud.descKey)}
+                      {t(cloud.nameKey)}
                     </text>
                     {/* Click hint — only on active cloud */}
                     {isActive && (
                       <text
                         x={cloud.x}
-                        y={cloud.y + 4}
+                        y={cloud.y + 3}
                         textAnchor="middle"
                         fill={hueHex}
                         opacity="0.85"
                         style={{
                           fontFamily: "var(--font-jetbrains), monospace",
-                          fontSize: "0.9px",
-                          letterSpacing: "0.2px",
+                          fontSize: "0.85px",
+                          letterSpacing: "0.15px",
                           textTransform: "uppercase",
                         }}
                       >
@@ -541,7 +519,7 @@ export function NeuralWork() {
                     {isSelected && !isActive && (
                       <circle
                         cx={cloud.x}
-                        cy={cloud.y + 5}
+                        cy={cloud.y + 4}
                         r="0.5"
                         fill={hueHex}
                         opacity="0.7"

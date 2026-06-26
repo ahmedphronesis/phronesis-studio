@@ -103,7 +103,9 @@
     "stack": "Stack",
     "features": "Features",
     "category": "Category",
-    "metric": "Metric"
+    "metric": "Metric",
+    "tabPhilosophy": "Philosophy",
+    "tabPhilosophyDesc": "Original philosophical works, forthcoming projects, and cultural initiatives."
   },
   "method": {
     "eyebrow": "The Method",
@@ -432,7 +434,7 @@
         },
         "math": {
           "domain": "Education · Library",
-          "name": "Bilingual Mathematics Curriculum",
+          "name": "Bilingual Math",
           "desc": "Grades 1 to 4 live, 5 to 12 in production. EN/AR, free PDF.",
           "rationale": "The polymath ideal of our ancestors was not a man who knew many things, but a man who could build the curriculum, not just deliver it. Al-Khwarizmi did not teach from a textbook handed to him; he wrote the textbook. I built this mathematics series in that inheritance. Each guide begins at zero, assumes no prior knowledge, and walks the learner — child or parent or teacher — to readiness to teach. The bilingual format is not a translation; it is a recognition that the Arabic-speaking child and the English-speaking child learn different things from the same number, because number is a language and language carries thought. A child who learns mathematics in both languages simultaneously learns something neither language could teach alone: that the structure is prior to the symbol. This is the library's foundational wager — that the polymathic mind is built, not born, and that its construction begins in the earliest years with a curriculum that takes both the child and the civilization seriously."
         },
@@ -735,6 +737,24 @@
       "ctaTitle": "Founding clients wanted.",
       "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients, multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
       "ctaButton": "Become a founding client"
+    },
+    "philosophy": {
+      "title": "History of Philosophy",
+      "subtitle": "From A to Z · Forthcoming",
+      "status": "Forthcoming",
+      "body": [
+        "A comprehensive intellectual project surveying the history of philosophy across all civilizations, from the dawn of human consciousness to the present moment — no gaps, no bias, no boredom.",
+        "Not confined to Western philosophy: every philosophical tradition — ancient Egyptian, Indian, Chinese, Islamic, African, Indigenous American — is presented as a living tradition in its own right, with its own internal structure and its own original contribution to human thought.",
+        "The substance is complete and the design is rigorous; the final format of release — whether an audio series, a television programme, a book, or scattered essays — remains under consideration."
+      ],
+      "forthcoming": [
+        {
+          "title": "Echoes of Wisdom",
+          "subtitle": "Bilingual Philosophy Podcast",
+          "status": "Ongoing",
+          "body": "An independent educational podcast that makes philosophy an accessible field of education with practical relevance to everyday life, critical thinking, and personal development. Bridges academic philosophy and public discourse, making complex ideas in ethics, logic, and epistemology understandable and actionable for diverse audiences. The cultural flagship of the studio."
+        }
+      ]
     }
   },
   "vouches": {
@@ -800,6 +820,10 @@
     "writtenBy": "Written and presented by Ahmed Ali",
     "readEpisode": "Read episode",
     "readArabic": "Read in Arabic",
-    "readEnglish": "Read in English"
+    "readEnglish": "Read in English",
+    "forthcomingTitle": "History of Philosophy — From A to Z",
+    "forthcomingSubtitle": "Forthcoming Project",
+    "forthcomingBody": "A comprehensive intellectual project surveying the history of philosophy across all civilizations, from the dawn of human consciousness to the present moment — no gaps, no bias, no boredom. Not confined to Western philosophy: every philosophical tradition is presented as a living tradition in its own right, with its own internal structure and original contribution to human thought.",
+    "forthcomingStatus": "Forthcoming"
   }
 }

@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl";
 import { Reveal, FadeUp, Magnetic, EASE } from "../anim";
 import { NeuralWork } from "./NeuralWork";
 import {
-  ArrowUpRight, ExternalLink, GraduationCap, Building2, Landmark,
+  ArrowUpRight, ExternalLink, GraduationCap, Building2, Landmark, BookOpen,
   type LucideIcon
 } from "lucide-react";
 
-type TabId = "education" | "realestate" | "finance";
+type TabId = "education" | "realestate" | "finance" | "philosophy";
 
 export function Work() {
   const t = useTranslations("work");
@@ -20,6 +20,7 @@ export function Work() {
     { id: "education", icon: GraduationCap, label: t("tabEducation"), desc: t("tabEducationDesc") },
     { id: "realestate", icon: Building2, label: t("tabRealEstate"), desc: t("tabRealEstateDesc") },
     { id: "finance", icon: Landmark, label: t("tabFinance"), desc: t("tabFinanceDesc") },
+    { id: "philosophy", icon: BookOpen, label: t("tabPhilosophy"), desc: t("tabPhilosophyDesc") },
   ];
 
   return (
@@ -122,6 +123,7 @@ export function Work() {
             {activeTab === "education" && <EducationTab />}
             {activeTab === "realestate" && <RealEstateTab />}
             {activeTab === "finance" && <FinanceTab />}
+            {activeTab === "philosophy" && <PhilosophyTab />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -348,6 +350,66 @@ function FinanceTab() {
           </Magnetic>
         </div>
       </div>
+    </div>
+  );
+}
+
+/* ==================== PHILOSOPHY TAB ==================== */
+function PhilosophyTab() {
+  const tc = useTranslations("workContent");
+  const philosophy = tc.raw("philosophy") as {
+    title: string;
+    subtitle: string;
+    status: string;
+    body: string[];
+    forthcoming: { title: string; subtitle: string; body: string; status: string }[];
+  };
+
+  return (
+    <div>
+      {/* Main philosophy project — History of Philosophy from A to Z */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 py-8 md:py-10 border-t border-border/40">
+        <div className="lg:col-span-5">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{philosophy.subtitle}</p>
+          <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{philosophy.title}</h3>
+          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-teal/30 bg-teal/5">
+            <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+            <span className="text-xs uppercase tracking-[0.2em] text-teal font-mono">{philosophy.status}</span>
+          </div>
+        </div>
+        <div className="lg:col-span-7 lg:col-start-6">
+          <div className="space-y-4">
+            {philosophy.body.map((para, i) => (
+              <p key={i} className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+                {para}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Forthcoming projects */}
+      {philosophy.forthcoming && philosophy.forthcoming.length > 0 && (
+        <div className="py-8 md:py-10 border-t border-border/40">
+          {philosophy.forthcoming.map((proj, i) => (
+            <FadeUp key={i} delay={i * 0.1}>
+              <div className="mt-6 p-8 md:p-10 rounded-3xl border-2 border-dashed border-teal/30 bg-teal/5">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal">
+                    <BookOpen size={24} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-xs uppercase tracking-wider text-teal border border-teal/30 rounded-full px-3 py-1.5 font-mono">
+                    {proj.status}
+                  </span>
+                </div>
+                <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-2 font-mono">{proj.subtitle}</p>
+                <h4 className="display text-ink text-3xl md:text-4xl leading-tight mb-5">{proj.title}</h4>
+                <p className="body-serif text-sm text-ink-soft leading-relaxed">{proj.body}</p>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
