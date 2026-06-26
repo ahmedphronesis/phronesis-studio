@@ -4,19 +4,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Reveal, FadeUp, Magnetic, EASE } from "../anim";
+import { NeuralWork } from "./NeuralWork";
 import {
-  ArrowUpRight, ExternalLink, Hammer, GraduationCap, Building2, Landmark,
+  ArrowUpRight, ExternalLink, GraduationCap, Building2, Landmark,
   type LucideIcon
 } from "lucide-react";
 
-type TabId = "projects" | "education" | "realestate" | "finance";
+type TabId = "education" | "realestate" | "finance";
 
 export function Work() {
   const t = useTranslations("work");
-  const [activeTab, setActiveTab] = useState<TabId>("projects");
+  const [activeTab, setActiveTab] = useState<TabId>("education");
 
   const tabs: { id: TabId; icon: LucideIcon; label: string; desc: string }[] = [
-    { id: "projects", icon: Hammer, label: t("tabProjects"), desc: t("tabProjectsDesc") },
     { id: "education", icon: GraduationCap, label: t("tabEducation"), desc: t("tabEducationDesc") },
     { id: "realestate", icon: Building2, label: t("tabRealEstate"), desc: t("tabRealEstateDesc") },
     { id: "finance", icon: Landmark, label: t("tabFinance"), desc: t("tabFinanceDesc") },
@@ -51,9 +51,30 @@ export function Work() {
             </p>
           </Reveal>
         </div>
+      </div>
 
-        <Reveal delay={0.15}>
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
+      {/* Neural Network Visualization — the hero centerpiece */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <NeuralWork />
+      </div>
+
+      {/* Divider before detailed breakdown */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20">
+        <Reveal>
+          <div className="flex items-center gap-6 py-12 md:py-16">
+            <span className="h-px flex-1 bg-border/60" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-ink-dim font-mono whitespace-nowrap">
+              {t("detailedBreakdown")}
+            </span>
+            <span className="h-px flex-1 bg-border/60" />
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Detailed breakdown tabs — Education, Real Estate, Finance */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20">
+        <Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -98,7 +119,6 @@ export function Work() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5, ease: EASE }}
           >
-            {activeTab === "projects" && <ProjectsTab />}
             {activeTab === "education" && <EducationTab />}
             {activeTab === "realestate" && <RealEstateTab />}
             {activeTab === "finance" && <FinanceTab />}
@@ -107,114 +127,6 @@ export function Work() {
       </div>
     </section>
   );
-}
-
-/* ==================== PROJECTS TAB ==================== */
-function ProjectsTab() {
-  const t = useTranslations("workContent");
-  const tc = useTranslations("workContent");
-
-  const projectKeys = ["p1", "p2", "p3", "p4"] as const;
-  const urls: Record<string, string | undefined> = {
-    p1: "https://real-estate-emperor.vercel.app",
-    p2: "https://mscs-academy.vercel.app",
-    p3: "https://mun-diplomatiq.vercel.app",
-    p4: undefined,
-  };
-  const metrics: Record<string, string> = { p1: "400+", p2: "390+", p3: "7-tier", p4: "∞" };
-
-  return (
-    <div className="space-y-12 md:space-y-16">
-      {projectKeys.map((key, i) => {
-        const project = {
-          name: tc(`projects.${key}.name`),
-          category: tc(`projects.${key}.category`),
-          url: urls[key],
-          metric: metrics[key],
-          metricLabel: tc(`projects.${key}.metricLabel`),
-          description: tc(`projects.${key}.description`),
-          features: tc.raw(`projects.${key}.features`) as string[],
-          stack: tc(`projects.${key}.stack`),
-        };
-        return <ProjectRow key={key} project={project} isReversed={i % 2 === 1} t={t} />;
-      })}
-    </div>
-  );
-}
-
-function ProjectRow({ project, isReversed, t }: { project: any; isReversed: boolean; t: any }) {
-  const isLink = Boolean(project.url);
-  const CardContent = (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div className={`lg:col-span-4 ${isReversed ? "lg:order-2 lg:col-start-9" : ""}`}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: EASE }}
-          className="display text-teal leading-none"
-          style={{ fontSize: "clamp(4rem, 10vw, 9rem)" }}
-        >
-          {project.metric}
-        </motion.div>
-        <div className="text-xs uppercase tracking-[0.22em] text-ink-dim mt-3 font-mono">
-          {project.metricLabel}
-        </div>
-      </div>
-
-      <div className={`lg:col-span-7 ${isReversed ? "lg:order-1 lg:col-start-1" : "lg:col-start-6"}`}>
-        <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">
-          {project.category}
-        </p>
-        <h3
-          className={`display text-ink flex items-center gap-4 transition-colors ${isLink ? "group-hover:text-teal" : ""}`}
-          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.05 }}
-        >
-          {project.name}
-          {isLink && (
-            <ArrowUpRight size={36} strokeWidth={1.5} className="text-teal opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-          )}
-        </h3>
-        <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mt-6 max-w-2xl">
-          {project.description}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 mt-8">
-          {project.features.map((f: string, j: number) => (
-            <div key={j} className="flex items-start gap-3 text-xs text-ink-dim leading-relaxed body-serif">
-              <span className="text-teal mt-[2px] flex-shrink-0">·</span>
-              <span>{f}</span>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 pt-6 border-t border-border">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-ink-dim mb-2 font-mono">{t("stack")}</p>
-          <p className="text-xs text-ink-dim leading-relaxed body-serif">{project.stack}</p>
-        </div>
-        {isLink && (
-          <Magnetic strength={0.3}>
-            <div className="mt-6 inline-flex items-center gap-2 text-sm text-teal">
-              <ExternalLink size={14} />
-              <span className="link-underline">{t("visitSite")}</span>
-            </div>
-          </Magnetic>
-        )}
-      </div>
-    </div>
-  );
-
-  if (isLink) {
-    return (
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block w-full py-12 md:py-16 border-t border-border/40 transition-colors hover:bg-paper-warm/50"
-      >
-        {CardContent}
-      </a>
-    );
-  }
-  return <div className="w-full py-12 md:py-16 border-t border-border/40">{CardContent}</div>;
 }
 
 /* ==================== EDUCATION TAB ==================== */

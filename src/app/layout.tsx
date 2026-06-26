@@ -1,13 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { FloatingEagle } from "@/components/FloatingEagle";
+import { getLocale } from "next-intl/server";
 
-// Root layout — provides the HTML shell and global CSS for ALL routes,
-// including /admin and /login which live outside the [locale] segment.
-// The locale-specific lang/dir attributes are set by the [locale] layout
-// via a <body> className override (Next.js allows nested layouts to set
-// attributes on inherited elements through the segment config).
-
+/**
+ * Root layout — renders the HTML shell for ALL routes (public, admin, login).
+ *
+ * The <html lang> and <html dir> attributes are set SERVER-SIDE based on the
+ * current request locale (via next-intl's getLocale()). For /en/* → lang="en"
+ * dir="ltr"; for /ar/* → lang="ar" dir="rtl"; for /admin and /login (which
+ * are outside the [locale] segment) → defaults to "en"/"ltr".
+ *
+ * This ensures SSR HTML is correct for crawlers and screen readers on the
+ * very first byte — no client-side hydration needed to fix the language.
+ */
 export const metadata: Metadata = {
   verification: {
     google: "I7i4WPjVKGFLNmDp1CU-rGfErnVn_MEzd4sv9zshhpI",
@@ -17,13 +23,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <body className="antialiased">
         {children}
         <FloatingEagle />

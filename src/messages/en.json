@@ -1,4 +1,34 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Studio of Phronesis · Ahmed Ali",
+      "description": "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect in Al Ain, UAE."
+    },
+    "about": {
+      "title": "About Ahmed Ali",
+      "description": "Philosopher, educator, and systems architect in Al Ain, UAE. A decade across classrooms, codebases, and operations. Founder of Studio of Phronesis."
+    },
+    "work": {
+      "title": "Selected Work",
+      "description": "Four production platforms across education, real estate, and finance, built on one method. Real Estate Emperor, MSCS Academy, DiplomatiQ, and the BPA financial operations command center."
+    },
+    "echoes": {
+      "title": "Echoes of Wisdom",
+      "description": "Original philosophical reflections bridging academic thought and public discourse. Eight episodes on Plato, Ibn Rushd, freedom, language, and the tyrant within. Bilingual English and Arabic."
+    },
+    "library": {
+      "title": "The Library",
+      "description": "Original bilingual mathematics curriculum, Grades 1 to 4 live and 5 to 12 in production. Free PDF downloads in English and Arabic, built for absolute beginners and structured for classroom use."
+    },
+    "method": {
+      "title": "The Method",
+      "description": "Four movements: Perceive, Diagnose, Close, Embed. The Aristotelian discipline of phronesis applied to a system instead of a soul. None of the four can be skipped."
+    },
+    "correspondence": {
+      "title": "Correspondence",
+      "description": "Tell me what gap your institution carries and has not yet named. I respond personally within one business day, often sooner. Available for selective engagements across the UAE and beyond."
+    }
+  },
   "nav": {
     "home": "Frontispiece",
     "studio": "About",
@@ -64,6 +94,7 @@
     "tabEducationDesc": "Educational platforms, curriculum, and learning systems.",
     "tabRealEstateDesc": "Property management platforms for UAE landlords and portfolio operators.",
     "tabFinanceDesc": "A radical new financial operations command center for multi-branch businesses.",
+    "detailedBreakdown": "Detailed Breakdown",
     "visitSite": "Visit live site",
     "stack": "Stack",
     "features": "Features",
@@ -359,12 +390,62 @@
     "pillar": "Pillar",
     "pillarOf": "Pillar {n}/{total}",
     "replaces": "Replaces",
+    "neural": {
+      "eyebrow": "One Method, Many Expressions",
+      "title": "The Neural Field",
+      "titleItalic": "of the Studio's Work",
+      "intro": "Every program below began as a gap perceived, was diagnosed with rigor, and was closed with precision. Different domains, different languages, different stakeholders — but the same discipline beneath. Hover or tap a cloud to read why it was built this way, not the other way.",
+      "centerMethod": "One Method",
+      "rationaleLabel": "Why I built it this way",
+      "domainLabel": "Domain",
+      "clickToExpand": "Click to expand",
+      "hoverHint": "↑ Hover or tap a cloud to read the rationale ↑",
+      "clouds": {
+        "realestate": {
+          "domain": "Real Estate · Operations",
+          "name": "Real Estate Emperor",
+          "desc": "A single ledger that cannot lie. 400+ units managed live.",
+          "rationale": "Most property management software treats the landlord's problem as one of organization: arrange the units, list the tenants, send the receipts. I perceived it differently. The landlord's actual problem is epistemic: he does not trust his own numbers. The spreadsheet on his laptop disagrees with the receipt book in the receptionist's drawer, which disagrees with the memory in his accountant's head. Three ledgers, three truths, no decision. So I built the platform as a single ledger that cannot lie. Every payment entered once, allocated by rule, timestamped, and immutable. Every role sees the same truth at a different resolution: the owner sees the portfolio, the accountant sees the building, the receptionist sees the payment. The system's deepest function is not to manage property but to restore the precondition of judgement, which is trust in the facts beneath it. Aristotle would have recognized the move: phronesis is impossible where the perception of particulars has been corrupted. Before any decision about rent or sale or renovation, the mind must first see clearly. This platform is an instrument for seeing clearly."
+        },
+        "mscs": {
+          "domain": "Education · Curriculum",
+          "name": "MSCS Academy",
+          "desc": "130 lessons, 390+ activities. Built from the UAE curriculum outward.",
+          "rationale": "I could have adopted a foreign learning platform and translated its content. Every school in the Gulf has done this, and the result is always the same: the platform is technically adequate, culturally alien, and pedagogically inert. The child learns to click through a lesson that does not speak to his world. I refused this path because education is local before it is global. The UAE's Moral, Social and Cultural Studies curriculum is not a list of facts to be transmitted; it is a formation in citizenship, identity, and ethical reasoning within a specific civilizational frame. A platform that does not begin from that frame will, by design, fail the child. So I built MSCS Academy from the curriculum outward: 130 lessons aligned to the standards, 390 activities calibrated to the cognitive stage of the learner, every interaction culturally situated. The platform embodies a principle I learned in the classroom and confirmed in the code: a child learns when the medium and the message are of one substance. To separate them is to teach the child that knowledge is something imported, not something his own world can generate."
+        },
+        "diplomatiq": {
+          "domain": "Education · Diplomacy",
+          "name": "DiplomatiQ",
+          "desc": "Seven-tier diplomatic competency framework, AI-evaluated.",
+          "rationale": "Model United Nations programs, in most schools, are run as simulations: students dress in suits, debate for a weekend, receive a certificate, and the matter ends. I perceived this as a waste of a formative discipline. Diplomacy is not a performance; it is a structured capacity to perceive the position of the other, to argue without alienating, to concede without surrendering, to hold principle while negotiating detail. These are skills that compound across a lifetime, but only if they are made explicit, measured, and progressive. So I built DiplomatiQ around a seven-tier competency framework, from Basic Delegate to Secretary-General, where each tier names a specific diplomatic capacity the student must demonstrate before advancing. The AI evaluation is not a gimmick; it is the only way a single educator can give formative feedback on forty research papers per conference. The framework makes the implicit skill of diplomacy visible to the student, to the teacher, and to the institution. This is Aristotle's insight applied to international relations education: a virtue grows only when it is named, practiced, and witnessed."
+        },
+        "math": {
+          "domain": "Education · Library",
+          "name": "Bilingual Mathematics Curriculum",
+          "desc": "Grades 1 to 4 live, 5 to 12 in production. EN/AR, free PDF.",
+          "rationale": "The polymath ideal of our ancestors was not a man who knew many things, but a man who could build the curriculum, not just deliver it. Al-Khwarizmi did not teach from a textbook handed to him; he wrote the textbook. I built this mathematics series in that inheritance. Each guide begins at zero, assumes no prior knowledge, and walks the learner — child or parent or teacher — to readiness to teach. The bilingual format is not a translation; it is a recognition that the Arabic-speaking child and the English-speaking child learn different things from the same number, because number is a language and language carries thought. A child who learns mathematics in both languages simultaneously learns something neither language could teach alone: that the structure is prior to the symbol. This is the library's foundational wager — that the polymathic mind is built, not born, and that its construction begins in the earliest years with a curriculum that takes both the child and the civilization seriously."
+        },
+        "echoes": {
+          "domain": "Philosophy · Cultural",
+          "name": "Echoes of Wisdom",
+          "desc": "Bilingual philosophy podcast. The cultural flagship of the studio.",
+          "rationale": "Philosophy, when it speaks only to itself, dies. The academic journal, the closed seminar, the technical monograph — these are necessary, but they are not sufficient. A discipline that cannot survive the test of being understood by a non-specialist has lost contact with the reason it began: the cultivation of clarity in the conduct of a human life. I built Echoes of Wisdom as a return to the agora. The podcast is the public square, the listener is the citizen, the episode is the dialogue, and the question is always the Socratic one: have you examined what you take for granted? Each episode takes a concept from ethics, epistemology, or metaphysics and renders it in the language of everyday decision. Not diluted, but distilled. The bilingual format is not a translation exercise; it is a recognition that philosophy in Arabic and philosophy in English carry different intellectual inheritances, and that the conversation between them is itself a philosophical act. This is the cultural flagship of the studio: the proof that wisdom, to remain wisdom, must be spoken aloud."
+        },
+        "treasury": {
+          "domain": "Finance · Operations",
+          "name": "Treasury Emperor",
+          "desc": "The financial nervous system for multi-branch businesses.",
+          "rationale": "Most multi-branch businesses in the UAE run their daily finances on a fragile stack of Excel sheets, WhatsApp approvals, paper receipts, and the office manager's memory. Each branch is a financial island. The owner sees the truth only at month-end, when it is too late to act. I perceived this gap as the same gap every other platform in the studio addresses: the gap between what is and what should be, closed by a system that perceives, diagnoses, and acts in real time. Treasury Emperor is built as the financial nervous system of the company: petty cash entries in Al Ain appear on the owner's dashboard in Sharjah within seconds, invoices flow through approval chains automatically, P&L consolidates across branches without manual rollup, debt service ratio warns before the bank does. The platform sits between every branch and every stakeholder — not as a report generator, but as the operating layer where financial decisions actually happen. Available for founding clients who want to shape the architecture before it is cast."
+        }
+      }
+    },
     "projects": {
       "p1": {
         "name": "Real Estate Emperor",
         "category": "Property Management SaaS",
         "metricLabel": "units managed",
         "description": "Cloud-based property management platform running in production for a paying client in Al Ain. Rent collection with payment allocation, per-building P&L, role-based access, multi-language.",
+        "rationale": "Most property management software treats the landlord's problem as one of organization: arrange the units, list the tenants, send the receipts. I perceived it differently. The landlord's actual problem is epistemic: he does not trust his own numbers. The spreadsheet on his laptop disagrees with the receipt book in the receptionist's drawer, which disagrees with the memory in his accountant's head. Three ledgers, three truths, no decision. So I built the platform as a single ledger that cannot lie. Every payment entered once, allocated by rule, timestamped, and immutable. Every role sees the same truth at a different resolution: the owner sees the portfolio, the accountant sees the building, the receptionist sees the payment. The system's deepest function is not to manage property but to restore the precondition of judgement, which is trust in the facts beneath it. Aristotle would have recognized the move: phronesis is impossible where the perception of particulars has been corrupted. Before any decision about rent or sale or renovation, the mind must first see clearly. This platform is an instrument for seeing clearly.",
         "features": [
           "400+ units managed live",
           "4 roles: owner, admin, accountant, staff",
@@ -378,6 +459,7 @@
         "category": "Educational Learning Platform",
         "metricLabel": "activities",
         "description": "Interactive learning platform for UAE Moral, Social & Cultural Studies, Grades 6 to 9. Standards-aligned, 130 lessons, 390+ activities.",
+        "rationale": "I could have adopted a foreign learning platform and translated its content. Every school in the Gulf has done this, and the result is always the same: the platform is technically adequate, culturally alien, and pedagogically inert. The child learns to click through a lesson that does not speak to his world. I refused this path because education is local before it is global. The UAE's Moral, Social and Cultural Studies curriculum is not a list of facts to be transmitted; it is a formation in citizenship, identity, and ethical reasoning within a specific civilizational frame. A platform that does not begin from that frame will, by design, fail the child. So I built MSCS Academy from the curriculum outward: 130 lessons aligned to the standards, 390 activities calibrated to the cognitive stage of the learner, every interaction culturally situated. The platform embodies a principle I learned in the classroom and confirmed in the code: a child learns when the medium and the message are of one substance. To separate them is to teach the child that knowledge is something imported, not something his own world can generate.",
         "features": [
           "4 grades, 130 lessons",
           "390+ interactive activities",
@@ -391,6 +473,7 @@
         "category": "Model United Nations Platform",
         "metricLabel": "competency framework",
         "description": "The operating system for MUN programs. AI-powered diplomatic assessments, 8 immersive courses, 40+ lessons, conference management.",
+        "rationale": "Model United Nations programs, in most schools, are run as simulations: students dress in suits, debate for a weekend, receive a certificate, and the matter ends. I perceived this as a waste of a formative discipline. Diplomacy is not a performance; it is a structured capacity to perceive the position of the other, to argue without alienating, to concede without surrendering, to hold principle while negotiating detail. These are skills that compound across a lifetime, but only if they are made explicit, measured, and progressive. So I built DiplomatiQ around a seven-tier competency framework, from Basic Delegate to Secretary-General, where each tier names a specific diplomatic capacity the student must demonstrate before advancing. The AI evaluation is not a gimmick; it is the only way a single educator can give formative feedback on forty research papers per conference. The framework makes the implicit skill of diplomacy visible to the student, to the teacher, and to the institution. This is Aristotle's insight applied to international relations education: a virtue grows only when it is named, practiced, and witnessed.",
         "features": [
           "7-tier AI competency framework",
           "8 immersive courses",
@@ -404,6 +487,7 @@
         "category": "Philosophy Podcast · أصداء الحكمة",
         "metricLabel": "ongoing broadcast",
         "description": "Independent educational podcast promoting philosophy as accessible field of education. Bridges academic philosophy and public discourse.",
+        "rationale": "Philosophy, when it speaks only to itself, dies. The academic journal, the closed seminar, the technical monograph — these are necessary, but they are not sufficient. A discipline that cannot survive the test of being understood by a non-specialist has lost contact with the reason it began: the cultivation of clarity in the conduct of a human life. I built Echoes of Wisdom as a return to the agora. The podcast is the public square, the listener is the citizen, the episode is the dialogue, and the question is always the Socratic one: have you examined what you take for granted? Each episode takes a concept from ethics, epistemology, or metaphysics and renders it in the language of everyday decision. Not diluted, but distilled. The bilingual format is not a translation exercise; it is a recognition that philosophy in Arabic and philosophy in English carry different intellectual inheritances, and that the conversation between them is itself a philosophical act. This is the cultural flagship of the studio: the proof that wisdom, to remain wisdom, must be spoken aloud.",
         "features": [
           "Bridges academic and public discourse",
           "Ethics, logic, epistemology",
