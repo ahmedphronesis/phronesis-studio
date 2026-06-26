@@ -147,6 +147,62 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             </FadeUp>
           ))}
         </div>
+
+        {/* ── Separator: distinct visual break between Echoes seasons and
+            the History of Philosophy project, so they never get mixed ── */}
+        <div className="max-w-4xl mt-16 md:mt-20 mb-12 md:mb-16">
+          <div className="flex items-center gap-6">
+            <span className="h-px flex-1 bg-gold/30" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-gold/70 font-mono whitespace-nowrap">
+              {t("separateProjectLabel")}
+            </span>
+            <span className="h-px flex-1 bg-gold/30" />
+          </div>
+        </div>
+
+        {/* History of Philosophy — A to Z
+            Separate project card (NOT an Echoes season).
+            Always visible (no FadeUp/whileInView animation that could hide it).
+            Distinct gold-themed design to differentiate from Echoes teal cards. */}
+        <div className="max-w-4xl p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden">
+          {/* Decorative background mark */}
+          <div
+            aria-hidden
+            className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-[0.04]"
+            style={{ backgroundColor: "var(--gold)", transform: "translate(30%, -30%)" }}
+          />
+
+          <div className="relative">
+            <div className="flex items-start justify-between mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold">
+                <Globe size={24} strokeWidth={1.5} />
+              </div>
+              <span className="text-xs uppercase tracking-wider text-gold border border-gold/40 rounded-full px-3 py-1.5 font-mono bg-gold/5">
+                {t("forthcomingStatus")}
+              </span>
+            </div>
+
+            <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-2 font-mono">
+              {t("forthcomingSubtitle")}
+            </p>
+            <h3 className="display text-ink text-3xl md:text-4xl leading-tight mb-3">
+              {t("forthcomingTitle")}
+            </h3>
+            {locale === "ar" && (
+              <p className="display text-gold/70 text-lg mb-5" style={{ fontFamily: "var(--font-cormorant)" }}>
+                History of Philosophy — From A to Z
+              </p>
+            )}
+            {locale === "en" && (
+              <p className="display text-gold/70 text-lg mb-5" style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}>
+                تاريخ الفلسفة — من الألف إلى الياء
+              </p>
+            )}
+            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+              {t("forthcomingBody")}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Season episode list — slides in when a season is clicked */}
