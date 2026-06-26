@@ -110,7 +110,7 @@ export function Work() {
         </Reveal>
       </div>
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -142,7 +142,7 @@ function EducationTab() {
   };
 
   return (
-    <div className="space-y-12 md:space-y-16">
+    <div className="space-y-0">
       {eduKeys.map((key, i) => {
         const item = {
           title: tc(`education.${key}.title`),
@@ -153,11 +153,11 @@ function EducationTab() {
         };
         return (
           <FadeUp key={key} delay={i * 0.05}>
-            <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-10 md:py-14 border-t border-border/40 ${i === eduKeys.length - 1 ? "border-b" : ""}`}>
-              <div className="lg:col-span-4">
+            <div className={`grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-5 md:py-6 border-t border-border/40 ${i === eduKeys.length - 1 ? "border-b" : ""}`}>
+              <div className="lg:col-span-5">
                 <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{item.subtitle}</p>
-                <h3 className="display text-ink text-3xl md:text-5xl leading-[1.05]">{item.title}</h3>
-                <div className="flex flex-wrap gap-2 mt-5">
+                <h3 className="display text-ink text-3xl md:text-4xl leading-[1.05]">{item.title}</h3>
+                <div className="flex flex-wrap gap-2 mt-4">
                   {item.stats.map((s, j) => (
                     <span key={j} className="text-[10px] uppercase tracking-wider text-ink-dim border border-border rounded-full px-2.5 py-1 font-mono">
                       {s}
@@ -166,19 +166,19 @@ function EducationTab() {
                 </div>
                 {item.url && (
                   <Magnetic strength={0.3}>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-teal">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm text-teal">
                       <ExternalLink size={14} />
                       <span className="link-underline">{tc("visitSite")}</span>
                     </a>
                   </Magnetic>
                 )}
               </div>
-              <div className="lg:col-span-7 lg:col-start-6">
+              <div className="lg:col-span-7">
                 <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
                   {item.body.split("\n\n").map((para, i, arr) => (
                     <span key={i}>
                       {para}
-                      {i < arr.length - 1 && <><br /><br /></>}
+                      {i < arr.length - 1 && <br />}
                     </span>
                   ))}
                 </p>
