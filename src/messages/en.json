@@ -805,6 +805,8 @@
     "forthcomingSubtitle": "Forthcoming Project",
     "forthcomingBody": "A comprehensive intellectual project surveying the history of philosophy across all civilizations, from the dawn of human consciousness to the present moment — no gaps, no bias, no boredom. Not confined to Western philosophy: every philosophical tradition is presented as a living tradition in its own right, with its own internal structure and original contribution to human thought.",
     "forthcomingStatus": "Forthcoming",
-    "separateProjectLabel": "Separate Project"
+    "separateProjectLabel": "Separate Project",
+    "season1YoutubeUrl": "https://www.youtube.com/playlist?list=PLhjIMflidDWnK0xLbUbsidjVpAQyiMB7Y",
+    "listenOnYoutube": "Listen on YouTube"
   }
 }

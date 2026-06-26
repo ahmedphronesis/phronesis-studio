@@ -77,7 +77,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-8">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink leading-[1.05]" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
-              {t("title")}<br className="br-rtl-hide" />
+              {t("title")}{" "}<br className="br-rtl-hide" />
               <span className="display-italic text-teal">{t("titleItalic")}</span>
             </h2>
           </Reveal>
@@ -143,6 +143,22 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                     )}
                   </span>
                 </div>
+
+                {/* YouTube playlist link — Season 1 only */}
+                {season.id === "season-1" && (
+                  <a
+                    href={t("season1YoutubeUrl")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-4 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-red-600/10 border border-red-600/30 text-red-700 hover:bg-red-600/20 hover:border-red-600/50 transition-colors text-sm font-medium"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    {t("listenOnYoutube")}
+                  </a>
+                )}
               </motion.button>
             </FadeUp>
           ))}
