@@ -50,7 +50,7 @@ export function Method() {
                 </div>
                 <p className="text-[10px] uppercase tracking-[0.22em] text-teal/70 mb-2 font-mono">{s.subtitle}</p>
                 <h3 className="display text-ink text-3xl md:text-4xl mb-5">{s.title}</h3>
-                <p className="body-serif text-xs md:text-sm text-ink-soft leading-relaxed mb-7">{s.body}</p>
+                <p className="body-serif text-xs md:text-sm text-ink-soft leading-relaxed mb-7 whitespace-pre-line">{s.body}</p>
                 <div className="pt-5 border-t border-border">
                   <p className="text-[9px] uppercase tracking-[0.2em] text-ink-dim mb-2 font-mono">{t("theQuestion")}</p>
                   <p className="display-italic text-teal text-base leading-snug">{s.question}</p>
