@@ -30,7 +30,7 @@ export function Work() {
         style={{ background: "radial-gradient(ellipse 70% 60% at 30% 30%, rgba(180, 141, 60, 0.06), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-8 md:pb-12">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />
@@ -54,14 +54,14 @@ export function Work() {
       </div>
 
       {/* Neural Network Visualization — the hero centerpiece */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <NeuralWork />
       </div>
 
       {/* Divider before detailed breakdown */}
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
-          <div className="flex items-center gap-6 py-12 md:py-16">
+          <div className="flex items-center gap-6 py-6 md:py-8">
             <span className="h-px flex-1 bg-border/60" />
             <span className="text-[10px] uppercase tracking-[0.3em] text-ink-dim font-mono whitespace-nowrap">
               {t("detailedBreakdown")}
@@ -110,7 +110,7 @@ export function Work() {
         </Reveal>
       </div>
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -201,7 +201,7 @@ function RealEstateTab() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-12 md:py-16 border-t border-border/40">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-6 md:py-8 border-t border-border/40">
         <div className="lg:col-span-5">
           <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{tc("realEstate.category")}</p>
           <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{tc("realEstate.name")}</h3>
@@ -227,7 +227,7 @@ function RealEstateTab() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-12 md:py-16 border-t border-border/40">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-6 md:py-8 border-t border-border/40">
         {pillars.map((p, i) => (
           <FadeUp key={i}>
             <motion.div
@@ -247,7 +247,7 @@ function RealEstateTab() {
         ))}
       </div>
 
-      <div className="py-12 md:py-16 border-t border-border/40">
+      <div className="py-6 md:py-8 border-t border-border/40">
         <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("realEstate.roiTitle")}</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {roi.map((s, i) => (
@@ -260,7 +260,7 @@ function RealEstateTab() {
         </div>
       </div>
 
-      <div className="py-12 md:py-16 border-t border-border/40">
+      <div className="py-6 md:py-8 border-t border-border/40">
         <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("realEstate.trustTitle")}</h4>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {trust.map((s, i) => (
@@ -283,7 +283,7 @@ function FinanceTab() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-12 md:py-16 border-t border-border/40">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-6 md:py-8 border-t border-border/40">
         <div className="lg:col-span-5">
           <p className="text-[11px] uppercase tracking-[0.22em] text-terracotta mb-3 font-mono">{tc("finance.category")}</p>
           <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{tc("finance.name")}</h3>
@@ -300,7 +300,7 @@ function FinanceTab() {
         </div>
       </div>
 
-      <div className="py-12 md:py-16 border-t border-border/40">
+      <div className="py-6 md:py-8 border-t border-border/40">
         <h4 className="display text-ink text-3xl md:text-4xl mb-10">{tc("finance.pillarsTitle")}</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((p, i) => (
@@ -323,7 +323,7 @@ function FinanceTab() {
         </div>
       </div>
 
-      <div className="py-12 md:py-16 border-t border-border/40">
+      <div className="py-6 md:py-8 border-t border-border/40">
         <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("finance.stakeholdersTitle")}</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {stakeholders.map((s, i) => (
@@ -336,7 +336,7 @@ function FinanceTab() {
         </div>
       </div>
 
-      <div className="py-12 md:py-16 border-t border-border/40">
+      <div className="py-6 md:py-8 border-t border-border/40">
         <div className="p-8 md:p-10 rounded-2xl border border-terracotta/30 bg-gradient-to-br from-terracotta/5 to-transparent">
           <h4 className="display text-ink text-2xl md:text-3xl mb-3">{tc("finance.ctaTitle")}</h4>
           <p className="body-serif text-sm text-ink-soft leading-relaxed max-w-2xl mb-6">{tc("finance.ctaBody")}</p>
