@@ -155,11 +155,25 @@ export function Hero() {
                   style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
                   aria-label="Phronesis: practical wisdom"
                 >
-                  ΦΡΟΝΗΣΙΣ
+                  {t("mottoWord")}
+                  {t("mottoTransliteration") && (
+                    <span
+                      className="text-[0.6em] text-gold/70 ml-2"
+                      style={{ fontFamily: "var(--font-amiri)", fontWeight: 400 }}
+                    >
+                      {t("mottoTransliteration")}
+                    </span>
+                  )}
                 </p>
                 <p className="text-xs text-ink-dim body-serif-italic leading-relaxed">
-                  Greek: practical wisdom, the virtue of perceiving the right
-                  action in the right moment. Aristotle, <em>Nicomachean Ethics</em>, Book VI.
+                  {t("mottoDescription")}
+                </p>
+                <p
+                  className="text-[10px] uppercase tracking-[0.2em] text-gold/60 mt-3 font-mono"
+                  dir="ltr"
+                  style={{ fontFamily: "var(--font-jetbrains)" }}
+                >
+                  — {t("mottoSource")}
                 </p>
               </div>
             </motion.div>

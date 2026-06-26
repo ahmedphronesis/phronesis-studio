@@ -106,7 +106,7 @@ export function Vouches() {
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
         <Reveal>
           <h3 className="display text-ink text-2xl md:text-3xl mb-10">
-            Formal letters of recommendation
+            {t("formalLettersTitle")}
           </h3>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

@@ -51,7 +51,11 @@
     "ctaSecondary": "See selected work",
     "footnote": "Four production platforms live. A decade across classrooms, operations, and code. Available for selective engagements.",
     "location": "Al Ain · UAE",
-    "enterPrompt": "Enter"
+    "enterPrompt": "Enter",
+    "mottoWord": "ΦΡΟΝΗΣΙΣ",
+    "mottoTransliteration": "",
+    "mottoDescription": "Greek: practical wisdom, the virtue of perceiving the right action in the right moment. Aristotle, Nicomachean Ethics, Book VI.",
+    "mottoSource": "Aristotle, Nicomachean Ethics, Book VI."
   },
   "thesis": {
     "eyebrow": "The Thesis",
@@ -731,6 +735,7 @@
     "title": "In their",
     "titleItalic": "words.",
     "intro": "Recommendations from those who have worked with me, taught me, and led me. Each is verifiable, formal letters are downloadable, LinkedIn recommendations link to the original.",
+    "formalLettersTitle": "Formal letters of recommendation",
     "downloadLetter": "Download letter",
     "viewOnLinkedIn": "View on LinkedIn",
     "linkedin": {
