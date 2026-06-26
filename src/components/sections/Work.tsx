@@ -132,7 +132,7 @@ export function Work() {
 /* ==================== EDUCATION TAB ==================== */
 function EducationTab() {
   const tc = useTranslations("workContent");
-  const eduKeys = ["e1", "e2", "e3", "e4", "e5"] as const;
+  const eduKeys = ["e1", "e2", "e3", "e4"] as const;
   const urls: Record<string, string | undefined> = {
     e1: "https://mscs-academy.vercel.app",
     e2: "https://mun-diplomatiq.vercel.app",
@@ -174,7 +174,14 @@ function EducationTab() {
                 )}
               </div>
               <div className="lg:col-span-7 lg:col-start-6">
-                <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{item.body}</p>
+                <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+                  {item.body.split("\n\n").map((para, i, arr) => (
+                    <span key={i}>
+                      {para}
+                      {i < arr.length - 1 && <><br /><br /></>}
+                    </span>
+                  ))}
+                </p>
               </div>
             </div>
           </FadeUp>
