@@ -322,9 +322,9 @@ function SkillsTab() {
           <div className="space-y-3">
             {languages.map((l, i) => (
               <FadeUp key={i} delay={i * 0.05}>
-                <div className="flex items-center justify-between p-4 rounded-xl border border-border bg-paper-warm">
+                <div className="flex flex-col gap-1 p-4 rounded-xl border border-border bg-paper-warm">
                   <span className="body-serif text-base text-ink">{l.name}</span>
-                  <span className="text-sm text-teal font-mono">{l.level}</span>
+                  <span className="text-sm text-teal font-mono leading-relaxed">{l.level}</span>
                 </div>
               </FadeUp>
             ))}
