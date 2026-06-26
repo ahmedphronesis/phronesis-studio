@@ -332,6 +332,48 @@
   box-shadow: 0 0 60px rgba(180, 141, 60, 0.20), 0 0 120px rgba(180, 141, 60, 0.10);
 }
 
+/* ─── Arabic typography corrections ─────────────────────────────────────────
+   Arabic is a CURSIVE SCRIPT: letter-spacing breaks the joining strokes
+   between letters, text-transform: uppercase has no effect (Arabic has no
+   case), and text-align: justify creates rivers of whitespace because
+   Arabic words are typically longer (joined letters) and hyphenation
+   doesn't apply.
+
+   These overrides activate only when <html dir="rtl"> is set, which
+   happens on every /ar page after hydration (see HtmlLangSetter.tsx).
+   Latin pages (<html dir="ltr">) are completely unaffected.
+   ─────────────────────────────────────────────────────────────────────── */
+[dir="rtl"] .display,
+[dir="rtl"] .display-italic {
+  font-family: var(--font-amiri);     /* Amiri: proper Arabic naskh, already loaded */
+  letter-spacing: 0;                   /* CRITICAL: any spacing severs cursive joins */
+  line-height: 1.3;                    /* Arabic descenders need more vertical room */
+}
+
+[dir="rtl"] .body-serif,
+[dir="rtl"] .body-serif-italic {
+  font-family: var(--font-amiri);
+  text-align: right;                   /* Override justify — Arabic justifies poorly */
+  text-justify: initial;
+  hyphens: initial;
+  -webkit-hyphens: initial;
+  line-height: 1.85;                   /* Generous line-height for Arabic readability */
+}
+
+[dir="rtl"] .eyebrow {
+  font-family: var(--font-amiri);
+  letter-spacing: 0.04em;              /* Much tighter than 0.22em — Arabic can't handle wide spacing */
+  text-transform: none;                /* Arabic has no uppercase */
+}
+
+/* Hide the <br className="br-rtl-hide" /> between title and titleItalic
+   on Arabic pages, so phrases like "الأعمال" + "الفلسفية." render as a
+   single line "الأعمال الفلسفية." instead of being split across two lines.
+   English pages keep the line break for the editorial two-line title effect. */
+[dir="rtl"] .br-rtl-hide {
+  display: none;
+}
+
 /* Animated gradient border */
 .gradient-border {
   position: relative;

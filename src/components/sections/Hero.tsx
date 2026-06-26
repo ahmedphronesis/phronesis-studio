@@ -118,7 +118,7 @@ export function Hero() {
               }}
               className="lg:col-span-7"
             >
-              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed text-justify">
+              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">
                 {t("body")}
               </p>
 

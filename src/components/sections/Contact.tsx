@@ -64,7 +64,7 @@ export function Contact() {
 
         <Reveal delay={0.05}>
           <h2 className="display text-ink leading-[1.05] mb-8" style={{ fontSize: "clamp(2.8rem, 7vw, 7rem)" }}>
-            {t("title")}<br />
+            {t("title")}<br className="br-rtl-hide" />
             <span className="display-italic text-teal">{t("titleItalic")}</span>
           </h2>
         </Reveal>
