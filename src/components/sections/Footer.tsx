@@ -25,7 +25,7 @@ export function Footer() {
 
   return (
     <footer className="relative mt-auto border-t border-border bg-paper-warm">
-      <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-8 md:py-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
@@ -94,7 +94,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="mt-8 pt-8 border-t border-border/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-ink-dim body-serif">
             © {new Date().getFullYear()} Ahmed Ali, Studio of Phronesis. {tf("rights")}
           </p>

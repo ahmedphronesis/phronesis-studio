@@ -35,7 +35,7 @@ export function Library() {
         style={{ background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(180, 141, 60, 0.08), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-8 md:pb-12">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />
@@ -56,7 +56,7 @@ export function Library() {
         </div>
       </div>
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <Stagger gap={0.14} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {GUIDES.map((g) => (
             <FadeUp key={g.grade}>
@@ -111,7 +111,7 @@ export function Library() {
           ))}
         </Stagger>
 
-        <Reveal delay={0.2} className="mt-16">
+        <Reveal delay={0.2} className="mt-8">
           <div className="relative p-8 md:p-10 rounded-2xl border border-teal/30 bg-gradient-to-br from-teal/5 to-transparent overflow-hidden">
             <div
               aria-hidden

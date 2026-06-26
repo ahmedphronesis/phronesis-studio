@@ -594,7 +594,7 @@ export function NeuralWork() {
       )}
 
       {/* ─── Always-visible rationale panel — shows SELECTED cloud ─── */}
-      <div ref={rationaleRef} className="mt-20 md:mt-28 scroll-mt-24">
+      <div ref={rationaleRef} className="mt-10 md:mt-14 scroll-mt-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedCloud.id}

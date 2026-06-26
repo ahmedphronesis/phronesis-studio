@@ -34,7 +34,7 @@ export function Vouches() {
         style={{ background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(180, 141, 60, 0.06), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-8 md:pb-12">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />
@@ -56,7 +56,7 @@ export function Vouches() {
       </div>
 
       {/* LinkedIn recommendation — large feature quote */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
         <FadeUp>
           <div className="relative p-8 md:p-12 rounded-3xl bg-paper border border-teal/20 overflow-hidden">
             <Quote
@@ -103,7 +103,7 @@ export function Vouches() {
       </div>
 
       {/* Formal recommendation letters — downloadable cards */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <Reveal>
           <h3 className="display text-ink text-2xl md:text-3xl mb-10">
             {t("formalLettersTitle")}

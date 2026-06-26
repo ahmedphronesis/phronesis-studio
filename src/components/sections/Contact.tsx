@@ -70,7 +70,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="body-serif text-base md:text-lg text-ink-soft max-w-2xl leading-relaxed mb-20">{t("intro")}</p>
+          <p className="body-serif text-base md:text-lg text-ink-soft max-w-2xl leading-relaxed mb-10">{t("intro")}</p>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">

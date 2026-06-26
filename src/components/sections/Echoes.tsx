@@ -66,7 +66,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
         style={{ background: "radial-gradient(ellipse 70% 60% at 30% 20%, rgba(15, 92, 94, 0.06), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-44 pb-16 md:pb-20">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-8 md:pb-12">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />
@@ -74,7 +74,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-8">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink leading-[1.05]" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
               {t("title")}<br className="br-rtl-hide" />
@@ -88,7 +88,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
       </div>
 
       {/* Season cards — clickable containers */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl">
           {seasons.map((season, i) => (
             <FadeUp key={season.id} delay={i * 0.1}>
@@ -150,7 +150,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
 
         {/* ── Separator: distinct visual break between Echoes seasons and
             the History of Philosophy project, so they never get mixed ── */}
-        <div className="max-w-4xl mt-16 md:mt-20 mb-12 md:mb-16">
+        <div className="max-w-4xl mt-8 md:mt-10 mb-6 md:mb-8">
           <div className="flex items-center gap-6">
             <span className="h-px flex-1 bg-gold/30" />
             <span className="text-[10px] uppercase tracking-[0.3em] text-gold/70 font-mono whitespace-nowrap">

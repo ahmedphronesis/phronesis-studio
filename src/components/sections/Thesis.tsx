@@ -54,7 +54,7 @@ export function Thesis() {
         {/* Opening sentence — large, prominent, with breathing room */}
         <Reveal delay={0.05}>
           <p
-            className="display text-ink leading-[1.4] mb-12 md:mb-16"
+            className="display text-ink leading-[1.4] mb-6 md:mb-8"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3.4rem)" }}
           >
             {isEnglish ? (
@@ -79,7 +79,7 @@ export function Thesis() {
         {/* Examples — indented, separated, more line height, distinct background */}
         <Reveal delay={0.1}>
           <div
-            className="border-l-2 border-teal/30 pl-6 md:pl-10 py-2 mb-12 md:mb-16"
+            className="border-l-2 border-teal/30 pl-6 md:pl-10 py-2 mb-6 md:mb-8"
             style={{ marginLeft: "1rem" }}
           >
             <div className="space-y-6 md:space-y-8">

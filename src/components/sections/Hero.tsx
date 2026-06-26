@@ -50,7 +50,7 @@ export function Hero() {
       </motion.div>
 
       {/* Full-bleed content */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-32 pb-32">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 pb-20">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -110,7 +110,7 @@ export function Hero() {
           </motion.div>
 
           {/* Two-column split — body left, Greek motto right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-12 lg:mt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-12 lg:mt-8">
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 22 },
