@@ -43,13 +43,13 @@
     "echoes": "Philosophy"
   },
   "hero": {
-    "eyebrow": "Thinker · Educator · Systems Designer",
+    "eyebrow": "Thinker, Educator, Systems Designer",
     "name": "Ahmed Ali",
     "subtitle": "Perceiving the gap between what is and what should be, and closing it with discipline.",
-    "body": "A sage once observed that wisdom begins in the recognition of what is absent, before the preoccupation with what is present. I have devoted the better part of a decade to the discipline of perception — training myself to discern the locus of deficiency, whether in the classroom, in the craft of software, in the ledgers, in administration, or in the design of curricula. What I practice is not a collection of separate trades united by coincidence, but a single method of inquiry whose domains differ while its essence remains constant: the identification of the defect, and the precise sealing of it.\n\nIf your institution carries a gap whose locus has not yet been determined, or a deficiency that has not yet been named, I would consider it a privilege to walk with you in naming it, and in erecting what removes it — with a degree of mastery that endures in effect and persists in benefit.",
+    "body": "A sage once observed that wisdom begins with recognizing what is absent, before preoccupying oneself with what is present. I have spent the better part of a decade training my perception: learning to see where the deficiency lies, whether in a classroom, in software, in a ledger, in administration, or in a curriculum. What I offer is not a collection of separate trades, but a single habit of attention applied wherever the need arises: perceiving the gap, and closing it with care.\n\nIf your institution carries a gap it has not yet named, I would consider it a privilege to help you name it, and to build what removes it, in a way that lasts.",
     "ctaPrimary": "Begin a conversation",
     "ctaSecondary": "See selected work",
-    "footnote": "Academician, systems architect, and specialist in leadership and management. I contribute to the construction of fitting systems, the offering of counsel, and the training of personnel, for institutions that no longer accept the persistence of the defect, and that seek to redress the gap.",
+    "footnote": "Academician, systems architect, and specialist in leadership and management. I contribute to building fitting systems, offering counsel, and training personnel, for institutions that no longer accept the persistence of the gap, and that seek to redress it.",
     "location": "Al Ain · UAE",
     "enterPrompt": "Enter",
     "mottoWord": "ΦΡΟΝΗΣΙΣ",
@@ -60,7 +60,7 @@
   "thesis": {
     "eyebrow": "The Thesis",
     "lead": "Every institution has a gap between what it is and what it could be.\n\nA school may deliver excellent teaching yet struggle to measure its impact.\nA business may serve its customers well while losing value through unseen inefficiencies, fragmented data, and decisions trapped in spreadsheets, messaging threads, and institutional memory.\nA team may work tirelessly but lack the systems needed to grow stronger over time.\n\nThese gaps are universal. They exist in every organization, regardless of size, industry, or mission. The real question is whether someone can recognize them with clarity, define them with honesty, and close them with discipline and care.",
-    "body1": "I am not one who arrived at the convergence of education, philosophical research, and programming by coincidence; nor one who took up programming while teaching remained his trade. My reality is that of a man whom philosophy has trained to discern the loci of deficiency — in systems, in the conduct of affairs, in the assemblies of education, and in the conditions of those who act — and then to seal that deficiency with precision, in a manner that admits no disorder.",
+    "body1": "I am not a developer who happens to teach, nor a teacher who happens to code. I am a philosopher who has spent years learning to see the gaps in systems, in workflows, in classrooms, in people, and to close them with precision.",
     "body2": "The Greeks had a word for this. Phronesis: practical wisdom, the virtue of perceiving the right action in the right moment. It is not theory. It is not technique. It is the trained capacity to look at a messy reality and see what is missing.",
     "body3": "I work across three disciplines. Education, where I teach and build learning platforms. Software, where I ship production systems for real clients. Leadership and operations, where I help teams and processes run with intent. Each engagement is shaped to the gap at hand.",
     "pillar1Title": "Perceive the gap",
@@ -136,7 +136,7 @@
     "eyebrow": "Begin",
     "title": "Tell me what gap",
     "titleItalic": "needs closing.",
-    "intro": "A single line or a brief paragraph will suffice. Whether your need is for a custom system, a consultation, or training and instruction, show me the locus of the deficiency as you perceive it — and I will investigate its essence before proposing what remedies it.\nI read every message myself, and respond within 48 hours.",
+    "intro": "A single line or a brief paragraph will suffice. Whether your need is for a custom system, a consultation, or training and instruction, show me the gap as you see it, and I will examine it carefully before proposing what remedies it.\nI read every message myself, and respond within 48 hours.",
     "fieldName": "Your name",
     "fieldEmail": "Email",
     "fieldCompany": "Company / Institution (optional)",
@@ -181,7 +181,7 @@
     "eyebrow": "The Studio",
     "title": "About",
     "titleItalic": "Ahmed Ali.",
-    "intro": "Educator, systems architect, and specialist in leadership and management. A philosopher by formation, a teacher by qualification, and a builder by craft. What follows is the full record.",
+    "intro": "Educator, systems architect, and specialist in leadership and management. A philosopher by training, a teacher by qualification, and a builder by craft. Below is the full record.",
     "tabProfile": "Profile",
     "tabProfileDesc": "The philosopher-educator narrative",
     "tabExperience": "Experience",
@@ -196,8 +196,8 @@
     "profileBody1": "As a Licensed UAE Educator and ADEK-Approved Moral, Social, and Cultural Studies and Islamic Education Teacher for Non-Arabic Speakers, I view teaching as a human art, a space where intellect, ethics, and empathy meet. My passion lies in guiding learners to think critically, act responsibly, and see knowledge not as information, but as a path to self-understanding and global awareness.",
     "profileBody2": "Before entering education, I worked extensively in leadership, management, and business development, experiences that strengthened my ability to connect with people, organize effectively, and lead with purpose. These transferable skills now inform my teaching, helping me create structured, inclusive, and motivating learning environments that value every student's voice.",
     "profileBody3": "Rooted in a background in philosophy and the humanities, I believe that education should awaken both the mind and the conscience. My goal is to cultivate in students the harmony between thought and action, the same harmony I continue to seek as an educator, learner, and human being.",
-    "profileSummary": "A licensed Moral, Social, and Cultural Studies (MSC) and Islamic Education teacher, certified by the Abu Dhabi Department of Education and Knowledge (ADEK), with a proven record of teaching across Grade 1 through Grade 12 within the American Curriculum.\n\nPossesses expertise in designing inquiry-based learning and applying differentiated instruction strategies that address the needs of Arabic-language learners, English-language learners, and gifted students, in addition to delivering instruction effectively in both face-to-face and remote classroom environments.\n\nFurther holds expertise in leading Model United Nations (MUN) programmes, and in employing modern educational technologies and digital learning platforms — including HMH, Alef, Paradigm, Microsoft Teams, Google Classroom, Canva, and Teachy — to foster critical thinking, cultural awareness, and global citizenship skills in students.\n\nHolds a valid teaching licence in the United Arab Emirates, in addition to an Academic IELTS certification at Band 7.\n\nCommitted to continuous professional development, and to cultivating in students the harmony between thought and action through structured, values-driven pedagogy.",
-    "profileTeachingExpertise": "Designing and delivering standards-aligned lessons across the MSC and Islamic Education curriculum, from Grade 1 through Grade 12, within the American Curriculum framework — with full compliance to ADEK standards and Irtiqa'a quality expectations.\n\nApplying differentiated instruction methodologies to accommodate diverse learner profiles, including Arabic-language learners, English-language learners, and gifted students, through scaffolded content, multilingual support, and adaptive assessment strategies.\n\nIntegrating educational technology platforms — including HMH, Alef, Paradigm, Microsoft Teams, Google Classroom, Canva, and Teachy — to enhance engagement, enable blended learning, and support data-driven instructional decisions.\n\nLeading Model United Nations (MUN) programmes, including faculty coordination, delegate training, conference management, and the cultivation of diplomatic, research, and public-speaking competencies in students.",
+    "profileSummary": "A licensed Moral, Social, and Cultural Studies (MSC) and Islamic Education teacher, certified by the Abu Dhabi Department of Education and Knowledge (ADEK), with a proven record of teaching across Grade 1 through Grade 12 within the American Curriculum.\n\nDesigns inquiry-based lessons and applies differentiated instruction strategies that meet the needs of Arabic-language learners, English-language learners, and gifted students, in both face-to-face and remote classroom environments.\n\nHolds expertise in leading Model United Nations (MUN) programmes, and in employing modern educational technologies and digital learning platforms, including HMH, Alef, Paradigm, Microsoft Teams, Google Classroom, Canva, and Teachy, to foster critical thinking, cultural awareness, and global citizenship skills in students.\n\nHolds a valid teaching licence in the United Arab Emirates, in addition to an Academic IELTS certification at Band 7.\n\nCommitted to continuous professional development, and to cultivating in students the harmony between thought and action through structured, values-driven pedagogy.",
+    "profileTeachingExpertise": "Designing and delivering standards-aligned lessons across the MSC and Islamic Education curriculum, from Grade 1 through Grade 12, within the American Curriculum framework, with full compliance to ADEK standards and Irtiqa'a quality expectations.\n\nApplying differentiated instruction methodologies to accommodate diverse learner profiles, including Arabic-language learners, English-language learners, and gifted students, through scaffolded content, multilingual support, and adaptive assessment strategies.\n\nIntegrating educational technology platforms, including HMH, Alef, Paradigm, Microsoft Teams, Google Classroom, Canva, and Teachy, to enhance engagement, enable blended learning, and support data-driven instructional decisions.\n\nLeading Model United Nations (MUN) programmes, including faculty coordination, delegate training, conference management, and the cultivation of diplomatic, research, and public-speaking competencies in students.",
     "experienceLabel": "Work Experience",
     "exp1Role": "MSC Studies and Islamic Education B Teacher and Section Leader",
     "exp1Org": "Ain Al Khaleej Private School, American Division, UAE",
@@ -405,7 +405,7 @@
       "eyebrow": "One Method, Many Expressions",
       "title": "The Neural Field",
       "titleItalic": "of the Studio's Work",
-      "intro": "Every programme below began with the perception of an existing gap, was then subjected to rigorous diagnosis, and concluded with its closure in a precise manner.\nThe domains varied, the languages differed, and the stakeholders diverged; yet the governing method is one across all of them.\nHover or tap each cloud to learn why it was built this way, and not otherwise.",
+      "intro": "Every programme below began with perceiving an existing gap, then diagnosing it with rigor, and finally closing it with precision.\nThe domains varied, the languages differed, and the stakeholders diverged, yet the governing method is one across all of them.\nHover or tap each cloud to read why it was built this way, and not otherwise.",
       "centerMethod": "One Method",
       "rationaleLabel": "Why I built it this way",
       "domainLabel": "Domain",
@@ -512,7 +512,7 @@
       "e1": {
         "title": "MSCS Academy",
         "subtitle": "Interactive Learning Platform · Grades 6 to 9",
-        "body": "A comprehensive interactive learning platform for the Moral, Social, and Cultural Studies subject in the United Arab Emirates. It comprises four grade levels, 130 lessons, and over 390 interactive activities — including short quizzes, timelines, maps, drag-and-drop exercises, KWL charts, and Venn diagrams.\n\nDesigned in accordance with the MSCS curriculum standards of the United Arab Emirates, with adherence to Personal Data Protection Law (PDPL) requirements, alignment with Child Digital Safety Law No. 26 of 2025, and the standards of the Abu Dhabi Department of Education and Knowledge (ADEK Irtiqa'a).\n\nThe platform originated as a practical need within my own teaching practice, then was developed and refined to become a system suitable for institutional adoption and generalisation.",
+        "body": "A comprehensive interactive learning platform for the Moral, Social, and Cultural Studies subject in the United Arab Emirates. It covers four grade levels, 130 lessons, and over 390 interactive activities, including short quizzes, timelines, maps, drag-and-drop exercises, KWL charts, and Venn diagrams.\n\nDesigned in accordance with the MSCS curriculum standards of the United Arab Emirates, with adherence to Personal Data Protection Law (PDPL) requirements, alignment with Child Digital Safety Law No. 26 of 2025, and the standards of the Abu Dhabi Department of Education and Knowledge (ADEK Irtiqa'a).\n\nThe platform began as a practical need within my own teaching practice, then was developed and refined to become a system suitable for institutional adoption and broader use.",
         "stats": [
           "4 grades",
           "130 lessons",
@@ -523,7 +523,7 @@
       "e2": {
         "title": "DiplomatiQ",
         "subtitle": "MUN Operating System · UAE & GCC Schools",
-        "body": "The operating system for Model United Nations (MUN) programmes.\n\nAn AI-powered system for the assessment of diplomatic performance, built upon a progressive seven-tier framework extending from Basic Delegate to Secretary-General. It comprises eight immersive courses and over 40 lessons.\n\nIt encompasses conference management — from registrations, committees, and delegates, to voting procedures — alongside the evaluation of research papers through artificial intelligence, with originality verification and similarity detection.\n\nDesigned to meet the needs of educational institutions that adopt Model United Nations programmes and their associated events.",
+        "body": "The operating system for Model United Nations (MUN) programmes.\n\nAn AI-powered system for assessing diplomatic performance, built on a progressive seven-tier framework extending from Basic Delegate to Secretary-General. It includes eight immersive courses and over 40 lessons.\n\nIt covers conference management, from registrations and committees to delegates and voting procedures, alongside the evaluation of research papers through artificial intelligence, with originality verification and similarity detection.\n\nDesigned to serve educational institutions that run Model United Nations programmes and their associated events.",
         "stats": [
           "7-tier framework",
           "8 courses",
@@ -534,7 +534,7 @@
       "e3": {
         "title": "Bilingual Mathematics Curriculum",
         "subtitle": "Original Works · The Library",
-        "body": "A complete series of bilingual (Arabic and English) educational guides in mathematics.\n\nCurrently covering Grades 1 through 4, with Grades 5 through 12 in preparation. Each guide comprises 21 to 31 pages, encompassing all curricular units and learning domains prescribed for each grade.\n\nThe series carries the learner from absolute zero to readiness for teaching; it was designed for complete beginners, structured for direct classroom use, and attuned to the bilingual educational reality.",
+        "body": "A complete series of bilingual (Arabic and English) educational guides in mathematics.\n\nCurrently covering Grades 1 through 4, with Grades 5 through 12 in preparation. Each guide comprises 21 to 31 pages, covering all curricular units and learning domains prescribed for each grade.\n\nThe series takes the learner from absolute zero to readiness for teaching. It was designed for complete beginners, structured for direct classroom use, and attuned to the bilingual educational reality.",
         "stats": [
           "Grades 1 to 4 live",
           "Grades 5 to 12 pending",
