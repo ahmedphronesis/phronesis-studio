@@ -347,7 +347,7 @@
 [dir="rtl"] .display-italic {
   font-family: var(--font-amiri);     /* Amiri: proper Arabic naskh, already loaded */
   letter-spacing: 0;                   /* CRITICAL: any spacing severs cursive joins */
-  line-height: 1.3;                    /* Arabic descenders need more vertical room */
+  line-height: 1.5 !important;         /* Arabic descenders + diacritics need more room */
 }
 
 [dir="rtl"] .body-serif,
@@ -357,7 +357,7 @@
   text-justify: initial;
   hyphens: initial;
   -webkit-hyphens: initial;
-  line-height: 1.85;                   /* Generous line-height for Arabic readability */
+  line-height: 2.1 !important;         /* Generous line-height for Arabic diacritics */
 }
 
 [dir="rtl"] .eyebrow {

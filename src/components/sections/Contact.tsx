@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowUpRight, Check, Loader2, Linkedin, MapPin } from "lucide-react";
 import { Reveal, Magnetic } from "../anim";
 
@@ -13,6 +13,8 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const t = useTranslations("contact");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
   const budgets = BUDGET_KEYS.map((k) => t(k));
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -63,14 +65,19 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h2 className="display text-ink leading-[1.05] mb-8" style={{ fontSize: "clamp(2.8rem, 7vw, 7rem)" }}>
-            {t("title")}<br className="br-rtl-hide" />
+          <h2
+            className={`display text-ink mb-8 ${isRTL ? "leading-[1.4]" : "leading-[1.05]"}`}
+            style={{ fontSize: "clamp(2.8rem, 7vw, 7rem)" }}
+          >
+            {t("title")}{" "}<br className="br-rtl-hide" />
             <span className="display-italic text-teal">{t("titleItalic")}</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="body-serif text-base md:text-lg text-ink-soft max-w-2xl leading-relaxed mb-10">{t("intro")}</p>
+          <p
+            className={`body-serif text-base md:text-lg text-ink-soft max-w-2xl mb-10 whitespace-pre-line ${isRTL ? "leading-[2.2]" : "leading-relaxed"}`}
+          >{t("intro")}</p>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
