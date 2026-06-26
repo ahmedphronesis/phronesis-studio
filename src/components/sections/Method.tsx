@@ -27,7 +27,7 @@ export function Method() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink leading-[1.05]" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
-              {t("title")}<br className="br-rtl-hide" />
+              {t("title")}{" "}<br className="br-rtl-hide" />
               <span className="display-italic text-teal">{t("titleItalic")}</span>
             </h2>
           </Reveal>
