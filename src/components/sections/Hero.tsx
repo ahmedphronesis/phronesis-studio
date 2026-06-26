@@ -173,7 +173,7 @@ export function Hero() {
                   dir="ltr"
                   style={{ fontFamily: "var(--font-jetbrains)" }}
                 >
-                  — {t("mottoSource")}
+                  {t("mottoSource")}
                 </p>
               </div>
             </motion.div>
