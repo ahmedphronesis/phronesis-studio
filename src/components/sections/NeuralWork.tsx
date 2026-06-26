@@ -159,13 +159,18 @@ export function NeuralWork() {
           transition={{ duration: 1, ease: EASE, delay: 0.2 }}
           className="body-serif text-sm md:text-base text-ink-soft leading-relaxed max-w-2xl mx-auto"
         >
-          {t("neural.intro")}
+          {t("neural.intro").split("\n").map((line, i, arr) => (
+            <span key={i}>
+              {line}
+              {i < arr.length - 1 && <br />}
+            </span>
+          ))}
         </motion.p>
       </div>
 
       {/* ─── DESKTOP: Wide Vitruvian neural field ─── */}
       {!isMobile && (
-        <div className="relative w-full mx-auto" style={{ maxWidth: "1100px" }}>
+        <div className="relative w-full mx-auto" style={{ maxWidth: "850px" }}>
           <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
             <svg
               className="absolute inset-0 w-full h-full"
@@ -338,36 +343,36 @@ export function NeuralWork() {
                   <animate attributeName="opacity" values="0.3;0;0" dur="3s" begin="1s" repeatCount="indefinite" />
                 </circle>
 
-                {/* FIX #3: Vitruvian Man image — much larger, properly centered, visible */}
+                {/* Vitruvian Man image — compact, properly centered, visible */}
                 <image
                   href="/vitruvian-man.jpg"
-                  x={CENTER.x - 18}
-                  y={CENTER.y - 18}
-                  width="36"
-                  height="36"
+                  x={CENTER.x - 13}
+                  y={CENTER.y - 13}
+                  width="26"
+                  height="26"
                   opacity="0.32"
                   filter="url(#vitruvianDuotone)"
                   preserveAspectRatio="xMidYMid meet"
-                  clipPath="circle(18px at 50% 50%)"
+                  clipPath="circle(13px at 50% 50%)"
                 />
 
                 {/* Decorative ring around the Vitruvian Man image */}
                 <circle
                   cx={CENTER.x}
                   cy={CENTER.y}
-                  r="19"
+                  r="14"
                   fill="none"
                   stroke="#B48D3C"
-                  strokeWidth="0.25"
+                  strokeWidth="0.2"
                   opacity="0.5"
                 />
                 <circle
                   cx={CENTER.x}
                   cy={CENTER.y}
-                  r="20.5"
+                  r="15"
                   fill="none"
                   stroke="#0F5C5E"
-                  strokeWidth="0.18"
+                  strokeWidth="0.15"
                   opacity="0.4"
                   strokeDasharray="0.5 1.5"
                 />
@@ -413,8 +418,8 @@ export function NeuralWork() {
                   cloud.hue === "teal" ? "cloudFillTeal" :
                   cloud.hue === "gold" ? "cloudFillGold" :
                   cloud.hue === "terracotta" ? "cloudFillTerracotta" : "cloudFillForest";
-                // FIX #1: clouds even larger (scale 0.48/0.52) so text is readable
-                const scale = isActive ? 0.52 : 0.48;
+                // Clouds — compact scale so the visualization doesn't dominate the page
+                const scale = isActive ? 0.38 : 0.34;
                 const tx = cloud.x - 50 * scale;
                 const ty = cloud.y - 30 * scale;
 
