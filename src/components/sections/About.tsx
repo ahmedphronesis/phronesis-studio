@@ -116,45 +116,35 @@ function ProfileTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
       <div className="lg:col-span-7">
-        {/* Founder portrait — circular with gold ring */}
+        {/* Portrait + tagline side by side */}
         <FadeUp delay={0.05}>
-          <div className="mb-8 flex justify-center lg:justify-start">
-            <div className="relative" style={{ width: "200px", height: "200px" }}>
-              {/* Gold ring */}
+          <div className="mb-8 flex items-center gap-6 md:gap-8 justify-center lg:justify-start">
+            {/* Circular portrait with gold ring */}
+            <div className="relative flex-shrink-0" style={{ width: "180px", height: "180px" }}>
               <div
                 className="absolute inset-0 rounded-full"
-                style={{
-                  border: "3px solid var(--gold)",
-                  opacity: 0.5,
-                }}
+                style={{ border: "3px solid var(--gold)", opacity: 0.5 }}
               />
-              {/* Inner padding ring */}
               <div
                 className="absolute rounded-full"
-                style={{
-                  inset: "6px",
-                  border: "1px solid var(--gold)",
-                  opacity: 0.3,
-                }}
+                style={{ inset: "6px", border: "1px solid var(--gold)", opacity: 0.3 }}
               />
-              {/* The photo */}
               <img
                 src="/founder-portrait.jpg"
                 alt="Ahmed Ali — Founder of Studio of Phronesis"
                 className="absolute rounded-full object-cover"
-                style={{
-                  inset: "10px",
-                  width: "calc(100% - 20px)",
-                  height: "calc(100% - 20px)",
-                }}
+                style={{ inset: "10px", width: "calc(100% - 20px)", height: "calc(100% - 20px)" }}
               />
+            </div>
+            {/* Tagline beside the photo */}
+            <div>
+              <p className="display-italic text-teal text-xl md:text-2xl leading-[1.3] max-w-[200px]">
+                {t("profileTitle")}
+              </p>
             </div>
           </div>
         </FadeUp>
 
-        <FadeUp>
-          <h3 className="display text-ink text-3xl md:text-5xl mb-8 leading-[1.1]">{t("profileTitle")}</h3>
-        </FadeUp>
         <FadeUp delay={0.1}>
           <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mb-6">{t("profileBody1")}</p>
         </FadeUp>
