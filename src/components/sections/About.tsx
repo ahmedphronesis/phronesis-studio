@@ -138,7 +138,7 @@ function ProfileTab() {
             </div>
             {/* Tagline beside the photo */}
             <div>
-              <p className="display-italic text-teal text-xl md:text-2xl leading-[1.3] max-w-[200px]">
+              <p className="display-italic text-teal leading-[1.2] max-w-[280px]" style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
                 {t("profileTitle")}
               </p>
             </div>
