@@ -116,11 +116,11 @@ function ProfileTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
       <div className="lg:col-span-7">
-        {/* Portrait + tagline side by side */}
+        {/* Portrait + tagline — stacked on mobile, side by side on desktop */}
         <FadeUp delay={0.05}>
-          <div className="mb-8 flex items-center gap-6 md:gap-8 justify-center lg:justify-start">
+          <div className="mb-8 flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 justify-center lg:justify-start text-center md:text-left">
             {/* Circular portrait with gold ring */}
-            <div className="relative flex-shrink-0" style={{ width: "180px", height: "180px" }}>
+            <div className="relative flex-shrink-0" style={{ width: "160px", height: "160px", minWidth: "160px" }}>
               <div
                 className="absolute inset-0 rounded-full"
                 style={{ border: "3px solid var(--gold)", opacity: 0.5 }}
@@ -136,9 +136,9 @@ function ProfileTab() {
                 style={{ inset: "10px", width: "calc(100% - 20px)", height: "calc(100% - 20px)" }}
               />
             </div>
-            {/* Tagline beside the photo */}
-            <div>
-              <p className="display-italic text-teal leading-[1.2] max-w-[400px]" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)" }}>
+            {/* Tagline beside the photo (or below on mobile) */}
+            <div className="w-full md:w-auto">
+              <p className="display-italic text-teal leading-[1.2] md:max-w-[400px]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                 {t("profileTitle")}
               </p>
             </div>

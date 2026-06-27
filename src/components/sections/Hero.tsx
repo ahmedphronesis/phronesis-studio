@@ -79,10 +79,12 @@ export function Hero() {
           <h1
             className="display perspective-1000"
             style={{
-              fontSize: "clamp(3.5rem, 11vw, 9rem)",
-              lineHeight: 0.95,
+              fontSize: "clamp(2rem, 9vw, 9rem)",
+              lineHeight: 1,
               color: "var(--teal)",
               fontWeight: 500,
+              wordBreak: "keep-all",
+              overflowWrap: "normal",
             }}
           >
             {isRTL ? (
