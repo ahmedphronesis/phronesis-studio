@@ -79,7 +79,7 @@ export function Hero() {
           <h1
             className="display perspective-1000"
             style={{
-              fontSize: "clamp(1.8rem, 7vw, 9rem)",
+              fontSize: "clamp(2.1rem, 7.5vw, 9rem)",
               lineHeight: 1.1,
               color: "var(--teal)",
               fontWeight: 500,
