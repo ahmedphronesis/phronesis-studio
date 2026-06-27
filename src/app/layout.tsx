@@ -35,10 +35,11 @@ export default async function RootLayout({
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
         {/* Plausible Analytics — privacy-friendly, no cookies */}
+        <script async src="https://plausible.io/js/pa-35ck-1FGbo3ZIVi_43OPr.js"></script>
         <script
-          defer
-          data-domain="phronesis-studio.com"
-          src="https://plausible.io/js/script.js"
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`,
+          }}
         />
       </head>
       <body className="antialiased">
