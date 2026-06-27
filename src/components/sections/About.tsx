@@ -116,6 +116,32 @@ function ProfileTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
       <div className="lg:col-span-7">
+        {/* Founder portrait */}
+        <FadeUp delay={0.05}>
+          <div className="mb-8 flex justify-center lg:justify-start">
+            <div className="relative">
+              {/* Gold ring around the portrait */}
+              <div
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  border: "2px solid var(--gold)",
+                  transform: "scale(1.03)",
+                  opacity: 0.4,
+                  borderRadius: "1rem",
+                }}
+              />
+              <img
+                src="/founder-portrait.jpg"
+                alt="Ahmed Ali — Founder of Studio of Phronesis"
+                className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-md"
+                style={{
+                  filter: "sepia(0.08) contrast(1.02)",
+                }}
+              />
+            </div>
+          </div>
+        </FadeUp>
+
         <FadeUp>
           <h3 className="display text-ink text-3xl md:text-5xl mb-8 leading-[1.1]">{t("profileTitle")}</h3>
         </FadeUp>
