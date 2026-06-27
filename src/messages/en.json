@@ -44,7 +44,7 @@
   },
   "hero": {
     "eyebrow": "Thinker, Educator, Systems Designer",
-    "name": "Ahmed Ali",
+    "name": "Studio of Phronesis",
     "subtitle": "Perceiving the gap between what is and what should be, and closing it with discipline.",
     "body": "A sage once observed that wisdom begins with recognizing what is absent, before preoccupying oneself with what is present. I have spent the better part of a decade training my perception: learning to see where the deficiency lies, whether in a classroom, in software, in a ledger, in administration, or in a curriculum. What I offer is not a collection of separate trades, but a single habit of attention applied wherever the need arises: perceiving the gap, and closing it with care.\n\nIf your institution carries a gap it has not yet named, I would consider it a privilege to help you name it, and to build what removes it, in a way that lasts.",
     "ctaPrimary": "Begin a conversation",
@@ -55,7 +55,9 @@
     "mottoWord": "ΦΡΟΝΗΣΙΣ",
     "mottoTransliteration": "",
     "mottoDescription": "Greek: practical wisdom, the virtue of perceiving the right action in the right moment. Aristotle, Nicomachean Ethics, Book VI.",
-    "mottoSource": "Aristotle, Nicomachean Ethics, Book VI."
+    "mottoSource": "Aristotle, Nicomachean Ethics, Book VI.",
+    "uncertaintyLine": "Even if you're not sure where the gap is, that uncertainty itself is where we begin.",
+    "founderLine": "Founded by Ahmed Ali"
   },
   "thesis": {
     "eyebrow": "The Thesis",
@@ -134,7 +136,7 @@
   },
   "contact": {
     "eyebrow": "Begin",
-    "title": "Tell me what gap",
+    "title": "Tell us what gap",
     "titleItalic": "needs closing.",
     "intro": "A single line or a brief paragraph will suffice. Whether your need is for a custom system, a consultation, or training and instruction, show me the gap as you see it, and I will examine it carefully before proposing what remedies it.\nI read every message myself, and respond within 48 hours.",
     "fieldName": "Your name",
@@ -178,9 +180,9 @@
     "select": "Select language"
   },
   "about": {
-    "eyebrow": "The Studio",
-    "title": "About",
-    "titleItalic": "Ahmed Ali.",
+    "eyebrow": "The Founder",
+    "title": "Ahmed Ali",
+    "titleItalic": "the mind behind the Studio.",
     "intro": "Educator, systems architect, and specialist in leadership and management. A philosopher by training, a teacher by qualification, and a builder by craft. Below is the full record.",
     "tabProfile": "Profile",
     "tabProfileDesc": "The philosopher-educator narrative",

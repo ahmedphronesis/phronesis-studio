@@ -94,6 +94,16 @@ export function Hero() {
             )}
           </h1>
 
+          {/* Founder line — under the studio name */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 1 }}
+            className="body-serif-italic text-ink-dim text-sm md:text-base mt-3"
+          >
+            {t("founderLine")}
+          </motion.p>
+
           {/* Aphoristic subtitle — italic, teal, sets the philosophical tone */}
           <motion.div
             variants={{
@@ -138,6 +148,11 @@ export function Hero() {
                     <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
                   </a>
                 </Magnetic>
+
+                {/* Uncertainty line — for those who sense a gap but haven't named it */}
+                <p className="body-serif-italic text-ink-dim text-sm mt-5 max-w-md leading-relaxed">
+                  {t("uncertaintyLine")}
+                </p>
               </div>
             </motion.div>
 
