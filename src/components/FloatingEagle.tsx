@@ -1,52 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 /**
  * FloatingEagle — a persistent, semi-transparent eagle centered on every
- * page except the Frontispice (homepage).
+ * page except the Frontispiece (homepage).
  *
- * Design:
- * - Fixed position, centered horizontally and vertically in the viewport
- * - NO scroll parallax — truly fixed in place
- * - Larger size for visual presence
- * - Subtle breathing animation (scale only)
- * - pointer-events: none (never interferes with clicks)
- * - z-index: 9999 (above all content, but invisible to interaction)
- * - Hidden on the homepage (which has its own large eagle in the Hero)
- *   and on /admin /login (would be distracting)
- * - Visible on ALL screen sizes including mobile
+ * Uses usePathname() for reactive route tracking — re-evaluates on every
+ * client-side navigation, not just on mount. This fixes the issue where
+ * the eagle wouldn't appear after navigating from the homepage.
  */
 export function FloatingEagle() {
-  const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
+  const visible = useMemo(() => {
+    if (!pathname) return false;
+
     // Don't show on admin or login pages
-    if (
-      window.location.pathname.startsWith("/admin") ||
-      window.location.pathname.startsWith("/login")
-    ) {
-      setVisible(false);
-      return;
+    if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
+      return false;
     }
 
-    // Check if we're on the homepage (has the Hero with id="top")
-    const path = window.location.pathname;
+    // Check if we're on the homepage (Frontispiece)
+    // The homepage paths: /en, /ar, /, or just /en /ar with no sub-path
     const isHomepage =
-      path === "/en" ||
-      path === "/ar" ||
-      path === "/" ||
-      path === "";
+      pathname === "/en" ||
+      pathname === "/ar" ||
+      pathname === "/";
 
     if (isHomepage) {
-      setVisible(false);
-      return;
+      return false;
     }
 
     // All other pages: show the centered eagle
-    setVisible(true);
-  }, []);
+    return true;
+  }, [pathname]);
 
   if (!visible) return null;
 
