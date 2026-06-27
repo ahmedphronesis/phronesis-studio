@@ -116,26 +116,36 @@ function ProfileTab() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
       <div className="lg:col-span-7">
-        {/* Founder portrait */}
+        {/* Founder portrait — circular with gold ring */}
         <FadeUp delay={0.05}>
           <div className="mb-8 flex justify-center lg:justify-start">
-            <div className="relative">
-              {/* Gold ring around the portrait */}
+            <div className="relative" style={{ width: "200px", height: "200px" }}>
+              {/* Gold ring */}
               <div
-                className="absolute inset-0 rounded-2xl"
+                className="absolute inset-0 rounded-full"
                 style={{
-                  border: "2px solid var(--gold)",
-                  transform: "scale(1.03)",
-                  opacity: 0.4,
-                  borderRadius: "1rem",
+                  border: "3px solid var(--gold)",
+                  opacity: 0.5,
                 }}
               />
+              {/* Inner padding ring */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  inset: "6px",
+                  border: "1px solid var(--gold)",
+                  opacity: 0.3,
+                }}
+              />
+              {/* The photo */}
               <img
                 src="/founder-portrait.jpg"
                 alt="Ahmed Ali — Founder of Studio of Phronesis"
-                className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-md"
+                className="absolute rounded-full object-cover"
                 style={{
-                  filter: "sepia(0.08) contrast(1.02)",
+                  inset: "10px",
+                  width: "calc(100% - 20px)",
+                  height: "calc(100% - 20px)",
                 }}
               />
             </div>
