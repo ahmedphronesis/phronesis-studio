@@ -75,10 +75,15 @@ export function Hero() {
             <span className="eyebrow">{t("eyebrow")}</span>
           </motion.div>
 
-          {/* The name — large, leading the page */}
+          {/* The studio name — large, refined, leading the page */}
           <h1
-            className="display text-ink perspective-1000"
-            style={{ fontSize: "clamp(3.5rem, 11vw, 9rem)", lineHeight: 0.95 }}
+            className="display perspective-1000"
+            style={{
+              fontSize: "clamp(3.5rem, 11vw, 9rem)",
+              lineHeight: 0.95,
+              color: "var(--teal)",
+              fontWeight: 500,
+            }}
           >
             {isRTL ? (
               <motion.span
