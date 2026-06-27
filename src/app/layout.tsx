@@ -33,6 +33,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
+      <head>
+        {/* Plausible Analytics — privacy-friendly, no cookies */}
+        <script
+          defer
+          data-domain="phronesis-studio.com"
+          src="https://plausible.io/js/script.js"
+        />
+      </head>
       <body className="antialiased">
         {children}
         <FloatingEagle />

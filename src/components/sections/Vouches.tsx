@@ -55,44 +55,43 @@ export function Vouches() {
         </div>
       </div>
 
-      {/* LinkedIn recommendation — large feature quote */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
+      {/* LinkedIn recommendation — compact quote */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-10">
         <FadeUp>
-          <div className="relative p-8 md:p-12 rounded-3xl bg-paper border border-teal/20 overflow-hidden">
+          <div className="relative max-w-3xl mx-auto p-6 md:p-8 rounded-2xl bg-paper border border-teal/20 overflow-hidden">
             <Quote
-              className="absolute top-6 right-6 text-teal/10"
-              size={120}
+              className="absolute top-3 right-3 text-teal/10"
+              size={60}
               strokeWidth={1}
             />
             <div className="relative">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
-                  <Quote size={20} strokeWidth={1.5} />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                  <Quote size={16} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono mb-1">LinkedIn Recommendation</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono">LinkedIn Recommendation</p>
                   <p className="text-xs text-ink-dim body-serif">{linkedIn.date}</p>
                 </div>
               </div>
 
-              <blockquote className="body-serif text-base md:text-xl text-ink-soft leading-relaxed mb-8 whitespace-pre-line">
+              <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mb-5 whitespace-pre-line line-clamp-4">
                 {linkedIn.quote}
               </blockquote>
 
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pt-6 border-t border-border">
+              <div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
                 <div>
-                  <p className="display text-ink text-2xl md:text-3xl mb-1">{linkedIn.author}</p>
-                  <p className="text-sm text-ink-dim body-serif">{linkedIn.title}</p>
-                  <p className="text-sm text-teal body-serif">{linkedIn.company}</p>
+                  <p className="display text-ink text-lg md:text-xl">{linkedIn.author}</p>
+                  <p className="text-xs text-ink-dim body-serif">{linkedIn.title}</p>
                 </div>
                 <Magnetic strength={0.4}>
                   <a
                     href={linkedIn.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium"
+                    className="inline-flex items-center gap-2 text-xs text-paper bg-teal hover:bg-teal-bright transition-colors px-4 py-2 rounded-full font-medium whitespace-nowrap"
                   >
-                    <ExternalLink size={14} />
+                    <ExternalLink size={12} />
                     {t("viewOnLinkedIn")}
                   </a>
                 </Magnetic>

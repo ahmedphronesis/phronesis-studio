@@ -60,6 +60,31 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
 
   return (
     <section id="echoes" className="relative overflow-hidden">
+      {/* Podcast structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "PodcastSeries",
+            name: "Echoes of Wisdom",
+            alternateName: "أصداء الحكمة",
+            description: "An independent educational podcast that makes philosophy an accessible field of knowledge with practical relevance to daily life, critical thinking, and personal development.",
+            url: "https://phronesis-studio.com/echoes",
+            author: {
+              "@type": "Person",
+              name: "Ahmed Ali",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Studio of Phronesis",
+              url: "https://phronesis-studio.com",
+            },
+            inLanguage: ["en", "ar"],
+            webFeed: "https://www.youtube.com/playlist?list=PLhjIMflidDWnK0xLbUbsidjVpAQyiMB7Y",
+          }),
+        }}
+      />
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"

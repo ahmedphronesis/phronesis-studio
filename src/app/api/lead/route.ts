@@ -9,6 +9,8 @@ const LeadSchema = z.object({
   company: z.string().max(180).optional().nullable(),
   gap: z.string().min(20, "Tell me a little more about the gap — at least a sentence").max(4000),
   budget: z.string().max(60).optional().nullable(),
+  // Honeypot field — bots fill this, humans don't (it's hidden via CSS)
+  website: z.string().max(0).optional(),
 });
 
 export const runtime = "nodejs";
@@ -24,6 +26,13 @@ export async function POST(req: NextRequest) {
         { ok: false, error: first?.message ?? "Invalid submission" },
         { status: 400 }
       );
+    }
+
+    // Honeypot check — if the hidden "website" field has any value, it's a bot.
+    // Return a fake success so the bot thinks it worked, but don't save anything.
+    if (parsed.data.website && parsed.data.website.length > 0) {
+      console.warn("[/api/lead] honeypot triggered — bot submission rejected");
+      return NextResponse.json({ ok: true, id: "bot-rejected" });
     }
 
     const { name, email, company, gap, budget } = parsed.data;

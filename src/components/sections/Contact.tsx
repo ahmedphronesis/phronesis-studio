@@ -28,6 +28,7 @@ export function Contact() {
       company: (data.get("company") as string)?.trim() || null,
       gap: (data.get("gap") as string)?.trim(),
       budget: (data.get("budget") as string) || null,
+      website: (data.get("website") as string)?.trim() || "", // honeypot
     };
     try {
       const res = await fetch("/api/lead", {
@@ -83,6 +84,10 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <Reveal className="lg:col-span-8" delay={0.1}>
             <form onSubmit={onSubmit} className="space-y-7">
+              {/* Honeypot — hidden from humans, visible to bots */}
+              <div style={{ position: "absolute", left: "-9999px", top: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                <label>Website (leave empty)<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
+              </div>
               <div className="grid sm:grid-cols-2 gap-7">
                 <Field label={t("fieldName")} name="name" placeholder="Ahmed Ali" required />
                 <Field label={t("fieldEmail")} name="email" type="email" placeholder="you@company.com" required />

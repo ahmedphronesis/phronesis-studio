@@ -15,6 +15,18 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      images: [
+        {
+          url: "/og-about.png",
+          width: 1200,
+          height: 630,
+          alt: "Studio of Phronesis — The Founder",
+        },
+      ],
+    },
     alternates: {
       canonical: `/${locale}/about`,
       languages: {
