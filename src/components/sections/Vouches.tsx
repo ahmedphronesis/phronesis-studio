@@ -55,19 +55,19 @@ export function Vouches() {
         </div>
       </div>
 
-      {/* LinkedIn recommendation — compact quote */}
+      {/* LinkedIn recommendation — compact, full quote visible */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-10">
         <FadeUp>
-          <div className="relative max-w-3xl mx-auto p-6 md:p-8 rounded-2xl bg-paper border border-teal/20 overflow-hidden">
+          <div className="relative max-w-3xl mx-auto p-5 md:p-6 rounded-2xl bg-paper border border-teal/20 overflow-hidden">
             <Quote
-              className="absolute top-3 right-3 text-teal/10"
-              size={60}
+              className="absolute top-2 right-2 text-teal/10"
+              size={48}
               strokeWidth={1}
             />
             <div className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
-                  <Quote size={16} strokeWidth={1.5} />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                  <Quote size={15} strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono">LinkedIn Recommendation</p>
@@ -75,14 +75,15 @@ export function Vouches() {
                 </div>
               </div>
 
-              <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mb-5 whitespace-pre-line line-clamp-4">
+              <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-snug mb-4 whitespace-pre-line">
                 {linkedIn.quote}
               </blockquote>
 
-              <div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
+              <div className="flex items-center justify-between gap-4 pt-3 border-t border-border">
                 <div>
                   <p className="display text-ink text-lg md:text-xl">{linkedIn.author}</p>
                   <p className="text-xs text-ink-dim body-serif">{linkedIn.title}</p>
+                  <p className="text-xs text-teal body-serif">{linkedIn.company}</p>
                 </div>
                 <Magnetic strength={0.4}>
                   <a
