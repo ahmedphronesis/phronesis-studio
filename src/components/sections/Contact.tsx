@@ -123,7 +123,6 @@ export function Contact() {
               </div>
 
               <div className="pt-2">
-                <Magnetic strength={0.4}>
                   <button
                     type="submit"
                     disabled={submitting || done}
@@ -148,7 +147,6 @@ export function Contact() {
                       )}
                     </AnimatePresence>
                   </button>
-                </Magnetic>
               </div>
             </form>
           </Reveal>

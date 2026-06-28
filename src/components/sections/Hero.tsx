@@ -146,15 +146,13 @@ export function Hero() {
 
               {/* Single CTA — a threshold, not a sales pitch */}
               <div className="mt-10">
-                <Magnetic strength={0.4}>
-                  <a
-                    href="/correspondence"
-                    className="group inline-flex items-center gap-3 bg-teal hover:bg-teal-bright text-paper font-medium px-7 py-4 rounded-full transition-all duration-300 glow-teal"
-                  >
-                    {t("ctaPrimary")}
-                    <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
-                  </a>
-                </Magnetic>
+                <a
+                  href="/correspondence"
+                  className="group inline-flex items-center gap-3 bg-teal hover:bg-teal-bright text-paper font-medium px-7 py-4 rounded-full transition-all duration-300 glow-teal"
+                >
+                  {t("ctaPrimary")}
+                  <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
+                </a>
 
                 {/* Uncertainty line — for those who sense a gap but haven't named it */}
                 <p className="body-serif-italic text-ink-dim text-sm mt-5 max-w-md leading-relaxed">
