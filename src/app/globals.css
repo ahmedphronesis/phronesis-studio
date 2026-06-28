@@ -398,3 +398,20 @@
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
+
+
+/* ─── Sonner error toast — readable on all devices ─── */
+.phronesis-error-toast {
+  background: #FEF2F2 !important;
+  color: #7F1D1D !important;
+  border: 1px solid #FCA5A5 !important;
+}
+.phronesis-error-toast [data-description] {
+  color: #991B1B !important;
+}
+.phronesis-toast-description {
+  color: var(--ink) !important;
+}
+.phronesis-error-toast .phronesis-toast-description {
+  color: #991B1B !important;
+}

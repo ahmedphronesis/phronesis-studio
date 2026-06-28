@@ -15,7 +15,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-bg": "var(--popover)",
           "--normal-text": "var(--popover-foreground)",
           "--normal-border": "var(--border)",
-          // Error toast — ensure text is always readable on all devices
           "--error-bg": "#FEF2F2",
           "--error-text": "#7F1D1D",
           "--error-border": "#FCA5A5",
@@ -23,18 +22,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }
       toastOptions={{
         style: {
-          // Force readable text color in all toast descriptions
           color: "var(--ink)",
         },
-        error: {
-          style: {
-            background: "#FEF2F2",
-            color: "#7F1D1D",
-            border: "1px solid #FCA5A5",
-          },
-          descriptionStyle: {
-            color: "#991B1B",
-          },
+        classNames: {
+          error: "phronesis-error-toast",
+          description: "phronesis-toast-description",
         },
       }}
       {...props}
