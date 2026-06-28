@@ -48,23 +48,26 @@ export async function POST(req: NextRequest) {
     });
 
     // Send confirmation email to the lead + notification to the studio owner.
-    // Both are fire-and-forget — email failures should NOT break the API response.
-    // We log errors but still return 200 to the user.
+    // We AWAIT both emails to ensure Vercel's serverless function doesn't
+    // terminate before they complete. Email failures are caught and logged
+    // but do NOT break the API response.
     if (isEmailConfigured()) {
-      // Fire-and-forget both emails in parallel
-      Promise.all([
-        sendLeadConfirmation({ leadName: name, leadEmail: email, gap }),
-        sendLeadNotification({
-          leadName: name,
-          leadEmail: email,
-          leadCompany: company ?? null,
-          leadGap: gap,
-          leadBudget: budget ?? null,
-          leadId: lead.id,
-        }),
-      ]).catch((err) => {
+      try {
+        await Promise.all([
+          sendLeadConfirmation({ leadName: name, leadEmail: email, gap }),
+          sendLeadNotification({
+            leadName: name,
+            leadEmail: email,
+            leadCompany: company ?? null,
+            leadGap: gap,
+            leadBudget: budget ?? null,
+            leadId: lead.id,
+          }),
+        ]);
+      } catch (err) {
         console.error("[/api/lead] email send failed:", err);
-      });
+        // Don't fail the response — the lead is already saved in the DB
+      }
     } else {
       console.warn("[/api/lead] SMTP not configured — skipping email notifications");
     }
