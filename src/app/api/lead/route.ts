@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
 import { sendLeadConfirmation, sendLeadNotification, isEmailConfigured } from "@/lib/email";
+import { validateEmail } from "@/lib/email-validation";
 
 // Allow up to 60 seconds for email sending (default Vercel Hobby is 10s)
 export const runtime = "nodejs";
@@ -66,6 +67,17 @@ export async function POST(req: NextRequest) {
     }
 
     const { name, email, company, gap, budget } = parsed.data;
+
+    // Email validation: check for common typos (gmai.com → gmail.com)
+    // and verify the domain has MX records (can actually receive email).
+    // This prevents leads with undeliverable email addresses.
+    const emailCheck = await validateEmail(email);
+    if (!emailCheck.valid) {
+      return NextResponse.json(
+        { ok: false, error: emailCheck.error },
+        { status: 400 }
+      );
+    }
 
     // Step 1: Save the lead to the DB FIRST — this is the critical data.
     // Even if everything else fails, the lead is preserved.
