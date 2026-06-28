@@ -85,8 +85,8 @@ export async function POST(req: NextRequest) {
     // doesn't kill the function before emails complete.
     // Each email gets 3 attempts with exponential backoff (1s, 2s, 4s).
     // Even if one email fails, the other still gets attempted.
-    let confirmationResult = { success: false, error: "SMTP not configured" };
-    let notificationResult = { success: false, error: "SMTP not configured" };
+    let confirmationResult: { success: boolean; error?: string } = { success: false, error: "SMTP not configured" };
+    let notificationResult: { success: boolean; error?: string } = { success: false, error: "SMTP not configured" };
 
     if (isEmailConfigured()) {
       // Send both emails in parallel, each with its own retry logic
