@@ -110,6 +110,44 @@ export function About() {
   );
 }
 
+/* ==================== PROFILE TEXT (renders LINK: markers as buttons) ==================== */
+function ProfileText({ text }: { text: string }) {
+  // Parse "LINK:url|label" markers into clickable buttons
+  const parts = text.split(/(LINK:[^|]+\|[^\n]+)/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const linkMatch = part.match(/^LINK:([^|]+)\|(.+)$/);
+        if (linkMatch) {
+          const url = linkMatch[1];
+          const label = linkMatch[2];
+          return (
+            <a
+              key={i}
+              href={`https://${url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-teal/10 border border-teal/30 text-teal hover:bg-teal/20 hover:border-teal/50 transition-colors text-sm font-medium"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              {label}
+            </a>
+          );
+        }
+        return (
+          <p key={i} className="body-serif text-sm text-ink-soft leading-relaxed whitespace-pre-line">
+            {part}
+          </p>
+        );
+      })}
+    </>
+  );
+}
+
 /* ==================== PROFILE TAB ==================== */
 function ProfileTab() {
   const t = useTranslations("about");
@@ -159,13 +197,13 @@ function ProfileTab() {
         <FadeUp delay={0.25}>
           <div className="p-6 md:p-7 rounded-2xl bg-paper-warm border border-border">
             <p className="eyebrow mb-4">Professional Summary</p>
-            <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("profileSummary")}</p>
+            <ProfileText text={t("profileSummary")} />
           </div>
         </FadeUp>
         <FadeUp delay={0.3}>
           <div className="p-6 md:p-7 rounded-2xl bg-paper-warm border border-border">
             <p className="eyebrow mb-4">Teaching Expertise</p>
-            <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("profileTeachingExpertise")}</p>
+            <ProfileText text={t("profileTeachingExpertise")} />
           </div>
         </FadeUp>
       </div>
