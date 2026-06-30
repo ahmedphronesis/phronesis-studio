@@ -1,15 +1,24 @@
 /**
- * Email sending via Brevo SMTP relay.
+ * Email sending via Brevo.
  *
- * Free tier: 300 emails/day, forever.
- * Sign up at https://www.brevo.com — verify your domain, get SMTP credentials
- * from https://app.brevo.com/settings/keys/smtp
+ * PRIMARY: Brevo HTTP API (https://api.brevo.com/v3/smtp/email)
+ *   The API sometimes routes through different IP pools than the SMTP
+ *   relay, which can improve deliverability to Microsoft 365 / Outlook
+ *   domains that aggressively filter Brevo's shared SMTP IPs.
+ *
+ * FALLBACK: Brevo SMTP relay (smtp-relay.brevo.com:587)
+ *   If the API call fails (network error, 5xx response), we fall back
+ *   to the SMTP relay so a transient API outage doesn't block email.
+ *
+ * The API key is the same value for both paths (starts with xkeysib-).
+ * Reuses the existing SMTP_PASS env var — no new env vars needed.
  *
  * Required env vars:
  *   SMTP_HOST       = smtp-relay.brevo.com
  *   SMTP_PORT       = 587
  *   SMTP_USER       = (your Brevo SMTP login, usually your Brevo account email)
- *   SMTP_PASS       = (your Brevo SMTP key — starts with xkeysib-)
+ *   SMTP_PASS       = (your Brevo key — starts with xkeysib-. Used for BOTH
+ *                     SMTP auth AND the API key header)
  *   CONTACT_EMAIL   = ahmed@phronesis-studio.com (the From address)
  *   CONTACT_NAME    = "Ahmed Ali — Studio of Phronesis"
  *   NOTIFY_EMAIL    = ahmed@phronesis-studio.com (where notifications go —
@@ -74,18 +83,112 @@ export type EmailSendResult = {
 };
 
 /**
- * Send an email via Brevo SMTP. Returns the SMTP server response.
- * Caller should inspect `rejected` array — if non-empty, Brevo refused to
- * accept those recipients (e.g. invalid email). If `accepted` is empty,
- * nothing was sent.
+ * Send an email. PRIMARY path: Brevo HTTP API. FALLBACK: Brevo SMTP relay.
  *
- * IMPORTANT: this resolving does NOT guarantee delivery. Brevo may still:
- *   - Silently drop the email if the From address isn't a Verified Sender
- *   - Defer delivery if the recipient's MX is strict about SPF/DKIM/DMARC
+ * The API is preferred because it sometimes routes through a different IP
+ * pool than the SMTP relay — this matters for deliverability to Microsoft 365
+ * / Outlook domains, which aggressively filter Brevo's shared SMTP IPs.
+ *
+ * If the API call fails (network error, non-2xx response), we automatically
+ * fall back to the SMTP relay so a transient API outage doesn't block email.
+ *
+ * Returns an EmailSendResult. Inspect `rejected` — if non-empty, the
+ * recipient was rejected. If `accepted` is empty, nothing was sent.
+ *
+ * IMPORTANT: resolving does NOT guarantee delivery. Brevo may still:
+ *   - Defer delivery if the recipient's MX is strict about IP reputation
  *   - Bounce later if the recipient's mailbox is full or doesn't exist
+ *   - Be silently dropped by the recipient's gateway (e.g. Microsoft 365 EOP)
  * The `messageId` is the only way to track what happened post-acceptance.
+ * Look it up in Brevo dashboard → Transactional → Logs.
  */
 export async function sendEmail(p: EmailPayload): Promise<EmailSendResult> {
+  // Try the API first
+  try {
+    const apiResult = await sendEmailViaApi(p);
+    if (apiResult.accepted.length > 0) {
+      return apiResult;
+    }
+    // If accepted is empty but no exception was thrown, fall through to SMTP
+    console.warn("[email] Brevo API returned no accepted recipients, falling back to SMTP");
+  } catch (apiErr) {
+    console.warn("[email] Brevo API failed, falling back to SMTP:", apiErr instanceof Error ? apiErr.message : apiErr);
+  }
+
+  // Fallback to SMTP
+  return sendEmailViaSmtp(p);
+}
+
+/**
+ * Send via Brevo HTTP API (POST https://api.brevo.com/v3/smtp/email).
+ * The API key is SMTP_PASS (same key works for both SMTP auth and API).
+ */
+async function sendEmailViaApi(p: EmailPayload): Promise<EmailSendResult> {
+  const apiKey = process.env.SMTP_PASS;
+  if (!apiKey) {
+    throw new Error("SMTP_PASS (Brevo API key) is not set");
+  }
+
+  const from = getFrom();
+  // Brevo API expects recipients as an array of { email, name? } objects.
+  // The `to` field in EmailPayload may be a plain address or "Name <addr>".
+  const { address: toAddress, name: toName } = parseEmailAddress(p.to);
+
+  const body: Record<string, unknown> = {
+    sender: { name: from.name, email: from.address },
+    to: [{ email: toAddress, ...(toName ? { name: toName } : {}) }],
+    subject: p.subject,
+  };
+  if (p.html) body.htmlContent = p.html;
+  if (p.text) body.textContent = p.text;
+  if (p.replyTo) {
+    const { address: replyAddress, name: replyName } = parseEmailAddress(p.replyTo);
+    body.replyTo = { email: replyAddress, ...(replyName ? { name: replyName } : {}) };
+  }
+
+  const resp = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      "accept": "application/json",
+      "content-type": "application/json",
+      "api-key": apiKey,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const respText = await resp.text();
+
+  if (!resp.ok) {
+    // Brevo API returns 400 for validation errors, 401 for bad API key,
+    // 429 for rate limit, 5xx for server errors.
+    throw new Error(`Brevo API HTTP ${resp.status}: ${respText.slice(0, 500)}`);
+  }
+
+  // Brevo API returns { "messageId": "xxx@domain.com" }
+  let respJson: { messageId?: string };
+  try {
+    respJson = JSON.parse(respText);
+  } catch {
+    respJson = {};
+  }
+
+  const messageId = respJson.messageId
+    ? respJson.messageId.replace(/^<|>$/g, "")
+    : null;
+
+  return {
+    messageId,
+    response: `API ${resp.status} OK`,
+    accepted: [toAddress],
+    rejected: [],
+    pending: [],
+  };
+}
+
+/**
+ * Send via Brevo SMTP relay (the original path, kept as fallback).
+ */
+async function sendEmailViaSmtp(p: EmailPayload): Promise<EmailSendResult> {
   const transport = getTransport();
   const info = await transport.sendMail({
     from: getFrom(),
@@ -96,10 +199,6 @@ export async function sendEmail(p: EmailPayload): Promise<EmailSendResult> {
     replyTo: p.replyTo,
   });
 
-  // nodemailer's SMTP transport returns info with: messageId, response,
-  // accepted, rejected, pending, envelope.
-  // Note: messageId from Brevo looks like "<xxx@smtp-relay.mail.fr>".
-  // We strip the angle brackets for cleaner display.
   const messageId = info.messageId
     ? info.messageId.replace(/^<|>$/g, "")
     : null;
@@ -118,6 +217,19 @@ export async function sendEmail(p: EmailPayload): Promise<EmailSendResult> {
     rejected: smtpInfo.rejected || [],
     pending: smtpInfo.pending || [],
   };
+}
+
+/**
+ * Parse an email address that may be in either format:
+ *   "user@example.com"           → { address: "user@example.com", name: "" }
+ *   "Name <user@example.com>"    → { address: "user@example.com", name: "Name" }
+ */
+function parseEmailAddress(input: string): { address: string; name: string } {
+  const match = input.match(/^\s*(.*?)\s*<([^>]+)>\s*$/);
+  if (match) {
+    return { name: match[1].replace(/^["']|["']$/g, ""), address: match[2].trim() };
+  }
+  return { name: "", address: input.trim() };
 }
 
 /**
