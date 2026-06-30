@@ -118,7 +118,7 @@ export default async function VouchesPage({
                         <p className="text-xs text-ink-dim body-serif">{t("linkedin.date")}</p>
                       </div>
                     </div>
-                    <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-snug mb-4 whitespace-pre-line line-clamp-4">
+                    <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-snug mb-4 whitespace-pre-line">
                       {t("linkedin.quote")}
                     </blockquote>
                     <div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
