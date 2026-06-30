@@ -38,6 +38,16 @@ export function ComposeEmailModal({
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  // Capture the SMTP response so we can show the user the messageId and a
+  // link to Brevo's logs. "SMTP accepted" ≠ "delivered" — if the recipient
+  // never receives the email, the messageId is the only way to track what
+  // happened next (delivered / bounced / deferred / blocked).
+  const [smtpInfo, setSmtpInfo] = useState<{
+    messageId: string | null;
+    smtpResponse: string;
+    accepted: string[];
+    rejected: string[];
+  } | null>(null);
 
   // Reset state when modal opens with new initial values
   const [lastOpen, setLastOpen] = useState(false);
@@ -48,6 +58,7 @@ export function ComposeEmailModal({
     setBody(initialBody);
     setError(null);
     setSuccess(false);
+    setSmtpInfo(null);
     setLastOpen(true);
   }
   if (!open && lastOpen) {
@@ -62,6 +73,7 @@ export function ComposeEmailModal({
     setSending(true);
     setError(null);
     setSuccess(false);
+    setSmtpInfo(null);
     try {
       const res = await fetch("/api/admin/email-send", {
         method: "POST",
@@ -76,11 +88,23 @@ export function ComposeEmailModal({
       });
       const json = await res.json();
       if (!json.ok) throw new Error(json.error || "Send failed");
+      setSmtpInfo({
+        messageId: json.messageId || null,
+        smtpResponse: json.smtpResponse || "",
+        accepted: json.accepted || [],
+        rejected: json.rejected || [],
+      });
+      // If Brevo rejected the recipient, that's a soft failure — show it.
+      if (json.rejected && json.rejected.length > 0) {
+        setError(
+          `Brevo rejected these recipients: ${json.rejected.join(", ")}. The email was NOT delivered to them.`
+        );
+      }
       setSuccess(true);
       setTimeout(() => {
         onClose();
         onSent?.();
-      }, 1200);
+      }, 2500);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Send failed");
     } finally {
@@ -209,10 +233,33 @@ export function ComposeEmailModal({
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -5 }}
-                    className="bg-[#2D6A4F]/10 border border-[#2D6A4F]/30 text-[#2D6A4F] text-sm rounded-lg px-4 py-3 flex items-center gap-2"
+                    className="bg-[#2D6A4F]/10 border border-[#2D6A4F]/30 text-[#2D6A4F] text-sm rounded-lg px-4 py-3"
                   >
-                    <Check size={14} />
-                    Email sent successfully.
+                    <div className="flex items-center gap-2 mb-1">
+                      <Check size={14} />
+                      <span className="font-medium">SMTP accepted.</span>
+                    </div>
+                    {smtpInfo?.messageId && (
+                      <p className="text-xs mt-1 break-all">
+                        Message ID:{" "}
+                        <code className="bg-white/60 px-1.5 py-0.5 rounded">
+                          {smtpInfo.messageId}
+                        </code>
+                      </p>
+                    )}
+                    <p className="text-[11px] mt-2 text-[#2D6A4F]/80 leading-relaxed">
+                      SMTP accepting your email ≠ recipient received it. If the
+                      client says they never got it, look up the Message ID in{" "}
+                      <a
+                        href="https://app.brevo.com/transactional/logs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-[#0F5C5E]"
+                      >
+                        Brevo → Transactional → Logs
+                      </a>{" "}
+                      to see if it was delivered, bounced, deferred, or blocked.
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>

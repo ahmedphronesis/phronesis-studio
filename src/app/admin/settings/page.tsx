@@ -312,9 +312,44 @@ function EmailSetupSection() {
   const [sending, setSending] = useState(false);
   const [testEmail, setTestEmail] = useState("");
 
+  // Full diagnostic report from /api/admin/email-test:
+  //   { smtp, sent, dns, warnings }
+  // Stored separately from `status` so we can render it as a structured
+  // panel below the simple status pill.
+  const [report, setReport] = useState<null | {
+    smtp: { ok: boolean; message: string };
+    sent: null | {
+      to: string;
+      messageId: string | null;
+      smtpResponse: string;
+      accepted: string[];
+      rejected: string[];
+      brevoLogsUrl: string;
+    };
+    dns: {
+      domain: string;
+      spf: DnsRecord;
+      dkimBrevo: DnsRecord;
+      dkimS1: DnsRecord;
+      dkimS2: DnsRecord;
+      dmarc: DnsRecord;
+      mx: { exchange: string; priority: number }[];
+    };
+    warnings: string[];
+  }>(null);
+
+  type DnsRecord = {
+    name: string;
+    found: boolean;
+    value: string | null;
+    explanation: string;
+    recommendation?: string;
+  };
+
   async function sendTest() {
     setSending(true);
     setStatus(null);
+    setReport(null);
     try {
       const res = await fetch("/api/admin/email-test", {
         method: "POST",
@@ -323,9 +358,16 @@ function EmailSetupSection() {
       });
       const json = await res.json();
       if (json.ok) {
+        setReport(json.report);
+        const r = json.report;
+        const warningCount = r.warnings.length;
+        const recipient = r.sent?.to || "(unknown)";
         setStatus({
-          ok: true,
-          message: `Test email sent to ${json.sentTo}. Check your inbox (and spam folder).`,
+          ok: warningCount === 0,
+          message:
+            warningCount === 0
+              ? `Diagnostic complete. SMTP accepted the test email to ${recipient}. ✓ DNS records look healthy. See full report below.`
+              : `Diagnostic complete, but ${warningCount} issue${warningCount === 1 ? "" : "s"} found. See full report below.`,
         });
       } else {
         setStatus({ ok: false, message: json.error || "Send failed" });
@@ -568,18 +610,21 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
       {/* Test button */}
       <div className="bg-[#F5EFE4] border border-[#E5DDD0] rounded-lg p-4">
         <h4 className="text-sm font-medium text-[#1A1A1A] mb-2">
-          Send test email
+          Run email deliverability diagnostic
         </h4>
         <p className="text-xs text-[#666] mb-3">
-          Optional, specify a different recipient, or leave blank to send
-          to the configured NOTIFY_EMAIL.
+          This will: (1) verify SMTP credentials, (2) send a test email and
+          capture the Brevo Message ID, (3) check your SPF / DKIM / DMARC
+          DNS records for <code className="text-[#0F5C5E] bg-white px-1.5 py-0.5 rounded">phronesis-studio.com</code>.
+          If a client never received an email you sent from the admin portal,
+          this diagnostic will tell you why.
         </p>
         <div className="flex gap-2">
           <input
             type="email"
             value={testEmail}
             onChange={(e) => setTestEmail(e.target.value)}
-            placeholder="test@example.com (optional)"
+            placeholder="test@example.com (optional - defaults to NOTIFY_EMAIL)"
             className="flex-1 bg-white border border-[#E5DDD0] rounded-lg px-3 py-2 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#0F5C5E]"
           />
           <button
@@ -590,10 +635,10 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
             {sending ? (
               <>
                 <Loader2 size={14} className="animate-spin" />
-                Sending…
+                Running…
               </>
             ) : (
-              "Send test"
+              "Run diagnostic"
             )}
           </button>
         </div>
@@ -613,7 +658,159 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
             <span className="text-xs">{status.message}</span>
           </div>
         )}
+
+        {/* Full diagnostic report */}
+        {report && (
+          <div className="mt-4 space-y-4">
+            {/* Warnings — most important, show first */}
+            {report.warnings.length > 0 && (
+              <div className="bg-[#B5462A]/8 border border-[#B5462A]/40 rounded-lg p-3 space-y-2">
+                <p className="text-xs font-mono uppercase tracking-wider text-[#B5462A]">
+                  Issues found ({report.warnings.length})
+                </p>
+                <ul className="space-y-1.5">
+                  {report.warnings.map((w, i) => (
+                    <li key={i} className="text-xs text-[#1A1A1A] leading-relaxed flex gap-2">
+                      <span className="text-[#B5462A] flex-shrink-0">-</span>
+                      <span>{w}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* SMTP status */}
+            <div className="bg-white border border-[#E5DDD0] rounded-lg p-3">
+              <p className="text-[10px] uppercase tracking-wider text-[#999] font-mono mb-1.5">
+                1 · SMTP connection
+              </p>
+              <div className={`text-xs ${report.smtp.ok ? "text-[#2D6A4F]" : "text-[#B5462A]"}`}>
+                <span>{report.smtp.ok ? "\u2713 " : "\u2717 "}</span>
+                {report.smtp.message}
+              </div>
+            </div>
+
+            {/* Sent email details */}
+            {report.sent && (
+              <div className="bg-white border border-[#E5DDD0] rounded-lg p-3">
+                <p className="text-[10px] uppercase tracking-wider text-[#999] font-mono mb-1.5">
+                  2 · Test email send
+                </p>
+                <div className="text-xs text-[#1A1A1A] space-y-1">
+                  <div>
+                    <span className="text-[#999]">To:</span> {report.sent.to}
+                  </div>
+                  <div>
+                    <span className="text-[#999]">SMTP response:</span>{" "}
+                    <code className="text-[#2D6A4F]">{report.sent.smtpResponse}</code>
+                  </div>
+                  <div>
+                    <span className="text-[#999]">Accepted:</span>{" "}
+                    {report.sent.accepted.length > 0 ? (
+                      <span className="text-[#2D6A4F]">{report.sent.accepted.join(", ")}</span>
+                    ) : (
+                      <span className="text-[#B5462A]">none — email was NOT accepted</span>
+                    )}
+                  </div>
+                  {report.sent.rejected.length > 0 && (
+                    <div>
+                      <span className="text-[#999]">Rejected:</span>{" "}
+                      <span className="text-[#B5462A]">{report.sent.rejected.join(", ")}</span>
+                    </div>
+                  )}
+                  {report.sent.messageId && (
+                    <div className="mt-2 break-all">
+                      <span className="text-[#999]">Message ID:</span>{" "}
+                      <code className="text-[#0F5C5E] bg-[#F5EFE4] px-1.5 py-0.5 rounded">
+                        {report.sent.messageId}
+                      </code>
+                      <a
+                        href={report.sent.brevoLogsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-2 text-[#0F5C5E] hover:underline inline-flex items-center gap-1"
+                      >
+                        Track in Brevo <ExternalLink size={10} />
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* DNS records */}
+            <div className="bg-white border border-[#E5DDD0] rounded-lg p-3">
+              <p className="text-[10px] uppercase tracking-wider text-[#999] font-mono mb-1.5">
+                3 · DNS records for {report.dns.domain}
+              </p>
+              <div className="space-y-3">
+                <DnsRecordRow label="SPF" rec={report.dns.spf} />
+                <DnsRecordRow label="DKIM (Brevo)" rec={report.dns.dkimBrevo} />
+                <DnsRecordRow label="DKIM (s1)" rec={report.dns.dkimS1} />
+                <DnsRecordRow label="DKIM (s2)" rec={report.dns.dkimS2} />
+                <DnsRecordRow label="DMARC" rec={report.dns.dmarc} />
+                {report.dns.mx.length > 0 && (
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider text-[#999] font-mono mb-1">
+                      MX records
+                    </p>
+                    <ul className="text-xs text-[#1A1A1A] space-y-0.5">
+                      {report.dns.mx.map((m, i) => (
+                        <li key={i}>
+                          <span className="text-[#999]">{m.priority}</span>{" "}
+                          {m.exchange}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+    </div>
+  );
+}
+
+function DnsRecordRow({ label, rec }: { label: string; rec: {
+  name: string;
+  found: boolean;
+  value: string | null;
+  explanation: string;
+  recommendation?: string;
+}}) {
+  return (
+    <div className="border-l-2 pl-3 py-1" style={{
+      borderColor: rec.found ? "#2D6A4F" : "#B5462A",
+    }}>
+      <div className="flex items-baseline gap-2 mb-0.5">
+        <span className="text-xs font-mono uppercase tracking-wider text-[#999]">
+          {label}
+        </span>
+        <span className={`text-[10px] font-mono ${rec.found ? "text-[#2D6A4F]" : "text-[#B5462A]"}`}>
+          {rec.found ? "found" : "missing"}
+        </span>
+      </div>
+      <p className="text-[10px] text-[#999] mb-1 font-mono">{rec.name}</p>
+      {rec.value && (
+        <pre className="text-[10px] text-[#1A1A1A] bg-[#F5EFE4] rounded p-1.5 mb-1 overflow-x-auto whitespace-pre-wrap break-all">
+          {rec.value}
+        </pre>
+      )}
+      <p className="text-[11px] text-[#666] leading-relaxed mb-1">
+        {rec.explanation}
+      </p>
+      {rec.recommendation && (
+        <div className="mt-1.5 bg-[#FFF9E8] border border-[#E5C77A] rounded p-2">
+          <p className="text-[10px] uppercase tracking-wider text-[#8A6D1A] font-mono mb-1">
+            Fix
+          </p>
+          <pre className="text-[10px] text-[#1A1A1A] whitespace-pre-wrap break-all">
+{rec.recommendation}
+          </pre>
+        </div>
+      )}
     </div>
   );
 }

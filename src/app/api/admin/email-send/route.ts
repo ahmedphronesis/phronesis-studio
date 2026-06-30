@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     // Wrap in a branded email template
     const wrappedHtml = wrapInBrandTemplate(subject, htmlBody);
 
-    await sendEmail({
+    const result = await sendEmail({
       to: toName ? `${toName} <${to}>` : to,
       subject,
       text: bodyText,
@@ -73,7 +73,19 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json({ ok: true, id: sentEmail.id });
+    // CRITICAL: returning ok:true only means SMTP (Brevo) accepted the email.
+    // It does NOT guarantee delivery. The user should track `messageId` in
+    // Brevo dashboard → Transactional → Logs to see what happened next
+    // (delivered / bounced / deferred / blocked).
+    return NextResponse.json({
+      ok: true,
+      id: sentEmail.id,
+      messageId: result.messageId,
+      smtpResponse: result.response,
+      accepted: result.accepted,
+      rejected: result.rejected,
+      brevoLogsUrl: "https://app.brevo.com/transactional/logs",
+    });
   } catch (err) {
     console.error("[/api/admin/email-send] error:", err);
     return NextResponse.json(

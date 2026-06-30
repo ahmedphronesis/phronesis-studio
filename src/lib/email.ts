@@ -16,6 +16,7 @@
  *                     forwarded to Gmail via ImprovMX)
  */
 import nodemailer from "nodemailer";
+import { resolveMx, resolveTxt } from "dns/promises";
 
 let cachedTransport: nodemailer.Transporter | null = null;
 
@@ -58,12 +59,35 @@ export type EmailPayload = {
 };
 
 /**
- * Send an email via Brevo SMTP. Throws on failure.
- * Caller should try/catch and log — never let email failure break the API.
+ * Result of sendEmail — includes the SMTP server's response so callers can
+ * confirm Brevo actually accepted the message (not just that the API call
+ * resolved). The `messageId` is Brevo's internal tracking ID; the user can
+ * look it up in Brevo dashboard → Transactional → Logs to see what happened
+ * to the email AFTER Brevo accepted it (delivered / bounced / deferred / blocked).
  */
-export async function sendEmail(p: EmailPayload): Promise<void> {
+export type EmailSendResult = {
+  messageId: string | null;
+  response: string;       // e.g. "250 Ok <queued messageId>"
+  accepted: string[];     // recipient addresses Brevo accepted
+  rejected: string[];     // recipient addresses Brevo rejected
+  pending: string[];      // addresses pending
+};
+
+/**
+ * Send an email via Brevo SMTP. Returns the SMTP server response.
+ * Caller should inspect `rejected` array — if non-empty, Brevo refused to
+ * accept those recipients (e.g. invalid email). If `accepted` is empty,
+ * nothing was sent.
+ *
+ * IMPORTANT: this resolving does NOT guarantee delivery. Brevo may still:
+ *   - Silently drop the email if the From address isn't a Verified Sender
+ *   - Defer delivery if the recipient's MX is strict about SPF/DKIM/DMARC
+ *   - Bounce later if the recipient's mailbox is full or doesn't exist
+ * The `messageId` is the only way to track what happened post-acceptance.
+ */
+export async function sendEmail(p: EmailPayload): Promise<EmailSendResult> {
   const transport = getTransport();
-  await transport.sendMail({
+  const info = await transport.sendMail({
     from: getFrom(),
     to: p.to,
     subject: p.subject,
@@ -71,7 +95,174 @@ export async function sendEmail(p: EmailPayload): Promise<void> {
     html: p.html,
     replyTo: p.replyTo,
   });
+
+  // nodemailer's SMTP transport returns info with: messageId, response,
+  // accepted, rejected, pending, envelope.
+  // Note: messageId from Brevo looks like "<xxx@smtp-relay.mail.fr>".
+  // We strip the angle brackets for cleaner display.
+  const messageId = info.messageId
+    ? info.messageId.replace(/^<|>$/g, "")
+    : null;
+
+  const smtpInfo = info as unknown as {
+    accepted?: string[];
+    rejected?: string[];
+    pending?: string[];
+    response?: string;
+  };
+
+  return {
+    messageId,
+    response: smtpInfo.response || "(no SMTP response)",
+    accepted: smtpInfo.accepted || [],
+    rejected: smtpInfo.rejected || [],
+    pending: smtpInfo.pending || [],
+  };
 }
+
+/**
+ * Verify SMTP credentials by issuing a NOOP command. Returns ok=true if the
+ * SMTP server accepted the connection and authenticated successfully.
+ * Does NOT verify that the From address is a Brevo Verified Sender —
+ * that's a separate check the user must do in the Brevo dashboard.
+ */
+export async function verifySmtp(): Promise<{
+  ok: boolean;
+  message: string;
+}> {
+  try {
+    const transport = getTransport();
+    await transport.verify();
+    return {
+      ok: true,
+      message: `SMTP connection verified. Host: ${process.env.SMTP_HOST}, user: ${process.env.SMTP_USER}`,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      message: err instanceof Error ? err.message : "SMTP verification failed",
+    };
+  }
+}
+
+// ─── DNS diagnostics for email deliverability ─────────────────────────────
+
+export type DnsRecord = {
+  name: string;     // DNS record name queried
+  found: boolean;
+  value: string | null;
+  explanation: string;
+  recommendation?: string;
+};
+
+export type DnsReport = {
+  domain: string;
+  spf: DnsRecord;
+  dkimBrevo: DnsRecord;   // brevo._domainkey
+  dkimS1: DnsRecord;      // s1._domainkey (Brevo's alternate)
+  dkimS2: DnsRecord;      // s2._domainkey (Brevo's alternate)
+  dmarc: DnsRecord;
+  mx: { exchange: string; priority: number }[];
+};
+
+async function resolveTxtJoined(name: string): Promise<string | null> {
+  try {
+    const records = await resolveTxt(name);
+    if (records.length === 0) return null;
+    // TXT records come back as arrays of string fragments — join them.
+    return records.map((r) => r.join("")).join(" ");
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Inspect the DNS records that govern email deliverability for the given
+ * domain. Used by the admin diagnostic tool to show the user exactly what
+ * is missing and provide copy-paste DNS record templates.
+ *
+ * For Brevo specifically:
+ *   SPF:    v=spf1 include:spf.brevo.com ~all
+ *   DKIM:   brevo._domainkey TXT  (Brevo generates the value in their dashboard)
+ *   DMARC:  v=DMARC1; p=none; rua=mailto:ahmed@phronesis-studio.com
+ */
+export async function checkEmailDnsRecords(
+  domain: string = "phronesis-studio.com"
+): Promise<DnsReport> {
+  const bareDomain = domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+  const [spf, dkimBrevo, dkimS1, dkimS2, dmarc, mxRecords] = await Promise.all([
+    resolveTxtJoined(bareDomain),
+    resolveTxtJoined(`brevo._domainkey.${bareDomain}`),
+    resolveTxtJoined(`s1._domainkey.${bareDomain}`),
+    resolveTxtJoined(`s2._domainkey.${bareDomain}`),
+    resolveTxtJoined(`_dmarc.${bareDomain}`),
+    resolveMx(bareDomain).catch(() => []),
+  ]);
+
+  return {
+    domain: bareDomain,
+    spf: {
+      name: `${bareDomain}  TXT`,
+      found: Boolean(spf && /v=spf1/.test(spf)),
+      value: spf,
+      explanation:
+        "SPF (Sender Policy Framework) lists which mail servers are allowed to send email from your domain. Without SPF, Gmail/Outlook will silently filter most of your email to spam.",
+      recommendation: !spf
+        ? `Add this TXT record at your DNS provider:
+  Name: @  (or ${bareDomain})
+  Value: v=spf1 include:spf.brevo.com ~all`
+        : spf && !/brevo/.test(spf)
+          ? `Your SPF record exists but doesn't include Brevo. Update it to:
+  v=spf1 include:spf.brevo.com ~all
+
+Current: ${spf}`
+          : undefined,
+    },
+    dkimBrevo: {
+      name: `brevo._domainkey.${bareDomain}  TXT`,
+      found: Boolean(dkimBrevo && /v=DKIM1/.test(dkimBrevo)),
+      value: dkimBrevo,
+      explanation:
+        "DKIM (DomainKeys Identified Mail) signs your emails cryptographically. Brevo generates this key in their dashboard under Senders & IP → Domain authentication. Without DKIM, your email will fail DMARC alignment and may be rejected.",
+      recommendation: !dkimBrevo
+        ? `Log in to Brevo dashboard → Senders & IP → Authenticate your domain.
+Brevo will give you a TXT record to add at:
+  Name: brevo._domainkey
+  Value: (Brevo generates this — copy it exactly)`
+        : undefined,
+    },
+    dkimS1: {
+      name: `s1._domainkey.${bareDomain}  TXT`,
+      found: Boolean(dkimS1 && /v=DKIM1/.test(dkimS1)),
+      value: dkimS1,
+      explanation: "Alternate DKIM selector Brevo sometimes uses.",
+    },
+    dkimS2: {
+      name: `s2._domainkey.${bareDomain}  TXT`,
+      found: Boolean(dkimS2 && /v=DKIM1/.test(dkimS2)),
+      value: dkimS2,
+      explanation: "Alternate DKIM selector Brevo sometimes uses.",
+    },
+    dmarc: {
+      name: `_dmarc.${bareDomain}  TXT`,
+      found: Boolean(dmarc && /v=DMARC1/.test(dmarc)),
+      value: dmarc,
+      explanation:
+        "DMARC tells recipient servers what to do if SPF or DKIM fails. If you have a strict policy (p=reject) but SPF/DKIM aren't set up correctly, recipient servers will silently drop your email — it won't even reach the spam folder.",
+      recommendation: !dmarc
+        ? `Add this TXT record (start with p=none for monitoring):
+  Name: _dmarc
+  Value: v=DMARC1; p=none; rua=mailto:ahmed@${bareDomain}`
+        : undefined,
+    },
+    mx: mxRecords.map((r) => ({
+      exchange: r.exchange,
+      priority: r.priority,
+    })),
+  };
+}
+
 
 /**
  * Check if SMTP is configured (used by admin Settings page to show status).
@@ -202,6 +393,8 @@ phronesis-studio.com · Studio of Practical Wisdom`;
     html,
     replyTo: process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com",
   });
+  // Result discarded — this function is called from the lead form handler,
+  // not the admin UI, so we don't need to surface the messageId here.
 }
 
 /**
@@ -294,6 +487,7 @@ Lead ID: ${leadId}`;
     html,
     replyTo: leadEmail, // so when you hit "Reply" in Gmail, it goes to the lead
   });
+  // Result discarded — this function is called from the lead form handler.
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
