@@ -212,7 +212,7 @@
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--teal);
 }

@@ -15,12 +15,12 @@ export function Nav() {
 
   const LINKS = [
     { href: "/", label: t("home") },
+    { href: "/vouches", label: t("vouches") },
     { href: "/about", label: t("studio") },
     { href: "/work", label: t("work") },
     { href: "/echoes", label: t("echoes") },
     { href: "/library", label: t("library") },
     { href: "/method", label: t("method") },
-    { href: "/vouches", label: t("vouches") },
     { href: "/correspondence", label: t("correspondence") },
   ] as const;
 
@@ -66,7 +66,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-7 lg:gap-8">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-7">
           {LINKS.map((l) => {
             const isActive = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
             return (
@@ -86,8 +86,8 @@ export function Nav() {
           })}
         </ul>
 
-        {/* Right side: language + CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Right side: language + CTA — with extra left margin for separation */}
+        <div className="hidden md:flex items-center gap-4 ml-6 lg:ml-8 pl-6 lg:pl-8 border-l border-border/40">
           <LanguageSwitcher />
           <Link
             href="/correspondence"
