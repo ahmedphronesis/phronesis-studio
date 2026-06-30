@@ -53,6 +53,7 @@ export default async function EpisodePage({
   const excerpt = isAR ? episode.arExcerpt : episode.enExcerpt;
   const fullText = isAR ? episode.arFull : episode.enFull;
   const t = await getTranslations({ locale, namespace: "echoes" });
+  const otherLocale = isAR ? "en" : "ar";
 
   return (
     <MouseProvider>
@@ -92,6 +93,17 @@ export default async function EpisodePage({
               style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.25rem", lineHeight: 2 } : {}}
             >
               {fullText}
+            </div>
+
+            {/* Language toggle — switch between EN and AR version */}
+            <div className="mt-8 flex justify-center">
+              <a
+                href={`/${otherLocale}/echoes/${episode.number}`}
+                className="inline-flex items-center gap-3 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-6 py-3 rounded-full font-medium"
+              >
+                <Globe size={16} strokeWidth={1.5} />
+                {isAR ? "Read in English" : "اقرأ بالعربية"}
+              </a>
             </div>
 
             {/* Navigation between episodes */}

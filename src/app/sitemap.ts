@@ -22,6 +22,7 @@ const PROJECT_SLUGS = [
   "bilingual-mathematics",
   "echoes-of-wisdom",
   "treasury-emperor",
+  "history-of-philosophy",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -9,13 +9,14 @@ import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 export const runtime = "nodejs";
 
 // Project slugs mapped to their data keys
-const PROJECTS: Record<string, { nameKey: string; descKey: string; rationaleKey: string; url?: string }> = {
+const PROJECTS: Record<string, { nameKey: string; descKey: string; rationaleKey: string; url?: string; isForthcoming?: boolean }> = {
   "real-estate-emperor": { nameKey: "neural.clouds.realestate.name", descKey: "neural.clouds.realestate.desc", rationaleKey: "neural.clouds.realestate.rationale", url: "https://real-estate-emperor.vercel.app" },
   "mscs-academy": { nameKey: "neural.clouds.mscs.name", descKey: "neural.clouds.mscs.desc", rationaleKey: "neural.clouds.mscs.rationale", url: "https://mscs-academy.vercel.app" },
   "diplomatiq": { nameKey: "neural.clouds.diplomatiq.name", descKey: "neural.clouds.diplomatiq.desc", rationaleKey: "neural.clouds.diplomatiq.rationale", url: "https://mun-diplomatiq.vercel.app" },
   "bilingual-mathematics": { nameKey: "neural.clouds.math.name", descKey: "neural.clouds.math.desc", rationaleKey: "neural.clouds.math.rationale" },
   "echoes-of-wisdom": { nameKey: "neural.clouds.echoes.name", descKey: "neural.clouds.echoes.desc", rationaleKey: "neural.clouds.echoes.rationale" },
   "treasury-emperor": { nameKey: "neural.clouds.treasury.name", descKey: "neural.clouds.treasury.desc", rationaleKey: "neural.clouds.treasury.rationale" },
+  "history-of-philosophy": { nameKey: "echoes.forthcomingTitle", descKey: "echoes.forthcomingBody", rationaleKey: "echoes.forthcomingBody", isForthcoming: true },
 };
 
 export async function generateStaticParams() {

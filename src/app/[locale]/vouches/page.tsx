@@ -4,7 +4,7 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
 import { FadeUp } from "@/components/anim";
-import { Download, ArrowRight, ArrowLeft } from "lucide-react";
+import { Download, ArrowRight, ArrowLeft, ExternalLink, Quote } from "lucide-react";
 import Link from "next/link";
 
 export const runtime = "nodejs";
@@ -98,6 +98,48 @@ export default async function VouchesPage({
                   </FadeUp>
                 );
               })}
+            </div>
+
+            {/* LinkedIn recommendation */}
+            <div className="mt-8">
+              <h3 className="display text-ink text-2xl md:text-3xl mb-6">
+                {t("linkedin.author")} — {t("linkedin.title")}
+              </h3>
+              <FadeUp>
+                <div className="relative max-w-3xl p-6 md:p-8 rounded-2xl bg-paper border border-teal/20 overflow-hidden">
+                  <Quote className="absolute top-3 right-3 text-teal/10" size={48} strokeWidth={1} />
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-9 h-9 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                        <Quote size={15} strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono">LinkedIn Recommendation</p>
+                        <p className="text-xs text-ink-dim body-serif">{t("linkedin.date")}</p>
+                      </div>
+                    </div>
+                    <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-snug mb-4 whitespace-pre-line line-clamp-4">
+                      {t("linkedin.quote")}
+                    </blockquote>
+                    <div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
+                      <div>
+                        <p className="display text-ink text-lg md:text-xl">{t("linkedin.author")}</p>
+                        <p className="text-xs text-ink-dim body-serif">{t("linkedin.title")}</p>
+                        <p className="text-xs text-teal body-serif">{t("linkedin.company")}</p>
+                      </div>
+                      <a
+                        href={t("linkedin.linkedinUrl")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs text-paper bg-teal hover:bg-teal-bright transition-colors px-4 py-2 rounded-full font-medium whitespace-nowrap"
+                      >
+                        <ExternalLink size={12} />
+                        {t("viewOnLinkedIn")}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </FadeUp>
             </div>
           </div>
         </main>
