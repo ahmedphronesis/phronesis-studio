@@ -10,7 +10,12 @@ import { Globe, ArrowRight, ArrowLeft } from "lucide-react";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-async function generateMetadata({
+// NOTE: `export` is REQUIRED — Next.js only invokes a named export named
+// `generateMetadata`. Without `export`, this function is silently ignored
+// and the page falls back to the locale-layout default metadata (wrong OG
+// image, wrong title). This was the root cause of episode OG previews
+// missing the philosophy artwork when shared on WhatsApp / Twitter / etc.
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; number: string }>;
@@ -24,17 +29,37 @@ async function generateMetadata({
 
   const title = locale === "ar" ? episode.arTitle : episode.enTitle;
   const excerpt = locale === "ar" ? episode.arExcerpt : episode.enExcerpt;
+  const ogTitle = `${title} · Echoes of Wisdom Ep. ${epNumber}`;
+  const ogImage = "/og-philosophy.png";
+  const canonical = `/${locale}/echoes/${number}`;
+  const url = `https://phronesis-studio.com${canonical}`;
 
   return {
-    title: `${title} · Echoes of Wisdom Episode ${epNumber}`,
+    title: ogTitle,
     description: excerpt,
     openGraph: {
-      title: `${title} · Echoes of Wisdom Episode ${epNumber}`,
+      title: ogTitle,
       description: excerpt,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
+      type: "article",
+      url,
+      siteName: "Studio of Phronesis",
+      images: [{
+        url: `https://phronesis-studio.com${ogImage}`,
+        secureUrl: `https://phronesis-studio.com${ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: title,
+        type: "image/png",
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: excerpt,
+      images: [`https://phronesis-studio.com${ogImage}`],
     },
     alternates: {
-      canonical: `/${locale}/echoes/${number}`,
+      canonical,
       languages: { en: `/en/echoes/${number}`, ar: `/ar/echoes/${number}` },
     },
   };

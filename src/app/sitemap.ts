@@ -15,6 +15,10 @@ const GUIDE_SLUGS = [
 ];
 
 // Project slugs (must match work/[slug]/page.tsx)
+// NOTE: "history-of-philosophy" was moved to /echoes/history-of-philosophy
+// and is listed in ECHOES_EXTRA_ROUTES below. /work/history-of-philosophy
+// still issues a 308 redirect, but we no longer list it in the sitemap
+// because the canonical URL is now under /echoes.
 const PROJECT_SLUGS = [
   "real-estate-emperor",
   "mscs-academy",
@@ -22,6 +26,10 @@ const PROJECT_SLUGS = [
   "bilingual-mathematics",
   "echoes-of-wisdom",
   "treasury-emperor",
+];
+
+// Extra Echoes routes (besides the episode numbers and season-1)
+const ECHOES_EXTRA_ROUTES = [
   "history-of-philosophy",
 ];
 
@@ -67,6 +75,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     });
+
+    // Extra Echoes routes (e.g. /echoes/history-of-philosophy)
+    for (const slug of ECHOES_EXTRA_ROUTES) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/echoes/${slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    }
 
     // Library guide routes
     for (const slug of GUIDE_SLUGS) {

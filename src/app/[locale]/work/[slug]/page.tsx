@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
@@ -8,7 +8,11 @@ import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 
 export const runtime = "nodejs";
 
-// Project slugs mapped to their data
+// Project slugs mapped to their data.
+// NOTE: "history-of-philosophy" used to live here but has been moved to
+// /echoes/history-of-philosophy so the URL matches where users click it
+// from (the Echoes section). Any request to /work/history-of-philosophy
+// is redirected at the top of ProjectPage below — keeps old links working.
 const PROJECTS: Record<string, {
   nameKey: string; descKey: string; rationaleKey: string; url?: string;
   isForthcoming?: boolean; domain?: string;
@@ -52,13 +56,6 @@ const PROJECTS: Record<string, {
     rationaleKey: "neural.clouds.treasury.rationale",
     domain: "neural.clouds.treasury.domain",
   },
-  "history-of-philosophy": {
-    nameKey: "neural.clouds.realestate.name", // placeholder — overridden below
-    descKey: "neural.clouds.realestate.desc",  // placeholder
-    rationaleKey: "neural.clouds.realestate.rationale", // placeholder
-    domain: "neural.clouds.echoes.domain",
-    isForthcoming: true,
-  },
 };
 
 export async function generateStaticParams() {
@@ -68,8 +65,7 @@ export async function generateStaticParams() {
 // NOTE: `export` is REQUIRED — Next.js only invokes a named export named
 // `generateMetadata`. Without `export`, this function is silently ignored,
 // and the page falls back to the locale-layout default metadata (wrong OG
-// image, wrong title). This was the root cause of the OG image bug on
-// /work/history-of-philosophy.
+// image, wrong title).
 export async function generateMetadata({
   params,
 }: {
@@ -79,43 +75,7 @@ export async function generateMetadata({
   const project = PROJECTS[slug];
   if (!project) return {};
 
-  const ogImage = slug === "history-of-philosophy" ? "/og-philosophy.png" : "/og-image.png";
-
-  if (project.isForthcoming) {
-    // Load from echoes namespace for forthcoming projects
-    const tEchoes = await getTranslations({ locale, namespace: "echoes" });
-    const title = `${tEchoes("forthcomingTitle")} · Studio of Phronesis`;
-    const description = tEchoes("forthcomingBody");
-    return {
-      title,
-      description,
-      openGraph: {
-        title,
-        description,
-        type: "website",
-        url: `https://phronesis-studio.com/${locale}/work/${slug}`,
-        siteName: "Studio of Phronesis",
-        images: [{
-          url: `https://phronesis-studio.com${ogImage}`,
-          secureUrl: `https://phronesis-studio.com${ogImage}`,
-          width: 1200,
-          height: 630,
-          alt: tEchoes("forthcomingTitle"),
-          type: "image/png",
-        }],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title,
-        description,
-        images: [`https://phronesis-studio.com${ogImage}`],
-      },
-      alternates: {
-        canonical: `/${locale}/work/${slug}`,
-        languages: { en: `/en/work/${slug}`, ar: `/ar/work/${slug}` },
-      },
-    };
-  }
+  const ogImage = "/og-image.png";
 
   const t = await getTranslations({ locale, namespace: "workContent" });
   const title = `${t(project.nameKey)} · Studio of Phronesis`;
@@ -153,41 +113,28 @@ export async function generateMetadata({
 
 export default async function ProjectPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-  searchParams: Promise<{ from?: string }>;
 }) {
   const { locale, slug } = await params;
-  const { from } = await searchParams;
+
+  // Redirect the old History of Philosophy URL to its new home under /echoes.
+  // permanentRedirect issues HTTP 308 — tells Google and any cached links
+  // to permanently update to the new URL.
+  if (slug === "history-of-philosophy") {
+    permanentRedirect(`/${locale}/echoes/history-of-philosophy`);
+  }
+
   const project = PROJECTS[slug];
   if (!project) notFound();
 
   const isAR = locale === "ar";
   const t = await getTranslations({ locale, namespace: "workContent" });
 
-  // For forthcoming projects, load from echoes namespace
-  const tEchoes = project.isForthcoming
-    ? await getTranslations({ locale, namespace: "echoes" })
-    : null;
-
-  const name = project.isForthcoming && tEchoes ? tEchoes("forthcomingTitle") : t(project.nameKey);
-  const desc = project.isForthcoming && tEchoes ? tEchoes("forthcomingBody") : t(project.descKey);
-  const rationale = project.isForthcoming && tEchoes ? tEchoes("forthcomingBody") : t(project.rationaleKey);
-  const domain = project.isForthcoming && tEchoes
-    ? (isAR ? "الفلسفة · الثقافة" : "Philosophy · Cultural")
-    : t(project.domain || "neural.clouds.echoes.domain");
-
-  // Context-aware back link:
-  //   ?from=echoes  → back to /{locale}/echoes (preserves user flow)
-  //   otherwise     → back to /{locale}/work (default)
-  const cameFromEchoes = from === "echoes";
-  const backHref = cameFromEchoes
-    ? `/${locale}/echoes`
-    : `/${locale}/work`;
-  const backLabel = cameFromEchoes
-    ? (isAR ? "أصداء الحكمة" : "Echoes")
-    : (isAR ? "كل الأعمال" : "All Work");
+  const name = t(project.nameKey);
+  const desc = t(project.descKey);
+  const rationale = t(project.rationaleKey);
+  const domain = t(project.domain || "neural.clouds.echoes.domain");
 
   return (
     <MouseProvider>
@@ -196,40 +143,12 @@ export default async function ProjectPage({
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
             <a
-              href={backHref}
+              href={`/${locale}/work`}
               className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
             >
               {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
-              {backLabel}
+              {isAR ? "كل الأعمال" : "All Work"}
             </a>
-
-            {/* Faded painting — full-width showcase for History of Philosophy.
-                Rendered OUTSIDE the max-w-4xl text column so it can breathe at
-                the full container width (up to lg:px-20). The text column below
-                stays narrower for readability. */}
-            {project.isForthcoming && (
-              <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)]">
-                <img
-                  src="/school-of-athens-faded.jpg"
-                  alt="School of Athens by Raphael — fresco, 1509–1511, Apostolic Palace, Vatican City"
-                  className="w-full h-auto block"
-                />
-                {/* Subtle cream wash so the Coming Soon badge stays legible
-                    without dimming the painting itself. */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/70 via-[#F5EFE4]/10 to-transparent" />
-                <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between gap-4 flex-wrap">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm">
-                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                    <span className="text-xs uppercase tracking-[0.2em] text-gold font-mono">
-                      {isAR ? "قريبًا" : "Coming Soon!"}
-                    </span>
-                  </div>
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    {isAR ? "رفائيل · مدرسة أثينا" : "Raphael · School of Athens"}
-                  </span>
-                </div>
-              </div>
-            )}
 
             <div className="max-w-4xl">
               <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-2">
@@ -242,19 +161,15 @@ export default async function ProjectPage({
                 {desc}
               </p>
 
-              {/* Rationale — only for non-forthcoming projects */}
-              {!project.isForthcoming && (
-                <div className="mt-8 p-6 md:p-8 rounded-2xl bg-paper-warm border border-border">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-4">
-                    {t("neural.rationaleLabel")}
-                  </p>
-                  <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
-                    {rationale}
-                  </p>
-                </div>
-              )}
+              <div className="mt-8 p-6 md:p-8 rounded-2xl bg-paper-warm border border-border">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-4">
+                  {t("neural.rationaleLabel")}
+                </p>
+                <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+                  {rationale}
+                </p>
+              </div>
 
-              {/* Visit link */}
               {project.url && (
                 <a
                   href={project.url}
@@ -275,9 +190,7 @@ export default async function ProjectPage({
               </h3>
               <div className="flex flex-wrap gap-3">
                 {Object.entries(PROJECTS).filter(([s]) => s !== slug).map(([s, p]) => {
-                  const otherName = p.isForthcoming && tEchoes
-                    ? tEchoes("forthcomingTitle")
-                    : t(p.nameKey);
+                  const otherName = t(p.nameKey);
                   return (
                     <a
                       key={s}

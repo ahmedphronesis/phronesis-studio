@@ -203,13 +203,11 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
 
         {/* History of Philosophy — A to Z
             Separate project card (NOT an Echoes season).
-            Always visible. Clickable — links to /work/history-of-philosophy.
-            Distinct gold-themed design with faded Raphael painting background.
-            `?from=echoes` query param tells the work/[slug] page to send the
-            user BACK to /echoes (not /work) when they click the back arrow —
-            this preserves the user's navigation flow. */}
+            Always visible. Clickable — links to /echoes/history-of-philosophy
+            (NOT /work/...) so the URL matches where users click it from.
+            Distinct gold-themed design with faded Raphael painting background. */}
         <a
-          href={`/${locale}/work/history-of-philosophy?from=echoes`}
+          href={`/${locale}/echoes/history-of-philosophy`}
           className="max-w-4xl block p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden group transition-colors hover:border-gold/60"
         >
           {/* Faded Raphael — School of Athens background */}
