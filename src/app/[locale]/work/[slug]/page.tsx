@@ -65,7 +65,12 @@ export async function generateStaticParams() {
   return Object.keys(PROJECTS).map((slug) => ({ slug }));
 }
 
-async function generateMetadata({
+// NOTE: `export` is REQUIRED — Next.js only invokes a named export named
+// `generateMetadata`. Without `export`, this function is silently ignored,
+// and the page falls back to the locale-layout default metadata (wrong OG
+// image, wrong title). This was the root cause of the OG image bug on
+// /work/history-of-philosophy.
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
@@ -79,13 +84,31 @@ async function generateMetadata({
   if (project.isForthcoming) {
     // Load from echoes namespace for forthcoming projects
     const tEchoes = await getTranslations({ locale, namespace: "echoes" });
+    const title = `${tEchoes("forthcomingTitle")} · Studio of Phronesis`;
+    const description = tEchoes("forthcomingBody");
     return {
-      title: `${tEchoes("forthcomingTitle")} · Studio of Phronesis`,
-      description: tEchoes("forthcomingBody"),
+      title,
+      description,
       openGraph: {
-        title: `${tEchoes("forthcomingTitle")} · Studio of Phronesis`,
-        description: tEchoes("forthcomingBody"),
-        images: [{ url: ogImage, width: 1200, height: 630, alt: tEchoes("forthcomingTitle") }],
+        title,
+        description,
+        type: "website",
+        url: `https://phronesis-studio.com/${locale}/work/${slug}`,
+        siteName: "Studio of Phronesis",
+        images: [{
+          url: `https://phronesis-studio.com${ogImage}`,
+          secureUrl: `https://phronesis-studio.com${ogImage}`,
+          width: 1200,
+          height: 630,
+          alt: tEchoes("forthcomingTitle"),
+          type: "image/png",
+        }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [`https://phronesis-studio.com${ogImage}`],
       },
       alternates: {
         canonical: `/${locale}/work/${slug}`,
@@ -95,13 +118,31 @@ async function generateMetadata({
   }
 
   const t = await getTranslations({ locale, namespace: "workContent" });
+  const title = `${t(project.nameKey)} · Studio of Phronesis`;
+  const description = t(project.descKey);
   return {
-    title: `${t(project.nameKey)} · Studio of Phronesis`,
-    description: t(project.descKey),
+    title,
+    description,
     openGraph: {
-      title: `${t(project.nameKey)} · Studio of Phronesis`,
-      description: t(project.descKey),
-      images: [{ url: ogImage, width: 1200, height: 630, alt: t(project.nameKey) }],
+      title,
+      description,
+      type: "website",
+      url: `https://phronesis-studio.com/${locale}/work/${slug}`,
+      siteName: "Studio of Phronesis",
+      images: [{
+        url: `https://phronesis-studio.com${ogImage}`,
+        secureUrl: `https://phronesis-studio.com${ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: t(project.nameKey),
+        type: "image/png",
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`https://phronesis-studio.com${ogImage}`],
     },
     alternates: {
       canonical: `/${locale}/work/${slug}`,
@@ -112,10 +153,13 @@ async function generateMetadata({
 
 export default async function ProjectPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ from?: string }>;
 }) {
   const { locale, slug } = await params;
+  const { from } = await searchParams;
   const project = PROJECTS[slug];
   if (!project) notFound();
 
@@ -134,6 +178,17 @@ export default async function ProjectPage({
     ? (isAR ? "الفلسفة · الثقافة" : "Philosophy · Cultural")
     : t(project.domain || "neural.clouds.echoes.domain");
 
+  // Context-aware back link:
+  //   ?from=echoes  → back to /{locale}/echoes (preserves user flow)
+  //   otherwise     → back to /{locale}/work (default)
+  const cameFromEchoes = from === "echoes";
+  const backHref = cameFromEchoes
+    ? `/${locale}/echoes`
+    : `/${locale}/work`;
+  const backLabel = cameFromEchoes
+    ? (isAR ? "أصداء الحكمة" : "Echoes")
+    : (isAR ? "كل الأعمال" : "All Work");
+
   return (
     <MouseProvider>
       <div className="min-h-screen flex flex-col bg-background">
@@ -141,34 +196,42 @@ export default async function ProjectPage({
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
             <a
-              href={`/${locale}/work`}
+              href={backHref}
               className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
             >
               {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
-              {isAR ? "كل الأعمال" : "All Work"}
+              {backLabel}
             </a>
 
-            <div className="max-w-4xl">
-              {/* Faded painting background for History of Philosophy */}
-              {project.isForthcoming && (
-                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-6">
-                  <img
-                    src="/school-of-athens-faded.jpg"
-                    alt="School of Athens by Raphael"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-0 bg-[#F5EFE4]/60" />
-                  <div className="absolute bottom-4 left-6 right-6">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10">
-                      <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                      <span className="text-xs uppercase tracking-[0.2em] text-gold font-mono">
-                        {isAR ? "قريبًا" : "Coming Soon!"}
-                      </span>
-                    </div>
+            {/* Faded painting — full-width showcase for History of Philosophy.
+                Rendered OUTSIDE the max-w-4xl text column so it can breathe at
+                the full container width (up to lg:px-20). The text column below
+                stays narrower for readability. */}
+            {project.isForthcoming && (
+              <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)]">
+                <img
+                  src="/school-of-athens-faded.jpg"
+                  alt="School of Athens by Raphael — fresco, 1509–1511, Apostolic Palace, Vatican City"
+                  className="w-full h-auto block"
+                />
+                {/* Subtle cream wash so the Coming Soon badge stays legible
+                    without dimming the painting itself. */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/70 via-[#F5EFE4]/10 to-transparent" />
+                <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between gap-4 flex-wrap">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm">
+                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                    <span className="text-xs uppercase tracking-[0.2em] text-gold font-mono">
+                      {isAR ? "قريبًا" : "Coming Soon!"}
+                    </span>
                   </div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5">
+                    {isAR ? "رفائيل · مدرسة أثينا" : "Raphael · School of Athens"}
+                  </span>
                 </div>
-              )}
+              </div>
+            )}
 
+            <div className="max-w-4xl">
               <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-2">
                 {domain}
               </p>
