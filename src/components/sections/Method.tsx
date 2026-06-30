@@ -24,15 +24,15 @@ export function Method() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", lineHeight: 1.15 }}>
               {t("title")}{" "}<br className="br-rtl-hide" />
               <span className="display-italic text-teal">{t("titleItalic")}</span>
             </h2>
           </Reveal>
-          <Reveal className="lg:col-span-5" delay={0.1}>
-            <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">{t("intro")}</p>
+          <Reveal className="lg:col-span-5 lg:pt-4" delay={0.1}>
+            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{t("intro")}</p>
           </Reveal>
         </div>
 

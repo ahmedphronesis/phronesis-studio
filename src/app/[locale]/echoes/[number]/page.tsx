@@ -72,9 +72,19 @@ export default async function EpisodePage({
 
             {/* Episode header */}
             <div className="mb-8 pb-6 border-b border-border">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-2">
-                {t("project1Name")} · {t("episode")} {episode.number} · {t("project1Season")}
-              </p>
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono">
+                  {t("project1Name")} · {t("episode")} {episode.number} · {t("project1Season")}
+                </p>
+                {/* Language toggle — at the top, next to the episode label */}
+                <a
+                  href={`/${otherLocale}/echoes/${episode.number}`}
+                  className="inline-flex items-center gap-2 text-xs text-teal border border-teal/30 hover:bg-teal/10 transition-colors px-3 py-1.5 rounded-full font-medium whitespace-nowrap flex-shrink-0"
+                >
+                  <Globe size={14} strokeWidth={1.5} />
+                  {isAR ? "English" : "العربية"}
+                </a>
+              </div>
               <h1 className="display text-ink text-3xl md:text-5xl leading-[1.1] mb-3">
                 {title}
               </h1>
@@ -93,17 +103,6 @@ export default async function EpisodePage({
               style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.25rem", lineHeight: 2 } : {}}
             >
               {fullText}
-            </div>
-
-            {/* Language toggle — switch between EN and AR version */}
-            <div className="mt-8 flex justify-center">
-              <a
-                href={`/${otherLocale}/echoes/${episode.number}`}
-                className="inline-flex items-center gap-3 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-6 py-3 rounded-full font-medium"
-              >
-                <Globe size={16} strokeWidth={1.5} />
-                {isAR ? "Read in English" : "اقرأ بالعربية"}
-              </a>
             </div>
 
             {/* Navigation between episodes */}
