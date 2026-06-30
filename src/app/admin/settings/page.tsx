@@ -329,7 +329,9 @@ function EmailSetupSection() {
     dns: {
       domain: string;
       spf: DnsRecord;
-      dkimBrevo: DnsRecord;
+      dkimBrevo1Cname: DnsRecord;
+      dkimBrevo2Cname: DnsRecord;
+      dkimBrevoTxt: DnsRecord;
       dkimS1: DnsRecord;
       dkimS2: DnsRecord;
       dmarc: DnsRecord;
@@ -744,10 +746,12 @@ NOTIFY_EMAIL=ahmed@phronesis-studio.com`}
                 3 · DNS records for {report.dns.domain}
               </p>
               <div className="space-y-3">
-                <DnsRecordRow label="SPF" rec={report.dns.spf} />
-                <DnsRecordRow label="DKIM (Brevo)" rec={report.dns.dkimBrevo} />
-                <DnsRecordRow label="DKIM (s1)" rec={report.dns.dkimS1} />
-                <DnsRecordRow label="DKIM (s2)" rec={report.dns.dkimS2} />
+                <DnsRecordRow label="SPF (TXT on @)" rec={report.dns.spf} />
+                <DnsRecordRow label="DKIM #1 (CNAME)" rec={report.dns.dkimBrevo1Cname} />
+                <DnsRecordRow label="DKIM #2 (CNAME)" rec={report.dns.dkimBrevo2Cname} />
+                <DnsRecordRow label="DKIM legacy (TXT)" rec={report.dns.dkimBrevoTxt} />
+                <DnsRecordRow label="DKIM s1 (TXT)" rec={report.dns.dkimS1} />
+                <DnsRecordRow label="DKIM s2 (TXT)" rec={report.dns.dkimS2} />
                 <DnsRecordRow label="DMARC" rec={report.dns.dmarc} />
                 {report.dns.mx.length > 0 && (
                   <div>

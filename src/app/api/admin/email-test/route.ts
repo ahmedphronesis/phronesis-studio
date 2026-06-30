@@ -137,23 +137,35 @@ function buildWarnings(
     w.push(
       "SPF record missing for phronesis-studio.com. Gmail/Outlook will silently filter most of your email to spam. Add a TXT record: v=spf1 include:spf.brevo.com ~all"
     );
-  } else if (dns.spf.value && !/brevo/.test(dns.spf.value)) {
+  } else if (dns.spf.value && !/include:spf\.brevo\.com/i.test(dns.spf.value)) {
+    // THIS is the user's exact issue: SPF exists but doesn't include Brevo.
+    // With DMARC p=quarantine, recipient servers will spam-filter or drop
+    // every email Brevo sends on behalf of the domain.
     w.push(
-      "SPF record exists but does NOT include Brevo (spf.brevo.com). Update your SPF record or Brevo will not be authorized to send from your domain."
+      "SPF record exists but does NOT include spf.brevo.com. Brevo is not authorized to send from your domain — recipient servers will spam-filter or drop every email Brevo sends. EDIT the existing SPF TXT record (do NOT add a second SPF record — that breaks SPF entirely) to add 'include:spf.brevo.com' inside the existing record. Example: v=spf1 include:spf.brevo.com include:spf.efwd.registrar-servers.com ~all"
     );
   }
 
-  if (!dns.dkimBrevo.found && !dns.dkimS1.found && !dns.dkimS2.found) {
+  // DKIM is configured if EITHER the modern CNAME form (brevo1/brevo2) OR
+  // the legacy TXT form (brevo._domainkey) is present.
+  const dkimConfigured =
+    dns.dkimBrevo1Cname.found ||
+    dns.dkimBrevo2Cname.found ||
+    dns.dkimBrevoTxt.found ||
+    dns.dkimS1.found ||
+    dns.dkimS2.found;
+  if (!dkimConfigured) {
     w.push(
-      "No Brevo DKIM record found. Log in to Brevo dashboard → Senders & IP → Authenticate your domain. Brevo will give you a TXT record to add at brevo._domainkey.phronesis-studio.com."
+      "No Brevo DKIM record found. Log in to Brevo dashboard → Senders & IP → Authenticate your domain. Brevo will give you CNAME records to add at brevo1._domainkey and brevo2._domainkey."
     );
   }
 
   if (dns.dmarc.found && dns.dmarc.value) {
     if (/p=reject/i.test(dns.dmarc.value) || /p=quarantine/i.test(dns.dmarc.value)) {
-      if (!dns.spf.found || (!dns.dkimBrevo.found && !dns.dkimS1.found && !dns.dkimS2.found)) {
+      const spfOk = dns.spf.found && /include:spf\.brevo\.com/i.test(dns.spf.value || "");
+      if (!spfOk || !dkimConfigured) {
         w.push(
-          "DMARC policy is set to reject/quarantine but SPF or DKIM is missing. Recipient servers will SILENTLY DROP your email — it won't even reach the spam folder. Either fix SPF/DKIM or relax DMARC to p=none while you set them up."
+          `DMARC policy is set to ${/p=reject/i.test(dns.dmarc.value) ? "reject" : "quarantine"} but ${!spfOk ? "SPF does not include Brevo" : "DKIM is not configured"}. Recipient servers will ${/p=reject/i.test(dns.dmarc.value) ? "SILENTLY DROP your email — it won't even reach the spam folder" : "spam-filter your email"}. Either fix SPF/DKIM or relax DMARC to p=none while you set them up.`
         );
       }
     }

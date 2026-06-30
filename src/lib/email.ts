@@ -16,7 +16,7 @@
  *                     forwarded to Gmail via ImprovMX)
  */
 import nodemailer from "nodemailer";
-import { resolveMx, resolveTxt } from "dns/promises";
+import { resolveMx, resolveTxt, resolveCname } from "dns/promises";
 
 let cachedTransport: nodemailer.Transporter | null = null;
 
@@ -158,9 +158,15 @@ export type DnsRecord = {
 export type DnsReport = {
   domain: string;
   spf: DnsRecord;
-  dkimBrevo: DnsRecord;   // brevo._domainkey
-  dkimS1: DnsRecord;      // s1._domainkey (Brevo's alternate)
-  dkimS2: DnsRecord;      // s2._domainkey (Brevo's alternate)
+  // Brevo's modern domain authentication uses CNAME records at
+  // brevo1._domainkey and brevo2._domainkey pointing to
+  // b1.<domain>.dkim.brevo.com and b2.<domain>.dkim.brevo.com.
+  // Older setups used a TXT record at brevo._domainkey. We check both.
+  dkimBrevo1Cname: DnsRecord;  // brevo1._domainkey CNAME → b1.<domain>.dkim.brevo.com
+  dkimBrevo2Cname: DnsRecord;  // brevo2._domainkey CNAME → b2.<domain>.dkim.brevo.com
+  dkimBrevoTxt: DnsRecord;     // brevo._domainkey TXT (legacy)
+  dkimS1: DnsRecord;           // s1._domainkey TXT (very old alternate)
+  dkimS2: DnsRecord;           // s2._domainkey TXT (very old alternate)
   dmarc: DnsRecord;
   mx: { exchange: string; priority: number }[];
 };
@@ -176,23 +182,52 @@ async function resolveTxtJoined(name: string): Promise<string | null> {
   }
 }
 
+async function resolveCnameString(name: string): Promise<string | null> {
+  try {
+    const record = await resolveCname(name);
+    if (record.length === 0) return null;
+    // resolveCname returns the canonical name without trailing dot —
+    // add it back for display consistency.
+    return record[0];
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Inspect the DNS records that govern email deliverability for the given
  * domain. Used by the admin diagnostic tool to show the user exactly what
  * is missing and provide copy-paste DNS record templates.
  *
- * For Brevo specifically:
- *   SPF:    v=spf1 include:spf.brevo.com ~all
- *   DKIM:   brevo._domainkey TXT  (Brevo generates the value in their dashboard)
- *   DMARC:  v=DMARC1; p=none; rua=mailto:ahmed@phronesis-studio.com
+ * For Brevo specifically (modern domain authentication):
+ *   SPF:        v=spf1 include:spf.brevo.com ~all  (TXT on @)
+ *   DKIM:       brevo1._domainkey CNAME → b1.<domain>.dkim.brevo.com
+ *               brevo2._domainkey CNAME → b2.<domain>.dkim.brevo.com
+ *   DMARC:      v=DMARC1; p=none; rua=mailto:...  (TXT on _dmarc)
+ *   Brevo code: brevo-code:<hash>  (TXT on @, used by Brevo to verify ownership)
+ *
+ * IMPORTANT: SPF must be a SINGLE TXT record with all `include:` directives
+ * inside it. Multiple SPF TXT records on the same name is invalid per RFC 7208
+ * and causes recipient servers to ignore SPF entirely.
  */
 export async function checkEmailDnsRecords(
   domain: string = "phronesis-studio.com"
 ): Promise<DnsReport> {
   const bareDomain = domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
-  const [spf, dkimBrevo, dkimS1, dkimS2, dmarc, mxRecords] = await Promise.all([
+  const [
+    rootTxtRecords,
+    dkimBrevo1Cname,
+    dkimBrevo2Cname,
+    dkimBrevoTxt,
+    dkimS1,
+    dkimS2,
+    dmarc,
+    mxRecords,
+  ] = await Promise.all([
     resolveTxtJoined(bareDomain),
+    resolveCnameString(`brevo1._domainkey.${bareDomain}`),
+    resolveCnameString(`brevo2._domainkey.${bareDomain}`),
     resolveTxtJoined(`brevo._domainkey.${bareDomain}`),
     resolveTxtJoined(`s1._domainkey.${bareDomain}`),
     resolveTxtJoined(`s2._domainkey.${bareDomain}`),
@@ -200,56 +235,103 @@ export async function checkEmailDnsRecords(
     resolveMx(bareDomain).catch(() => []),
   ]);
 
+  // rootTxtRecords may contain MULTIPLE TXT records (SPF + brevo-code + …).
+  // Find the SPF one specifically.
+  const spfRecord = rootTxtRecords && /v=spf1/.test(rootTxtRecords)
+    ? rootTxtRecords.split(" ").find(r => /v=spf1/.test(r)) || rootTxtRecords
+    : null;
+  // Actually: when resolveTxt returns multiple TXT records, our join
+  // concatenates them with spaces, which is wrong. We need to find which
+  // one starts with v=spf1. Let's be smarter:
+  let spfValue: string | null = null;
+  if (rootTxtRecords) {
+    // Each TXT record came back as a joined string; we joined those with
+    // " ". To find SPF, we look for the v=spf1 token anywhere.
+    const spfMatch = rootTxtRecords.match(/v=spf1[^"\n]*/i);
+    spfValue = spfMatch ? spfMatch[0] : null;
+  }
+  // Also: detect if there's a brevo-code TXT (separate from SPF).
+  const hasBrevoCode = rootTxtRecords && /brevo-code:/i.test(rootTxtRecords);
+  // Check that SPF includes spf.brevo.com
+  const spfIncludesBrevo = Boolean(spfValue && /include:spf\.brevo\.com/i.test(spfValue));
+
+  // Determine if any DKIM is configured (CNAME form preferred, TXT form legacy)
+  const dkimCnameFound = Boolean(dkimBrevo1Cname || dkimBrevo2Cname);
+  const dkimTxtFound = Boolean(dkimBrevoTxt && /v=DKIM1/.test(dkimBrevoTxt));
+
   return {
     domain: bareDomain,
     spf: {
       name: `${bareDomain}  TXT`,
-      found: Boolean(spf && /v=spf1/.test(spf)),
-      value: spf,
+      found: Boolean(spfValue),
+      value: spfValue,
       explanation:
-        "SPF (Sender Policy Framework) lists which mail servers are allowed to send email from your domain. Without SPF, Gmail/Outlook will silently filter most of your email to spam.",
-      recommendation: !spf
+        "SPF (Sender Policy Framework) lists which mail servers are allowed to send email from your domain. Without SPF including Brevo, Gmail/Outlook will silently filter most of your email to spam. IMPORTANT: SPF must be a SINGLE TXT record with all include: directives inside it — multiple SPF TXT records on the same name is invalid and causes SPF to be ignored entirely.",
+      recommendation: !spfValue
         ? `Add this TXT record at your DNS provider:
   Name: @  (or ${bareDomain})
   Value: v=spf1 include:spf.brevo.com ~all`
-        : spf && !/brevo/.test(spf)
-          ? `Your SPF record exists but doesn't include Brevo. Update it to:
-  v=spf1 include:spf.brevo.com ~all
+        : spfValue && !spfIncludesBrevo
+          ? `Your SPF record exists but does NOT include Brevo. EDIT the existing TXT record (do not add a second SPF record) to:
+  v=spf1 include:spf.brevo.com ${spfValue.replace(/^v=spf1\s*/, "")}
 
-Current: ${spf}`
+Current: ${spfValue}
+
+Example (if you also have Namecheap email forwarding):
+  v=spf1 include:spf.brevo.com include:spf.efwd.registrar-servers.com ~all`
           : undefined,
     },
-    dkimBrevo: {
-      name: `brevo._domainkey.${bareDomain}  TXT`,
-      found: Boolean(dkimBrevo && /v=DKIM1/.test(dkimBrevo)),
-      value: dkimBrevo,
+    dkimBrevo1Cname: {
+      name: `brevo1._domainkey.${bareDomain}  CNAME`,
+      found: Boolean(dkimBrevo1Cname),
+      value: dkimBrevo1Cname ? `${dkimBrevo1Cname}.` : null,
       explanation:
-        "DKIM (DomainKeys Identified Mail) signs your emails cryptographically. Brevo generates this key in their dashboard under Senders & IP → Domain authentication. Without DKIM, your email will fail DMARC alignment and may be rejected.",
-      recommendation: !dkimBrevo
+        "DKIM selector #1 — Brevo's modern domain authentication uses a CNAME record pointing to b1.<domain>.dkim.brevo.com. This is the recommended setup; Brevo generates it in their dashboard under Senders & IP → Authenticate your domain.",
+      recommendation: !dkimBrevo1Cname && !dkimTxtFound
         ? `Log in to Brevo dashboard → Senders & IP → Authenticate your domain.
-Brevo will give you a TXT record to add at:
-  Name: brevo._domainkey
-  Value: (Brevo generates this — copy it exactly)`
+Brevo will give you a CNAME record to add at:
+  Name: brevo1._domainkey
+  Value: b1.${bareDomain}.dkim.brevo.com.`
         : undefined,
+    },
+    dkimBrevo2Cname: {
+      name: `brevo2._domainkey.${bareDomain}  CNAME`,
+      found: Boolean(dkimBrevo2Cname),
+      value: dkimBrevo2Cname ? `${dkimBrevo2Cname}.` : null,
+      explanation:
+        "DKIM selector #2 — Brevo's modern domain authentication uses a CNAME record pointing to b2.<domain>.dkim.brevo.com. This is the recommended setup; Brevo generates it in their dashboard under Senders & IP → Authenticate your domain.",
+      recommendation: !dkimBrevo2Cname && !dkimTxtFound
+        ? `Log in to Brevo dashboard → Senders & IP → Authenticate your domain.
+Brevo will give you a CNAME record to add at:
+  Name: brevo2._domainkey
+  Value: b2.${bareDomain}.dkim.brevo.com.`
+        : undefined,
+    },
+    dkimBrevoTxt: {
+      name: `brevo._domainkey.${bareDomain}  TXT`,
+      found: dkimTxtFound,
+      value: dkimBrevoTxt,
+      explanation:
+        "Legacy DKIM TXT record (older Brevo setup). Most modern Brevo configurations use the CNAME form above instead; either is acceptable.",
     },
     dkimS1: {
       name: `s1._domainkey.${bareDomain}  TXT`,
       found: Boolean(dkimS1 && /v=DKIM1/.test(dkimS1)),
       value: dkimS1,
-      explanation: "Alternate DKIM selector Brevo sometimes uses.",
+      explanation: "Alternate DKIM selector some older Brevo setups use.",
     },
     dkimS2: {
       name: `s2._domainkey.${bareDomain}  TXT`,
       found: Boolean(dkimS2 && /v=DKIM1/.test(dkimS2)),
       value: dkimS2,
-      explanation: "Alternate DKIM selector Brevo sometimes uses.",
+      explanation: "Alternate DKIM selector some older Brevo setups use.",
     },
     dmarc: {
       name: `_dmarc.${bareDomain}  TXT`,
       found: Boolean(dmarc && /v=DMARC1/.test(dmarc)),
       value: dmarc,
       explanation:
-        "DMARC tells recipient servers what to do if SPF or DKIM fails. If you have a strict policy (p=reject) but SPF/DKIM aren't set up correctly, recipient servers will silently drop your email — it won't even reach the spam folder.",
+        "DMARC tells recipient servers what to do if SPF or DKIM fails. With p=quarantine, a failed SPF/DKIM check sends your email to spam. With p=reject, recipient servers silently drop it — it won't even reach the spam folder.",
       recommendation: !dmarc
         ? `Add this TXT record (start with p=none for monitoring):
   Name: _dmarc
