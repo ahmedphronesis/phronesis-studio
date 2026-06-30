@@ -32,6 +32,11 @@ async function generateMetadata({
   return {
     title: `${guide.grade} Mathematics · Bilingual Guide`,
     description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
+    openGraph: {
+      title: `${guide.grade} Mathematics · Bilingual Guide`,
+      description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${guide.grade} Mathematics Guide` }],
+    },
     alternates: {
       canonical: `/en/library/${slug}`,
       languages: { en: `/en/library/${slug}`, ar: `/ar/library/${slug}` },

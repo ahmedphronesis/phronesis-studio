@@ -33,9 +33,15 @@ async function generateMetadata({
   if (!project) return {};
 
   const t = await getTranslations({ locale, namespace: "workContent" });
+  const ogImage = slug === "history-of-philosophy" ? "/og-philosophy.png" : "/og-image.png";
   return {
     title: `${t(project.nameKey)} · Studio of Phronesis`,
     description: t(project.descKey),
+    openGraph: {
+      title: `${t(project.nameKey)} · Studio of Phronesis`,
+      description: t(project.descKey),
+      images: [{ url: ogImage, width: 1200, height: 630, alt: t(project.nameKey) }],
+    },
     alternates: {
       canonical: `/${locale}/work/${slug}`,
       languages: { en: `/en/work/${slug}`, ar: `/ar/work/${slug}` },

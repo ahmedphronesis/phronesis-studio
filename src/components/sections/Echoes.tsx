@@ -203,14 +203,23 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
 
         {/* History of Philosophy — A to Z
             Separate project card (NOT an Echoes season).
-            Always visible (no FadeUp/whileInView animation that could hide it).
-            Distinct gold-themed design to differentiate from Echoes teal cards. */}
-        <div className="max-w-4xl p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden">
-          {/* Decorative background mark */}
+            Always visible. Clickable — links to /work/history-of-philosophy.
+            Distinct gold-themed design with faded Raphael painting background. */}
+        <a
+          href={`/${locale}/work/history-of-philosophy`}
+          className="max-w-4xl block p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden group transition-colors hover:border-gold/60"
+        >
+          {/* Faded Raphael — School of Athens background */}
+          <img
+            src="/school-of-athens-faded.jpg"
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
+          />
+          {/* Cream overlay to ensure text readability over the painting */}
           <div
             aria-hidden
-            className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-[0.04]"
-            style={{ backgroundColor: "var(--gold)", transform: "translate(30%, -30%)" }}
+            className="absolute inset-0 bg-[#F5EFE4]/70 pointer-events-none"
           />
 
           <div className="relative">
@@ -226,7 +235,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-2 font-mono">
               {t("forthcomingSubtitle")}
             </p>
-            <h3 className="display text-ink text-3xl md:text-4xl leading-tight mb-3">
+            <h3 className="display text-ink text-3xl md:text-4xl leading-tight mb-3 group-hover:text-gold transition-colors">
               {t("forthcomingTitle")}
             </h3>
             {locale === "ar" && (
@@ -242,8 +251,16 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
               {t("forthcomingBody")}
             </p>
+
+            {/* Coming Soon indicator */}
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10">
+              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <span className="text-xs uppercase tracking-[0.2em] text-gold font-mono">
+                {locale === "ar" ? "قريبًا" : "Coming Soon!"}
+              </span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Season episode list — slides in when a season is clicked */}

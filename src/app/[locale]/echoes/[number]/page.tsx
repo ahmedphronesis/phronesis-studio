@@ -28,6 +28,11 @@ async function generateMetadata({
   return {
     title: `${title} · Echoes of Wisdom Episode ${epNumber}`,
     description: excerpt,
+    openGraph: {
+      title: `${title} · Echoes of Wisdom Episode ${epNumber}`,
+      description: excerpt,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
+    },
     alternates: {
       canonical: `/${locale}/echoes/${number}`,
       languages: { en: `/en/echoes/${number}`, ar: `/ar/echoes/${number}` },

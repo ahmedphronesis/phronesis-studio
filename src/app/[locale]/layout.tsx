@@ -103,6 +103,19 @@ export const metadata = {
     "bilingual education",
     "philosophy podcast",
     "systems design",
+    // Professors / Recommenders
+    "Rahimjon Abdugafurov", "Ashraf Hassan Mansour", "Salah A. Soliman",
+    "Rehmatullah Baridaie",
+    // Institutions
+    "Al-Azhar University", "Alexandria University", "Ain Al Khaleej Private School",
+    "Emory University", "Bibliotheca Alexandrina",
+    // Countries
+    "Egypt", "France", "USA", "Canada",
+    // Philosophers from podcast
+    "Plato", "Aristotle", "Socrates", "Ibn Rushd", "Averroes",
+    "Descartes", "Nietzsche", "Kant", "Spinoza", "Wittgenstein",
+    "Foucault", "Al-Farabi", "Al-Ghazali", "Ibn Sina", "Avicenna",
+    "Ibn Khaldun", "Stoicism",
   ],
   authors: [{ name: "Ahmed Ali" }],
   creator: "Ahmed Ali",

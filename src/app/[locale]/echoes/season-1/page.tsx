@@ -19,6 +19,11 @@ export async function generateMetadata({
   return {
     title: `${t("project1Name")} · ${t("project1Season")}`,
     description: locale === "ar" ? "جميع حلقات الموسم الأول من أصداء الحكمة" : "All episodes from Season 1 of Echoes of Wisdom",
+    openGraph: {
+      title: `${t("project1Name")} · ${t("project1Season")}`,
+      description: locale === "ar" ? "جميع حلقات الموسم الأول من أصداء الحكمة" : "All episodes from Season 1 of Echoes of Wisdom",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Echoes of Wisdom Season 1" }],
+    },
     alternates: {
       canonical: `/${locale}/echoes/season-1`,
       languages: { en: "/en/echoes/season-1", ar: "/ar/echoes/season-1" },
