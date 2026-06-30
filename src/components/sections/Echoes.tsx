@@ -403,7 +403,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                   {viewLang === "ar" ? selected.ar_full : selected.en_full}
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-border flex items-center justify-center">
+                <div className="mt-12 pt-8 border-t border-border flex items-center justify-center gap-4">
                   <button
                     onClick={() => setViewLang(viewLang === "en" ? "ar" : "en")}
                     className="inline-flex items-center gap-3 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-6 py-3 rounded-full font-medium"
@@ -411,6 +411,12 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                     <Globe size={16} strokeWidth={1.5} />
                     {viewLang === "en" ? t("readArabic") : t("readEnglish")}
                   </button>
+                  <a
+                    href={`/${locale}/echoes/${selected.number}`}
+                    className="inline-flex items-center gap-2 text-sm text-teal border border-teal/30 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
+                  >
+                    {locale === "ar" ? "رابط دائم" : "Permalink"}
+                  </a>
                 </div>
               </div>
             </motion.div>

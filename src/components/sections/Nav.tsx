@@ -20,10 +20,10 @@ export function Nav() {
     { href: "/echoes", label: t("echoes") },
     { href: "/library", label: t("library") },
     { href: "/method", label: t("method") },
+    { href: "/vouches", label: t("vouches") },
     { href: "/correspondence", label: t("correspondence") },
   ] as const;
 
-  // Vouches is accessible from the home page — no separate nav link needed
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
