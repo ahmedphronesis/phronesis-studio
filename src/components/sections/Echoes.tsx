@@ -91,7 +91,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
         style={{ background: "radial-gradient(ellipse 70% 60% at 30% 20%, rgba(15, 92, 94, 0.06), transparent 70%)" }}
       />
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-8 md:pb-12">
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-4 md:pb-6">
         <Reveal>
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-12 bg-teal/60" />
@@ -99,7 +99,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-4">
           <Reveal className="lg:col-span-7" delay={0.05}>
             <h2 className="display text-ink" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", lineHeight: 1.15 }}>
               {t("title")}{" "}<br className="br-rtl-hide" />
