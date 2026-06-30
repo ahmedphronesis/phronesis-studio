@@ -15,7 +15,6 @@ export function Nav() {
 
   const LINKS = [
     { href: "/", label: t("home") },
-    { href: "/vouches", label: t("vouches") },
     { href: "/about", label: t("studio") },
     { href: "/work", label: t("work") },
     { href: "/echoes", label: t("echoes") },

@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 
 const BASE_URL = "https://phronesis-studio.com";
 
-const STATIC_ROUTES = ["", "/about", "/work", "/echoes", "/library", "/method", "/correspondence", "/vouches"];
+const STATIC_ROUTES = ["", "/about", "/work", "/echoes", "/library", "/method", "/correspondence"];
 
 // Guide slugs (must match library/[slug]/page.tsx)
 const GUIDE_SLUGS = [
