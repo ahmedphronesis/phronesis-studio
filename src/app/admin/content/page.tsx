@@ -9,6 +9,7 @@ import {
   AlertCircle,
   Search,
   RotateCcw,
+  Trash2,
 } from "lucide-react";
 
 type Locale = "en" | "ar";
@@ -36,6 +37,7 @@ export default function ContentEditorPage() {
   const [draftJson, setDraftJson] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [resetting, setResetting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [search, setSearch] = useState("");
@@ -102,6 +104,48 @@ export default function ContentEditorPage() {
     setDraftJson(nsContent ? JSON.stringify(nsContent, null, 2) : "{}");
     setError(null);
     setSuccess(false);
+  }
+
+  /**
+   * Delete the DB override for the currently-selected namespace + locale.
+   * After deletion, the static JSON file (messages/{locale}.json) becomes
+   * the sole source of truth. Useful when the JSON has been updated with
+   * new content (e.g. pricing currency changes) and the DB has gone stale.
+   *
+   * Confirms before deleting because the DB row is unrecoverable.
+   * After successful deletion, reloads content from the server (which will
+   * now reflect JSON-only values) and updates the draft textarea.
+   */
+  async function onResetToDefaults() {
+    const label = NAMESPACES.find((n) => n.key === activeNs)?.label || activeNs;
+    const confirmed = window.confirm(
+      `Reset "${label}" (${locale.toUpperCase()}) to JSON defaults?\n\n` +
+      `This deletes the DB override for this namespace. The static JSON file ` +
+      `will become the source of truth. This cannot be undone.\n\n` +
+      `Use this when the JSON has been updated (e.g. pricing changes) and the ` +
+      `DB has stale values that are overriding the new JSON.`
+    );
+    if (!confirmed) return;
+
+    setResetting(true);
+    setError(null);
+    setSuccess(false);
+    try {
+      const res = await fetch(
+        `/api/admin/content?locale=${locale}&namespace=${activeNs}`,
+        { method: "DELETE" }
+      );
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || "Reset failed");
+      // Reload content from server so the draft reflects JSON-only state
+      await loadContent();
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 2500);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Reset failed");
+    } finally {
+      setResetting(false);
+    }
   }
 
   const filteredNamespaces = NAMESPACES.filter(
@@ -201,12 +245,25 @@ export default function ContentEditorPage() {
               </div>
               <div className="flex items-center gap-2">
                 <button
+                  onClick={onResetToDefaults}
+                  disabled={saving || resetting}
+                  className="inline-flex items-center gap-1.5 text-xs text-[#B5462A] hover:text-[#8B2E1A] px-3 py-2 rounded-lg hover:bg-[#B5462A]/8 transition-colors disabled:opacity-50"
+                  title="Delete the DB override for this namespace so the JSON file becomes the source of truth. Useful when the JSON has been updated with new content (e.g. pricing currency changes) and the DB has gone stale."
+                >
+                  {resetting ? (
+                    <Loader2 size={12} className="animate-spin" />
+                  ) : (
+                    <Trash2 size={12} />
+                  )}
+                  Reset to JSON defaults
+                </button>
+                <button
                   onClick={onReset}
                   disabled={saving}
                   className="inline-flex items-center gap-1.5 text-xs text-[#666] hover:text-[#1A1A1A] px-3 py-2 rounded-lg hover:bg-[#F5EFE4] transition-colors"
                 >
                   <RotateCcw size={12} />
-                  Reset
+                  Reset draft
                 </button>
                 <button
                   onClick={onSave}

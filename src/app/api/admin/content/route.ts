@@ -66,3 +66,42 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
   }
 }
+
+/**
+ * DELETE /api/admin/content?locale=en&namespace=contact
+ *
+ * Deletes a single namespace row for a locale. After deletion, the static
+ * JSON file (messages/{locale}.json) becomes the sole source of truth for
+ * that namespace — useful for "reset to defaults" when an admin edit has
+ * gone stale or when the JSON has been updated with new content (e.g.
+ * pricing currency changes) and the DB override needs to be cleared.
+ *
+ * Safe to call on a namespace that has no DB row — returns ok:true either
+ * way (idempotent).
+ */
+export async function DELETE(req: NextRequest) {
+  const authed = await isAuthenticated();
+  if (!authed) return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+
+  const locale = req.nextUrl.searchParams.get("locale");
+  const namespace = req.nextUrl.searchParams.get("namespace");
+  if (!locale || !namespace) {
+    return NextResponse.json(
+      { ok: false, error: "locale and namespace query params are required" },
+      { status: 400 }
+    );
+  }
+  if (!["en", "ar"].includes(locale)) {
+    return NextResponse.json({ ok: false, error: "Invalid locale" }, { status: 400 });
+  }
+
+  try {
+    await db.siteContent.deleteMany({
+      where: { locale, namespace },
+    });
+    return NextResponse.json({ ok: true, locale, namespace });
+  } catch (err) {
+    console.error("[/api/admin/content DELETE] error:", err);
+    return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
+  }
+}
