@@ -108,8 +108,8 @@ export type SoftwareQuotePayload = {
   scopeItems: string[]; // bullet list of in-scope features
   deliverables: string[]; // what will be delivered
   timelinePhases: { phase: string; duration: string; deliverable: string }[];
-  setupFee: string; // e.g. "$4,500"
-  annualLicense: string; // e.g. "$2,500 / year"
+  setupFee: string; // e.g. "8,000 AED"
+  annualLicense: string; // e.g. "12,000 AED / year"
   totalFirstYear: string;
   terms: string[]; // terms & conditions bullets
   validUntil: string;
@@ -187,7 +187,7 @@ export type TutoringQuotePayload = {
   perSession: string;
   packageSize: string; // "10 sessions"
   packagePrice: string;
-  packageSavings: string; // e.g. "Save $100"
+  packageSavings: string; // e.g. "Save 500 AED"
   includes: string[];
   validUntil: string;
 };
