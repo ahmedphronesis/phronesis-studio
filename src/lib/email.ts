@@ -121,12 +121,23 @@ export async function sendEmail(p: EmailPayload): Promise<EmailSendResult> {
 
 /**
  * Send via Brevo HTTP API (POST https://api.brevo.com/v3/smtp/email).
- * The API key is SMTP_PASS (same key works for both SMTP auth and API).
+ *
+ * API key resolution:
+ *   1. BREVO_API_KEY env var (preferred — generate in Brevo dashboard →
+ *      SMTP & API → API Keys → Generate)
+ *   2. SMTP_PASS env var (fallback — in SOME Brevo accounts the SMTP key
+ *      also works as an API key; if not, the API call will 401 and the
+ *      caller falls back to SMTP)
+ *
+ * If you're seeing SMTP-format responses ("250 2.0.0 OK: queued as...")
+ * in the admin diagnostic instead of "API 200 OK", it means the API key
+ * is not set or invalid, and the code is falling back to SMTP. Generate
+ * a Brevo API key and add it as BREVO_API_KEY in Vercel env vars.
  */
 async function sendEmailViaApi(p: EmailPayload): Promise<EmailSendResult> {
-  const apiKey = process.env.SMTP_PASS;
+  const apiKey = process.env.BREVO_API_KEY || process.env.SMTP_PASS;
   if (!apiKey) {
-    throw new Error("SMTP_PASS (Brevo API key) is not set");
+    throw new Error("No Brevo API key found. Set BREVO_API_KEY (preferred) or SMTP_PASS env var.");
   }
 
   const from = getFrom();
@@ -253,6 +264,66 @@ export async function verifySmtp(): Promise<{
     return {
       ok: false,
       message: err instanceof Error ? err.message : "SMTP verification failed",
+    };
+  }
+}
+
+/**
+ * Verify the Brevo API key works by calling the account endpoint.
+ * This is the preferred sending path — if the API key is invalid, emails
+ * will silently fall back to SMTP (which may have deliverability issues
+ * with Microsoft 365 domains).
+ *
+ * Returns ok=true if the API key is valid AND the account can send emails.
+ */
+export async function verifyBrevoApi(): Promise<{
+  ok: boolean;
+  message: string;
+  usingEnvVar: string;
+}> {
+  const apiKey = process.env.BREVO_API_KEY || process.env.SMTP_PASS;
+  const usingEnvVar = process.env.BREVO_API_KEY ? "BREVO_API_KEY" : "SMTP_PASS (fallback — may not work as API key)";
+
+  if (!apiKey) {
+    return {
+      ok: false,
+      message: "No API key found. Set BREVO_API_KEY env var (generate in Brevo dashboard → SMTP & API → API Keys).",
+      usingEnvVar,
+    };
+  }
+
+  try {
+    // Call the account endpoint to verify the API key without sending an email.
+    // GET https://api.brevo.com/v3/account returns account info if the key is valid.
+    const resp = await fetch("https://api.brevo.com/v3/account", {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "api-key": apiKey,
+      },
+    });
+
+    if (resp.ok) {
+      const data = await resp.json().catch(() => ({}));
+      const plan = data.plan?.find((p: { type: string }) => p.type === "free") ? "free" : "paid";
+      return {
+        ok: true,
+        message: `Brevo API key valid. Account: ${data.email || "unknown"} (${data.companyName || "no company"}), plan: ${plan}. Emails will be sent via the API (preferred path).`,
+        usingEnvVar,
+      };
+    } else {
+      const text = await resp.text().catch(() => "");
+      return {
+        ok: false,
+        message: `Brevo API returned HTTP ${resp.status}. ${text.slice(0, 200)}. The API key may be invalid or this is the SMTP password (not an API key). Generate a separate API key in Brevo dashboard → SMTP & API → API Keys, and add it as BREVO_API_KEY in Vercel. Without a valid API key, emails fall back to SMTP which has deliverability issues with Microsoft 365.`,
+        usingEnvVar,
+      };
+    }
+  } catch (err) {
+    return {
+      ok: false,
+      message: `API verification request failed: ${err instanceof Error ? err.message : "unknown error"}. Check network connectivity to api.brevo.com.`,
+      usingEnvVar,
     };
   }
 }
@@ -459,15 +530,16 @@ Brevo will give you a CNAME record to add at:
 
 
 /**
- * Check if SMTP is configured (used by admin Settings page to show status).
+ * Check if email is configured (used by admin Settings page to show status).
+ * Returns true if EITHER the Brevo API key OR SMTP credentials are present.
+ * The API path is preferred; SMTP is the fallback.
  */
 export function isEmailConfigured(): boolean {
-  return Boolean(
-    process.env.SMTP_HOST &&
-      process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.CONTACT_EMAIL
+  const hasApi = Boolean(process.env.BREVO_API_KEY || process.env.SMTP_PASS);
+  const hasSmtp = Boolean(
+    process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS
   );
+  return Boolean(hasApi || hasSmtp) && Boolean(process.env.CONTACT_EMAIL);
 }
 
 // ─── Templated emails ──────────────────────────────────────────────────────

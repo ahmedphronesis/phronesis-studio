@@ -4,6 +4,7 @@ import {
   sendEmail,
   isEmailConfigured,
   verifySmtp,
+  verifyBrevoApi,
   checkEmailDnsRecords,
   type DnsReport,
 } from "@/lib/email";
@@ -49,23 +50,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "No recipient email configured" }, { status: 400 });
     }
 
-    // ── Step 1: verify SMTP connection ─────────────────────────────
+    // ── Step 1: verify SMTP connection + Brevo API key ──────────────
     const smtpVerification = await verifySmtp();
+    const apiVerification = await verifyBrevoApi();
 
     // ── Step 2: parallel — send test email + DNS check ─────────────
-    // We still attempt the send even if verifySmtp failed, because the
-    // failure message is useful to surface alongside the DNS report.
+    // Send the test email via whichever path is available. sendEmail()
+    // tries the API first, falls back to SMTP. We attempt the send even
+    // if both verifications failed, because the failure messages are
+    // useful to surface alongside the DNS report.
     const [sendResult, dnsReport] = await Promise.all([
-      smtpVerification.ok
-        ? sendEmail({
-            to,
-            subject: "Test email from Studio of Phronesis admin",
-            text: "This is a test email from your admin portal. If you received this, SMTP is working correctly.",
-            html: `<!DOCTYPE html>
+      sendEmail({
+        to,
+        subject: "Test email from Studio of Phronesis admin",
+        text: "This is a test email from your admin portal. If you received this, email delivery is working correctly.",
+        html: `<!DOCTYPE html>
 <html><body style="font-family:Calibri,sans-serif;color:#1A1A1A;background:#F5EFE4;padding:40px;">
   <div style="max-width:600px;margin:0 auto;background:#FFFFFF;padding:32px;border-radius:8px;border-top:4px solid #0F5C5E;">
-    <h1 style="font-family:Cambria,Georgia,serif;color:#1A1A1A;font-weight:normal;margin:0 0 16px;">SMTP test successful</h1>
-    <p style="color:#4A4A4A;font-size:15px;">This is a test email from your admin portal. If you received this, your Brevo SMTP relay is correctly configured.</p>
+    <h1 style="font-family:Cambria,Georgia,serif;color:#1A1A1A;font-weight:normal;margin:0 0 16px;">Email test successful</h1>
+    <p style="color:#4A4A4A;font-size:15px;">This is a test email from your admin portal. If you received this, your email pipeline is correctly configured.</p>
     <p style="color:#4A4A4A;font-size:15px;">You can now:</p>
     <ul style="color:#4A4A4A;font-size:14px;">
       <li>Receive lead notifications at <strong>${process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com"}</strong> (forwarded to your Gmail via ImprovMX)</li>
@@ -76,19 +79,27 @@ export async function POST(req: NextRequest) {
     <p style="color:#8A8A8A;font-size:12px;">Sent from the admin portal at phronesis-studio.com</p>
   </div>
 </body></html>`,
-          })
-        : Promise.resolve(null),
+      }).catch((err) => {
+        console.error("[email-test] sendEmail failed:", err);
+        return null;
+      }),
       checkEmailDnsRecords("phronesis-studio.com"),
     ]);
 
     // ── Step 3: build the report ───────────────────────────────────
     const report = {
+      api: apiVerification,
       smtp: smtpVerification,
       sent: sendResult
         ? {
             to,
             messageId: sendResult.messageId,
             smtpResponse: sendResult.response,
+            // Flag whether the API path was used (vs SMTP fallback).
+            // If response starts with "API", the API path succeeded.
+            // If response starts with "250" or contains "queued as",
+            // the SMTP fallback was used (API key missing or invalid).
+            sentViaApi: sendResult.response.startsWith("API"),
             accepted: sendResult.accepted,
             rejected: sendResult.rejected,
             brevoLogsUrl: "https://app.brevo.com/transactional/logs",
@@ -97,7 +108,7 @@ export async function POST(req: NextRequest) {
       dns: dnsReport,
       // Top-level summary flags the most common failure modes so the
       // admin UI can surface them prominently without parsing the full report.
-      warnings: buildWarnings(smtpVerification, sendResult, dnsReport),
+      warnings: buildWarnings(apiVerification, smtpVerification, sendResult, dnsReport),
     };
 
     return NextResponse.json({ ok: true, report });
@@ -111,19 +122,35 @@ export async function POST(req: NextRequest) {
 }
 
 function buildWarnings(
+  api: { ok: boolean; message: string; usingEnvVar: string },
   smtp: { ok: boolean; message: string },
   send: {
     messageId: string | null;
     accepted: string[];
     rejected: string[];
+    sentViaApi?: boolean;
+    smtpResponse?: string;
   } | null,
   dns: DnsReport
 ): string[] {
   const w: string[] = [];
 
+  // PRIORITY 1: API key status — this is the most actionable warning.
+  // If the API key is missing/invalid, emails fall back to SMTP, which has
+  // deliverability issues with Microsoft 365 / Outlook domains.
+  if (!api.ok) {
+    w.push(
+      "Brevo API key is not configured or invalid. Emails are falling back to the SMTP relay, which has known deliverability issues with Microsoft 365 / Outlook domains (emails may be silently dropped). FIX: Log in to Brevo dashboard → SMTP & API → API Keys → Generate a new key. Add it as BREVO_API_KEY in Vercel → Settings → Environment Variables → Redeploy. This is the single most important fix for the 'email sent but client never received' issue."
+    );
+  } else if (send && send.sentViaApi === false) {
+    w.push(
+      "Email was sent via SMTP fallback instead of the API. The API key may be invalid or the API endpoint is unreachable. Check the API verification status above."
+    );
+  }
+
   if (!smtp.ok) {
     w.push(
-      "SMTP connection failed. The admin portal cannot reach Brevo. Check SMTP_HOST, SMTP_USER, SMTP_PASS env vars in Vercel."
+      "SMTP connection also failed (this is the fallback path). If the API is working, this is fine — emails will go through the API. If neither works, no emails can be sent."
     );
   }
 
