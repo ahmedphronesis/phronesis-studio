@@ -171,7 +171,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-ink-dim mb-3 font-mono">{t("engagementLabel")}</p>
-                <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("engagementBody")}</p>
+                <p className="body-serif text-sm text-ink-soft leading-relaxed whitespace-pre-line">{t("engagementBody")}</p>
               </div>
             </div>
           </Reveal>
