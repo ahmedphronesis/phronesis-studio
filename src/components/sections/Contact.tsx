@@ -6,16 +6,27 @@ import { toast } from "sonner";
 import { useTranslations, useLocale } from "next-intl";
 import { ArrowUpRight, Check, Loader2, Linkedin, MapPin } from "lucide-react";
 import { Reveal, Magnetic } from "../anim";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const BUDGET_KEYS = ["budget1", "budget2", "budget3", "budget4", "budget5", "budget6"] as const;
 
 export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  // Budget is tracked in React state because the shadcn Select (Radix UI)
+  // doesn't render a native <select> and therefore isn't picked up by
+  // FormData. The value is synced into the form payload in onSubmit.
+  const [budget, setBudget] = useState<string>("");
   const t = useTranslations("contact");
   const locale = useLocale();
   const isRTL = locale === "ar";
-  const budgets = BUDGET_KEYS.map((k) => t(k));
+  const budgets = BUDGET_KEYS.map((k) => ({ key: k, label: t(k) }));
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,7 +38,7 @@ export function Contact() {
       email: (data.get("email") as string)?.trim(),
       company: (data.get("company") as string)?.trim() || null,
       gap: (data.get("gap") as string)?.trim(),
-      budget: (data.get("budget") as string) || null,
+      budget: budget || null,
       website: (data.get("website") as string)?.trim() || "", // honeypot
     };
     try {
@@ -39,6 +50,7 @@ export function Contact() {
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || "Submission failed");
       setDone(true);
+      setBudget("");
       form.reset();
       toast.success(t("toastSuccess"), { description: t("toastSuccessDesc") });
     } catch (err) {
@@ -81,7 +93,7 @@ export function Contact() {
           >{t("intro")}</p>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           <Reveal className="lg:col-span-8" delay={0.1}>
             <form onSubmit={onSubmit} className="space-y-7">
               {/* Honeypot — hidden from humans, visible to bots */}
@@ -108,18 +120,62 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="budget" className="block text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{t("fieldBudget")}</label>
-                <select
-                  id="budget"
-                  name="budget"
-                  defaultValue=""
-                  className="w-full bg-paper-warm/60 border border-border rounded-lg px-4 py-3.5 text-ink focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/40 transition-colors appearance-none cursor-pointer body-serif"
-                >
-                  <option value="" disabled>{t("fieldBudgetPlaceholder")}</option>
-                  {budgets.map((b) => (
-                    <option key={b} value={b}>{b}</option>
-                  ))}
-                </select>
+                <label className="block text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{t("fieldBudget")}</label>
+                {/*
+                  shadcn Select (Radix UI) — replaces native <select>.
+                  Why: native selects can't limit dropdown height, show
+                  placeholder only in the closed state, or be styled
+                  consistently across browsers. Radix gives full control.
+
+                  Key behaviors:
+                  - Placeholder text is shown ONLY in the trigger (via
+                    SelectValue placeholder prop), NOT as a redundant
+                    first option in the dropdown list.
+                  - SelectContent has max-h to limit visible height;
+                    overflow-y-auto makes it scroll if needed.
+                  - Trigger and items are styled to match the existing
+                    form field design language (bg-paper-warm, border-border,
+                    rounded-lg, body-serif, teal focus ring).
+                  - Width constrained to max-w-sm for visual balance.
+                */}
+                <Select value={budget} onValueChange={setBudget}>
+                  <SelectTrigger
+                    className="
+                      w-full max-w-sm
+                      bg-paper-warm/60 border-border
+                      rounded-lg px-4 py-3.5 h-auto
+                      text-ink body-serif text-sm
+                      data-[placeholder]:text-ink-dim/60
+                      focus:ring-1 focus:ring-teal/40 focus:border-teal
+                      hover:border-teal/30
+                      transition-colors cursor-pointer
+                    "
+                  >
+                    <SelectValue placeholder={t("fieldBudgetPlaceholder")} />
+                  </SelectTrigger>
+                  <SelectContent
+                    className="
+                      bg-paper border-border rounded-lg
+                      text-ink shadow-lg
+                      max-h-[260px] overflow-y-auto
+                    "
+                  >
+                    {budgets.map(({ key, label }) => (
+                      <SelectItem
+                        key={key}
+                        value={label}
+                        className="
+                          body-serif text-sm text-ink
+                          focus:bg-paper-warm focus:text-teal
+                          rounded-sm cursor-pointer
+                          py-2.5
+                        "
+                      >
+                        {label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="pt-2">
@@ -171,7 +227,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-ink-dim mb-3 font-mono">{t("engagementLabel")}</p>
-                <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("engagementBody")}</p>
+                <p className="body-serif text-sm text-ink-soft leading-relaxed whitespace-pre-line">{t("engagementBody")}</p>
               </div>
             </div>
           </Reveal>
