@@ -66,7 +66,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6 lg:gap-7">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-7 ml-10 lg:ml-16">
           {LINKS.map((l) => {
             const isActive = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
             return (
