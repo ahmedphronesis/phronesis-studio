@@ -124,6 +124,14 @@ export function Hero() {
             >
               {t("subtitle")}
             </p>
+
+            {/* Positioning statement — plain-language, answers "what does this person do?"
+                Placed directly below the philosophical subtitle so a first-time visitor
+                can understand the offer in under 5 seconds, without compromising the
+                scholarly identity of the site. */}
+            <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mt-4 max-w-2xl">
+              {t("positioning")}
+            </p>
           </motion.div>
 
           {/* Two-column split — body left, Greek motto right */}
