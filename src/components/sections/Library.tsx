@@ -34,7 +34,9 @@ export function Library() {
             </h2>
           </Reveal>
           <Reveal className="lg:col-span-5 lg:pt-4" delay={0.1}>
-            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{t("intro")}</p>
+            <div className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+              {renderIntro(t("intro"), isRTL)}
+            </div>
           </Reveal>
         </div>
       </div>
@@ -114,4 +116,56 @@ export function Library() {
       </div>
     </section>
   );
+}
+
+/**
+ * Render the Library intro text with:
+ *   - Paragraph breaks (split on \n\n)
+ *   - Scholar name highlighting: [[Name]] markers are rendered in gold,
+ *     italic, Cormorant Garamond (English) or gold + Amiri (Arabic).
+ *     This gives the scholar names a gilded, manuscript-quality appearance
+ *     matching the scholarly aesthetic of the site.
+ */
+function renderIntro(text: string, isRTL: boolean) {
+  const paragraphs = text.split("\n\n");
+  return paragraphs.map((para, i) => {
+    // Split by [[...]] markers and render scholar names in gold italic
+    const parts = para.split(/(\[\[[^\]]+\]\])/g);
+    const rendered = parts.map((part, j) => {
+      const match = part.match(/^\[\[([^\]]+)\]\]$/);
+      if (match) {
+        // Scholar name — render in gold, italic, display font
+        const name = match[1];
+        if (isRTL) {
+          // Arabic: gold, Amiri font (Arabic doesn't use italic)
+          return (
+            <span
+              key={j}
+              className="text-gold"
+              style={{ fontFamily: "var(--font-amiri)", fontWeight: 700 }}
+            >
+              {name}
+            </span>
+          );
+        }
+        // English: gold, italic, Cormorant Garamond
+        return (
+          <span
+            key={j}
+            className="text-gold italic"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+          >
+            {name}
+          </span>
+        );
+      }
+      return part;
+    });
+
+    return (
+      <p key={i} className={i > 0 ? "mt-4" : undefined}>
+        {rendered}
+      </p>
+    );
+  });
 }
