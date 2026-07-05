@@ -32,7 +32,7 @@ export const SUBJECTS: Subject[] = [
   { slug: "agricultural-sciences", key: "subjectAgriculture", live: false, image: "/library/agricultural-sciences.jpg", imageAlt: "Jean-François Millet · The Gleaners" },
   { slug: "economics-and-political-science", key: "subjectEconomics", live: false, image: "/library/economics-and-political-science.jpg", imageAlt: "Émile Friant · La Discussion politique" },
   { slug: "history", key: "subjectHistory", live: false, image: "/library/history.jpg", imageAlt: "Jan Davidsz. de Heem · Still Life with Books" },
-  { slug: "literature-and-languages", key: "subjectLiterature", live: false },
+  { slug: "literature-and-languages", key: "subjectLiterature", live: false, image: "/library/literature-and-languages.jpg", imageAlt: "Leonid Pasternak · The Passion of Creation" },
   { slug: "mathematics", key: "subjectMath", live: true },
   { slug: "natural-sciences", key: "subjectScience", live: false },
   { slug: "permaculture", key: "subjectPermaculture", live: false },
