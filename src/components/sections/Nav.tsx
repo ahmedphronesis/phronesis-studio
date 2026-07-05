@@ -90,7 +90,7 @@ export function Nav() {
           <LanguageSwitcher />
           <Link
             href="/correspondence"
-            className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-2.5 rounded-full font-medium"
+            className="inline-flex items-center gap-2 text-xs lg:text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-4 lg:px-5 py-2 lg:py-2.5 rounded-full font-medium whitespace-nowrap"
           >
             {t("begin")}
           </Link>
@@ -134,7 +134,7 @@ export function Nav() {
                 <Link
                   href="/correspondence"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center text-sm text-paper bg-teal px-5 py-2.5 rounded-full font-medium"
+                  className="inline-flex items-center text-sm text-paper bg-teal px-5 py-2.5 rounded-full font-medium whitespace-nowrap"
                 >
                   {t("begin")}
                 </Link>
