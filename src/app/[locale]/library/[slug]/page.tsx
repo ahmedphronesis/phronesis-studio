@@ -4,20 +4,29 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
-import { ArrowRight, ArrowLeft, Download, FileText } from "lucide-react";
+import { ArrowRight, ArrowLeft, Download, FileText, BookOpen, Sparkles } from "lucide-react";
+import { SUBJECTS, MATH_GUIDES, getSubjectBySlug } from "@/lib/library-subjects";
 
 export const runtime = "nodejs";
 
-// Guide data (mirrors the Library component)
-const GUIDES = [
-  { slug: "grade-1-mathematics", grade: "Grade 1", gradeArabic: "الصف الأول", cover: "/guides/grade-1-mathematics-cover.png", pdf: "/guides/grade-1-mathematics.pdf", pages: 21, units: 6, modules: 18, highlight: "Foundations" },
-  { slug: "grade-2-mathematics", grade: "Grade 2", gradeArabic: "الصف الثاني", cover: "/guides/grade-2-mathematics-cover.png", pdf: "/guides/grade-2-mathematics.pdf", pages: 21, units: 7, modules: 22, highlight: "Real-Life Connections" },
-  { slug: "grade-3-mathematics", grade: "Grade 3", gradeArabic: "الصف الثالث", cover: "/guides/grade-3-mathematics-cover.png", pdf: "/guides/grade-3-mathematics.pdf", pages: 27, units: 6, modules: 20, highlight: "Real-Life Applications" },
-  { slug: "grade-4-mathematics", grade: "Grade 4", gradeArabic: "الصف الرابع", cover: "/guides/grade-4-mathematics-cover.png", pdf: "/guides/grade-4-mathematics.pdf", pages: 31, units: 7, modules: 21, highlight: "Real-Life Applications" },
-];
+// Individual guide slugs (for /library/grade-1-mathematics etc.)
+const GUIDE_SLUGS = MATH_GUIDES.map((g) => ({
+  slug: g.grade.toLowerCase().replace(/\s+/g, "-") + "-mathematics",
+  guide: g,
+}));
 
 export async function generateStaticParams() {
-  return GUIDES.map((g) => ({ slug: g.slug }));
+  // Subject slugs (e.g. /library/mathematics, /library/history)
+  const subjectParams = SUBJECTS.map((s) => ({ slug: s.slug }));
+  // Guide slugs (e.g. /library/grade-1-mathematics)
+  // Note: these use the actual PDF filenames which already exist in the filesystem
+  const guideParams = [
+    { slug: "grade-1-mathematics" },
+    { slug: "grade-2-mathematics" },
+    { slug: "grade-3-mathematics" },
+    { slug: "grade-4-mathematics" },
+  ];
+  return [...subjectParams, ...guideParams];
 }
 
 async function generateMetadata({
@@ -25,132 +34,250 @@ async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const guide = GUIDES.find((g) => g.slug === slug);
-  if (!guide) return {};
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "library" });
 
-  return {
-    title: `${guide.grade} Mathematics · Bilingual Guide`,
-    description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
-    openGraph: {
+  // Check if this is a subject page
+  const subj = getSubjectBySlug(slug);
+  if (subj) {
+    const title = t(subj.key);
+    const description = t(`${subj.key}Desc`);
+    return {
+      title: `${title} · The Library`,
+      description,
+      openGraph: {
+        title: `${title} · The Library`,
+        description,
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
+      },
+      alternates: {
+        canonical: `/${locale}/library/${slug}`,
+        languages: { en: `/en/library/${slug}`, ar: `/ar/library/${slug}` },
+      },
+    };
+  }
+
+  // Check if this is a guide page
+  const guide = MATH_GUIDES.find((g) => g.pdf === `/guides/${slug}.pdf`);
+  if (guide) {
+    return {
       title: `${guide.grade} Mathematics · Bilingual Guide`,
       description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${guide.grade} Mathematics Guide` }],
-    },
-    alternates: {
-      canonical: `/en/library/${slug}`,
-      languages: { en: `/en/library/${slug}`, ar: `/ar/library/${slug}` },
-    },
-  };
+      openGraph: {
+        title: `${guide.grade} Mathematics · Bilingual Guide`,
+        description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
+        images: [{ url: guide.cover, width: 1200, height: 630, alt: `${guide.grade} Mathematics Guide` }],
+      },
+      alternates: {
+        canonical: `/${locale}/library/${slug}`,
+        languages: { en: `/en/library/${slug}`, ar: `/ar/library/${slug}` },
+      },
+    };
+  }
+
+  return {};
 }
 
-export default async function GuidePage({
+export default async function LibrarySlugPage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const guide = GUIDES.find((g) => g.slug === slug);
-  if (!guide) notFound();
-
   const isAR = locale === "ar";
   const t = await getTranslations({ locale, namespace: "library" });
-  const gradeLabel = isAR ? guide.gradeArabic : guide.grade;
 
-  return (
-    <MouseProvider>
-      <div className="min-h-screen flex flex-col bg-background">
-        <Nav />
-        <main className="flex-1">
-          <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
-            <a
-              href={`/${locale}/library`}
-              className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
-            >
-              {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
-              {isAR ? "المكتبة" : "The Library"}
-            </a>
+  // Check if this is a subject page
+  const subj = getSubjectBySlug(slug);
+  if (subj) {
+    const title = t(subj.key);
+    const description = t(`${subj.key}Desc`);
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-              {/* Cover image */}
-              <div className="lg:col-span-5">
-                <div className="relative rounded-2xl overflow-hidden border border-border shadow-md">
-                  <img
-                    src={guide.cover}
-                    alt={`${gradeLabel} Mathematics cover`}
-                    className="w-full h-auto"
-                  />
+    return (
+      <MouseProvider>
+        <div className="min-h-screen flex flex-col bg-background">
+          <Nav />
+          <main className="flex-1">
+            <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
+              <a
+                href={`/${locale}/library`}
+                className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
+              >
+                {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
+                {isAR ? "كل المواد" : "All Subjects"}
+              </a>
+
+              <div className="mb-10 pb-8 border-b border-border">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${subj.live ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"}`}>
+                    <BookOpen size={22} strokeWidth={1.5} />
+                  </div>
+                  <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"}`}>
+                    {subj.live ? t("liveLabel") : t("forthcomingLabel")}
+                  </span>
                 </div>
-              </div>
-
-              {/* Details */}
-              <div className="lg:col-span-7">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-2">
-                  {isAR ? "دليل تعليمي ثنائي اللغة" : "Bilingual Learning Guide"}
-                </p>
-                <h1 className="display text-ink text-3xl md:text-5xl leading-[1.1] mb-4">
-                  {gradeLabel} {isAR ? "الرياضيات" : "Mathematics"}
+                <h1 className="display text-ink text-4xl md:text-6xl leading-[1.1] mb-4" style={{ fontFamily: "var(--font-cormorant)" }}>
+                  {title}
                 </h1>
-                <p className="body-serif text-sm text-ink-dim mb-6 italic">
-                  {guide.highlight}
+                <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-3xl">
+                  {description}
                 </p>
+              </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  <div className="p-4 rounded-xl bg-paper-warm border border-border text-center">
-                    <p className="display text-teal text-2xl md:text-3xl">{guide.pages}</p>
-                    <p className="text-[10px] uppercase tracking-wider text-ink-dim font-mono mt-1">{t("pages")}</p>
+              {subj.slug === "mathematics" && subj.live ? (
+                <div>
+                  <h2 className="display text-ink text-2xl md:text-3xl mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
+                    {isAR ? "الدلائل المتاحة" : "Available Guides"}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    {MATH_GUIDES.map((g) => (
+                      <a
+                        key={g.grade}
+                        href={g.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        className="group block h-full rounded-2xl bg-paper border border-border hover:border-teal/50 transition-colors overflow-hidden"
+                      >
+                        <div className="relative aspect-[3/4] overflow-hidden bg-paper-warm">
+                          <img src={g.cover} alt={`${g.grade} Mathematics cover`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                          <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-teal/90 text-paper flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                            <Download size={16} strokeWidth={2} />
+                          </div>
+                          <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full bg-paper/90 backdrop-blur-sm border border-teal/30">
+                            <span className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono">{g.highlight}</span>
+                          </div>
+                        </div>
+                        <div className="p-5 md:p-6">
+                          <div className="flex items-baseline justify-between mb-2">
+                            <h3 className="display text-ink text-2xl" style={{ fontFamily: "var(--font-cormorant)" }}>{g.grade}</h3>
+                            <span className="text-sm text-ink-dim" style={{ fontFamily: "var(--font-amiri)" }} dir="rtl" lang="ar">{g.gradeArabic}</span>
+                          </div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-teal mb-3 font-mono">Mathematics</p>
+                          <p className="body-serif text-[11px] text-ink-dim leading-relaxed mb-4">{t("subtitle")}</p>
+                          <div className="flex items-center gap-3 text-[10px] text-ink-dim pt-3 border-t border-border">
+                            <span>{g.pages} {t("pages")}</span>
+                            <span className="text-teal/40">·</span>
+                            <span>{g.units} {t("units")}</span>
+                            <span className="text-teal/40">·</span>
+                            <span>{g.modules} {t("modules")}</span>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between">
+                            <span className="inline-flex items-center gap-2 text-xs text-teal group-hover:text-teal-bright transition-colors">
+                              <Download size={12} />
+                              <span className="link-underline">{t("downloadPdf")}</span>
+                            </span>
+                            <span className="text-[10px] text-ink-dim uppercase tracking-[0.18em] font-mono">{t("free")}</span>
+                          </div>
+                        </div>
+                      </a>
+                    ))}
                   </div>
-                  <div className="p-4 rounded-xl bg-paper-warm border border-border text-center">
-                    <p className="display text-teal text-2xl md:text-3xl">{guide.units}</p>
-                    <p className="text-[10px] uppercase tracking-wider text-ink-dim font-mono mt-1">{t("units")}</p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-paper-warm border border-border text-center">
-                    <p className="display text-teal text-2xl md:text-3xl">{guide.modules}</p>
-                    <p className="text-[10px] uppercase tracking-wider text-ink-dim font-mono mt-1">{t("modules")}</p>
+
+                  <div className="mt-10 p-6 md:p-8 rounded-2xl border border-teal/30 bg-gradient-to-br from-teal/5 to-transparent">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-teal/15 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                        <Sparkles size={18} strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <h3 className="display text-ink text-xl md:text-2xl mb-2" style={{ fontFamily: "var(--font-cormorant)" }}>{t("comingSoon")}</h3>
+                        <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("comingSoonBody")}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              ) : (
+                <div className="max-w-2xl">
+                  <div className="p-8 md:p-10 rounded-2xl border border-border bg-paper-warm/50">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-full bg-ink-dim/5 border border-border flex items-center justify-center text-ink-dim/50 flex-shrink-0">
+                        <Sparkles size={22} strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <h2 className="display text-ink text-2xl md:text-3xl mb-2" style={{ fontFamily: "var(--font-cormorant)" }}>
+                          {t("forthcomingLabel")}
+                        </h2>
+                        <p className="body-serif text-sm text-ink-soft leading-relaxed">{t("comingSoonBody")}</p>
+                      </div>
+                    </div>
+                    <a href={`/${locale}/correspondence`} className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors whitespace-nowrap">
+                      <BookOpen size={14} />
+                      <span className="link-underline">{t("requestAccess")}</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          </main>
+          <Footer />
+        </div>
+      </MouseProvider>
+    );
+  }
 
-                {/* Download button */}
-                <a
-                  href={guide.pdf}
-                  download
-                  className="inline-flex items-center gap-3 bg-teal hover:bg-teal-bright text-paper font-medium px-7 py-4 rounded-full transition-all duration-300 glow-teal"
-                >
-                  <Download size={18} />
-                  {t("downloadPdf")} · {t("free")}
-                </a>
+  // Check if this is a guide page
+  const guide = MATH_GUIDES.find((g) => g.pdf === `/guides/${slug}.pdf`);
+  if (guide) {
+    return (
+      <MouseProvider>
+        <div className="min-h-screen flex flex-col bg-background">
+          <Nav />
+          <main className="flex-1">
+            <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12 max-w-4xl">
+              <a
+                href={`/${locale}/library/mathematics`}
+                className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
+              >
+                {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
+                {isAR ? "الرياضيات" : "Mathematics"}
+              </a>
 
-                <p className="body-serif text-xs text-ink-dim mt-4">
-                  {isAR
-                    ? "دليل ثنائي اللغة (العربية والإنجليزية) للمبتدئ المطلق، مهيّأ للاستخدام الصفّي المباشر."
-                    : "Bilingual (English & Arabic) guide for absolute beginners, structured for direct classroom use."}
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div>
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-paper-warm">
+                    <img src={guide.cover} alt={`${guide.grade} Mathematics cover`} className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-2">Mathematics</p>
+                  <h1 className="display text-ink text-4xl md:text-5xl leading-[1.1] mb-3" style={{ fontFamily: "var(--font-cormorant)" }}>
+                    {guide.grade}
+                  </h1>
+                  <p className="display text-ink-dim text-xl mb-6" style={{ fontFamily: "var(--font-amiri)" }} dir="rtl" lang="ar">
+                    {guide.gradeArabic}
+                  </p>
+                  <p className="body-serif text-base text-ink-soft leading-relaxed mb-6">{t("subtitle")}</p>
+
+                  <div className="flex items-center gap-4 text-sm text-ink-dim mb-6 pb-6 border-b border-border">
+                    <span>{guide.pages} {t("pages")}</span>
+                    <span className="text-teal/40">·</span>
+                    <span>{guide.units} {t("units")}</span>
+                    <span className="text-teal/40">·</span>
+                    <span>{guide.modules} {t("modules")}</span>
+                  </div>
+
+                  <div className="flex items-center gap-3 mb-4">
+                    <a
+                      href={guide.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-6 py-3 rounded-full transition-colors"
+                    >
+                      <Download size={16} />
+                      {t("downloadPdf")}
+                    </a>
+                    <span className="text-[10px] text-ink-dim uppercase tracking-[0.18em] font-mono">{t("free")}</span>
+                  </div>
+                </div>
               </div>
             </div>
+          </main>
+          <Footer />
+        </div>
+      </MouseProvider>
+    );
+  }
 
-            {/* Other guides */}
-            <div className="mt-16 pt-8 border-t border-border">
-              <h3 className="display text-ink text-xl md:text-2xl mb-4">
-                {isAR ? "أدلة أخرى" : "Other Guides"}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {GUIDES.filter((g) => g.slug !== slug).map((g) => (
-                  <a
-                    key={g.slug}
-                    href={`/${locale}/library/${g.slug}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border hover:border-teal/40 hover:text-teal transition-colors text-sm"
-                  >
-                    <FileText size={14} />
-                    {isAR ? g.gradeArabic : g.grade}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    </MouseProvider>
-  );
+  notFound();
 }
