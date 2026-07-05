@@ -37,7 +37,7 @@ export const SUBJECTS: Subject[] = [
   { slug: "natural-sciences", key: "subjectScience", live: false, image: "/library/natural-sciences.jpg", imageAlt: "Ala ad-Din Mansur-Shirazi · Astronomers at the Istanbul Observatory" },
   { slug: "permaculture", key: "subjectPermaculture", live: false, image: "/library/permaculture.jpg", imageAlt: "Franz von Lenbach · The Summer Meadow" },
   { slug: "psychology", key: "subjectPsychology", live: false, image: "/library/psychology.jpg", imageAlt: "Leonardo da Vinci · Study of horse from his journals" },
-  { slug: "theology", key: "subjectTheology", live: false },
+  { slug: "theology", key: "subjectTheology", live: false, image: "/library/theology.jpg", imageAlt: "The Meeting of Rumi and Shams of Tabriz" },
 ];
 
 // Mathematics guides (the only live subject with content for now)
