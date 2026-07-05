@@ -107,44 +107,68 @@ export default async function LibrarySlugPage({
                 {isAR ? "كل المواد" : "All Subjects"}
               </a>
 
-              {/* Header image (painting/photo) — same treatment as History of Philosophy.
-                  Rendered full-width with gold border, rounded corners, soft shadow,
-                  and a cream gradient at the bottom for the attribution chip.
-                  Only rendered if the subject has an image defined. */}
-              {subj.image && (
+              {/* Hero section — painting as BACKGROUND with content overlaid on top.
+                  Same treatment as History of Philosophy: the painting fills the
+                  container, a cream gradient ensures text legibility, and the
+                  subject title, description, and status badge sit ON TOP of the
+                  painting. Attribution chip at the bottom. */}
+              {subj.image ? (
                 <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)]">
+                  {/* Background painting */}
                   <img
                     src={subj.image}
                     alt={subj.imageAlt || ""}
                     className="w-full h-auto block"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/70 via-[#F5EFE4]/10 to-transparent" />
-                  {subj.imageAlt && (
-                    <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between gap-4 flex-wrap">
-                      <span className={`text-[10px] uppercase tracking-[0.2em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5 ${isAR ? "dir-rtl" : ""}`}>
-                        {subj.imageAlt}
-                      </span>
+                  {/* Cream gradient overlay — darker at bottom for text legibility,
+                      lighter at top so the painting's details remain visible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/60 to-[#F5EFE4]/20" />
+
+                  {/* Content overlaid on top of the painting */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 lg:p-12">
+                    <div className="max-w-3xl">
+                      {/* Status badge */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/90 text-paper border border-teal" : "bg-paper/80 text-ink-dim border border-border backdrop-blur-sm"}`}>
+                          {subj.live ? t("liveLabel") : t("forthcomingLabel")}
+                        </span>
+                      </div>
+                      {/* Subject title */}
+                      <h1 className="display text-ink text-4xl md:text-6xl leading-[1.1] mb-3" style={{ fontFamily: "var(--font-cormorant)" }}>
+                        {title}
+                      </h1>
+                      {/* Subject description */}
+                      <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed max-w-2xl mb-4">
+                        {description}
+                      </p>
+                      {/* Attribution */}
+                      {subj.imageAlt && (
+                        <span className={`inline-block text-[10px] uppercase tracking-[0.2em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5`}>
+                          {subj.imageAlt}
+                        </span>
+                      )}
                     </div>
-                  )}
+                  </div>
+                </div>
+              ) : (
+                /* For subjects without an image, render the header without a painting */
+                <div className="mb-10 pb-8 border-b border-border">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${subj.live ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"}`}>
+                      <BookOpen size={22} strokeWidth={1.5} />
+                    </div>
+                    <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"}`}>
+                      {subj.live ? t("liveLabel") : t("forthcomingLabel")}
+                    </span>
+                  </div>
+                  <h1 className="display text-ink text-4xl md:text-6xl leading-[1.1] mb-4" style={{ fontFamily: "var(--font-cormorant)" }}>
+                    {title}
+                  </h1>
+                  <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-3xl">
+                    {description}
+                  </p>
                 </div>
               )}
-
-              <div className="mb-10 pb-8 border-b border-border">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${subj.live ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"}`}>
-                    <BookOpen size={22} strokeWidth={1.5} />
-                  </div>
-                  <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"}`}>
-                    {subj.live ? t("liveLabel") : t("forthcomingLabel")}
-                  </span>
-                </div>
-                <h1 className="display text-ink text-4xl md:text-6xl leading-[1.1] mb-4" style={{ fontFamily: "var(--font-cormorant)" }}>
-                  {title}
-                </h1>
-                <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-3xl">
-                  {description}
-                </p>
-              </div>
 
               {subj.slug === "mathematics" && subj.live ? (
                 <div>
