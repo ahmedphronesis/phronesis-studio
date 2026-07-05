@@ -2,8 +2,8 @@
 
 import { Reveal, Stagger, FadeUp, Magnetic } from "../anim";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { Download, BookOpen, Sparkles } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { Download, BookOpen, Sparkles, ArrowRight, ArrowLeft } from "lucide-react";
 
 type Guide = {
   grade: string;
@@ -23,9 +23,30 @@ const GUIDES: Guide[] = [
   { grade: "Grade 4", gradeArabic: "الصف الرابع", cover: "/guides/grade-4-mathematics-cover.png", pdf: "/guides/grade-4-mathematics.pdf", pages: 31, units: 7, modules: 21, highlight: "Real-Life Applications" },
 ];
 
+// Subject categories for the Library.
+// Mathematics is live; others are forthcoming.
+// Philosophy is NOT included here because it has its own section (Echoes of Wisdom).
+// Each forthcoming subject links to /correspondence so visitors can express interest.
+type Subject = {
+  key: string;
+  live: boolean;
+  guideCount?: number;
+  href?: string;
+};
+
+const SUBJECTS: Subject[] = [
+  { key: "subjectMath", live: true, guideCount: 4, href: "#mathematics-guides" },
+  { key: "subjectScience", live: false },
+  { key: "subjectAgriculture", live: false },
+  { key: "subjectPermaculture", live: false },
+  { key: "subjectPsychology", live: false },
+  { key: "subjectTheology", live: false },
+];
+
 export function Library() {
   const t = useTranslations("library");
-  const tCommon = useTranslations("nav");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
   return (
     <section id="library" className="relative overflow-hidden bg-paper-warm/40">
@@ -56,7 +77,93 @@ export function Library() {
         </div>
       </div>
 
-      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
+      {/* Subject categories grid */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
+        <Reveal>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-ink-dim mb-5 font-mono">{t("subjectsLabel")}</p>
+        </Reveal>
+        <Stagger gap={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {SUBJECTS.map((subject) => {
+            const name = t(subject.key);
+            const desc = t(`${subject.key}Desc`);
+            const isLive = subject.live;
+
+            const content = (
+              <div className={`group block h-full rounded-2xl border transition-colors overflow-hidden ${isLive ? "bg-paper border-teal/40 hover:border-teal/60 cursor-pointer" : "bg-paper-warm/50 border-border cursor-default"}`}>
+                <div className="p-6 md:p-7">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${isLive ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"}`}>
+                      <BookOpen size={20} strokeWidth={1.5} />
+                    </div>
+                    <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${isLive ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"}`}>
+                      {isLive ? t("liveLabel") : t("forthcomingLabel")}
+                    </span>
+                  </div>
+                  <h3 className="display text-ink text-xl md:text-2xl mb-2" style={{ fontFamily: "var(--font-cormorant)" }}>
+                    {name}
+                  </h3>
+                  <p className="body-serif text-xs md:text-sm text-ink-soft leading-relaxed mb-4">
+                    {desc}
+                  </p>
+                  {isLive && subject.guideCount && (
+                    <div className="flex items-center gap-2 text-xs text-teal pt-3 border-t border-border">
+                      <span className="font-mono">{subject.guideCount}</span>
+                      <span>{t("guidesAvailable")}</span>
+                      {!isRTL && <ArrowRight size={12} className="ml-auto group-hover:translate-x-1 transition-transform" />}
+                      {isRTL && <ArrowLeft size={12} className="mr-auto group-hover:-translate-x-1 transition-transform" />}
+                    </div>
+                  )}
+                  {!isLive && (
+                    <div className="flex items-center gap-2 text-xs text-ink-dim/60 pt-3 border-t border-border">
+                      <Sparkles size={12} />
+                      <span>{t("comingSoonGeneric")}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+
+            if (isLive && subject.href) {
+              return (
+                <FadeUp key={subject.key}>
+                  <a href={subject.href} onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("mathematics-guides")?.scrollIntoView({ behavior: "smooth" });
+                  }}>
+                    {content}
+                  </a>
+                </FadeUp>
+              );
+            }
+            return (
+              <FadeUp key={subject.key}>
+                {content}
+              </FadeUp>
+            );
+          })}
+        </Stagger>
+
+        {/* Philosophy note */}
+        <Reveal delay={0.15} className="mt-6">
+          <div className="flex items-start gap-3 text-xs text-ink-dim body-serif italic max-w-2xl">
+            <span className="text-gold/60 mt-0.5">* </span>
+            <p>{t("philosophyNote")}</p>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Mathematics guides (live) */}
+      <div id="mathematics-guides" className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12 scroll-mt-20">
+        <Reveal>
+          <div className="flex items-center gap-3 mb-6">
+            <h3 className="display text-ink text-2xl md:text-3xl" style={{ fontFamily: "var(--font-cormorant)" }}>
+              {t("subjectMath")}
+            </h3>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono px-2.5 py-1 rounded-full bg-teal/10 border border-teal/30">
+              {t("liveLabel")}
+            </span>
+          </div>
+        </Reveal>
         <Stagger gap={0.14} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {GUIDES.map((g) => (
             <FadeUp key={g.grade}>
@@ -86,7 +193,7 @@ export function Library() {
 
                 <div className="p-5 md:p-6">
                   <div className="flex items-baseline justify-between mb-2">
-                    <h3 className="display text-ink text-2xl" style={{ fontFamily: "var(--font-cormorant)" }}>{g.grade}</h3>
+                    <h4 className="display text-ink text-2xl" style={{ fontFamily: "var(--font-cormorant)" }}>{g.grade}</h4>
                     <span className="text-sm text-ink-dim" style={{ fontFamily: "var(--font-amiri)" }} dir="rtl" lang="ar">{g.gradeArabic}</span>
                   </div>
                   <p className="text-xs uppercase tracking-[0.2em] text-teal mb-3 font-mono">Mathematics</p>
@@ -110,7 +217,10 @@ export function Library() {
             </FadeUp>
           ))}
         </Stagger>
+      </div>
 
+      {/* Coming soon banner — Grades 5-12 for Mathematics */}
+      <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <Reveal delay={0.2} className="mt-8">
           <div className="relative p-8 md:p-10 rounded-2xl border border-teal/30 bg-gradient-to-br from-teal/5 to-transparent overflow-hidden">
             <div
