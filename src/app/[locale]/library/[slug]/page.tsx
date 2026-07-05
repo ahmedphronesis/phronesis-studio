@@ -107,6 +107,28 @@ export default async function LibrarySlugPage({
                 {isAR ? "كل المواد" : "All Subjects"}
               </a>
 
+              {/* Header image (painting/photo) — same treatment as History of Philosophy.
+                  Rendered full-width with gold border, rounded corners, soft shadow,
+                  and a cream gradient at the bottom for the attribution chip.
+                  Only rendered if the subject has an image defined. */}
+              {subj.image && (
+                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)]">
+                  <img
+                    src={subj.image}
+                    alt={subj.imageAlt || ""}
+                    className="w-full h-auto block"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/70 via-[#F5EFE4]/10 to-transparent" />
+                  {subj.imageAlt && (
+                    <div className="absolute bottom-5 left-6 right-6 flex items-end justify-between gap-4 flex-wrap">
+                      <span className={`text-[10px] uppercase tracking-[0.2em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5 ${isAR ? "dir-rtl" : ""}`}>
+                        {subj.imageAlt}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="mb-10 pb-8 border-b border-border">
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${subj.live ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"}`}>

@@ -20,6 +20,8 @@ export type Subject = {
   slug: string;
   key: string;        // i18n key prefix, e.g. "subjectMath"
   live: boolean;
+  image?: string;     // optional header image (painting/photo) at /library/[slug].jpg
+  imageAlt?: string;  // attribution or description of the image
 };
 
 // Sorted alphabetically by English subject name.
@@ -28,7 +30,7 @@ export type Subject = {
 //        Permaculture, Psychology, Theology
 export const SUBJECTS: Subject[] = [
   { slug: "agricultural-sciences", key: "subjectAgriculture", live: false },
-  { slug: "economics-and-political-science", key: "subjectEconomics", live: false },
+  { slug: "economics-and-political-science", key: "subjectEconomics", live: false, image: "/library/economics-and-political-science.jpg", imageAlt: "La Discussion politique, 19th-century realist painting" },
   { slug: "history", key: "subjectHistory", live: false },
   { slug: "literature-and-languages", key: "subjectLiterature", live: false },
   { slug: "mathematics", key: "subjectMath", live: true },
