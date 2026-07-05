@@ -30,7 +30,7 @@ export type Subject = {
 //        Permaculture, Psychology, Theology
 export const SUBJECTS: Subject[] = [
   { slug: "agricultural-sciences", key: "subjectAgriculture", live: false },
-  { slug: "economics-and-political-science", key: "subjectEconomics", live: false, image: "/library/economics-and-political-science.jpg", imageAlt: "La Discussion politique, 19th-century realist painting" },
+  { slug: "economics-and-political-science", key: "subjectEconomics", live: false, image: "/library/economics-and-political-science.jpg", imageAlt: "Émile Friant · La Discussion politique" },
   { slug: "history", key: "subjectHistory", live: false },
   { slug: "literature-and-languages", key: "subjectLiterature", live: false },
   { slug: "mathematics", key: "subjectMath", live: true },
