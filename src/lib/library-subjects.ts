@@ -29,7 +29,7 @@ export type Subject = {
 //        Literature and Languages, Mathematics, Natural Sciences,
 //        Permaculture, Psychology, Theology
 export const SUBJECTS: Subject[] = [
-  { slug: "agricultural-sciences", key: "subjectAgriculture", live: false },
+  { slug: "agricultural-sciences", key: "subjectAgriculture", live: false, image: "/library/agricultural-sciences.jpg", imageAlt: "Jean-François Millet · The Gleaners" },
   { slug: "economics-and-political-science", key: "subjectEconomics", live: false, image: "/library/economics-and-political-science.jpg", imageAlt: "Émile Friant · La Discussion politique" },
   { slug: "history", key: "subjectHistory", live: false, image: "/library/history.jpg", imageAlt: "Jan Davidsz. de Heem · Still Life with Books" },
   { slug: "literature-and-languages", key: "subjectLiterature", live: false },
