@@ -48,7 +48,7 @@ const amiri = Amiri({
 export const metadata = {
   metadataBase: new URL("https://phronesis-studio.com"),
   title: {
-    default: "Studio of Phronesis · Ahmed Ali",
+    default: "Ahmed Ali · Studio of Phronesis",
     template: "%s · Studio of Phronesis",
   },
   verification: {
@@ -135,7 +135,7 @@ export const metadata = {
     alternateLocale: ["ar_AR"],
     url: "https://phronesis-studio.com/en",
     siteName: "Studio of Phronesis",
-    title: "Studio of Phronesis · Ahmed Ali",
+    title: "Ahmed Ali · Studio of Phronesis",
     description:
       "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect in Al Ain, UAE.",
     images: [
@@ -149,7 +149,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Studio of Phronesis · Ahmed Ali",
+    title: "Ahmed Ali · Studio of Phronesis",
     description:
       "Perceiving the gap between what is and what should be, and closing it with discipline. Philosopher-educator-architect in Al Ain, UAE.",
     images: ["/og-image.png"],
