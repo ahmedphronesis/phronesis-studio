@@ -34,7 +34,7 @@ export const SUBJECTS: Subject[] = [
   { slug: "history", key: "subjectHistory", live: false, image: "/library/history.jpg", imageAlt: "Jan Davidsz. de Heem · Still Life with Books" },
   { slug: "literature-and-languages", key: "subjectLiterature", live: false, image: "/library/literature-and-languages.jpg", imageAlt: "Leonid Pasternak · The Passion of Creation" },
   { slug: "mathematics", key: "subjectMath", live: true, image: "/library/mathematics.jpg", imageAlt: "Pythagoras, unknown painter" },
-  { slug: "natural-sciences", key: "subjectScience", live: false },
+  { slug: "natural-sciences", key: "subjectScience", live: false, image: "/library/natural-sciences.jpg", imageAlt: "Scholars with scientific instruments, unknown painter" },
   { slug: "permaculture", key: "subjectPermaculture", live: false },
   { slug: "psychology", key: "subjectPsychology", live: false },
   { slug: "theology", key: "subjectTheology", live: false },
