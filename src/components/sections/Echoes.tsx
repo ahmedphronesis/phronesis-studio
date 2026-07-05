@@ -41,7 +41,10 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
     }
   }, [locale]);
 
-  // Build seasons (currently only Season 1, structured for future expansion)
+  // Build seasons — Season 1 (episodes 1-8) and Season 2 (episodes 9-16).
+  // Episode numbering is global across all seasons so /echoes/9 etc. work
+  // as unique permalinks. Filter by number range to assign episodes to
+  // the correct season card.
   const seasons: Season[] = [
     {
       id: "season-1",
@@ -52,7 +55,18 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
       description: t("project1Description"),
       seasonLabel: t("project1Season"),
       episodesLabel: t("project1Episodes"),
-      episodes: episodes,
+      episodes: episodes.filter((e) => e.number >= 1 && e.number <= 8),
+    },
+    {
+      id: "season-2",
+      name: t("project2Name"),
+      nameArabic: t("project2NameArabic"),
+      tagline: t("project2Tagline"),
+      taglineArabic: t("project2TaglineArabic"),
+      description: t("project2Description"),
+      seasonLabel: t("project2Season"),
+      episodesLabel: t("project2Episodes"),
+      episodes: episodes.filter((e) => e.number >= 9 && e.number <= 16),
     },
   ];
 
@@ -169,21 +183,32 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                   </span>
                 </div>
 
-                {/* YouTube playlist link — Season 1 only */}
-                {season.id === "season-1" && (
-                  <a
-                    href={t("season1YoutubeUrl")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="mt-4 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-red-600/10 border border-red-600/30 text-red-700 hover:bg-red-600/20 hover:border-red-600/50 transition-colors text-sm font-medium"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    {t("listenOnYoutube")}
-                  </a>
-                )}
+                {/* YouTube playlist link — shows for any season that has a URL.
+                    Season 1 has a playlist; Season 2 URL is empty for now
+                    (can be added via admin Content Editor when the playlist
+                    is created on YouTube). */}
+                {(() => {
+                  const youtubeUrl = season.id === "season-1"
+                    ? t("season1YoutubeUrl")
+                    : t("season2YoutubeUrl");
+                  // next-intl returns the key itself if the value is empty,
+                  // so we check for both empty string and the key name.
+                  if (!youtubeUrl || youtubeUrl.startsWith("season")) return null;
+                  return (
+                    <a
+                      href={youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-4 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-red-600/10 border border-red-600/30 text-red-700 hover:bg-red-600/20 hover:border-red-600/50 transition-colors text-sm font-medium"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                      {t("listenOnYoutube")}
+                    </a>
+                  );
+                })()}
               </motion.button>
             </FadeUp>
           ))}
@@ -371,7 +396,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                   <span className="display text-teal text-3xl">{String(selected.number).padStart(2, "0")}</span>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">
-                      {t("project1Name")} · {t("episode")} {selected.number} · {t("project1Season")}
+                      {t("project1Name")} · {t("episode")} {selected.number} · {selected.number <= 8 ? t("project1Season") : t("project2Season")}
                     </p>
                   </div>
                 </div>
@@ -410,7 +435,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                     </p>
                   )}
                   <p className="text-xs text-ink-dim body-serif mt-4">
-                    {t("writtenBy")} · {t("project1Name")} · {t("project1Season")}
+                    {t("writtenBy")} · {t("project1Name")} · {selected.number <= 8 ? t("project1Season") : t("project2Season")}
                   </p>
                 </div>
 

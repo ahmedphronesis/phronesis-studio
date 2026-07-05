@@ -867,11 +867,19 @@
     "project1NameArabic": "أَصْدَاءُ الحِكْمَةِ",
     "project1Description": "بودكاست فلسفي ثنائي اللغة يستكشف الأخلاق والمنطق والمعرفة، والأسئلة التي تشكل عالمنا. ثمانية حلقات في الموسم الأول، مكتوبة ومقدمة باللغتين الإنجليزية والعربية.",
     "project1TaglineArabic": "رِحْلَةٌ في الفَلْسَفَةِ",
+    "project2Name": "Echoes of Wisdom",
+    "project2NameArabic": "أَصْدَاءُ الحِكْمَةِ",
+    "project2Tagline": "A Journey into Existence",
+    "project2TaglineArabic": "رِحْلَةٌ فِي الوُجُودِ",
+    "project2Description": "ثماني حلقات تستكشف الوعي والآخر والعدل والجمال والحب والزمن والموت والأمل. مكتوبة ومقدمة بالعربية، مع ترجمات إنجليزية قادمة.",
+    "project2Season": "الموسم الثاني",
+    "project2Episodes": "8 حلقات",
     "forthcomingTitle": "تاريخ الفلسفة : من الألف إلى الياء",
     "forthcomingSubtitle": "مشروعٌ قادم",
     "forthcomingBody": "مشروعٌ فكريٌّ شاملٌ يستعرض تاريخ الفلسفة عبر الحضارات كافة، من فجر الوعي الإنساني إلى اللحظة الراهنة، بلا ثغراتٍ ولا تحيّزٍ ولا ملل. لا يقتصر على الفلسفة الغربية، بل يُعرض كلُّ تقليدٍ فلسفيٍّ بوصفه مسارًا قائمًا بذاته، ذا بنيةٍ داخليةٍ ومساهمةٍ أصيلةٍ في الفكر الإنساني.",
     "forthcomingStatus": "قيد الإنجاز",
     "separateProjectLabel": "مشروعٌ مستقل",
-    "season1YoutubeUrl": "https://www.youtube.com/playlist?list=PLhjIMflidDWnK0xLbUbsidjVpAQyiMB7Y"
+    "season1YoutubeUrl": "https://www.youtube.com/playlist?list=PLhjIMflidDWnK0xLbUbsidjVpAQyiMB7Y",
+    "season2YoutubeUrl": ""
   }
 }

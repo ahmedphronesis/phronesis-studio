@@ -104,7 +104,7 @@ export default async function EpisodePage({
             <div className="mb-8 pb-6 border-b border-border">
               <div className="flex items-start justify-between gap-4 mb-2">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono">
-                  {t("project1Name")} · {t("episode")} {episode.number} · {t("project1Season")}
+                  {t("project1Name")} · {t("episode")} {episode.number} · {episode.number <= 8 ? t("project1Season") : t("project2Season")}
                 </p>
                 {/* Language toggle — at the top, next to the episode label */}
                 <a
@@ -149,10 +149,10 @@ export default async function EpisodePage({
                 <span />
               )}
               <a
-                href={`/${locale}/echoes/season-1`}
+                href={`/${locale}/echoes`}
                 className="text-sm text-ink-dim hover:text-teal transition-colors"
               >
-                {t("project1Season")}
+                {episode.number <= 8 ? t("project1Season") : t("project2Season")}
               </a>
               <a
                 href={`/${locale}/echoes/${episode.number + 1}`}

@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     episodeNumbers = episodes.map((e) => e.number);
   } catch {
     // DB might be unavailable during build — use fallback
-    episodeNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    episodeNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   }
 
   for (const locale of routing.locales) {
