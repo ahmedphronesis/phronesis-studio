@@ -68,9 +68,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    // Season route
+    // Season routes
     entries.push({
       url: `${BASE_URL}/${locale}/echoes/season-1`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+    entries.push({
+      url: `${BASE_URL}/${locale}/echoes/season-2`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,

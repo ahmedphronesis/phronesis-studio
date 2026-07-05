@@ -149,7 +149,7 @@ export default async function EpisodePage({
                 <span />
               )}
               <a
-                href={`/${locale}/echoes`}
+                href={`/${locale}/echoes/${episode.number <= 8 ? "season-1" : "season-2"}`}
                 className="text-sm text-ink-dim hover:text-teal transition-colors"
               >
                 {episode.number <= 8 ? t("project1Season") : t("project2Season")}
