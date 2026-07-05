@@ -73,7 +73,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
   const currentSeason = seasons.find((s) => s.id === activeSeason);
 
   return (
-    <section id="echoes" className="relative overflow-hidden">
+    <section id="philosophy" className="relative overflow-hidden">
       {/* Podcast structured data for SEO */}
       <script
         type="application/ld+json"
@@ -84,7 +84,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             name: "Echoes of Wisdom",
             alternateName: "أصداء الحكمة",
             description: "An independent educational podcast that makes philosophy an accessible field of knowledge with practical relevance to daily life, critical thinking, and personal development.",
-            url: "https://phronesis-studio.com/echoes",
+            url: "https://phronesis-studio.com/philosophy",
             author: {
               "@type": "Person",
               name: "Ahmed Ali",
@@ -228,11 +228,11 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
 
         {/* History of Philosophy — A to Z
             Separate project card (NOT an Echoes season).
-            Always visible. Clickable — links to /echoes/history-of-philosophy
+            Always visible. Clickable — links to /philosophy/history-of-philosophy
             (NOT /work/...) so the URL matches where users click it from.
             Distinct gold-themed design with faded Raphael painting background. */}
         <a
-          href={`/${locale}/echoes/history-of-philosophy`}
+          href={`/${locale}/philosophy/history-of-philosophy`}
           className="max-w-4xl block p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden group transition-colors hover:border-gold/60"
         >
           {/* Faded Raphael — School of Athens background */}
@@ -455,7 +455,7 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
                     {viewLang === "en" ? t("readArabic") : t("readEnglish")}
                   </button>
                   <a
-                    href={`/${locale}/echoes/${selected.number}`}
+                    href={`/${locale}/philosophy/${selected.number}`}
                     className="inline-flex items-center gap-2 text-sm text-teal border border-teal/30 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
                   >
                     {locale === "ar" ? "رابط دائم" : "Permalink"}

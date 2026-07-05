@@ -31,7 +31,7 @@ export async function generateMetadata({
   const excerpt = locale === "ar" ? episode.arExcerpt : episode.enExcerpt;
   const ogTitle = `${title} · Echoes of Wisdom Ep. ${epNumber}`;
   const ogImage = "/og-philosophy.png";
-  const canonical = `/${locale}/echoes/${number}`;
+  const canonical = `/${locale}/philosophy/${number}`;
   const url = `https://phronesis-studio.com${canonical}`;
 
   return {
@@ -60,7 +60,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical,
-      languages: { en: `/en/echoes/${number}`, ar: `/ar/echoes/${number}` },
+      languages: { en: `/en/philosophy/${number}`, ar: `/ar/philosophy/${number}` },
     },
   };
 }
@@ -93,7 +93,7 @@ export default async function EpisodePage({
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
             {/* Back link */}
             <a
-              href={`/${locale}/echoes`}
+              href={`/${locale}/philosophy`}
               className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
             >
               {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
@@ -108,7 +108,7 @@ export default async function EpisodePage({
                 </p>
                 {/* Language toggle — at the top, next to the episode label */}
                 <a
-                  href={`/${otherLocale}/echoes/${episode.number}`}
+                  href={`/${otherLocale}/philosophy/${episode.number}`}
                   className="inline-flex items-center gap-2 text-xs text-teal border border-teal/30 hover:bg-teal/10 transition-colors px-3 py-1.5 rounded-full font-medium whitespace-nowrap flex-shrink-0"
                 >
                   <Globe size={14} strokeWidth={1.5} />
@@ -139,7 +139,7 @@ export default async function EpisodePage({
             <div className="mt-16 pt-8 border-t border-border flex justify-between items-center">
               {episode.number > 1 ? (
                 <a
-                  href={`/${locale}/echoes/${episode.number - 1}`}
+                  href={`/${locale}/philosophy/${episode.number - 1}`}
                   className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors"
                 >
                   {isAR ? <ArrowRight size={16} /> : <ArrowLeft size={16} />}
@@ -149,13 +149,13 @@ export default async function EpisodePage({
                 <span />
               )}
               <a
-                href={`/${locale}/echoes/${episode.number <= 8 ? "season-1" : "season-2"}`}
+                href={`/${locale}/philosophy/${episode.number <= 8 ? "season-1" : "season-2"}`}
                 className="text-sm text-ink-dim hover:text-teal transition-colors"
               >
                 {episode.number <= 8 ? t("project1Season") : t("project2Season")}
               </a>
               <a
-                href={`/${locale}/echoes/${episode.number + 1}`}
+                href={`/${locale}/philosophy/${episode.number + 1}`}
                 className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors"
               >
                 {isAR ? `الحلقة ${episode.number + 1}` : `Episode ${episode.number + 1}`}

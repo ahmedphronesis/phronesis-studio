@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 
 const BASE_URL = "https://phronesis-studio.com";
 
-const STATIC_ROUTES = ["", "/about", "/work", "/echoes", "/library", "/method", "/correspondence"];
+const STATIC_ROUTES = ["", "/about", "/work", "/philosophy", "/library", "/method", "/correspondence"];
 
 // Guide slugs (must match library/[slug]/page.tsx)
 const GUIDE_SLUGS = [
@@ -15,7 +15,7 @@ const GUIDE_SLUGS = [
 ];
 
 // Project slugs (must match work/[slug]/page.tsx)
-// NOTE: "history-of-philosophy" was moved to /echoes/history-of-philosophy
+// NOTE: "history-of-philosophy" was moved to /philosophy/history-of-philosophy
 // and is listed in ECHOES_EXTRA_ROUTES below. /work/history-of-philosophy
 // still issues a 308 redirect, but we no longer list it in the sitemap
 // because the canonical URL is now under /echoes.
@@ -28,7 +28,7 @@ const PROJECT_SLUGS = [
   "treasury-emperor",
 ];
 
-// Extra Echoes routes (besides the episode numbers and season-1)
+// Extra Philosophy routes (besides the episode numbers and season-1)
 const ECHOES_EXTRA_ROUTES = [
   "history-of-philosophy",
 ];
@@ -58,10 +58,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    // Episode routes: /{locale}/echoes/{number}
+    // Episode routes: /{locale}/philosophy/{number}
     for (const num of episodeNumbers) {
       entries.push({
-        url: `${BASE_URL}/${locale}/echoes/${num}`,
+        url: `${BASE_URL}/${locale}/philosophy/${num}`,
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,
@@ -70,22 +70,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Season routes
     entries.push({
-      url: `${BASE_URL}/${locale}/echoes/season-1`,
+      url: `${BASE_URL}/${locale}/philosophy/season-1`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     });
     entries.push({
-      url: `${BASE_URL}/${locale}/echoes/season-2`,
+      url: `${BASE_URL}/${locale}/philosophy/season-2`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     });
 
-    // Extra Echoes routes (e.g. /echoes/history-of-philosophy)
+    // Extra Philosophy routes (e.g. /philosophy/history-of-philosophy)
     for (const slug of ECHOES_EXTRA_ROUTES) {
       entries.push({
-        url: `${BASE_URL}/${locale}/echoes/${slug}`,
+        url: `${BASE_URL}/${locale}/philosophy/${slug}`,
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,

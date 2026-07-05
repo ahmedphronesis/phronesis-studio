@@ -17,10 +17,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `/${locale}/echoes`,
+      canonical: `/${locale}/philosophy`,
       languages: {
-        en: "/en/echoes",
-        ar: "/ar/echoes",
+        en: "/en/philosophy",
+        ar: "/ar/philosophy",
       },
     },
   };

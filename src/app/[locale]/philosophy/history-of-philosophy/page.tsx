@@ -21,7 +21,7 @@ export async function generateMetadata({
   const title = `${tEchoes("forthcomingTitle")} · Studio of Phronesis`;
   const description = tEchoes("forthcomingBody");
   const ogImage = "/og-philosophy.png";
-  const canonical = `/${locale}/echoes/history-of-philosophy`;
+  const canonical = `/${locale}/philosophy/history-of-philosophy`;
   const url = `https://phronesis-studio.com${canonical}`;
 
   return {
@@ -51,8 +51,8 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        en: "/en/echoes/history-of-philosophy",
-        ar: "/ar/echoes/history-of-philosophy",
+        en: "/en/philosophy/history-of-philosophy",
+        ar: "/ar/philosophy/history-of-philosophy",
       },
     },
   };
@@ -77,10 +77,10 @@ export default async function HistoryOfPhilosophyPage({
         <Nav />
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
-            {/* Back to /echoes — single, predictable destination.
+            {/* Back to /philosophy — single, predictable destination.
                 No query-param trickery; the URL itself tells the whole story. */}
             <a
-              href={`/${locale}/echoes`}
+              href={`/${locale}/philosophy`}
               className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
             >
               {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}

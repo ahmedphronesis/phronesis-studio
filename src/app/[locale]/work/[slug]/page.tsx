@@ -10,7 +10,7 @@ export const runtime = "nodejs";
 
 // Project slugs mapped to their data.
 // NOTE: "history-of-philosophy" used to live here but has been moved to
-// /echoes/history-of-philosophy so the URL matches where users click it
+// /philosophy/history-of-philosophy so the URL matches where users click it
 // from (the Echoes section). Any request to /work/history-of-philosophy
 // is redirected at the top of ProjectPage below — keeps old links working.
 const PROJECTS: Record<string, {
@@ -118,11 +118,11 @@ export default async function ProjectPage({
 }) {
   const { locale, slug } = await params;
 
-  // Redirect the old History of Philosophy URL to its new home under /echoes.
+  // Redirect the old History of Philosophy URL to its new home under /philosophy.
   // permanentRedirect issues HTTP 308 — tells Google and any cached links
   // to permanently update to the new URL.
   if (slug === "history-of-philosophy") {
-    permanentRedirect(`/${locale}/echoes/history-of-philosophy`);
+    permanentRedirect(`/${locale}/philosophy/history-of-philosophy`);
   }
 
   const project = PROJECTS[slug];

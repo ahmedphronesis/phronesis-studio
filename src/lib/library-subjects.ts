@@ -8,7 +8,7 @@
  *
  * Subjects are listed in alphabetical order by their English name.
  * Philosophy is NOT included here because it has its own section
- * (the Philosophy tab in the navigation, which routes to /echoes).
+ * (the Philosophy tab in the navigation, which routes to /philosophy).
  *
  * When adding a new subject:
  *   1. Add it to SUBJECTS below (in alphabetical order)

@@ -29,8 +29,8 @@ export async function generateMetadata({
       images: [{ url: "/og-philosophy.png", width: 1200, height: 630, alt: "Echoes of Wisdom Season 2" }],
     },
     alternates: {
-      canonical: `/${locale}/echoes/season-2`,
-      languages: { en: "/en/echoes/season-2", ar: "/ar/echoes/season-2" },
+      canonical: `/${locale}/philosophy/season-2`,
+      languages: { en: "/en/philosophy/season-2", ar: "/ar/philosophy/season-2" },
     },
   };
 }
@@ -54,7 +54,7 @@ export default async function Season2Page({
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
             <a
-              href={`/${locale}/echoes`}
+              href={`/${locale}/philosophy`}
               className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors mb-8"
             >
               {isAR ? <ArrowLeft size={16} /> : <ArrowRight size={16} className="rotate-180" />}
@@ -84,7 +84,7 @@ export default async function Season2Page({
               {episodes.map((ep) => (
                 <a
                   key={ep.number}
-                  href={`/${locale}/echoes/${ep.number}`}
+                  href={`/${locale}/philosophy/${ep.number}`}
                   className="group block p-5 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors"
                 >
                   <div className="flex items-center gap-3 mb-2">
