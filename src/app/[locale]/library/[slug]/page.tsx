@@ -111,39 +111,48 @@ export default async function LibrarySlugPage({
                   Same treatment as History of Philosophy: the painting fills the
                   container, a cream gradient ensures text legibility, and the
                   subject title, description, and status badge sit ON TOP of the
-                  painting. Attribution chip at the bottom. */}
+                  painting. Attribution chip at the bottom.
+
+                  Mobile fix: use object-cover with a min-height instead of h-auto.
+                  Previously, wide paintings produced very short containers on mobile
+                  (e.g., 375px wide × 225px tall for a 16:9 image), and the overlaid
+                  text (badge + title + description + attribution) needed more vertical
+                  space than was available, causing text to cover the entire painting.
+                  Now the container has a guaranteed min-height and the image fills it
+                  with object-cover, so the painting is always partially visible above
+                  the text on all screen sizes. */}
               {subj.image ? (
-                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)]">
-                  {/* Background painting */}
+                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-[450px] lg:min-h-[520px]">
+                  {/* Background painting — object-cover fills the min-height container */}
                   <img
                     src={subj.image}
                     alt={subj.imageAlt || ""}
-                    className="w-full h-auto block"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   {/* Cream gradient overlay — darker at bottom for text legibility,
                       lighter at top so the painting's details remain visible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/60 to-[#F5EFE4]/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/55 to-[#F5EFE4]/15" />
 
                   {/* Content overlaid on top of the painting */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 lg:p-12">
+                  <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-10 lg:p-12">
                     <div className="max-w-3xl">
                       {/* Status badge */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/90 text-paper border border-teal" : "bg-paper/80 text-ink-dim border border-border backdrop-blur-sm"}`}>
+                      <div className="flex items-center gap-3 mb-3 md:mb-4">
+                        <span className={`text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${subj.live ? "bg-teal/90 text-paper border border-teal" : "bg-paper/80 text-ink-dim border border-border backdrop-blur-sm"}`}>
                           {subj.live ? t("liveLabel") : t("forthcomingLabel")}
                         </span>
                       </div>
                       {/* Subject title */}
-                      <h1 className="display text-ink text-4xl md:text-6xl leading-[1.1] mb-3" style={{ fontFamily: "var(--font-cormorant)" }}>
+                      <h1 className="display text-ink text-3xl md:text-5xl lg:text-6xl leading-[1.1] mb-2 md:mb-3" style={{ fontFamily: "var(--font-cormorant)" }}>
                         {title}
                       </h1>
                       {/* Subject description */}
-                      <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed max-w-2xl mb-4">
+                      <p className="body-serif text-xs md:text-sm lg:text-base text-ink-soft leading-relaxed max-w-2xl mb-3 md:mb-4">
                         {description}
                       </p>
                       {/* Attribution */}
                       {subj.imageAlt && (
-                        <span className={`inline-block text-[10px] uppercase tracking-[0.2em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5`}>
+                        <span className={`inline-block text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-ink-soft/70 font-mono bg-paper/70 backdrop-blur-sm rounded-full px-3 py-1.5`}>
                           {subj.imageAlt}
                         </span>
                       )}
