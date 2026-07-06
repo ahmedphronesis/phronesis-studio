@@ -30,6 +30,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
+      "media-src 'self'",
       "font-src 'self' data:",
       "connect-src 'self' https://plausible.io",
       "frame-src 'none'",

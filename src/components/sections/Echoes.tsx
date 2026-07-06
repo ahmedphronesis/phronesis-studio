@@ -230,58 +230,61 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             Separate project card (NOT an Echoes season).
             Always visible. Clickable — links to /philosophy/history-of-philosophy
             (NOT /work/...) so the URL matches where users click it from.
-            Distinct gold-themed design with faded Raphael painting background. */}
+            Distinct gold-themed design with faded Raphael painting background.
+            Same painting-as-background treatment as Library subject pages. */}
         <a
           href={`/${locale}/philosophy/history-of-philosophy`}
-          className="max-w-4xl block p-8 md:p-10 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold/8 to-transparent relative overflow-hidden group transition-colors hover:border-gold/60"
+          className="max-w-4xl block rounded-3xl border-2 border-gold/40 relative overflow-hidden group transition-colors hover:border-gold/60 min-h-[400px] md:min-h-0"
         >
-          {/* Faded Raphael — School of Athens background */}
+          {/* Faded Raphael — School of Athens background.
+              MOBILE: absolute + object-cover + min-h-[400px]
+              DESKTOP: relative + h-auto (natural aspect ratio) */}
           <img
             src="/school-of-athens-faded.jpg"
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover opacity-40 group-hover:opacity-50 transition-opacity pointer-events-none"
           />
-          {/* Cream overlay to ensure text readability over the painting */}
+          {/* Cream gradient — same as Library pages. Darker at bottom for text. */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[#F5EFE4]/70 pointer-events-none"
+            className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/60 to-[#F5EFE4]/20 pointer-events-none"
           />
 
-          <div className="relative">
+          <div className="relative p-6 md:p-10">
             <div className="flex items-start justify-between mb-6">
               <div className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold">
                 <Globe size={24} strokeWidth={1.5} />
               </div>
-              <span className="text-xs uppercase tracking-wider text-gold border border-gold/40 rounded-full px-3 py-1.5 font-mono bg-gold/5">
+              <span className="text-[9px] md:text-xs uppercase tracking-wider text-gold border border-gold/40 rounded-full px-3 py-1.5 font-mono bg-gold/5 backdrop-blur-sm">
                 {t("forthcomingStatus")}
               </span>
             </div>
 
-            <p className="text-[11px] uppercase tracking-[0.22em] text-gold mb-2 font-mono">
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-gold mb-2 font-mono">
               {t("forthcomingSubtitle")}
             </p>
-            <h3 className="display text-ink text-3xl md:text-4xl leading-tight mb-3 group-hover:text-gold transition-colors">
+            <h3 className="display text-ink text-2xl md:text-4xl leading-tight mb-3 group-hover:text-gold transition-colors">
               {t("forthcomingTitle")}
             </h3>
             {locale === "ar" && (
-              <p className="display text-gold/70 text-lg mb-5" style={{ fontFamily: "var(--font-cormorant)" }}>
+              <p className="display text-gold/70 text-base md:text-lg mb-5" style={{ fontFamily: "var(--font-cormorant)" }}>
                 History of Philosophy — From A to Z
               </p>
             )}
             {locale === "en" && (
-              <p className="display text-gold/70 text-lg mb-5" style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}>
+              <p className="display text-gold/70 text-base md:text-lg mb-5" style={{ fontFamily: "var(--font-amiri)", direction: "rtl" }}>
                 تاريخ الفلسفة: من الألف إلى الياء
               </p>
             )}
-            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">
+            <p className="body-serif text-xs md:text-base text-ink-soft leading-relaxed">
               {t("forthcomingBody")}
             </p>
 
             {/* Coming Soon indicator */}
-            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10">
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              <span className="text-xs uppercase tracking-[0.2em] text-gold font-mono">
+              <span className="text-[9px] md:text-xs uppercase tracking-[0.2em] text-gold font-mono">
                 {locale === "ar" ? "قريبًا" : "Coming Soon!"}
               </span>
             </div>
