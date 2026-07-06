@@ -25,21 +25,22 @@ export function Hero() {
       {/* Faded Basra Library painting — 13th century Islamic manuscript
           illumination by Yahya ibn Mahmud Al-Wasiti, depicting scholars
           in the library at Basra. Same city as the Brethren of Purity.
-          Faded to match the Library paintings. Positioned on the right
-          side of the hero, behind the text, at low opacity. */}
+          Positioned as a FULL-WIDTH background behind all text, at very
+          low opacity so it reads as atmosphere, not a split-screen image. */}
       <div
         aria-hidden
-        className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] lg:w-[50%] overflow-hidden pointer-events-none"
+        className="absolute inset-0 overflow-hidden pointer-events-none"
       >
         <img
           src="/hero-basra-library.jpg"
           alt=""
           className="w-full h-full object-cover"
-          style={{ opacity: 0.25 }}
+          style={{ opacity: 0.12 }}
         />
-        {/* Cream gradient — fades the painting into the paper background
-            on the left side (where the text sits) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5EFE4] via-[#F5EFE4]/70 to-[#F5EFE4]/20 md:from-[#F5EFE4] md:via-[#F5EFE4]/60 md:to-transparent" />
+        {/* Cream gradient — washes the entire painting into the paper
+            background so it reads as texture, not as a distinct image.
+            Slightly stronger at the bottom for the footnote bar. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/80 via-[#F5EFE4]/50 to-[#F5EFE4]/85" />
       </div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
