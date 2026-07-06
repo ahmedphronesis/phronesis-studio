@@ -300,37 +300,39 @@ export default async function LibrarySlugPage({
                   </div>
                 </div>
               ) : getArticlesBySubject(subj.slug).length > 0 ? (
-                /* Articles section — for subjects that have published articles
-                   (not PDF guides). Renders each article with title, author,
-                   date, reading time, and full text. */
+                /* Articles section — article cards that link to dedicated
+                   article pages (same pattern as Echoes episodes).
+                   Each card shows title, excerpt, author, date, reading time. */
                 <div>
                   <h2 className="display text-ink text-2xl md:text-3xl mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
                     {isAR ? "المقالات المتاحة" : "Available Articles"}
                   </h2>
-                  <div className="space-y-12">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
                     {getArticlesBySubject(subj.slug).map((article) => (
-                      <article key={article.slug} className="max-w-3xl">
-                        {/* Article header */}
-                        <div className="mb-8 pb-6 border-b border-border">
-                          <h3 className="display text-ink text-2xl md:text-4xl leading-[1.2] mb-4" style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl" } : { fontFamily: "var(--font-cormorant)" }}>
-                            {isAR ? article.titleAr : article.titleEn}
-                          </h3>
-                          <div className="flex items-center gap-4 text-xs text-ink-dim flex-wrap">
-                            <span className="body-serif">{isAR ? article.authorAr : article.authorEn}</span>
-                            <span className="text-teal/40">·</span>
-                            <span className="font-mono">{isAR ? article.dateAr : article.dateEn}</span>
-                            <span className="text-teal/40">·</span>
-                            <span className="font-mono">{isAR ? article.readingTimeAr : article.readingTimeEn}</span>
-                          </div>
+                      <a
+                        key={article.slug}
+                        href={`/${locale}/library/${subj.slug}/${article.slug}`}
+                        className="group text-left p-5 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors"
+                      >
+                        <div className="flex items-baseline justify-between mb-3">
+                          <span className="display text-teal/40 text-2xl leading-none font-mono">
+                            {String(getArticlesBySubject(subj.slug).indexOf(article) + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">
+                            {isAR ? article.readingTimeAr : article.readingTimeEn}
+                          </span>
                         </div>
-                        {/* Article body */}
-                        <div
-                          className="body-serif text-base md:text-lg text-ink-soft leading-[1.8] whitespace-pre-line"
-                          style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl", fontSize: "1.15rem", lineHeight: 2 } : {}}
+                        <h3 className="display text-ink text-base md:text-lg leading-tight mb-2 group-hover:text-teal transition-colors"
+                          style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl" } : { fontFamily: "var(--font-cormorant)" }}
                         >
-                          {isAR ? article.bodyAr : article.bodyEn}
+                          {isAR ? article.titleAr : article.titleEn}
+                        </h3>
+                        <div className="flex items-center gap-2 text-[10px] text-ink-dim mt-3 pt-2 border-t border-border/60">
+                          <span className="font-mono">{isAR ? article.dateAr : article.dateEn}</span>
+                          <span className="text-teal/40">·</span>
+                          <span className="font-mono uppercase tracking-wider">{isAR ? article.authorAr : article.authorEn}</span>
                         </div>
-                      </article>
+                      </a>
                     ))}
                   </div>
                 </div>
