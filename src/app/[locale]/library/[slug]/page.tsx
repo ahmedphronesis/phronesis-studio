@@ -42,13 +42,25 @@ async function generateMetadata({
   if (subj) {
     const title = t(subj.key);
     const description = t(`${subj.key}Desc`);
+    // Use the subject's painting as the OG image when available, so
+    // sharing a Library subject page on WhatsApp/Twitter/LinkedIn
+    // displays the actual painting (Émile Friant, Millet, da Vinci, etc.)
+    // instead of the generic site banner.
+    const ogImage = subj.image || "/og-image.png";
+    const ogImageAlt = subj.imageAlt || title;
     return {
       title: `${title} · The Library`,
       description,
       openGraph: {
         title: `${title} · The Library`,
         description,
-        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
+        images: [{ url: ogImage, width: 1200, height: 630, alt: ogImageAlt }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${title} · The Library`,
+        description,
+        images: [ogImage],
       },
       alternates: {
         canonical: `/${locale}/library/${slug}`,
