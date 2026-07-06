@@ -234,24 +234,26 @@ export function Echoes({ episodes }: { episodes: Episode[] }) {
             Same painting-as-background treatment as Library subject pages. */}
         <a
           href={`/${locale}/philosophy/history-of-philosophy`}
-          className="max-w-4xl block rounded-3xl border-2 border-gold/40 relative overflow-hidden group transition-colors hover:border-gold/60 min-h-[400px] md:min-h-0"
+          className="max-w-4xl block rounded-3xl border-2 border-gold/40 relative overflow-hidden group transition-colors hover:border-gold/60 min-h-[400px] md:min-h-[320px] lg:min-h-[380px] bg-paper-warm"
         >
           {/* Faded Raphael — School of Athens background.
-              MOBILE: absolute + object-cover + min-h-[400px]
-              DESKTOP: relative + h-auto (natural aspect ratio) */}
+              Uses object-cover with fixed min-height on ALL screen sizes
+              (both mobile and desktop) so the card doesn't become
+              excessively tall. The School of Athens is very wide (1200x392)
+              so h-auto would make it define the card height — too long. */}
           <img
             src="/school-of-athens-faded.jpg"
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover opacity-40 group-hover:opacity-50 transition-opacity pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity pointer-events-none"
           />
-          {/* Cream gradient — same as Library pages. Darker at bottom for text. */}
+          {/* Cream gradient — darker at bottom for text legibility. */}
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/60 to-[#F5EFE4]/20 pointer-events-none"
           />
 
-          <div className="relative p-6 md:p-10">
+          <div className="relative p-6 md:p-10 flex flex-col justify-end min-h-[400px] md:min-h-[320px] lg:min-h-[380px]">
             <div className="flex items-start justify-between mb-6">
               <div className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold">
                 <Globe size={24} strokeWidth={1.5} />

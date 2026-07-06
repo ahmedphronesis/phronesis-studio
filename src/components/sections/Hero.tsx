@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
@@ -14,24 +13,6 @@ export function Hero() {
   const t = useTranslations("hero");
   const locale = useLocale();
   const isRTL = locale === "ar";
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Force autoplay — some browsers block autoplay even when muted.
-  // This ref callback plays the video as soon as it's mounted.
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay was blocked — try again on first user interaction
-        const tryPlay = () => {
-          videoRef.current?.play().catch(() => {});
-          document.removeEventListener("click", tryPlay);
-          document.removeEventListener("touchstart", tryPlay);
-        };
-        document.addEventListener("click", tryPlay, { once: true });
-        document.addEventListener("touchstart", tryPlay, { once: true });
-      });
-    }
-  }, []);
 
   return (
     <section
@@ -57,7 +38,6 @@ export function Hero() {
         className="absolute inset-0 hidden md:block pointer-events-none"
       >
         <video
-          ref={videoRef}
           autoPlay
           muted
           loop

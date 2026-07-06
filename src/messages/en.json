@@ -815,6 +815,8 @@
     "rights": "All rights reserved.",
     "followWork": "Follow the work",
     "followWorkDesc": "Subscribe for updates on new publications, episodes, and guides.",
+    "followWorkPlaceholder": "your@email.com",
+    "followWorkButton": "Subscribe",
     "location": "Al Ain · Abu Dhabi · United Arab Emirates"
   },
   "language": {
