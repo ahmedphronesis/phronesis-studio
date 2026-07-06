@@ -172,12 +172,17 @@ export default async function LibrarySlugPage({
                   with object-cover, so the painting is always partially visible above
                   the text on all screen sizes. */}
               {subj.image ? (
-                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-[450px] lg:min-h-[520px]">
-                  {/* Background painting — object-cover fills the min-height container */}
+                <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-[450px] lg:min-h-[520px] bg-paper-warm">
+                  {/* Background painting — object-contain shows the FULL image
+                      without cropping. The cream bg-paper-warm fills any gaps
+                      when the image's aspect ratio doesn't match the container.
+                      This is critical for portrait images (Psychology) and
+                      images with different aspect ratios (Mathematics, Natural
+                      Sciences) that were being randomly cropped by object-cover. */}
                   <img
                     src={subj.image}
                     alt={subj.imageAlt || ""}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                   {/* Cream gradient overlay — darker at bottom for text legibility,
                       lighter at top so the painting's details remain visible */}
