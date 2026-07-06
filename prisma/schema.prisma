@@ -79,3 +79,13 @@ model SentEmail {
 
   @@map("sent_emails")
 }
+
+// New — newsletter subscribers from the website footer signup form.
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  locale    String   @default("en") // "en" or "ar" — which language they signed up from
+  createdAt DateTime @default(now())
+
+  @@map("subscribers")
+}

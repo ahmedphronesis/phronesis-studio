@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Loader2,
   Send,
+  Mail,
 } from "lucide-react";
 
 const NAV = [
@@ -24,6 +25,7 @@ const NAV = [
   { href: "/admin/content", label: "Content", icon: FileText },
   { href: "/admin/leads", label: "Leads", icon: Inbox },
   { href: "/admin/sent", label: "Sent Emails", icon: Send },
+  { href: "/admin/subscribers", label: "Subscribers", icon: Mail },
   { href: "/admin/templates", label: "Templates", icon: FileEdit },
   { href: "/admin/echoes", label: "Echoes", icon: Headphones },
   { href: "/admin/settings", label: "Settings", icon: Settings },

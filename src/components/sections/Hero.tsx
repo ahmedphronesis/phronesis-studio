@@ -23,19 +23,13 @@ export function Hero() {
       <MeshBackground />
 
       {/* Faded School of Athens video — same treatment as Library paintings.
-          The video is pre-faded (desaturated + cream-tinted) in the file
-          itself. Here it's positioned as a background layer at low opacity
-          so the text remains fully legible on top. The video autoplays,
-          is muted, and loops — no controls, no audio, pure ambient visual.
-          On mobile it's hidden to save bandwidth (the MeshBackground is
-          sufficient). The eagle logo is removed — the video replaces it
-          as the hero's visual element. */}
-      <motion.div
+          Autoplay muted loop — no controls, no audio, pure ambient visual.
+          The video is pre-faded in the file itself; CSS opacity adds
+          additional subtlety. On mobile it's hidden (MeshBackground only). */}
+      <div
         aria-hidden
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.18 }}
-        transition={{ duration: 3, ease: EASE, delay: 0.5 }}
-        className="absolute inset-0 hidden md:block pointer-events-none"
+        className="absolute inset-0 hidden md:block overflow-hidden pointer-events-none"
+        style={{ opacity: 0.2 }}
       >
         <video
           autoPlay
@@ -45,12 +39,13 @@ export function Hero() {
           preload="auto"
           poster="/hero-athens-poster.jpg"
           className="w-full h-full object-cover"
+          style={{ pointerEvents: "none" }}
         >
           <source src="/hero-athens.mp4" type="video/mp4" />
         </video>
         {/* Cream gradient wash so the video blends with the paper background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/60 via-[#F5EFE4]/30 to-[#F5EFE4]/80" />
-      </motion.div>
+      </div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 pb-44 md:pb-52">

@@ -1,11 +1,18 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { Loader2, Check } from "lucide-react";
 
 export function Footer() {
   const t = useTranslations("nav");
   const tf = useTranslations("footer");
+  const locale = useLocale();
+  const [email, setEmail] = useState("");
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const LINKS = [
     { href: "/", label: t("home") },
@@ -22,6 +29,30 @@ export function Footer() {
     { href: "https://mun-diplomatiq.vercel.app", label: "DiplomatiQ" },
     { href: "https://linkedin.com/in/ahmedmahmoudsaeedahmedali", label: "LinkedIn" },
   ];
+
+  async function onSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribing(true);
+    setError(null);
+    setSubscribed(false);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, locale }),
+      });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || "Subscription failed");
+      setSubscribed(true);
+      setEmail("");
+      setTimeout(() => setSubscribed(false), 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Subscription failed");
+    } finally {
+      setSubscribing(false);
+    }
+  }
 
   return (
     <footer className="relative mt-auto border-t border-border bg-paper-warm">
@@ -54,41 +85,45 @@ export function Footer() {
               {tf("description")}
             </p>
 
-            {/* Follow the work — email capture.
-                A styled inline form that opens the visitor's email client
-                with a pre-filled subscription request. Looks like a
-                professional newsletter signup. When a newsletter service
-                is set up (Brevo, Substack, ConvertKit), this can be
-                upgraded to a form that posts to an API. */}
+            {/* Follow the work — real email capture that saves to the database.
+                Subscribers are stored in the Subscriber table and can be
+                viewed/exported from the admin portal. */}
             <div className="mt-6">
               <p className="text-[10px] uppercase tracking-[0.25em] text-teal mb-3 font-mono">
                 {tf("followWork")}
               </p>
-              <form
-                action="mailto:ahmed@phronesis-studio.com"
-                method="post"
-                encType="text/plain"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const subject = encodeURIComponent("Subscribe to Studio of Phronesis");
-                  const body = encodeURIComponent("Please add me to the mailing list for updates on new publications, episodes, and guides.\n\nEmail: ");
-                  window.location.href = `mailto:ahmed@phronesis-studio.com?subject=${subject}&body=${body}`;
-                }}
-                className="flex items-center gap-2 max-w-sm"
-              >
+              <form onSubmit={onSubscribe} className="flex items-center gap-2 max-w-sm">
                 <input
                   type="email"
-                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder={tf("followWorkPlaceholder")}
-                  className="flex-1 bg-paper border border-border rounded-lg px-3 py-2 text-sm text-ink placeholder:text-ink-dim/50 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/30 transition-colors body-serif"
+                  disabled={subscribing}
+                  required
+                  className="flex-1 bg-paper border border-border rounded-lg px-3 py-2 text-sm text-ink placeholder:text-ink-dim/50 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/30 transition-colors body-serif disabled:opacity-50"
                 />
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-4 py-2 rounded-lg transition-colors whitespace-nowrap font-mono uppercase tracking-wider"
+                  disabled={subscribing || subscribed}
+                  className="inline-flex items-center justify-center bg-teal hover:bg-teal-bright disabled:opacity-60 text-paper text-xs font-medium px-4 py-2 rounded-lg transition-colors whitespace-nowrap font-mono uppercase tracking-wider"
                 >
-                  {tf("followWorkButton")}
+                  {subscribing ? (
+                    <Loader2 size={14} className="animate-spin" />
+                  ) : subscribed ? (
+                    <Check size={14} />
+                  ) : (
+                    tf("followWorkButton")
+                  )}
                 </button>
               </form>
+              {subscribed && (
+                <p className="text-[10px] text-teal mt-2 body-serif">
+                  {locale === "ar" ? "تم الاشتراك بنجاح." : "Subscribed successfully."}
+                </p>
+              )}
+              {error && (
+                <p className="text-[10px] text-red-600 mt-2 body-serif">{error}</p>
+              )}
               <p className="text-[10px] text-ink-dim/60 mt-2 body-serif italic">
                 {tf("followWorkDesc")}
               </p>
