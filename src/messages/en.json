@@ -776,8 +776,8 @@
   },
   "contact": {
     "eyebrow": "Work with me",
-    "title": "Tell us what gap",
-    "titleItalic": "needs closing.",
+    "title": "Start a conversation",
+    "titleItalic": "let's begin.",
     "intro": "A single line or a brief paragraph will suffice. Whether your need is for a custom system, a consultation, or training and instruction, show me the gap as you see it, and I will examine it carefully before proposing what remedies it.\nI read every message myself, and respond within 48 hours.",
     "fieldName": "Your name",
     "fieldEmail": "Email",
@@ -813,6 +813,8 @@
     "onThisPage": "On this page",
     "liveWork": "Live work",
     "rights": "All rights reserved.",
+    "followWork": "Follow the work",
+    "followWorkDesc": "Subscribe for updates on new publications, episodes, and guides.",
     "location": "Al Ain · Abu Dhabi · United Arab Emirates"
   },
   "language": {

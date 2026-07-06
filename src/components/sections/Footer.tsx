@@ -53,6 +53,23 @@ export function Footer() {
             <p className="body-serif text-xs text-ink-dim mt-6 leading-relaxed max-w-sm">
               {tf("description")}
             </p>
+
+            {/* Follow the work — simple email capture via mailto.
+                No backend needed; opens the visitor's email client with a
+                pre-filled subject. When a newsletter service is set up
+                (e.g. Brevo, Substack), this can be replaced with a form
+                that posts to an API. */}
+            <div className="mt-6">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-teal mb-2 font-mono">
+                {tf("followWork")}
+              </p>
+              <a
+                href="mailto:ahmed@phronesis-studio.com?subject=Follow the work"
+                className="inline-flex items-center gap-2 text-sm text-ink-soft hover:text-teal transition-colors body-serif link-underline"
+              >
+                {tf("followWorkDesc")}
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-3">

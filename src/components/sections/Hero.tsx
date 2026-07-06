@@ -22,31 +22,34 @@ export function Hero() {
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
-      {/* Large semi-transparent eagle filling the right side — animated, ghostly */}
+      {/* Faded School of Athens video — same treatment as Library paintings.
+          The video is pre-faded (desaturated + cream-tinted) in the file
+          itself. Here it's positioned as a background layer at low opacity
+          so the text remains fully legible on top. The video autoplays,
+          is muted, and loops — no controls, no audio, pure ambient visual.
+          On mobile it's hidden to save bandwidth (the MeshBackground is
+          sufficient). The eagle logo is removed — the video replaces it
+          as the hero's visual element. */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, scale: 0.9, x: 60 }}
-        animate={{ opacity: 0.12, scale: 1, x: 0 }}
-        transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
-        className="absolute right-[-8%] top-1/2 -translate-y-1/2 block pointer-events-none select-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.18 }}
+        transition={{ duration: 3, ease: EASE, delay: 0.5 }}
+        className="absolute inset-0 hidden md:block pointer-events-none"
       >
-        <motion.img
-          src="/logo-eagle.png"
-          alt=""
-          className="w-[clamp(16rem,42vw,52rem)] h-auto"
-          style={{
-            filter: "drop-shadow(0 8px 32px rgba(180, 141, 60, 0.18))",
-          }}
-          animate={{
-            y: [0, -16, 0],
-            rotate: [0, 1.5, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/hero-athens-poster.jpg"
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-athens.mp4" type="video/mp4" />
+        </video>
+        {/* Cream gradient wash so the video blends with the paper background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/60 via-[#F5EFE4]/30 to-[#F5EFE4]/80" />
       </motion.div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}

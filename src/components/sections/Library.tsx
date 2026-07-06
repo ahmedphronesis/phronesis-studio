@@ -52,30 +52,54 @@ export function Library() {
             const desc = t(`${subject.key}Desc`);
             const isLive = subject.live;
             const href = `/${locale}/library/${subject.slug}`;
+            const hasImage = Boolean(subject.image);
 
             return (
               <FadeUp key={subject.slug}>
                 <a
                   href={href}
-                  className={`group block h-full rounded-2xl border transition-all overflow-hidden ${
+                  className={`group block h-full rounded-2xl border transition-all overflow-hidden relative ${
                     isLive
                       ? "bg-paper border-teal/30 hover:border-teal/50 hover:shadow-lg"
                       : "bg-paper-warm/50 border-border hover:border-teal/30 hover:bg-paper"
                   }`}
                 >
-                  <div className="p-6 md:p-7">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                        isLive ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"
-                      }`}>
-                        <BookOpen size={20} strokeWidth={1.5} />
-                      </div>
-                      <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${
-                        isLive ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"
+                  {/* Painting thumbnail — faded background at the top of each card.
+                      Only rendered if the subject has an image. The image is
+                      displayed at low opacity with a cream gradient so the text
+                      below remains readable. */}
+                  {hasImage && (
+                    <div className="relative h-32 md:h-36 overflow-hidden bg-paper-warm border-b border-border/60">
+                      <img
+                        src={subject.image}
+                        alt=""
+                        className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/40 to-transparent" />
+                      {/* Status badge — overlaid on the painting */}
+                      <span className={`absolute top-3 right-3 text-[9px] uppercase tracking-[0.2em] font-mono px-2 py-1 rounded-full backdrop-blur-sm ${
+                        isLive ? "bg-teal/90 text-paper border border-teal" : "bg-paper/80 text-ink-dim border border-border"
                       }`}>
                         {isLive ? t("liveLabel") : t("forthcomingLabel")}
                       </span>
                     </div>
+                  )}
+                  <div className="p-6 md:p-7">
+                    {/* Icon — only shown for subjects without a painting */}
+                    {!hasImage && (
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                          isLive ? "bg-teal/10 border border-teal/30 text-teal" : "bg-ink-dim/5 border border-border text-ink-dim/40"
+                        }`}>
+                          <BookOpen size={20} strokeWidth={1.5} />
+                        </div>
+                        <span className={`text-[10px] uppercase tracking-[0.2em] font-mono px-2.5 py-1 rounded-full ${
+                          isLive ? "bg-teal/10 text-teal border border-teal/30" : "bg-ink-dim/5 text-ink-dim border border-border"
+                        }`}>
+                          {isLive ? t("liveLabel") : t("forthcomingLabel")}
+                        </span>
+                      </div>
+                    )}
                     <h3 className="display text-ink text-xl md:text-2xl mb-2" style={{ fontFamily: "var(--font-cormorant)" }}>
                       {name}
                     </h3>
