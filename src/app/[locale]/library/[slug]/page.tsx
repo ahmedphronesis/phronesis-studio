@@ -50,15 +50,30 @@ export async function generateMetadata({
     // sharing a Library subject page on WhatsApp/Twitter/LinkedIn
     // displays the actual painting (Émile Friant, Millet, da Vinci, etc.)
     // instead of the generic site banner.
-    const ogImage = subj.image || "/og-image.png";
+    // Includes all required OG tags: url, type, siteName, locale, and
+    // image dimensions + alt text so social platforms render the full
+    // preview card with title, description, and image.
+    const ogImage = subj.image ? `https://phronesis-studio.com${subj.image}` : "https://phronesis-studio.com/og-image.png";
     const ogImageAlt = subj.imageAlt || title;
+    const ogUrl = `https://phronesis-studio.com/${locale}/library/${slug}`;
     return {
       title: `${title} · The Library`,
       description,
       openGraph: {
         title: `${title} · The Library`,
         description,
-        images: [{ url: ogImage, width: 1200, height: 630, alt: ogImageAlt }],
+        type: "website",
+        url: ogUrl,
+        siteName: "Studio of Phronesis",
+        locale: locale === "ar" ? "ar_AR" : "en_US",
+        images: [{
+          url: ogImage,
+          secureUrl: ogImage,
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+          type: "image/jpeg",
+        }],
       },
       twitter: {
         card: "summary_large_image",
@@ -76,13 +91,32 @@ export async function generateMetadata({
   // Check if this is a guide page
   const guide = MATH_GUIDES.find((g) => g.pdf === `/guides/${slug}.pdf`);
   if (guide) {
+    const guideOgImage = `https://phronesis-studio.com${guide.cover}`;
+    const guideOgUrl = `https://phronesis-studio.com/${locale}/library/${slug}`;
     return {
       title: `${guide.grade} Mathematics · Bilingual Guide`,
       description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
       openGraph: {
         title: `${guide.grade} Mathematics · Bilingual Guide`,
         description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
-        images: [{ url: guide.cover, width: 1200, height: 630, alt: `${guide.grade} Mathematics Guide` }],
+        type: "website",
+        url: guideOgUrl,
+        siteName: "Studio of Phronesis",
+        locale: locale === "ar" ? "ar_AR" : "en_US",
+        images: [{
+          url: guideOgImage,
+          secureUrl: guideOgImage,
+          width: 1200,
+          height: 630,
+          alt: `${guide.grade} Mathematics Guide`,
+          type: "image/png",
+        }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${guide.grade} Mathematics · Bilingual Guide`,
+        description: `Bilingual (English & Arabic) mathematics learning guide for ${guide.grade}. ${guide.pages} pages, ${guide.units} units, ${guide.modules} modules. Free PDF download.`,
+        images: [guideOgImage],
       },
       alternates: {
         canonical: `/${locale}/library/${slug}`,

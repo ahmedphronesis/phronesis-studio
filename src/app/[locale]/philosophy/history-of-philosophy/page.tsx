@@ -33,13 +33,14 @@ export async function generateMetadata({
       type: "website",
       url,
       siteName: "Studio of Phronesis",
+      locale: locale === "ar" ? "ar_AR" : "en_US",
       images: [{
         url: `https://phronesis-studio.com${ogImage}`,
         secureUrl: `https://phronesis-studio.com${ogImage}`,
         width: 1200,
         height: 630,
         alt: tEchoes("forthcomingTitle"),
-        type: "image/png",
+        type: "image/jpeg",
       }],
     },
     twitter: {
