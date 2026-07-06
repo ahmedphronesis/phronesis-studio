@@ -29,7 +29,11 @@ export async function generateStaticParams() {
   return [...subjectParams, ...guideParams];
 }
 
-async function generateMetadata({
+// NOTE: `export` is REQUIRED — Next.js only invokes a named export called
+// `generateMetadata`. Without `export`, this function is silently ignored
+// and the page falls back to the layout's default metadata (wrong title,
+// wrong OG image, wrong description).
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
