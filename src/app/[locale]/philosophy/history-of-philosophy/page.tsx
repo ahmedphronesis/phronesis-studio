@@ -94,11 +94,11 @@ export default async function HistoryOfPhilosophyPage({
                 produced a too-short container on mobile, causing the text to
                 cover the entire painting. Now the container has a guaranteed
                 min-height and the image fills it with object-cover. */}
-            <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-[450px] lg:min-h-[520px] bg-paper-warm">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-0 bg-paper-warm">
               <img
                 src="/school-of-athens-faded.jpg"
                 alt="School of Athens by Raphael — fresco, 1509–1511, Apostolic Palace, Vatican City"
-                className="absolute inset-0 w-full h-full object-contain"
+                className="w-full h-auto block relative z-0"
               />
               {/* Cream gradient overlay — darker at bottom for text legibility,
                   lighter at top so the painting's details remain visible */}
