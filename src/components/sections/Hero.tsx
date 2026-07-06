@@ -22,26 +22,34 @@ export function Hero() {
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
-      {/* Faded Basra Library painting — 13th century Islamic manuscript
-          illumination by Yahya ibn Mahmud Al-Wasiti, depicting scholars
-          in the library at Basra. Same city as the Brethren of Purity.
-          Positioned as a FULL-WIDTH background behind all text, at very
-          low opacity so it reads as atmosphere, not a split-screen image. */}
-      <div
+      {/* Large semi-transparent eagle filling the right side — animated, ghostly.
+          The classic hero visual. Replaced the Basra Library painting because
+          the eagle is more elegant, more subtle, and doesn't compete with text. */}
+      <motion.div
         aria-hidden
-        className="absolute inset-0 overflow-hidden pointer-events-none"
+        initial={{ opacity: 0, scale: 0.9, x: 60 }}
+        animate={{ opacity: 0.12, scale: 1, x: 0 }}
+        transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
+        className="absolute right-[-8%] top-1/2 -translate-y-1/2 block pointer-events-none select-none"
       >
-        <img
-          src="/hero-basra-library.jpg"
+        <motion.img
+          src="/logo-eagle.png"
           alt=""
-          className="w-full h-full object-cover"
-          style={{ opacity: 0.2 }}
+          className="w-[clamp(16rem,42vw,52rem)] h-auto"
+          style={{
+            filter: "drop-shadow(0 8px 32px rgba(180, 141, 60, 0.18))",
+          }}
+          animate={{
+            y: [0, -16, 0],
+            rotate: [0, 1.5, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
-        {/* Cream gradient — washes the entire painting into the paper
-            background so it reads as texture, not as a distinct image.
-            Slightly stronger at the bottom for the footnote bar. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/70 via-[#F5EFE4]/40 to-[#F5EFE4]/75" />
-      </div>
+      </motion.div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 pb-44 md:pb-52">
