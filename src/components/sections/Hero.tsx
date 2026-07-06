@@ -35,12 +35,12 @@ export function Hero() {
           src="/hero-basra-library.jpg"
           alt=""
           className="w-full h-full object-cover"
-          style={{ opacity: 0.12 }}
+          style={{ opacity: 0.2 }}
         />
         {/* Cream gradient — washes the entire painting into the paper
             background so it reads as texture, not as a distinct image.
             Slightly stronger at the bottom for the footnote bar. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/80 via-[#F5EFE4]/50 to-[#F5EFE4]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/70 via-[#F5EFE4]/40 to-[#F5EFE4]/75" />
       </div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
