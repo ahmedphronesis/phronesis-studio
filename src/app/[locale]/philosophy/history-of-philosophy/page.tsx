@@ -98,7 +98,7 @@ export default async function HistoryOfPhilosophyPage({
               <img
                 src="/school-of-athens-faded.jpg"
                 alt="School of Athens by Raphael — fresco, 1509–1511, Apostolic Palace, Vatican City"
-                className="w-full h-auto block relative z-0"
+                className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover"
               />
               {/* Cream gradient overlay — darker at bottom for text legibility,
                   lighter at top so the painting's details remain visible */}

@@ -173,16 +173,18 @@ export default async function LibrarySlugPage({
                   the text on all screen sizes. */}
               {subj.image ? (
                 <div className="relative rounded-3xl overflow-hidden border-2 border-gold/40 mb-10 shadow-[0_20px_60px_-20px_rgba(15,92,94,0.35)] min-h-[400px] md:min-h-0 bg-paper-warm">
-                  {/* Background painting — w-full h-auto lets the image display
-                      at its NATURAL aspect ratio on desktop (no cropping, no
-                      letterboxing, no gaps). On mobile, min-h-[400px] ensures
-                      enough vertical space for the overlaid text; the image
-                      fills the top portion and the cream bg fills the rest
-                      below, with the gradient bridging the two. */}
+                  {/* Background painting.
+                      MOBILE: absolute inset-0 + object-cover + min-h-[400px] so the
+                        container is tall enough for the overlaid text, and the image
+                        fills it without the text covering the entire painting.
+                      DESKTOP: md:relative md:static positioning + w-full h-auto so the
+                        image displays at its NATURAL aspect ratio — no cropping, no
+                        letterboxing, no gaps. The container height is defined by the
+                        image itself. */}
                   <img
                     src={subj.image}
                     alt={subj.imageAlt || ""}
-                    className="w-full h-auto block relative z-0"
+                    className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover"
                   />
                   {/* Cream gradient overlay — darker at bottom for text legibility,
                       lighter at top so the painting's details remain visible */}
