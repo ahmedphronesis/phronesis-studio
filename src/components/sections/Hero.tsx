@@ -22,29 +22,24 @@ export function Hero() {
       {/* Animated mesh gradient background — paper-warm tones */}
       <MeshBackground />
 
-      {/* Faded School of Athens video — same treatment as Library paintings.
-          Autoplay muted loop — no controls, no audio, pure ambient visual.
-          The video is pre-faded in the file itself; CSS opacity adds
-          additional subtlety. On mobile it's hidden (MeshBackground only). */}
+      {/* Faded Basra Library painting — 13th century Islamic manuscript
+          illumination by Yahya ibn Mahmud Al-Wasiti, depicting scholars
+          in the library at Basra. Same city as the Brethren of Purity.
+          Faded to match the Library paintings. Positioned on the right
+          side of the hero, behind the text, at low opacity. */}
       <div
         aria-hidden
-        className="absolute inset-0 hidden md:block overflow-hidden pointer-events-none"
-        style={{ opacity: 0.2 }}
+        className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] lg:w-[50%] overflow-hidden pointer-events-none"
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/hero-athens-poster.jpg"
+        <img
+          src="/hero-basra-library.jpg"
+          alt=""
           className="w-full h-full object-cover"
-          style={{ pointerEvents: "none" }}
-        >
-          <source src="/hero-athens.mp4" type="video/mp4" />
-        </video>
-        {/* Cream gradient wash so the video blends with the paper background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5EFE4]/60 via-[#F5EFE4]/30 to-[#F5EFE4]/80" />
+          style={{ opacity: 0.25 }}
+        />
+        {/* Cream gradient — fades the painting into the paper background
+            on the left side (where the text sits) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5EFE4] via-[#F5EFE4]/70 to-[#F5EFE4]/20 md:from-[#F5EFE4] md:via-[#F5EFE4]/60 md:to-transparent" />
       </div>
 
       {/* Full-bleed content — extra bottom padding to clear the absolute footnote bar */}
