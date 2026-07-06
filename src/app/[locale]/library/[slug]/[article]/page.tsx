@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Globe } from "lucide-react";
 import { getSubjectBySlug } from "@/lib/library-subjects";
 import { ARTICLES, getArticleBySlug, getArticlesBySubject } from "@/lib/library-articles";
 
@@ -93,6 +93,8 @@ export default async function ArticlePage({
   const prevArticle = currentIndex > 0 ? subjectArticles[currentIndex - 1] : null;
   const nextArticle = currentIndex < subjectArticles.length - 1 ? subjectArticles[currentIndex + 1] : null;
 
+  const otherLocale = isAR ? "en" : "ar";
+
   return (
     <MouseProvider>
       <div className="min-h-screen flex flex-col bg-background">
@@ -108,9 +110,19 @@ export default async function ArticlePage({
             </a>
 
             <div className="mb-8 pb-6 border-b border-border max-w-3xl">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono mb-3">
-                {subjectTitle} · {isAR ? "مقال" : "Article"}
-              </p>
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-teal font-mono">
+                  {subjectTitle} · {isAR ? "مقال" : "Article"}
+                </p>
+                {/* Language toggle — same as Echoes episode pages */}
+                <a
+                  href={`/${otherLocale}/library/${slug}/${article}`}
+                  className="inline-flex items-center gap-2 text-xs text-teal border border-teal/30 hover:bg-teal/10 transition-colors px-3 py-1.5 rounded-full font-medium whitespace-nowrap flex-shrink-0"
+                >
+                  <Globe size={14} strokeWidth={1.5} />
+                  {isAR ? "English" : "العربية"}
+                </a>
+              </div>
               <h1
                 className="display text-ink text-3xl md:text-5xl leading-[1.1] mb-4"
                 style={isAR ? { fontFamily: "var(--font-amiri)", direction: "rtl" } : { fontFamily: "var(--font-cormorant)" }}
