@@ -221,6 +221,7 @@ function ExperienceTab() {
     { role: t("exp4Role"), org: t("exp4Org"), date: t("exp4Date"), body: t("exp4Body"), bullets: t.raw("exp4Bullets") as string[] },
     { role: t("exp5Role"), org: t("exp5Org"), date: t("exp5Date"), body: t("exp5Body"), bullets: t.raw("exp5Bullets") as string[] },
     { role: t("exp6Role"), org: t("exp6Org"), date: t("exp6Date"), body: t("exp6Body"), bullets: t.raw("exp6Bullets") as string[] },
+    { role: t("exp7Role"), org: t("exp7Org"), date: t("exp7Date"), body: t("exp7Body"), bullets: t.raw("exp7Bullets") as string[] },
   ];
 
   return (
