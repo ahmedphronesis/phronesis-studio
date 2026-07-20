@@ -2,7 +2,7 @@
   "metadata": {
     "home": {
       "title": "Ahmed Ali · Studio of Phronesis",
-      "description": "Ahmed Ali is a philosopher, educator, and systems architect based in Al Ain, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition."
+      "description": "Ahmed Ali is a philosopher, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition."
     },
     "about": {
       "title": "About Ahmed Ali",
@@ -32,7 +32,7 @@
       "Ahmed Ali",
       "Ahmed Ali philosopher",
       "Ahmed Ali UAE",
-      "Ahmed Ali Al Ain",
+      "Ahmed Ali Abu Dhabi",
       "Ahmed Ali philosopher UAE",
       "Ahmed Ali systems architect",
       "Ahmed Ali educator",
@@ -592,6 +592,7 @@
       "إدارة الخزانة",
       "تكنولوجيا التعليم",
       "منصة تعلم",
+      "Abu Dhabi",
       "Al Ain",
       "UAE",
       "Abu Dhabi",
@@ -624,6 +625,7 @@
       "instruction",
       "training",
       "custom software development UAE",
+      "software developer Abu Dhabi",
       "software developer Al Ain",
       "philosophy teacher UAE",
       "philosophy tutor UAE",
@@ -666,7 +668,7 @@
     "ctaPrimary": "Work with me",
     "ctaSecondary": "See selected work",
     "footnote": "Academician, systems architect, and specialist in leadership and management. I contribute to building fitting systems, offering counsel, and training personnel, for institutions that no longer accept the persistence of the gap, and that seek to redress it.",
-    "location": "Al Ain · UAE",
+    "location": "Abu Dhabi · UAE",
     "enterPrompt": "Enter",
     "mottoWord": "ΦΡΟΝΗΣΙΣ",
     "mottoTransliteration": "",
@@ -801,7 +803,7 @@
     "engagementLabel": "Engagement structure",
     "engagementBody": "Every engagement begins with a conversation.\nCustom systems typically begin at $1,500, with licensing where applicable. Consultation may be hourly or project-based. Tutoring is available online or in person.",
     "locationLabel": "Location",
-    "location": "Al Ain, Abu Dhabi, UAE",
+    "location": "Abu Dhabi, UAE",
     "linkedinLabel": "LinkedIn",
     "toastSuccess": "Inquiry received.",
     "toastSuccessDesc": "I read every message personally. Expect a reply within 48 hours.",
@@ -817,7 +819,7 @@
     "followWorkDesc": "Subscribe for updates on new publications, episodes, and guides.",
     "followWorkPlaceholder": "your@email.com",
     "followWorkButton": "Subscribe",
-    "location": "Al Ain · Abu Dhabi · United Arab Emirates"
+    "location": "Abu Dhabi · United Arab Emirates"
   },
   "language": {
     "label": "Language",
@@ -845,17 +847,15 @@
     "profileSummary": "High-impact operations leader and educator with 8+ years of progressive experience across academia, retail, telecommunications, and family entertainment in the UAE, UK, and Egypt. ISO 9001 and 45001 Internal Auditor. 21% year-one revenue growth. Faculty Head for Model United Nations, coached students to Best School at MANORMUN V 2026.\n\nLINK:ahmed-ali-ops.vercel.app|View Full Professional Portfolio",
     "profileTeachingExpertise": "Philosopher-educator licensed by ADEK in MSC and Islamic Education, teaching Grades 1 to 12 in the American Curriculum with subject mapping to IB MYP, Cambridge Global Perspectives, IB TOK, and A-Level Philosophy. BA in Philosophy (Alexandria University), PGDE (Al-Azhar University). Faculty Head for Model United Nations.\n\nLINK:mr-ahmed-ali.vercel.app|View Full Academic Portfolio",
     "experienceLabel": "Work Experience",
-    "exp1Role": "MSC Studies and Islamic Education B Teacher and Lead of Non-Arabic Speaking Section",
+    "exp1Role": "English Social Studies Teacher",
     "exp1Org": "Al Nahda National School for Boys, Abu Dhabi, UAE",
     "exp1Date": "Aug 2026 to Present",
-    "exp1Body": "Teaching Moral, Social, and Cultural Studies and Islamic Education B through English-medium instruction, ensuring full compliance with ADEK and Irtiqa'a quality standards.",
+    "exp1Body": "Teaching English Social Studies at Al Nahda National School for Boys, commencing the 2026/2027 academic year.",
     "exp1Bullets": [
-      "Deliver MSC Studies for Cycles 2 and 3 and Islamic Education B for Cycle 1 through English-medium instruction",
-      "Ensure full compliance with ADEK and Irtiqa'a quality standards",
+      "Deliver English Social Studies curriculum aligned with UAE national standards",
+      "Ensure compliance with ADEK and Irtiqa'a quality standards",
       "Faculty Head for Model United Nations programme",
-      "Champion educational technology: HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy",
-      "Lead curriculum design and differentiated instruction for ELLs and gifted students",
-      "Manage parent communication, progress reporting, and stakeholder engagement"
+      "Champion educational technology integration in the classroom"
     ],
     "exp2Role": "MSC Studies and Islamic Education B Teacher and Lead of Non-Arabic Speaking Section",
     "exp2Org": "Ain Al Khaleej Private School, American Division, UAE",
@@ -866,8 +866,7 @@
       "Promoted from Subject Teacher to Lead of Non-Arabic Speaking Section in Term 2",
       "Mentored teachers within the department and modeled best practices in differentiated instruction",
       "Faculty Head for Model United Nations: coached students to win Best School at MANORMUN V 2026",
-      "Developed students' diplomatic reasoning, research writing, and public speaking skills",
-      "Pillar of emotional and social support for students across the campus, universally loved by students"
+      "Developed students' diplomatic reasoning, research writing, and public speaking skills"
     ],
     "exp3Role": "Branch Operations Manager",
     "exp3Org": "Cheeky Monkeys Playland LLC, UAE",

@@ -58,12 +58,12 @@ export const metadata = {
     },
   },
   description:
-    "Ahmed Ali is a philosopher, educator, and systems architect based in Al Ain, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
+    "Ahmed Ali is a philosopher, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
   keywords: [
       "Ahmed Ali",
       "Ahmed Ali philosopher",
       "Ahmed Ali UAE",
-      "Ahmed Ali Al Ain",
+      "Ahmed Ali Abu Dhabi",
       "Ahmed Ali philosopher UAE",
       "Ahmed Ali systems architect",
       "Ahmed Ali educator",
@@ -655,7 +655,7 @@ export const metadata = {
       "instruction",
       "training",
       "custom software development UAE",
-      "software developer Al Ain",
+      "software developer Abu Dhabi",
       "philosophy teacher UAE",
       "philosophy tutor UAE",
       "استشارات",
@@ -694,7 +694,7 @@ export const metadata = {
     siteName: "Studio of Phronesis",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Ahmed Ali is a philosopher, educator, and systems architect based in Al Ain, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
+      "Ahmed Ali is a philosopher, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
     images: [
       {
         url: "/og-image.png",
@@ -708,7 +708,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Ahmed Ali: philosopher, educator, and systems architect in Al Ain, UAE. Custom software, bilingual philosophical work, and teaching.",
+      "Ahmed Ali: philosopher, educator, and systems architect in Abu Dhabi, UAE. Custom software, bilingual philosophical work, and teaching.",
     images: ["/og-image.png"],
   },
   robots: {
