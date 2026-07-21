@@ -119,11 +119,11 @@ export function Vouches() {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="group block h-full p-7 rounded-2xl bg-paper border border-border hover:border-teal/40 transition-colors"
               >
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal">
-                    <Download size={20} strokeWidth={1.5} />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                    <Download size={18} strokeWidth={1.5} />
                   </div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-ink-dim font-mono leading-snug">
                     {letter.subtitle}
                   </span>
                 </div>
