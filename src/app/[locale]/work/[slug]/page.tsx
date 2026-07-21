@@ -50,11 +50,12 @@ const PROJECTS: Record<string, {
     rationaleKey: "neural.clouds.echoes.rationale",
     domain: "neural.clouds.echoes.domain",
   },
-  "treasury-emperor": {
-    nameKey: "neural.clouds.treasury.name",
-    descKey: "neural.clouds.treasury.desc",
-    rationaleKey: "neural.clouds.treasury.rationale",
-    domain: "neural.clouds.treasury.domain",
+  "al-ain-room-for-rent": {
+    nameKey: "neural.clouds.alainroom.name",
+    descKey: "neural.clouds.alainroom.desc",
+    rationaleKey: "neural.clouds.alainroom.rationale",
+    domain: "neural.clouds.alainroom.domain",
+    url: "https://alainroomforrent.com/",
   },
 };
 

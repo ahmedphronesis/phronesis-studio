@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl";
 import { Reveal, FadeUp, Magnetic, EASE } from "../anim";
 import { NeuralWork } from "./NeuralWork";
 import {
-  ArrowUpRight, ExternalLink, GraduationCap, Building2, Landmark,
+  ExternalLink, GraduationCap, Building2,
   type LucideIcon
 } from "lucide-react";
 
-type TabId = "education" | "realestate" | "finance";
+type TabId = "education" | "realestate";
 
 export function Work() {
   const t = useTranslations("work");
@@ -19,7 +19,6 @@ export function Work() {
   const tabs: { id: TabId; icon: LucideIcon; label: string; desc: string }[] = [
     { id: "education", icon: GraduationCap, label: t("tabEducation"), desc: t("tabEducationDesc") },
     { id: "realestate", icon: Building2, label: t("tabRealEstate"), desc: t("tabRealEstateDesc") },
-    { id: "finance", icon: Landmark, label: t("tabFinance"), desc: t("tabFinanceDesc") },
   ];
 
   return (
@@ -71,7 +70,7 @@ export function Work() {
         </Reveal>
       </div>
 
-      {/* Detailed breakdown tabs — Education, Real Estate, Finance */}
+      {/* Detailed breakdown tabs — Education, Real Estate */}
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
@@ -121,7 +120,6 @@ export function Work() {
           >
             {activeTab === "education" && <EducationTab />}
             {activeTab === "realestate" && <RealEstateTab />}
-            {activeTab === "finance" && <FinanceTab />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -201,6 +199,71 @@ function RealEstateTab() {
 
   return (
     <div>
+      {/* Two-project summary — Al Ain Room for Rent (production) + Real Estate Emperor (SaaS) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-6 md:py-8 border-t border-border/40">
+        <FadeUp>
+          <motion.div
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="p-7 md:p-8 rounded-2xl bg-paper border border-teal/30 hover:border-teal/50 transition-colors h-full"
+          >
+            <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-2 font-mono">{tc("realEstate.alAinRoomBadge")}</p>
+            <h4 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight">{tc("realEstate.alAinRoomName")}</h4>
+            <p className="display-italic text-teal text-base md:text-lg mb-4">{tc("realEstate.alAinRoomTagline")}</p>
+            <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5">{tc("realEstate.alAinRoomBody")}</p>
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
+              {(tc.raw("realEstate.alAinRoomStats") as string[]).map((s, i) => (
+                <span key={i} className="text-[10px] uppercase tracking-wider text-ink-dim border border-border rounded-full px-2.5 py-1 font-mono">
+                  {s}
+                </span>
+              ))}
+            </div>
+            <Magnetic strength={0.4}>
+              <a
+                href="https://alainroomforrent.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium"
+              >
+                <ExternalLink size={14} />
+                {tc("realEstate.alAinRoomCta")}
+              </a>
+            </Magnetic>
+          </motion.div>
+        </FadeUp>
+        <FadeUp delay={0.05}>
+          <motion.div
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="p-7 md:p-8 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors h-full"
+          >
+            <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-2 font-mono">{tc("realEstate.category")}</p>
+            <h4 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight">{tc("realEstate.name")}</h4>
+            <p className="display-italic text-teal text-base md:text-lg mb-4">{tc("realEstate.tagline")}</p>
+            <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5">{tc("realEstate.description")}</p>
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
+              {stats.map((s, i) => (
+                <span key={i} className="text-[10px] uppercase tracking-wider text-ink-dim border border-border rounded-full px-2.5 py-1 font-mono">
+                  {s.v} {s.l}
+                </span>
+              ))}
+            </div>
+            <Magnetic strength={0.4}>
+              <a
+                href="https://real-estate-emperor.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-teal border border-teal/40 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
+              >
+                <ExternalLink size={14} />
+                {tc("visitDemo")}
+              </a>
+            </Magnetic>
+          </motion.div>
+        </FadeUp>
+      </div>
+
+      {/* Detailed breakdown — Real Estate Emperor */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-6 md:py-8 border-t border-border/40">
         <div className="lg:col-span-5">
           <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{tc("realEstate.category")}</p>
@@ -275,79 +338,9 @@ function RealEstateTab() {
   );
 }
 
-/* ==================== FINANCE TAB ==================== */
-function FinanceTab() {
-  const tc = useTranslations("workContent");
-  const pillars = tc.raw("finance.pillars") as { title: string; body: string; replaces: string }[];
-  const stakeholders = tc.raw("finance.stakeholders") as { role: string; win: string; metric: string }[];
-
-  return (
-    <div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-6 md:py-8 border-t border-border/40">
-        <div className="lg:col-span-5">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-terracotta mb-3 font-mono">{tc("finance.category")}</p>
-          <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{tc("finance.name")}</h3>
-          <p className="display-italic text-terracotta text-xl md:text-2xl mt-3">{tc("finance.tagline")}</p>
-          <p className="body-serif text-sm text-ink-dim mt-5">{tc("finance.description")}</p>
-          <div className="mt-6 p-4 rounded-xl bg-terracotta/5 border border-terracotta/20">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-terracotta mb-1 font-mono">{tc("finance.statusLabel")}</p>
-            <p className="body-serif text-sm text-ink-soft">{tc("finance.statusBody")}</p>
-          </div>
-        </div>
-        <div className="lg:col-span-7 lg:col-start-6">
-          <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">{tc("finance.body1")}</p>
-          <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mt-5">{tc("finance.body2")}</p>
-        </div>
-      </div>
-
-      <div className="py-6 md:py-8 border-t border-border/40">
-        <h4 className="display text-ink text-3xl md:text-4xl mb-10">{tc("finance.pillarsTitle")}</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {pillars.map((p, i) => (
-            <FadeUp key={i}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.4, ease: EASE }}
-                className="p-7 rounded-2xl bg-paper-warm border border-border hover:border-terracotta/40 transition-colors h-full"
-              >
-                <div className="flex items-baseline justify-between mb-5">
-                  <span className="display text-terracotta/40 text-5xl leading-none">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">{tc("pillar")} {i + 1}/06</span>
-                </div>
-                <h4 className="display text-ink text-xl md:text-2xl mb-3">{p.title}</h4>
-                <p className="body-serif text-xs md:text-sm text-ink-soft leading-relaxed mb-4">{p.body}</p>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-terracotta font-mono">{p.replaces}</p>
-              </motion.div>
-            </FadeUp>
-          ))}
-        </div>
-      </div>
-
-      <div className="py-6 md:py-8 border-t border-border/40">
-        <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("finance.stakeholdersTitle")}</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {stakeholders.map((s, i) => (
-            <div key={i} className="p-5 rounded-xl border border-border bg-paper-warm">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-terracotta mb-2 font-mono">{s.role}</p>
-              <p className="body-serif text-xs text-ink-soft leading-relaxed mb-3">{s.win}</p>
-              <p className="display-italic text-teal text-sm">{s.metric}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="py-6 md:py-8 border-t border-border/40">
-        <div className="p-8 md:p-10 rounded-2xl border border-terracotta/30 bg-gradient-to-br from-terracotta/5 to-transparent">
-          <h4 className="display text-ink text-2xl md:text-3xl mb-3">{tc("finance.ctaTitle")}</h4>
-          <p className="body-serif text-sm text-ink-soft leading-relaxed max-w-2xl mb-6">{tc("finance.ctaBody")}</p>
-          <Magnetic strength={0.4}>
-            <a href="/correspondence" className="inline-flex items-center gap-2 text-sm text-paper bg-terracotta hover:bg-terracotta-bright transition-colors px-5 py-3 rounded-full font-medium">
-              {tc("finance.ctaButton")}
-              <ArrowUpRight size={14} />
-            </a>
-          </Magnetic>
-        </div>
-      </div>
-    </div>
-  );
-}
+/* ==================== FINANCE TAB — REMOVED ==================== */
+/* The Finance tab (Treasury Emperor) has been removed entirely from the site.
+   The finance i18n entries are also removed from en.json and ar.json.
+   The treasury-emperor project slug in /work/[slug]/page.tsx has been removed,
+   and the treasury cloud has been removed from NeuralWork.tsx.
+*/

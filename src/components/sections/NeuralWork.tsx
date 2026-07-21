@@ -20,7 +20,7 @@ import { EASE } from "../anim";
  *    leaves. The panel now shows the correct project.
  */
 
-type CloudId = "realestate" | "mscs" | "diplomatiq" | "math" | "echoes" | "treasury";
+type CloudId = "realestate" | "mscs" | "diplomatiq" | "math" | "echoes" | "alainroom";
 
 type Cloud = {
   id: CloudId;
@@ -39,7 +39,7 @@ const CLOUDS: Cloud[] = [
   { id: "realestate", x: 50, y: 6,  hue: "teal",       nameKey: "neural.clouds.realestate.name",    descKey: "neural.clouds.realestate.desc",    rationaleKey: "neural.clouds.realestate.rationale",    url: "https://real-estate-emperor.vercel.app" },
   { id: "mscs",       x: 90, y: 18, hue: "gold",       nameKey: "neural.clouds.mscs.name",          descKey: "neural.clouds.mscs.desc",          rationaleKey: "neural.clouds.mscs.rationale",          url: "https://mscs-academy.vercel.app" },
   { id: "diplomatiq", x: 90, y: 40, hue: "gold",       nameKey: "neural.clouds.diplomatiq.name",    descKey: "neural.clouds.diplomatiq.desc",    rationaleKey: "neural.clouds.diplomatiq.rationale",    url: "https://mun-diplomatiq.vercel.app" },
-  { id: "treasury",   x: 50, y: 52, hue: "terracotta", nameKey: "neural.clouds.treasury.name",      descKey: "neural.clouds.treasury.desc",      rationaleKey: "neural.clouds.treasury.rationale" },
+  { id: "alainroom",  x: 50, y: 52, hue: "teal",       nameKey: "neural.clouds.alainroom.name",     descKey: "neural.clouds.alainroom.desc",     rationaleKey: "neural.clouds.alainroom.rationale",     url: "https://alainroomforrent.com/" },
   { id: "math",       x: 10, y: 40, hue: "gold",       nameKey: "neural.clouds.math.name",          descKey: "neural.clouds.math.desc",          rationaleKey: "neural.clouds.math.rationale" },
   { id: "echoes",     x: 10, y: 18, hue: "forest",     nameKey: "neural.clouds.echoes.name",        descKey: "neural.clouds.echoes.desc",        rationaleKey: "neural.clouds.echoes.rationale" },
 ];

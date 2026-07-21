@@ -19,13 +19,14 @@ const GUIDE_SLUGS = [
 // and is listed in ECHOES_EXTRA_ROUTES below. /work/history-of-philosophy
 // still issues a 308 redirect, but we no longer list it in the sitemap
 // because the canonical URL is now under /echoes.
+// NOTE: "treasury-emperor" was removed entirely from the site.
 const PROJECT_SLUGS = [
   "real-estate-emperor",
   "mscs-academy",
   "diplomatiq",
   "bilingual-mathematics",
   "echoes-of-wisdom",
-  "treasury-emperor",
+  "al-ain-room-for-rent",
 ];
 
 // Extra Philosophy routes (besides the episode numbers and season-1)
@@ -111,27 +112,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       });
     }
-
-    // Vouches letter routes (3 letters — slugs based on university names)
-    // Emory University, Alexandria University, Bibliotheca Alexandrina
-    entries.push({
-      url: `${BASE_URL}/${locale}/vouches/emory-university`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    });
-    entries.push({
-      url: `${BASE_URL}/${locale}/vouches/alexandria-university`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    });
-    entries.push({
-      url: `${BASE_URL}/${locale}/vouches/bibliotheca-alexandrina`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    });
   }
 
   // Root

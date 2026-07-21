@@ -31,10 +31,10 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
   {
-    slug: "mass-and-meaning",
+    slug: "jinn-affliction-and-meaning",
     subjectSlug: "psychology",
     titleAr: "المسّ والمعنى: المرض النفسي بين تشريح الدماغ وتفسير النص",
-    titleEn: "Mass and Meaning: Mental Illness Between Brain Anatomy and Textual Interpretation",
+    titleEn: "Jinn Affliction and Meaning: Mental Illness Between Brain Science and Scriptural Interpretation",
     authorAr: "أحمد علي",
     authorEn: "Ahmed Ali",
     dateAr: "١ يوليو ٢٠٢٦",

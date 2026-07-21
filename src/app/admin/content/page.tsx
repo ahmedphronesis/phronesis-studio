@@ -21,7 +21,7 @@ const NAMESPACES = [
   { key: "vouches", label: "Vouches & Recommendations" },
   { key: "about", label: "About / Studio" },
   { key: "work", label: "Work (Section Headers)" },
-  { key: "workContent", label: "Work Content (Projects, Education, Real Estate, Finance)" },
+  { key: "workContent", label: "Work Content (Projects, Education, Real Estate)" },
   { key: "echoes", label: "Echoes / Philosophy Works" },
   { key: "library", label: "Library" },
   { key: "method", label: "Method" },

@@ -10,7 +10,7 @@
     },
     "work": {
       "title": "Selected Work",
-      "description": "Production-grade software systems built by Ahmed Ali across education, real estate, and finance. Real Estate Emperor, MSCS Academy, DiplomatiQ, Treasury Emperor. Each built from diagnosis to deployment on one Aristotelian method."
+      "description": "Production-grade software systems built by Ahmed Ali across education and real estate. Real Estate Emperor, MSCS Academy, DiplomatiQ, Al Ain Room for Rent. Each built from diagnosis to deployment on one Aristotelian method."
     },
     "echoes": {
       "title": "Philosophy · Echoes of Wisdom",
@@ -142,7 +142,7 @@
       "Real Estate Emperor",
       "MSCS Academy",
       "DiplomatiQ",
-      "Treasury Emperor",
+      "Al Ain Room for Rent",
       "Echoes of Wisdom",
       "أصداء الحكمة",
       "أصداء الحكمة بودكاست",
@@ -519,8 +519,8 @@
       "software architecture",
       "real estate management",
       "property management",
-      "financial operations",
-      "treasury management",
+      "real estate listings",
+      "room for rent",
       "educational technology",
       "edtech",
       "learning platform",
@@ -705,6 +705,7 @@
     "liveLabel": "Live",
     "forthcomingLabel": "Forthcoming",
     "guidesAvailable": "guides available",
+    "articlesAvailable": "articles available",
     "comingSoonGeneric": "Forthcoming",
     "subjectMath": "Mathematics",
     "subjectMathDesc": "Bilingual mathematics curriculum, Grades 1 to 4 live, Grades 5 to 12 in production. Built from zero for absolute beginners, structured for classroom use.",
@@ -714,6 +715,8 @@
     "subjectAgricultureDesc": "Soil, crops, animal husbandry, and the practical science of feeding communities. Built for the learner who works with their hands as much as their mind.",
     "subjectPermaculture": "Permaculture",
     "subjectPermacultureDesc": "Sustainable design systems, ecological thinking, and the philosophy of working with nature rather than against it. A design discipline, not just a gardening method.",
+    "subjectPedagogy": "Pedagogy & Curriculum",
+    "subjectPedagogyDesc": "The theory and practice of K-12 education: Webb's Depth of Knowledge (DOK), the SOLO taxonomy, curriculum mapping, assessment design, and the craft of teaching itself. Written for the educator who thinks about how we teach, not only what.",
     "subjectPsychology": "Psychology",
     "subjectPsychologyDesc": "Cognitive, behavioral, and developmental psychology. The study of the mind and its formation, written for the learner who wants to understand themselves and others.",
     "subjectTheology": "Theology",
@@ -737,11 +740,9 @@
     "tabProjects": "Projects",
     "tabEducation": "Education",
     "tabRealEstate": "Real Estate",
-    "tabFinance": "Finance",
     "tabProjectsDesc": "General systems and platforms built for institutions across the UAE and beyond.",
     "tabEducationDesc": "Educational platforms, curriculum, and learning systems.",
-    "tabRealEstateDesc": "Property management platforms for UAE landlords and portfolio operators.",
-    "tabFinanceDesc": "A radical new financial operations command center for multi-branch businesses.",
+    "tabRealEstateDesc": "Property management platforms and listings sites for UAE landlords and tenants.",
     "detailedBreakdown": "Detailed Breakdown",
     "visitSite": "Visit live site",
     "stack": "Stack",
@@ -1094,11 +1095,11 @@
           "desc": "Bilingual philosophy podcast. The cultural flagship of the studio.",
           "rationale": "Philosophy, when it speaks only to itself, dies. The academic journal, the closed seminar, the technical monograph: these are necessary, but they are not sufficient. A discipline that cannot survive the test of being understood by a non-specialist has lost contact with the reason it began: the cultivation of clarity in the conduct of a human life. I built Echoes of Wisdom as a return to the agora. The podcast is the public square, the listener is the citizen, the episode is the dialogue, and the question is always the Socratic one: have you examined what you take for granted? Each episode takes a concept from ethics, epistemology, or metaphysics and renders it in the language of everyday decision. Not diluted, but distilled. The bilingual format is not a translation exercise; it is a recognition that philosophy in Arabic and philosophy in English carry different intellectual inheritances, and that the conversation between them is itself a philosophical act. This is the cultural flagship of the studio: the proof that wisdom, to remain wisdom, must be spoken aloud."
         },
-        "treasury": {
-          "domain": "Finance · Operations",
-          "name": "Treasury Emperor",
-          "desc": "The financial nervous system for multi-branch businesses.",
-          "rationale": "Most multi-branch businesses in the UAE run their daily finances on a fragile stack of Excel sheets, WhatsApp approvals, paper receipts, and the office manager's memory. Each branch is a financial island. The owner sees the truth only at month-end, when it is too late to act. I perceived this gap as the same gap every other platform in the studio addresses: the gap between what is and what should be, closed by a system that perceives, diagnoses, and acts in real time. Treasury Emperor is built as the financial nervous system of the company: petty cash entries in Al Ain appear on the owner's dashboard in Sharjah within seconds, invoices flow through approval chains automatically, P&L consolidates across branches without manual rollup, debt service ratio warns before the bank does. The platform sits between every branch and every stakeholder : not as a report generator, but as the operating layer where financial decisions actually happen. Available for founding clients who want to shape the architecture before it is cast."
+        "alainroom": {
+          "domain": "Real Estate · Listings",
+          "name": "Al Ain Room for Rent",
+          "desc": "A production real-estate listings website for a live client in Al Ain.",
+          "rationale": "The landlord's oldest problem is discovery: a room sits empty, a tenant cannot find it, and the gap between them is filled by WhatsApp groups, hand-written signs on lamp posts, and brokers who take a month's rent for an introduction. I built Al Ain Room for Rent as the shortest path between a landlord with a vacant room and a tenant who needs it. The site is lean on purpose: every screen answers one question. Listings carry the facts a tenant actually decides on — rent, location, room type, photos, contact. No accounts, no funnels, no noise. The platform is live in production today, serving a real client in Al Ain, and is the studio's proof that the same engineering care applied to a multi-role SaaS like Real Estate Emperor can be compressed into a single-purpose site that solves a single problem cleanly."
         }
       }
     },
@@ -1223,6 +1224,17 @@
       "tagline": "The operating system for UAE property portfolios.",
       "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations, built for landlords managing 20 to 500 units across the Emirates.",
       "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
+      "alAinRoomBadge": "Production Listings Site · Live Client",
+      "alAinRoomName": "Al Ain Room for Rent",
+      "alAinRoomTagline": "The shortest path between a landlord and a tenant.",
+      "alAinRoomBody": "A lean, single-purpose listings website built for a real client in Al Ain and live in production today. Every screen answers one question: is this room right for me? Listings carry rent, location, room type, photos, and contact — nothing else. No accounts, no funnels, no noise.",
+      "alAinRoomStats": [
+        "Live in production",
+        "Real client",
+        "Al Ain, UAE",
+        "Mobile-first"
+      ],
+      "alAinRoomCta": "Visit alainroomforrent.com",
       "stats": [
         {
           "v": "400+",
@@ -1318,75 +1330,6 @@
           "d": "English, Arabic, Bengali, Urdu"
         }
       ]
-    },
-    "finance": {
-      "category": "Financial Operations · Cloud Platform · Forthcoming",
-      "name": "Treasury Emperor",
-      "tagline": "The financial nervous system for multi-branch businesses.",
-      "description": "One dashboard for petty cash across every branch, invoice lifecycle, real-time P&L consolidation, debt service ratio monitoring, and cash flow forecasting. Built for SMEs and large companies that have outgrown spreadsheets but cannot afford an ERP.",
-      "statusLabel": "Status",
-      "statusBody": "In design. Available for founding clients who want to shape the architecture.",
-      "body1": "Most multi-branch businesses in the UAE run their daily finances on a fragile stack of Excel sheets, WhatsApp approvals, paper receipts, and the office manager's memory. Each branch is a financial island. The owner sees the truth only at month-end, when it is too late to act. Treasury Emperor closes that gap.",
-      "body2": "The platform sits between every branch and every stakeholder. Petty cash entries in Al Ain appear on the owner's dashboard in Sharjah within seconds. Invoices flow through approval chains automatically. P&L consolidates across branches without manual rollup. Debt service ratio warns you before the bank does. This is the operating system for company finance.",
-      "pillarsTitle": "Six pillars. One financial truth.",
-      "pillars": [
-        {
-          "title": "Multi-Branch Petty Cash",
-          "body": "Real-time petty cash ledger per branch, per staff member. Every entry geo-stamped and timestamped. Approval chains configurable per branch. The owner sees every branch's cash position on one screen, updated live.",
-          "replaces": "Replaces: Excel + WhatsApp approvals"
-        },
-        {
-          "title": "Invoice Lifecycle",
-          "body": "From issuance to payment, every invoice tracked. Auto-aging buckets (0 to 30, 31 to 60, 61 to 90, 90+). Recurring invoices for retainer clients. Late payment reminders sent automatically. E-invoice compliance ready.",
-          "replaces": "Replaces: manual invoice tracking"
-        },
-        {
-          "title": "Real-Time P&L Consolidation",
-          "body": "Per-branch P&L generated automatically. Portfolio-wide rollup across all branches, all currencies, all cost centers. Drill down from the group view to a single transaction in three clicks. Month-end close: zero days.",
-          "replaces": "Replaces: monthly manual consolidation"
-        },
-        {
-          "title": "Debt Service Ratio (DSR) Monitor",
-          "body": "Live DSR calculation across all loans, all branches. Early warning when DSR approaches covenant thresholds. Bank-ready reports generated on demand. Never be surprised by your banker again.",
-          "replaces": "Replaces: annual DSR surprises"
-        },
-        {
-          "title": "Cash Flow Forecasting",
-          "body": "13-week rolling cash flow forecast based on receivables aging, payable schedules, and recurring obligations. Scenario modeling: what if Branch B's largest client pays 30 days late? Know before it happens.",
-          "replaces": "Replaces: gut-feel cash management"
-        },
-        {
-          "title": "Audit-Grade Trail",
-          "body": "Every transaction, every approval, every edit logged with user, timestamp, IP, and device. Role-based access per branch. SHA-256 verified daily backups. Bank-grade encryption. Ready for any auditor, any bank, any partner.",
-          "replaces": "Replaces: paper trail + hope"
-        }
-      ],
-      "stakeholdersTitle": "Who Treasury Emperor serves.",
-      "stakeholders": [
-        {
-          "role": "Owner / CEO",
-          "win": "See every branch's cash position, P&L, and DSR on one screen. Decide in seconds, not days.",
-          "metric": "Group visibility, live"
-        },
-        {
-          "role": "CFO / Finance Head",
-          "win": "Auto-consolidated P&L, rolling cash flow forecast, bank-ready reports. Month-end closes itself.",
-          "metric": "Month-end in zero days"
-        },
-        {
-          "role": "Branch Manager",
-          "win": "Enter petty cash in 10 seconds. Approve invoices from your phone. See your branch's position in real time.",
-          "metric": "Branch autonomy, group control"
-        },
-        {
-          "role": "Accountant",
-          "win": "No more chasing receipts across branches. Every entry flows into consolidated reports automatically.",
-          "metric": "One source of truth"
-        }
-      ],
-      "ctaTitle": "Founding clients wanted.",
-      "ctaBody": "Treasury Emperor is in active design. I am seeking two to three founding clients, multi-branch businesses in the UAE who want to shape the architecture from day one. Founding clients receive preferred pricing, priority features, and direct input on the roadmap. In exchange, they commit to being the first production deployment.",
-      "ctaButton": "Become a founding client"
     }
   },
   "vouches": {
@@ -1413,7 +1356,7 @@
         "authorTitle": "Director for Interfaith Academic Partnerships, Emory University",
         "date": "March 22, 2025",
         "excerpt": "Mr. Ahmed Ali is a philosophy graduate with a strong passion for academic research. He provided valuable support in transcribing and translating theological and historical manuscripts, tracing their philosophical underpinnings with exceptional attention to detail. He demonstrated a strong command of both source and target languages, consistently delivering high-quality work within deadlines. I highly recommend him for any opportunity that requires advanced research, transcription, and translation skills.",
-        "file": "/references/Recommendation - Emory University - Ahmed Ali.pdf"
+        "file": "/references/Recommendation - Emory University.pdf"
       },
       {
         "title": "Alexandria University",
@@ -1422,7 +1365,7 @@
         "authorTitle": "Chair, Department of Philosophy, Faculty of Arts – Alexandria University",
         "date": "2016 to present",
         "excerpt": "Ahmed is a brilliant and diligent student with an encyclopedic knowledge of all branches of Philosophy. He possesses a remarkable ability to engage with original philosophical texts, analyzing them with precision and depth. His writing is excellent, and he demonstrates independent thinking, advanced critical thinking skills, and the capacity to achieve results under challenging conditions. I believe he possesses the intellectual and academic qualities that qualify him for success in any field requiring deep research and rigorous scholarly output.",
-        "file": "/references/Recommendation - Alexandria University - Ahmed Ali.pdf"
+        "file": "/references/Recommendation - Ashraf Mansour.pdf"
       },
       {
         "title": "Bibliotheca Alexandrina",
@@ -1431,25 +1374,25 @@
         "authorTitle": "Professor of Pesticide Chemistry and Toxicology, Alexandria University and Bibliotheca Alexandrina",
         "date": "December 19, 2018",
         "excerpt": "Ahmed joined the YESBU and LYM programs at Bibliotheca Alexandrina in 2015, attending weekly meetings and preparing presentations on scientific and cultural topics. He became a coordinator for the Future Club in his school, and later served as General Coordinator of the Waste Segregation Initiative in Alexandria Governorate. He demonstrated commitment to community engagement, organizational capacity, and a strong sense of responsibility. I strongly recommend him for any program or opportunity.",
-        "file": "/references/Recommendation - Bibliotheca Alexandrina - Ahmed Ali.pdf"
+        "file": "/references/Recommendation - Bibliotheca Alexandrina.pdf"
       },
       {
-        "title": "Ain Al Khaleej Private School",
-        "subtitle": "Academic Recommendation — Head of MoE Department",
+        "title": "Ain Al Khaleej School",
+        "subtitle": "Academic Recommendation — HOD MoE",
         "author": "Ms. Suhad Samara",
         "authorTitle": "Head of MoE Department, Ain Al Khaleej School",
         "date": "July 17, 2026",
         "excerpt": "Mr. Ahmed Ali joined the school as a Subject Teacher of Moral, Social, and Cultural Studies for Cycles 2 and 3, and Islamic Education B for Cycle 1. Based on his strong performance, he was promoted in Term 2 to Lead of the Non-Arabic Speaking Section. He was appointed Faculty Head for Model United Nations and coached the school delegation to win Best School at MANORMUN V 2026.",
-        "file": "/references/Recommendation - Ain Al Khaleej - HOD MoE - Ahmed Ali.pdf"
+        "file": "/references/Recommendation - HOD MoE.pdf"
       },
       {
-        "title": "Ain Al Khaleej Private School",
+        "title": "Ain Al Khaleej School",
         "subtitle": "Professional Reference — Vice Principal",
         "author": "Samar Elhamalawy",
-        "authorTitle": "Vice Principal, Ain Al Khaleej Private School",
+        "authorTitle": "Vice Principal, Ain Al Khaleej School",
         "date": "July 16, 2026",
         "excerpt": "Mr. Ahmed is a highly innovative professional who is deeply dedicated to completing every task with absolute perfection. Beyond his exceptional classroom instruction, he took on the responsibility of monitoring and supporting other non-Arabic teachers. He successfully managed our Model United Nations program and was a pillar of emotional and social support for our students, universally loved across the campus.",
-        "file": "/references/Reference - Ain Al Khaleej - Vice Principal - Ahmed Ali.pdf"
+        "file": "/references/Reference - Vice Principal.pdf"
       }
     ]
   },

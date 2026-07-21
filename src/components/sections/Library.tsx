@@ -3,7 +3,8 @@
 import { Reveal, Stagger, FadeUp, Magnetic } from "../anim";
 import { useTranslations, useLocale } from "next-intl";
 import { BookOpen, Sparkles, ArrowRight, ArrowLeft } from "lucide-react";
-import { SUBJECTS } from "@/lib/library-subjects";
+import { SUBJECTS, MATH_GUIDES } from "@/lib/library-subjects";
+import { getArticlesBySubject } from "@/lib/library-articles";
 
 export function Library() {
   const t = useTranslations("library");
@@ -109,8 +110,20 @@ export function Library() {
                     <div className="flex items-center gap-2 text-xs pt-3 border-t border-border">
                       {isLive ? (
                         <>
-                          <span className="text-teal font-mono">{4}</span>
-                          <span className="text-teal">{t("guidesAvailable")}</span>
+                          {(() => {
+                            const count = subject.slug === "mathematics"
+                              ? MATH_GUIDES.length
+                              : getArticlesBySubject(subject.slug).length;
+                            const label = subject.slug === "mathematics"
+                              ? t("guidesAvailable")
+                              : t("articlesAvailable");
+                            return (
+                              <>
+                                <span className="text-teal font-mono">{count}</span>
+                                <span className="text-teal">{label}</span>
+                              </>
+                            );
+                          })()}
                           {!isRTL && <ArrowRight size={14} className="ml-auto text-teal group-hover:translate-x-1 transition-transform" />}
                           {isRTL && <ArrowLeft size={14} className="mr-auto text-teal group-hover:-translate-x-1 transition-transform" />}
                         </>
