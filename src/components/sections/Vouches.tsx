@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal, FadeUp, Magnetic } from "../anim";
+import { Reveal, FadeUp } from "../anim";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Download, ExternalLink, Quote } from "lucide-react";
@@ -85,17 +85,15 @@ export function Vouches() {
                   <p className="text-xs text-ink-dim body-serif">{linkedIn.title}</p>
                   <p className="text-xs text-teal body-serif">{linkedIn.company}</p>
                 </div>
-                <Magnetic strength={0.4}>
-                  <a
-                    href={linkedIn.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs text-paper bg-teal hover:bg-teal-bright transition-colors px-4 py-2 rounded-full font-medium whitespace-nowrap"
-                  >
-                    <ExternalLink size={12} />
-                    {t("viewOnLinkedIn")}
-                  </a>
-                </Magnetic>
+                <a
+                  href={linkedIn.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs text-paper bg-teal hover:bg-teal-bright transition-colors px-4 py-2 rounded-full font-medium whitespace-nowrap"
+                >
+                  <ExternalLink size={12} />
+                  {t("viewOnLinkedIn")}
+                </a>
               </div>
             </div>
           </div>

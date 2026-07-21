@@ -50,7 +50,7 @@ const PROJECTS: Record<string, {
     rationaleKey: "neural.clouds.echoes.rationale",
     domain: "neural.clouds.echoes.domain",
   },
-  "al-ain-room-for-rent": {
+  "al-ain-real-estate": {
     nameKey: "neural.clouds.alainroom.name",
     descKey: "neural.clouds.alainroom.desc",
     rationaleKey: "neural.clouds.alainroom.rationale",

@@ -26,7 +26,7 @@ const PROJECT_SLUGS = [
   "diplomatiq",
   "bilingual-mathematics",
   "echoes-of-wisdom",
-  "al-ain-room-for-rent",
+  "al-ain-real-estate",
 ];
 
 // Extra Philosophy routes (besides the episode numbers and season-1)

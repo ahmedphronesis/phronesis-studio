@@ -175,7 +175,7 @@ const SCHEMAS: TemplateSchema[] = [
     description: "Internal scoping document: problem, audience, success metrics, constraints.",
     icon: "📋",
     fields: [
-      { key: "projectName", label: "Project Name", type: "text", placeholder: "Al Ain Room for Rent" },
+      { key: "projectName", label: "Project Name", type: "text", placeholder: "Al Ain Real Estate" },
       { key: "clientName", label: "Client Name", type: "text", placeholder: "Internal / TBD" },
       { key: "problemStatement", label: "Problem Statement", type: "textarea", placeholder: "What gap exists today? What is broken or missing?" },
       { key: "targetAudience", label: "Target Audience", type: "textarea", placeholder: "Who will use this? Who will benefit?" },

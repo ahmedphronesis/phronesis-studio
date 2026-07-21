@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Reveal, FadeUp, Magnetic, EASE } from "../anim";
+import { Reveal, FadeUp, EASE } from "../anim";
 import { NeuralWork } from "./NeuralWork";
 import {
   ExternalLink, GraduationCap, Building2,
@@ -73,7 +73,7 @@ export function Work() {
       {/* Detailed breakdown tabs — Education, Real Estate */}
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -163,12 +163,10 @@ function EducationTab() {
                   ))}
                 </div>
                 {item.url && (
-                  <Magnetic strength={0.3}>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm text-teal">
-                      <ExternalLink size={14} />
-                      <span className="link-underline">{tc("visitSite")}</span>
-                    </a>
-                  </Magnetic>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm text-teal">
+                    <ExternalLink size={14} />
+                    <span className="link-underline">{tc("visitSite")}</span>
+                  </a>
                 )}
               </div>
               <div className="lg:col-span-7">
@@ -199,7 +197,7 @@ function RealEstateTab() {
 
   return (
     <div>
-      {/* Two-project summary — Al Ain Room for Rent (production) + Real Estate Emperor (SaaS) */}
+      {/* Two-project summary — Al Ain Real Estate (production) + Real Estate Emperor (SaaS) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-6 md:py-8 border-t border-border/40">
         <FadeUp>
           <motion.div
@@ -218,17 +216,15 @@ function RealEstateTab() {
                 </span>
               ))}
             </div>
-            <Magnetic strength={0.4}>
-              <a
-                href="https://alainroomforrent.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium"
-              >
-                <ExternalLink size={14} />
-                {tc("realEstate.alAinRoomCta")}
-              </a>
-            </Magnetic>
+            <a
+              href="https://alainroomforrent.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium"
+            >
+              <ExternalLink size={14} />
+              {tc("realEstate.alAinRoomCta")}
+            </a>
           </motion.div>
         </FadeUp>
         <FadeUp delay={0.05}>
@@ -248,17 +244,15 @@ function RealEstateTab() {
                 </span>
               ))}
             </div>
-            <Magnetic strength={0.4}>
-              <a
-                href="https://real-estate-emperor.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-teal border border-teal/40 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
-              >
-                <ExternalLink size={14} />
-                {tc("visitDemo")}
-              </a>
-            </Magnetic>
+            <a
+              href="https://real-estate-emperor.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-teal border border-teal/40 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
+            >
+              <ExternalLink size={14} />
+              {tc("visitDemo")}
+            </a>
           </motion.div>
         </FadeUp>
       </div>
@@ -270,12 +264,10 @@ function RealEstateTab() {
           <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{tc("realEstate.name")}</h3>
           <p className="display-italic text-teal text-xl md:text-2xl mt-3">{tc("realEstate.tagline")}</p>
           <p className="body-serif text-sm text-ink-dim mt-5">{tc("realEstate.description")}</p>
-          <Magnetic strength={0.4}>
-            <a href="https://real-estate-emperor.vercel.app" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium">
-              <ExternalLink size={14} />
-              {tc("visitDemo")}
-            </a>
-          </Magnetic>
+          <a href="https://real-estate-emperor.vercel.app" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium">
+            <ExternalLink size={14} />
+            {tc("visitDemo")}
+          </a>
         </div>
         <div className="lg:col-span-7 lg:col-start-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">

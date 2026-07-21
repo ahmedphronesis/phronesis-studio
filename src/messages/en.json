@@ -10,7 +10,7 @@
     },
     "work": {
       "title": "Selected Work",
-      "description": "Production-grade software systems built by Ahmed Ali across education and real estate. Real Estate Emperor, MSCS Academy, DiplomatiQ, Al Ain Room for Rent. Each built from diagnosis to deployment on one Aristotelian method."
+      "description": "Production-grade software systems built by Ahmed Ali across education and real estate. Real Estate Emperor, MSCS Academy, DiplomatiQ, Al Ain Real Estate. Each built from diagnosis to deployment on one Aristotelian method."
     },
     "echoes": {
       "title": "Philosophy · Echoes of Wisdom",
@@ -142,7 +142,7 @@
       "Real Estate Emperor",
       "MSCS Academy",
       "DiplomatiQ",
-      "Al Ain Room for Rent",
+      "Al Ain Real Estate",
       "Echoes of Wisdom",
       "أصداء الحكمة",
       "أصداء الحكمة بودكاست",
@@ -520,7 +520,7 @@
       "real estate management",
       "property management",
       "real estate listings",
-      "room for rent",
+      "real estate broker",
       "educational technology",
       "edtech",
       "learning platform",
@@ -742,7 +742,7 @@
     "tabRealEstate": "Real Estate",
     "tabProjectsDesc": "General systems and platforms built for institutions across the UAE and beyond.",
     "tabEducationDesc": "Educational platforms, curriculum, and learning systems.",
-    "tabRealEstateDesc": "Property management platforms and listings sites for UAE landlords and tenants.",
+    "tabRealEstateDesc": "Property management platforms and listings sites for UAE landlords, brokers, and tenants.",
     "detailedBreakdown": "Detailed Breakdown",
     "visitSite": "Visit live site",
     "stack": "Stack",
@@ -1097,9 +1097,9 @@
         },
         "alainroom": {
           "domain": "Real Estate · Listings",
-          "name": "Al Ain Room for Rent",
-          "desc": "A production real-estate listings website for a live client in Al Ain.",
-          "rationale": "The landlord's oldest problem is discovery: a room sits empty, a tenant cannot find it, and the gap between them is filled by WhatsApp groups, hand-written signs on lamp posts, and brokers who take a month's rent for an introduction. I built Al Ain Room for Rent as the shortest path between a landlord with a vacant room and a tenant who needs it. The site is lean on purpose: every screen answers one question. Listings carry the facts a tenant actually decides on — rent, location, room type, photos, contact. No accounts, no funnels, no noise. The platform is live in production today, serving a real client in Al Ain, and is the studio's proof that the same engineering care applied to a multi-role SaaS like Real Estate Emperor can be compressed into a single-purpose site that solves a single problem cleanly."
+          "name": "Al Ain Real Estate",
+          "desc": "A production real-estate listings website for a live broker client in Al Ain.",
+          "rationale": "A broker's oldest problem is discovery: he has rooms to fill, tenants cannot find them, and the gap between them is filled by WhatsApp groups, hand-written signs on lamp posts, and intermediaries who take a month's rent for an introduction. I built Al Ain Real Estate as the shortest path between a broker with rooms to fill and a tenant who needs one. The site is lean on purpose: every screen answers one question. Listings carry the facts a tenant actually decides on — rent, location, room type, photos, contact. No accounts, no funnels, no noise. The platform is live in production today, serving a real broker client in Al Ain, and is the studio's proof that the same engineering care applied to a multi-role SaaS like Real Estate Emperor can be compressed into a single-purpose site that solves a single problem cleanly."
         }
       }
     },
@@ -1224,13 +1224,13 @@
       "tagline": "The operating system for UAE property portfolios.",
       "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations, built for landlords managing 20 to 500 units across the Emirates.",
       "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
-      "alAinRoomBadge": "Production Listings Site · Live Client",
-      "alAinRoomName": "Al Ain Room for Rent",
-      "alAinRoomTagline": "The shortest path between a landlord and a tenant.",
-      "alAinRoomBody": "A lean, single-purpose listings website built for a real client in Al Ain and live in production today. Every screen answers one question: is this room right for me? Listings carry rent, location, room type, photos, and contact — nothing else. No accounts, no funnels, no noise.",
+      "alAinRoomBadge": "Production Listings Site · Live Broker Client",
+      "alAinRoomName": "Al Ain Real Estate",
+      "alAinRoomTagline": "The shortest path between a broker and a tenant.",
+      "alAinRoomBody": "A lean, single-purpose listings website built for a real broker client in Al Ain and live in production today. Every screen answers one question: is this room right for me? Listings carry rent, location, room type, photos, and contact — nothing else. No accounts, no funnels, no noise.",
       "alAinRoomStats": [
         "Live in production",
-        "Real client",
+        "Real broker client",
         "Al Ain, UAE",
         "Mobile-first"
       ],
