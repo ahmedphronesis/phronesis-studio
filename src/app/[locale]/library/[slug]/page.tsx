@@ -185,11 +185,14 @@ export default async function LibrarySlugPage({
                   <img
                     src={subj.image}
                     alt={subj.imageAlt || ""}
-                    className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover"
+                    className="absolute inset-0 w-full h-full object-cover md:relative md:static md:inset-auto md:h-auto md:object-cover opacity-80"
                   />
                   {/* Cream gradient overlay — darker at bottom for text legibility,
-                      lighter at top so the painting's details remain visible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/55 to-[#F5EFE4]/15" />
+                      lighter at top so the painting's details remain visible.
+                      The 80% image opacity + this gradient together produce a
+                      muted, faded look even for vibrant paintings (Persian
+                      miniatures, etc.) so they don't overpower the page. */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#F5EFE4]/95 via-[#F5EFE4]/65 to-[#F5EFE4]/30" />
 
                   {/* Content overlaid on top of the painting */}
                   <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-10 lg:p-12">
