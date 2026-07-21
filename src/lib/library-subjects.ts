@@ -35,7 +35,7 @@ export const SUBJECTS: Subject[] = [
   { slug: "literature-and-languages", key: "subjectLiterature", live: false, image: "/library/literature-and-languages.jpg", imageAlt: "Leonid Pasternak · The Passion of Creation" },
   { slug: "mathematics", key: "subjectMath", live: true, image: "/library/mathematics.jpg", imageAlt: "John Augustus Knapp · Pythagoras" },
   { slug: "natural-sciences", key: "subjectScience", live: false, image: "/library/natural-sciences.jpg", imageAlt: "Ala ad-Din Mansur-Shirazi · Astronomers at the Istanbul Observatory" },
-  { slug: "pedagogy-and-curriculum", key: "subjectPedagogy", live: false, image: "/library/pedagogy-and-curriculum.jpg", imageAlt: "Raphael · The School of Athens (detail)" },
+  { slug: "pedagogy-and-curriculum", key: "subjectPedagogy", live: false, image: "/library/pedagogy-and-curriculum.jpg", imageAlt: "Persian miniature · Scene of instruction" },
   { slug: "permaculture", key: "subjectPermaculture", live: false, image: "/library/permaculture.jpg", imageAlt: "Franz von Lenbach · The Summer Meadow" },
   { slug: "psychology", key: "subjectPsychology", live: true, image: "/library/psychology.jpg", imageAlt: "Leonardo da Vinci · Study of horse from his journals" },
   { slug: "theology", key: "subjectTheology", live: false, image: "/library/theology.jpg", imageAlt: "The Meeting of Rumi and Shams of Tabriz" },
