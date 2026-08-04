@@ -12,6 +12,7 @@ export function Footer() {
   const [email, setEmail] = useState("");
   const [subscribing, setSubscribing] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [alreadySubscribed, setAlreadySubscribed] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const LINKS = [
@@ -36,6 +37,7 @@ export function Footer() {
     setSubscribing(true);
     setError(null);
     setSubscribed(false);
+    setAlreadySubscribed(false);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -43,10 +45,23 @@ export function Footer() {
         body: JSON.stringify({ email, locale }),
       });
       const json = await res.json();
+
+      // Handle duplicate subscription (HTTP 409)
+      if (res.status === 409 || json.code === "ALREADY_SUBSCRIBED") {
+        setAlreadySubscribed(true);
+        // Display the bilingual message from the server, falling back to a
+        // local string if the server didn't include one.
+        const msg = locale === "ar" ? json.message_ar : json.message_en;
+        // We don't throw — this is NOT an error, it's an expected state.
+        // The alreadySubscribed state shows a distinct (amber, not red) message.
+        setTimeout(() => setAlreadySubscribed(false), 5000);
+        return;
+      }
+
       if (!json.ok) throw new Error(json.error || "Subscription failed");
       setSubscribed(true);
       setEmail("");
-      setTimeout(() => setSubscribed(false), 3000);
+      setTimeout(() => setSubscribed(false), 4000);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Subscription failed");
     } finally {
@@ -118,7 +133,12 @@ export function Footer() {
               </form>
               {subscribed && (
                 <p className="text-[10px] text-teal mt-2 body-serif">
-                  {locale === "ar" ? "تم الاشتراك بنجاح." : "Subscribed successfully."}
+                  {locale === "ar" ? "تم اشتراكك بنجاح. تحقّق من بريدك الإلكتروني للحصول على رسالة الترحيب." : "Subscribed successfully. Check your inbox for a welcome email."}
+                </p>
+              )}
+              {alreadySubscribed && (
+                <p className="text-[10px] text-amber-600 mt-2 body-serif font-medium">
+                  {locale === "ar" ? "هذا البريد الإلكتروني مشترك بالفعل." : "This email is already subscribed."}
                 </p>
               )}
               {error && (
