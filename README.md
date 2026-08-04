@@ -101,12 +101,15 @@ bun run dev
 | `ADMIN_EMAIL` | Admin login email |
 | `ADMIN_PASSWORD` | Admin password (plaintext, timing-safe compared) |
 | `ADMIN_JWT_SECRET` | 64-hex secret for JWT signing |
-| `SMTP_HOST` | Brevo SMTP relay host |
+| `BREVO_API_KEY` | Brevo API key (preferred email path). Get from Brevo Dashboard → SMTP & API → API Keys. |
+| `SMTP_HOST` | Brevo SMTP relay host (fallback if no API key) |
 | `SMTP_PORT` | Brevo SMTP port (587) |
 | `SMTP_USER` | Brevo SMTP login |
-| `SMTP_PASS` | Brevo SMTP key |
-| `CONTACT_EMAIL` | From address for emails |
+| `SMTP_PASS` | Brevo SMTP key (fallback if no API key) |
+| `CONTACT_EMAIL` | From address for emails (must be verified sender in Brevo) |
+| `CONTACT_NAME` | From display name |
 | `NOTIFY_EMAIL` | Where lead notifications are sent |
+| `NEXT_PUBLIC_SITE_URL` | Public site URL (used in email templates for links) |
 
 ## Deployment
 

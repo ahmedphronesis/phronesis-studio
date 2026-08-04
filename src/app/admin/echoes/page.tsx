@@ -50,6 +50,8 @@ export default function EchoesAdminPage() {
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [notifySubscribers, setNotifySubscribers] = useState(false);
+  const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -92,6 +94,7 @@ export default function EchoesAdminPage() {
     if (!editing) return;
     setSaving(true);
     setError(null);
+    setBroadcastResult(null);
     try {
       const method = isNew ? "POST" : "PUT";
       const url = isNew
@@ -108,11 +111,17 @@ export default function EchoesAdminPage() {
           arExcerpt: editing.arExcerpt,
           enFull: editing.enFull,
           arFull: editing.arFull,
+          notifySubscribers: isNew && notifySubscribers,
         }),
       });
       const json = await res.json();
       if (!json.ok) throw new Error(json.error);
       setEditing(null);
+      setNotifySubscribers(false);
+      if (json.broadcast) {
+        const b = json.broadcast;
+        setBroadcastResult(`Broadcast sent: ${b.sent} delivered, ${b.failed} failed${b.rejected.length ? `, ${b.rejected.length} rejected` : ""}`);
+      }
       await load();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Save failed");
@@ -366,6 +375,40 @@ export default function EchoesAdminPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Notify subscribers checkbox — only shown for NEW episodes */}
+              {isNew && (
+                <div className="px-6 py-3 border-t border-[#E5DDD0] bg-[#F5EFE4]/40">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={notifySubscribers}
+                      onChange={(e) => setNotifySubscribers(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 accent-[#0F5C5E] cursor-pointer"
+                    />
+                    <div>
+                      <span className="text-sm font-medium text-[#1A1A1A]">
+                        Notify all subscribers by email
+                      </span>
+                      <p className="text-xs text-[#666] mt-0.5">
+                        Sends a branded announcement email to every subscriber
+                        with a link to the new episode. Only fires on creation,
+                        not on edits.
+                      </p>
+                    </div>
+                  </label>
+                </div>
+              )}
+
+              {/* Broadcast result banner */}
+              {broadcastResult && (
+                <div className="px-6 py-3 bg-[#0F5C5E]/10 border-t border-[#0F5C5E]/30">
+                  <p className="text-xs text-[#0F5C5E] font-medium">
+                    {broadcastResult}
+                  </p>
+                </div>
+              )}
+
               <div className="px-6 py-4 border-t border-[#E5DDD0] flex items-center justify-end gap-3">
                 <button
                   onClick={() => setEditing(null)}

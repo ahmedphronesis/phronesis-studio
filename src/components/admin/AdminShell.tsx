@@ -18,6 +18,7 @@ import {
   Loader2,
   Send,
   Mail,
+  Megaphone,
 } from "lucide-react";
 
 const NAV = [
@@ -26,6 +27,7 @@ const NAV = [
   { href: "/admin/leads", label: "Leads", icon: Inbox },
   { href: "/admin/sent", label: "Sent Emails", icon: Send },
   { href: "/admin/subscribers", label: "Subscribers", icon: Mail },
+  { href: "/admin/broadcasts", label: "Broadcast", icon: Megaphone },
   { href: "/admin/templates", label: "Templates", icon: FileEdit },
   { href: "/admin/echoes", label: "Echoes", icon: Headphones },
   { href: "/admin/settings", label: "Settings", icon: Settings },

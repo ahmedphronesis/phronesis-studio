@@ -771,3 +771,286 @@ function truncate(s: string, max: number): string {
   if (s.length <= max) return s;
   return s.slice(0, max);
 }
+
+// ─── Subscriber welcome email ───────────────────────────────────────────────
+
+/**
+ * Welcome email sent to a new subscriber immediately after they subscribe
+ * via the footer form. Bilingual (EN/AR based on the locale they used).
+ *
+ * This closes Bug 1: previously /api/subscribe only persisted the row and
+ * never sent any email. Now the subscriber gets a branded confirmation
+ * telling them what to expect and how to unsubscribe.
+ */
+export async function sendSubscriberWelcome(opts: {
+  email: string;
+  locale: "en" | "ar";
+}): Promise<void> {
+  const { email, locale } = opts;
+  const isAR = locale === "ar";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://phronesis-studio.com";
+  const replyTo = process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com";
+
+  const subject = isAR
+    ? "أهلاً بك في ستوديو فرونسيس"
+    : "Welcome to Studio of Phronesis";
+
+  const heading = isAR ? "أهلاً بك" : "Welcome";
+  const intro = isAR
+    ? "شكراً لاشتراكك في ستوديو فرونسيس. ستصلك إشعاراتٌ عند نشر حلقاتٍ جديدة من بودكاست «أصداء الحكمة»، ومقالاتٍ جديدة في المكتبة، وأدلّةٍ تعليمية جديدة."
+    : "Thank you for subscribing to Studio of Phronesis. You'll receive notifications when new episodes of the Echoes of Wisdom podcast are published, when new articles appear in the Library, and when new learning guides are released.";
+  const whatToExpectTitle = isAR ? "ما الذي يمكن أن تتوقعه:" : "What to expect:";
+  const expectations = isAR
+    ? [
+        "حلقات بودكاست فلسفية ثنائية اللغة (عربي/إنجليزي)",
+        "مقالاتٌ أكاديمية في علم النفس والفلسفة والتربية",
+        "أدلّة رياضيات ثنائية اللغة للصفوف من 1 إلى 12",
+        "تحديثاتٌ أحياناً عن المشاريع والمنصات الجديدة",
+      ]
+    : [
+        "Bilingual philosophy podcast episodes (Arabic/English)",
+        "Scholarly articles in psychology, philosophy, and pedagogy",
+        "Bilingual mathematics guides for Grades 1 to 12",
+        "Occasional updates on new projects and platforms",
+      ];
+  const closing = isAR
+    ? "يمكنك إلغاء الاشتراك في أي وقت بالرد على أي رسالة وكتابة «إلغاء الاشتراك»."
+    : "You can unsubscribe at any time by replying to any email with \"unsubscribe\".";
+  const footer = isAR
+    ? "ستوديو فرونسيس · العين، الإمارات العربية المتحدة"
+    : "Studio of Phronesis · Al Ain, United Arab Emirates";
+
+  const expectationsHtml = expectations
+    .map((e) => `<li style="padding:6px 0;color:#1A1A1A;font-size:14px;line-height:1.6;">${escapeHtml(e)}</li>`)
+    .join("");
+
+  const html = `<!DOCTYPE html>
+<html lang="${isAR ? "ar" : "en"}" ${isAR ? 'dir="rtl"' : ""}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5EFE4;font-family:Calibri,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1A1A1A;line-height:1.6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5EFE4;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding:40px 40px 24px;text-align:center;border-bottom:3px solid #B48D3C;">
+              <div style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${isAR ? "ستوديو فرونسيس" : "STUDIO OF PHRONESIS"}</div>
+              <h1 style="font-family:Cambria,Georgia,serif;font-size:28px;color:#1A1A1A;margin:8px 0 0;font-weight:normal;">${escapeHtml(heading)}</h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px 40px;">
+              <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 20px;">${escapeHtml(intro)}</p>
+
+              <h2 style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;margin:24px 0 12px;">${escapeHtml(whatToExpectTitle)}</h2>
+              <ul style="list-style:none;padding:0;margin:0;">
+                ${expectationsHtml}
+              </ul>
+
+              <p style="font-size:13px;color:#8A8A8A;line-height:1.6;margin:24px 0 0;">${escapeHtml(closing)}</p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:24px 40px 32px;text-align:center;border-top:1px solid #EAE3D5;">
+              <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">${escapeHtml(footer)}</p>
+              <p style="font-size:11px;color:#8A8A8A;margin:8px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">${siteUrl.replace(/^https?:\/\//, "")}</a></p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `${subject}
+
+${intro}
+
+${whatToExpectTitle}
+${expectations.map((e) => `- ${e}`).join("\n")}
+
+${closing}
+
+---
+${footer}
+${siteUrl}`;
+
+  await sendEmail({
+    to: email,
+    subject,
+    text,
+    html,
+    replyTo,
+  });
+}
+
+// ─── Publication broadcast ──────────────────────────────────────────────────
+
+/**
+ * Sends an email to ALL subscribers announcing new content (episode, article,
+ * or guide). This closes Bug 2: previously no code sent notifications when
+ * new content was published.
+ *
+ * Rate-limited (5 emails/sec) to respect Brevo free-tier limits (~300/day).
+ * Writes one SentEmail audit row per recipient. Non-fatal on individual
+ * failures — returns a summary of sent/failed/rejected.
+ *
+ * @returns { sent, failed, rejected } counts
+ */
+export async function sendPublicationBroadcast(opts: {
+  subject: string;
+  html: string;
+  text: string;
+  locale?: "en" | "ar" | "all"; // filter by subscriber locale, or "all"
+}): Promise<{ sent: number; failed: number; rejected: string[] }> {
+  const { subject, html, text, locale = "all" } = opts;
+
+  if (!isEmailConfigured()) {
+    console.warn("[broadcast] Email not configured — skipping broadcast.");
+    return { sent: 0, failed: 0, rejected: [] };
+  }
+
+  // Fetch subscribers
+  const { db } = await import("@/lib/db");
+  const where = locale === "all" ? {} : { locale };
+  const subscribers = await db.subscriber.findMany({
+    where,
+    select: { email: true, locale: true },
+  });
+
+  if (subscribers.length === 0) {
+    return { sent: 0, failed: 0, rejected: [] };
+  }
+
+  let sent = 0;
+  let failed = 0;
+  const rejected: string[] = [];
+  const replyTo = process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com";
+
+  for (const sub of subscribers) {
+    try {
+      const result = await sendEmail({
+        to: sub.email,
+        subject,
+        html,
+        text,
+        replyTo,
+      });
+
+      if (result.rejected.includes(sub.email)) {
+        rejected.push(sub.email);
+        failed++;
+      } else {
+        sent++;
+      }
+
+      // Write audit log
+      try {
+        await db.sentEmail.create({
+          data: {
+            toEmail: sub.email,
+            subject,
+            bodyText: text,
+            bodyHtml: html,
+          },
+        });
+      } catch (logErr) {
+        console.error("[broadcast] SentEmail log failed:", logErr);
+      }
+
+      // Rate limit: 5 emails/sec (200ms between sends)
+      await new Promise((r) => setTimeout(r, 200));
+    } catch (err) {
+      console.error(`[broadcast] Failed to send to ${sub.email}:`, err);
+      failed++;
+      rejected.push(sub.email);
+    }
+  }
+
+  console.log(
+    `[broadcast] "${subject}" — sent: ${sent}, failed: ${failed}, rejected: ${rejected.length}`
+  );
+
+  return { sent, failed, rejected };
+}
+
+/**
+ * Convenience wrapper: builds a broadcast email for a new Echoes episode
+ * and sends it to all subscribers in the matching locale (or all).
+ */
+export async function sendEpisodeBroadcast(opts: {
+  episodeNumber: number;
+  enTitle: string;
+  arTitle: string;
+  enExcerpt?: string;
+  arExcerpt?: string;
+}): Promise<{ sent: number; failed: number; rejected: string[] }> {
+  const { episodeNumber, enTitle, arTitle, enExcerpt, arExcerpt } = opts;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://phronesis-studio.com";
+
+  const subject = `New Episode · Echoes of Wisdom Ep. ${episodeNumber} · Studio of Phronesis`;
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5EFE4;font-family:Calibri,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1A1A1A;line-height:1.6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5EFE4;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+
+          <tr>
+            <td style="padding:40px 40px 24px;border-bottom:3px solid #B48D3C;">
+              <div style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">NEW EPISODE · ECHOES OF WISDOM</div>
+              <h1 style="font-family:Cambria,Georgia,serif;font-size:26px;color:#1A1A1A;margin:8px 0 0;font-weight:normal;">Episode ${episodeNumber}</h1>
+              <p style="font-family:Cambria,Georgia,serif;font-style:italic;font-size:18px;color:#0F5C5E;margin:8px 0 0;">${escapeHtml(enTitle)}</p>
+              <p style="font-family:Georgia,serif;font-size:16px;color:#1A1A1A;margin:8px 0 0;" dir="rtl">${escapeHtml(arTitle)}</p>
+            </td>
+          </tr>
+
+          ${enExcerpt ? `<tr><td style="padding:24px 40px;"><p style="font-size:14px;color:#1A1A1A;line-height:1.7;margin:0;">${escapeHtml(enExcerpt)}</p></td></tr>` : ""}
+
+          <tr>
+            <td style="padding:16px 40px 32px;text-align:center;">
+              <a href="${siteUrl}/en/philosophy/${episodeNumber}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:12px 24px;border-radius:4px;font-size:14px;font-weight:bold;">Read the episode →</a>
+              <p style="font-size:11px;color:#8A8A8A;margin:16px 0 0;">You're receiving this because you subscribed at ${siteUrl}. Reply with "unsubscribe" to opt out.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `NEW EPISODE · ECHOES OF WISDOM
+
+Episode ${episodeNumber}: ${enTitle}
+${arTitle}
+
+${enExcerpt || ""}
+
+Read the episode: ${siteUrl}/en/philosophy/${episodeNumber}
+
+---
+You're receiving this because you subscribed at ${siteUrl}. Reply with "unsubscribe" to opt out.`;
+
+  return sendPublicationBroadcast({ subject, html, text, locale: "all" });
+}
