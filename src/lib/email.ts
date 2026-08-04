@@ -610,7 +610,7 @@ export async function sendLeadConfirmation(opts: {
             <td style="padding:0 40px 32px;">
               <p style="font-size:15px;color:#4A4A4A;margin:0 0 4px;">With regards,</p>
               <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:bold;">Ahmed Ali</p>
-              <p style="font-size:13px;color:#8A8A8A;margin:2px 0 0;">Studio of Phronesis · Al Ain · UAE</p>
+              <p style="font-size:13px;color:#8A8A8A;margin:2px 0 0;">Studio of Phronesis · Abu Dhabi · UAE</p>
               <p style="font-size:13px;color:#B48D3C;margin:2px 0 0;font-style:italic;">phronesis-studio.com · Studio of Practical Wisdom</p>
             </td>
           </tr>
@@ -649,7 +649,7 @@ If your inquiry is urgent, you may reply directly to this email.
 
 With regards,
 Ahmed Ali
-Studio of Phronesis · Al Ain · UAE
+Studio of Phronesis · Abu Dhabi · UAE
 phronesis-studio.com · Studio of Practical Wisdom`;
 
   await sendEmail({
@@ -817,8 +817,8 @@ export async function sendSubscriberWelcome(opts: {
     ? "يمكنك إلغاء الاشتراك في أي وقت بالرد على أي رسالة وكتابة «إلغاء الاشتراك»."
     : "You can unsubscribe at any time by replying to any email with \"unsubscribe\".";
   const footer = isAR
-    ? "ستوديو فرونسيس · العين، الإمارات العربية المتحدة"
-    : "Studio of Phronesis · Al Ain, United Arab Emirates";
+    ? "ستوديو فرونسيس · أبوظبي، الإمارات العربية المتحدة"
+    : "Studio of Phronesis · Abu Dhabi, United Arab Emirates";
 
   const expectationsHtml = expectations
     .map((e) => `<li style="padding:6px 0;color:#1A1A1A;font-size:14px;line-height:1.6;">${escapeHtml(e)}</li>`)
