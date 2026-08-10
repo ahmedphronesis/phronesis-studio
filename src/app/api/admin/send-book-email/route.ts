@@ -60,8 +60,8 @@ export async function POST(req: NextRequest) {
 
     // ─── Build email content based on locale ─────────────────────────────
     const subject = isAR
-      ? "كتابٌ جديد: العمق المعرفي — أحمد علي · ستوديو فرونسيس"
-      : "New Book: Depth of Knowledge — Ahmed Ali · Studio of Phronesis";
+      ? "كتابٌ جديد: العمق المعرفي. أحمد علي · ستوديو فرونسيس"
+      : "New Book: Depth of Knowledge. Ahmed Ali · Studio of Phronesis";
 
     const eyebrow = isAR ? "كتابٌ جديد · ستوديو فرونسيس" : "NEW BOOK · STUDIO OF PHRONESIS";
 
@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
 
     const greeting = isAR
       ? "يسعدني أن أُطالعك على صدور كتابي الأول، وأنت ممّن اختاروا أن يتابعوا أعمالي."
-      : "It is my pleasure to share with you the publication of my first book — and you are among the first to know.";
+      : "It is my pleasure to share with you the publication of my first book, and you are among the first to know.";
 
     const excerpt = isAR
       ? "كتابٌ يُعيد إلى المعلمين صناعةَ كتابة الأسئلة ذات المطالب المعرفية العالية من مادّة الدرس وحدها، دون الاعتماد على أدوات الذكاء الاصطناعي. مبنيٌّ على إطار العمق المعرفي (DOK) لنورمان ويب (Norman Webb)، بأمثلةٍ محلولةٍ في سبع مواد، وفصلٍ يتتبّع المبدأ في التراث الفكري الإسلامي."
@@ -117,8 +117,8 @@ export async function POST(req: NextRequest) {
         </td></tr>
         <tr><td style="padding:8px 40px 12px;" ${isAR ? 'dir="rtl"' : ""}>
           <p style="font-size:13px;color:#1A1A1A;margin:0 0 10px;font-weight:600;">${escapeHtml(editionsLabel)}</p>
-          <p style="font-size:13px;color:#4A4A4A;margin:0 0 4px;"> ${escapeHtml(paperbackLabel)} — $19.99 USD</p>
-          <p style="font-size:13px;color:#4A4A4A;margin:0 0 16px;"> ${escapeHtml(ebookLabel)} — $9.99 USD</p>
+          <p style="font-size:13px;color:#4A4A4A;margin:0 0 4px;"> ${escapeHtml(paperbackLabel)}: $19.99 USD</p>
+          <p style="font-size:13px;color:#4A4A4A;margin:0 0 16px;"> ${escapeHtml(ebookLabel)}: $9.99 USD</p>
         </td></tr>
         <tr><td style="padding:8px 40px 28px;text-align:center;">
           <p style="margin:0 0 10px;">
@@ -155,8 +155,8 @@ ${greeting}
 ${excerpt}
 
 ${editionsLabel}
-  ${paperbackLabel} — $19.99 USD
-  ${ebookLabel} — $9.99 USD
+  ${paperbackLabel}: $19.99 USD
+  ${ebookLabel}: $9.99 USD
 
 ${buyLabel}: ${buyUrl}
 ${exploreLabel}: ${bookUrl}

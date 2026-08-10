@@ -802,7 +802,7 @@ export async function sendSubscriberWelcome(opts: {
 
   const intro = isAR
     ? "شكرًا لانضمامك إلى قائمة مراسلات ستوديو فرونسيس. يسعدني أن أطّلعك على كلّ ما أُنتجه من أعمال فكرية وتربويّة، فور صدوره، وباللغتين العربيّة والإنجليزيّة."
-    : "Thank you for joining the Studio of Phronesis mailing list. I am glad to share with you everything I produce — philosophical, educational, and architectural — as soon as it is published, in both Arabic and English.";
+    : "Thank you for joining the Studio of Phronesis mailing list. I am glad to share with you everything I produce, philosophical, educational, and architectural, as soon as it is published, in both Arabic and English.";
 
   const whatToExpectTitle = isAR
     ? "ما الذي ستصلك إشعارات به:"
@@ -1160,19 +1160,19 @@ export async function sendBookAnnouncement(opts: {
   for (const sub of subscribers) {
     const isAR = sub.locale === "ar";
     const subject = isAR
-      ? `كتابٌ جديد: ${bookTitleAr} — أحمد علي · ستوديو فرونسيس`
-      : `New Book: ${bookTitle} — Ahmed Ali · Studio of Phronesis`;
+      ? `كتابٌ جديد: ${bookTitleAr}. أحمد علي · ستوديو فرونسيس`
+      : `New Book: ${bookTitle}. Ahmed Ali · Studio of Phronesis`;
 
     const eyebrow = isAR ? "كتابٌ جديد · ستوديو فرونسيس" : "NEW BOOK · STUDIO OF PHRONESIS";
     const greeting = isAR
       ? "يسعدني أن أُطالعك على صدور كتابي الأول، وأنت ممّن اختاروا أن يتابعوا أعمالي."
-      : "It is my pleasure to share with you the publication of my first book — and you are among the first to know.";
+      : "It is my pleasure to share with you the publication of my first book, and you are among the first to know.";
     const hook = isAR ? excerptAr : excerpt;
     const t = isAR ? bookTitleAr : bookTitle;
     const st = isAR ? bookSubtitleAr : bookSubtitle;
     const bl = isAR ? buyLabelAr : buyLabel;
     const viewBookLabel = isAR ? "تعرّف على الكتاب" : "Explore the book";
-    const buyLabelFull = `${bl} — ${price}`;
+    const buyLabelFull = `${bl}: ${price}`;
     const closing = isAR
       ? "إن رغبت في إلغاء الاشتراك، يكفي أن تردّ على هذه الرسالة بكتابة «إلغاء الاشتراك»."
       : "If you wish to unsubscribe, simply reply to this email with the word \u201cunsubscribe\u201d.";
