@@ -101,26 +101,26 @@ export async function POST(req: NextRequest) {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(subject)}</title></head>
 <body style="margin:0;padding:0;background-color:#F5EFE4;font-family:Calibri,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1A1A1A;line-height:1.6;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5EFE4;">
-    <tr><td align="center" style="padding:32px 20px;">
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <tr><td style="padding:36px 40px 20px;text-align:center;border-bottom:3px solid #B48D3C;">
+    <tr><td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="680" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);max-width:680px;">
+        <tr><td style="padding:36px 32px 20px;text-align:center;border-bottom:3px solid #B48D3C;">
           <div style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${escapeHtml(eyebrow)}</div>
         </td></tr>
-        <tr><td style="padding:28px 40px 12px;text-align:center;">
+        <tr><td style="padding:28px 32px 12px;text-align:center;">
           <img src="${coverUrl}" alt="${escapeHtml(coverAlt)}" style="width:200px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.15);margin:0 auto 20px;display:block;" />
           <h1 style="font-family:Cambria,Georgia,serif;font-size:30px;color:#1A1A1A;margin:0 0 6px;font-weight:normal;">${escapeHtml(bookTitle)}</h1>
           <p style="font-family:Cambria,Georgia,serif;font-style:italic;font-size:17px;color:#0F5C5E;margin:0;line-height:1.4;">${escapeHtml(bookSubtitle)}</p>
         </td></tr>
-        <tr><td style="padding:20px 40px;" ${isAR ? 'dir="rtl"' : ""}>
-          <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 16px;">${escapeHtml(greeting)}</p>
-          <p style="font-size:14px;color:#4A4A4A;line-height:1.7;margin:0;font-style:italic;">${escapeHtml(excerpt)}</p>
+        <tr><td style="padding:20px 32px;" ${isAR ? 'dir="rtl"' : ""}>
+          <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 16px;text-align:justify;">${escapeHtml(greeting)}</p>
+          <p style="font-size:14px;color:#4A4A4A;line-height:1.7;margin:0;font-style:italic;text-align:justify;">${escapeHtml(excerpt)}</p>
         </td></tr>
-        <tr><td style="padding:8px 40px 12px;" ${isAR ? 'dir="rtl"' : ""}>
+        <tr><td style="padding:8px 32px 12px;" ${isAR ? 'dir="rtl"' : ""}>
           <p style="font-size:13px;color:#1A1A1A;margin:0 0 10px;font-weight:600;">${escapeHtml(editionsLabel)}</p>
           <p style="font-size:13px;color:#4A4A4A;margin:0 0 4px;"> ${escapeHtml(paperbackLabel)}: $19.99 USD</p>
           <p style="font-size:13px;color:#4A4A4A;margin:0 0 16px;"> ${escapeHtml(ebookLabel)}: $9.99 USD</p>
         </td></tr>
-        <tr><td style="padding:8px 40px 28px;text-align:center;">
+        <tr><td style="padding:8px 32px 28px;text-align:center;">
           <p style="margin:0 0 10px;">
             <a href="${buyUrl}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:bold;font-family:Consolas,monospace;letter-spacing:0.05em;">${escapeHtml(buyLabel)}</a>
           </p>
@@ -128,13 +128,13 @@ export async function POST(req: NextRequest) {
             <a href="${bookUrl}" style="display:inline-block;color:#0F5C5E;text-decoration:none;padding:10px 20px;font-size:13px;font-family:Consolas,monospace;letter-spacing:0.05em;border:1px solid #0F5C5E;border-radius:4px;">${escapeHtml(exploreLabel)}</a>
           </p>
         </td></tr>
-        <tr><td style="padding:0 40px 8px;" ${isAR ? 'dir="rtl"' : ""}>
+        <tr><td style="padding:0 32px 8px;" ${isAR ? 'dir="rtl"' : ""}>
           <p style="font-size:12px;color:#8A8A8A;line-height:1.6;margin:0 0 20px;">${escapeHtml(unsubscribeText)}</p>
           <p style="font-size:14px;color:#4A4A4A;margin:0 0 4px;">${escapeHtml(signoff)}</p>
           <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:600;">${escapeHtml(sigName)}</p>
           <p style="font-size:12px;color:#8A8A8A;margin:2px 0 0;line-height:1.5;">${escapeHtml(sigTitle)}</p>
         </td></tr>
-        <tr><td style="padding:20px 40px 28px;text-align:center;border-top:1px solid #EAE3D5;">
+        <tr><td style="padding:20px 32px 28px;text-align:center;border-top:1px solid #EAE3D5;">
           <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">${escapeHtml(footer)}</p>
           <p style="font-size:11px;color:#8A8A8A;margin:6px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">phronesis-studio.com</a></p>
         </td></tr>

@@ -159,7 +159,18 @@ export default async function BookPage({
                   {subtitle}
                 </p>
                 <p className="body-serif text-sm text-ink-dim mb-6">
-                  {t("by")} {author}
+                  {t("by")}{" "}
+                  <a
+                    href="https://www.amazon.com/author/ahmed-ali"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink-dim hover:text-teal transition-colors inline-flex items-center gap-1 align-baseline"
+                    title={isAR ? "زيارة صفحة المؤلف على أمازون" : "Visit Author's Amazon Page"}
+                    aria-label={isAR ? `${author} — زيارة صفحة المؤلف على أمازون` : `${author} — Visit Author's Amazon Page`}
+                  >
+                    {author}
+                    <ExternalLink size={11} strokeWidth={1.5} className="text-ink-dim/60" />
+                  </a>
                 </p>
 
                 {/* Editions + buy buttons */}
