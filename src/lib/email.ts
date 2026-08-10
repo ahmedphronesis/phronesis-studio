@@ -778,9 +778,11 @@ function truncate(s: string, max: number): string {
  * Welcome email sent to a new subscriber immediately after they subscribe
  * via the footer form. Bilingual (EN/AR based on the locale they used).
  *
- * This closes Bug 1: previously /api/subscribe only persisted the row and
- * never sent any email. Now the subscriber gets a branded confirmation
- * telling them what to expect and how to unsubscribe.
+ * Tone: polished, warm, credible, academically aligned with the studio's
+ * identity. Mentions all four content streams: Philosophy (podcast),
+ * Publications (books), Library (articles + guides), and Selected Work
+ * (software platforms). Includes a soft CTA to explore the site and a
+ * clear unsubscribe instruction.
  */
 export async function sendSubscriberWelcome(opts: {
   email: string;
@@ -796,32 +798,55 @@ export async function sendSubscriberWelcome(opts: {
     : "Welcome to Studio of Phronesis";
 
   const heading = isAR ? "أهلاً بك" : "Welcome";
+  const eyebrow = isAR ? "ستوديو فرونسيس · قائمة المراسلات" : "STUDIO OF PHRONESIS · MAILING LIST";
+
   const intro = isAR
-    ? "شكراً لاشتراكك في ستوديو فرونسيس. ستصلك إشعاراتٌ عند نشر حلقاتٍ جديدة من بودكاست «أصداء الحكمة»، ومقالاتٍ جديدة في المكتبة، وأدلّةٍ تعليمية جديدة."
-    : "Thank you for subscribing to Studio of Phronesis. You'll receive notifications when new episodes of the Echoes of Wisdom podcast are published, when new articles appear in the Library, and when new learning guides are released.";
-  const whatToExpectTitle = isAR ? "ما الذي يمكن أن تتوقعه:" : "What to expect:";
+    ? "شكرًا لانضمامك إلى قائمة مراسلات ستوديو فرونسيس. يسعدني أن أطّلعك على كلّ ما أُنتجه من أعمال فكرية وتربويّة، فور صدوره، وباللغتين العربيّة والإنجليزيّة."
+    : "Thank you for joining the Studio of Phronesis mailing list. I am glad to share with you everything I produce — philosophical, educational, and architectural — as soon as it is published, in both Arabic and English.";
+
+  const whatToExpectTitle = isAR
+    ? "ما الذي ستصلك إشعارات به:"
+    : "What you will receive:";
+
   const expectations = isAR
     ? [
-        "حلقات بودكاست فلسفية ثنائية اللغة (عربي/إنجليزي)",
-        "مقالاتٌ أكاديمية في علم النفس والفلسفة والتربية",
-        "أدلّة رياضيات ثنائية اللغة للصفوف من 1 إلى 12",
-        "تحديثاتٌ أحياناً عن المشاريع والمنصات الجديدة",
+        { title: "أصداء الحكمة", desc: "حلقاتٌ فلسفيّةٌ ثنائيّة اللغة في الأخلاق والمنطق والمعرفة والوجود" },
+        { title: "المؤلّفات", desc: "كتبٌ في التربية والفلسفة، أحدثها «العمق المعرفي: دليل عملي لتصميم أسئلة تُعمّق التفكير بلا ذكاء اصطناعي»" },
+        { title: "المكتبة", desc: "مقالاتٌ علميّةٌ وأدلّةٌ تعليميّةٌ في الرياضيات والعلوم والتربية وعلم النفس" },
+        { title: "مشاريع مختارة", desc: "منصّاتٌ برمجيّةٌ تعليميّةٌ وعقاريّةٌ عاملةٌ في الإنتاج" },
       ]
     : [
-        "Bilingual philosophy podcast episodes (Arabic/English)",
-        "Scholarly articles in psychology, philosophy, and pedagogy",
-        "Bilingual mathematics guides for Grades 1 to 12",
-        "Occasional updates on new projects and platforms",
+        { title: "Echoes of Wisdom", desc: "Bilingual philosophy podcast episodes on ethics, logic, epistemology, and existence" },
+        { title: "Publications", desc: "Books on education and philosophy, most recently \u201cDepth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI\u201d" },
+        { title: "The Library", desc: "Scholarly articles and learning guides across mathematics, science, pedagogy, and psychology" },
+        { title: "Selected Work", desc: "Production-grade educational and real-estate software platforms" },
       ];
+
+  const exploreTitle = isAR ? "استكشف الموقع" : "Explore the studio";
+  const exploreBody = isAR
+    ? "بإمكانك في أيّ وقت تصفّح أعمالي المنشورة على الموقع، والاطّلاع على ما يناسبك منها مباشرةً."
+    : "You are welcome to browse the published works on the site at any time, and read whatever speaks to you directly.";
+  const exploreButton = isAR ? "زيارة phronesis-studio.com" : "Visit phronesis-studio.com";
+
   const closing = isAR
-    ? "يمكنك إلغاء الاشتراك في أي وقت بالرد على أي رسالة وكتابة «إلغاء الاشتراك»."
-    : "You can unsubscribe at any time by replying to any email with \"unsubscribe\".";
+    ? "إن رغبت في إلغاء الاشتراك، يكفي أن تردّ على أيّ رسالة بكتابة «إلغاء الاشتراك»."
+    : "If you ever wish to unsubscribe, simply reply to any email with the word \u201cunsubscribe\u201d.";
+  const signoff = isAR ? "مع التقدير،" : "With regards,";
+  const signatureName = "Ahmed Ali";
+  const signatureTitle = isAR
+    ? "مؤسّس ستوديو فرونسيس · فيلسوف، مؤلِّف، مربٍّ، وباني نظُم"
+    : "Founder, Studio of Phronesis · Philosopher, Author, Educator, Systems Architect";
   const footer = isAR
     ? "ستوديو فرونسيس · أبوظبي، الإمارات العربية المتحدة"
     : "Studio of Phronesis · Abu Dhabi, United Arab Emirates";
 
   const expectationsHtml = expectations
-    .map((e) => `<li style="padding:6px 0;color:#1A1A1A;font-size:14px;line-height:1.6;">${escapeHtml(e)}</li>`)
+    .map(
+      (e) => `<tr><td style="padding:10px 0;border-bottom:1px solid #EAE3D5;">
+        <div style="font-family:Cambria,Georgia,serif;font-size:15px;color:#0F5C5E;font-weight:600;margin-bottom:2px;">${escapeHtml(e.title)}</div>
+        <div style="font-size:13px;color:#4A4A4A;line-height:1.6;">${escapeHtml(e.desc)}</div>
+      </td></tr>`
+    )
     .join("");
 
   const html = `<!DOCTYPE html>
@@ -840,30 +865,45 @@ export async function sendSubscriberWelcome(opts: {
           <!-- Header -->
           <tr>
             <td style="padding:40px 40px 24px;text-align:center;border-bottom:3px solid #B48D3C;">
-              <div style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${isAR ? "ستوديو فرونسيس" : "STUDIO OF PHRONESIS"}</div>
-              <h1 style="font-family:Cambria,Georgia,serif;font-size:28px;color:#1A1A1A;margin:8px 0 0;font-weight:normal;">${escapeHtml(heading)}</h1>
+              <div style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${escapeHtml(eyebrow)}</div>
+              <h1 style="font-family:Cambria,Georgia,serif;font-size:30px;color:#1A1A1A;margin:10px 0 0;font-weight:normal;">${escapeHtml(heading)}</h1>
             </td>
           </tr>
 
           <!-- Body -->
           <tr>
             <td style="padding:32px 40px;">
-              <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 20px;">${escapeHtml(intro)}</p>
+              <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 24px;">${escapeHtml(intro)}</p>
 
-              <h2 style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;margin:24px 0 12px;">${escapeHtml(whatToExpectTitle)}</h2>
-              <ul style="list-style:none;padding:0;margin:0;">
+              <h2 style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;margin:0 0 8px;">${escapeHtml(whatToExpectTitle)}</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
                 ${expectationsHtml}
-              </ul>
+              </table>
+
+              <h2 style="font-family:Consolas,monospace;font-size:11px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;margin:28px 0 8px;">${escapeHtml(exploreTitle)}</h2>
+              <p style="font-size:14px;color:#4A4A4A;line-height:1.6;margin:0 0 16px;">${escapeHtml(exploreBody)}</p>
+              <p style="margin:0 0 8px;">
+                <a href="${siteUrl}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:12px 24px;border-radius:4px;font-size:13px;font-weight:bold;font-family:Consolas,monospace;letter-spacing:0.05em;">${escapeHtml(exploreButton)}</a>
+              </p>
 
               <p style="font-size:13px;color:#8A8A8A;line-height:1.6;margin:24px 0 0;">${escapeHtml(closing)}</p>
             </td>
           </tr>
 
+          <!-- Signature -->
+          <tr>
+            <td style="padding:0 40px 32px;">
+              <p style="font-size:14px;color:#4A4A4A;margin:0 0 4px;">${escapeHtml(signoff)}</p>
+              <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:600;">${escapeHtml(signatureName)}</p>
+              <p style="font-size:12px;color:#8A8A8A;margin:2px 0 0;line-height:1.5;">${escapeHtml(signatureTitle)}</p>
+            </td>
+          </tr>
+
           <!-- Footer -->
           <tr>
-            <td style="padding:24px 40px 32px;text-align:center;border-top:1px solid #EAE3D5;">
+            <td style="padding:20px 40px 28px;text-align:center;border-top:1px solid #EAE3D5;">
               <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">${escapeHtml(footer)}</p>
-              <p style="font-size:11px;color:#8A8A8A;margin:8px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">${siteUrl.replace(/^https?:\/\//, "")}</a></p>
+              <p style="font-size:11px;color:#8A8A8A;margin:6px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">${siteUrl.replace(/^https?:\/\//, "")}</a></p>
             </td>
           </tr>
 
@@ -874,14 +914,26 @@ export async function sendSubscriberWelcome(opts: {
 </body>
 </html>`;
 
+  const expectationsText = expectations
+    .map((e) => `  - ${e.title}: ${e.desc}`)
+    .join("\n");
+
   const text = `${subject}
 
 ${intro}
 
 ${whatToExpectTitle}
-${expectations.map((e) => `- ${e}`).join("\n")}
+${expectationsText}
+
+${exploreTitle}
+${exploreBody}
+${siteUrl}
 
 ${closing}
+
+${signoff}
+${signatureName}
+${signatureTitle}
 
 ---
 ${footer}
@@ -1053,4 +1105,225 @@ Read the episode: ${siteUrl}/en/philosophy/${episodeNumber}
 You're receiving this because you subscribed at ${siteUrl}. Reply with "unsubscribe" to opt out.`;
 
   return sendPublicationBroadcast({ subject, html, text, locale: "all" });
+}
+
+// ─── Book publication announcement ──────────────────────────────────────────
+
+/**
+ * Cheerful, elegant, warm announcement email sent to all subscribers when
+ * a new book is published. Bilingual — each subscriber receives the email
+ * in the locale they subscribed with.
+ *
+ * @returns summary { sent, failed, rejected }
+ */
+export async function sendBookAnnouncement(opts: {
+  bookTitle: string;
+  bookSubtitle: string;
+  bookTitleAr: string;
+  bookSubtitleAr: string;
+  bookCover: string;
+  bookUrl: string;          // site URL for the book detail page
+  buyUrl: string;           // external purchase URL (Amazon)
+  buyLabel: string;
+  buyLabelAr: string;
+  price: string;
+  excerpt: string;          // short hook (EN)
+  excerptAr: string;        // short hook (AR)
+}): Promise<{ sent: number; failed: number; rejected: string[] }> {
+  const {
+    bookTitle, bookSubtitle, bookTitleAr, bookSubtitleAr,
+    bookCover, bookUrl, buyUrl, buyLabel, buyLabelAr, price,
+    excerpt, excerptAr,
+  } = opts;
+
+  if (!isEmailConfigured()) {
+    console.warn("[book-announce] Email not configured — skipping.");
+    return { sent: 0, failed: 0, rejected: [] };
+  }
+
+  const { db } = await import("@/lib/db");
+  const subscribers = await db.subscriber.findMany({
+    select: { email: true, locale: true },
+  });
+
+  if (subscribers.length === 0) {
+    console.log("[book-announce] No subscribers — nothing to send.");
+    return { sent: 0, failed: 0, rejected: [] };
+  }
+
+  let sent = 0;
+  let failed = 0;
+  const rejected: string[] = [];
+  const replyTo = process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://phronesis-studio.com";
+
+  for (const sub of subscribers) {
+    const isAR = sub.locale === "ar";
+    const subject = isAR
+      ? `كتابٌ جديد: ${bookTitleAr} — أحمد علي · ستوديو فرونسيس`
+      : `New Book: ${bookTitle} — Ahmed Ali · Studio of Phronesis`;
+
+    const eyebrow = isAR ? "كتابٌ جديد · ستوديو فرونسيس" : "NEW BOOK · STUDIO OF PHRONESIS";
+    const greeting = isAR
+      ? "يسعدني أن أُطالعك على صدور كتابي الأول، وأنت ممّن اختاروا أن يتابعوا أعمالي."
+      : "It is my pleasure to share with you the publication of my first book — and you are among the first to know.";
+    const hook = isAR ? excerptAr : excerpt;
+    const t = isAR ? bookTitleAr : bookTitle;
+    const st = isAR ? bookSubtitleAr : bookSubtitle;
+    const bl = isAR ? buyLabelAr : buyLabel;
+    const viewBookLabel = isAR ? "تعرّف على الكتاب" : "Explore the book";
+    const buyLabelFull = `${bl} — ${price}`;
+    const closing = isAR
+      ? "إن رغبت في إلغاء الاشتراك، يكفي أن تردّ على هذه الرسالة بكتابة «إلغاء الاشتراك»."
+      : "If you wish to unsubscribe, simply reply to this email with the word \u201cunsubscribe\u201d.";
+    const signoff = isAR ? "مع خالص التقدير،" : "With warm regards,";
+    const sigName = "Ahmed Ali";
+    const sigTitle = isAR
+      ? "مؤلِّفُ الكتاب · مؤسّس ستوديو فرونسيس"
+      : "Author of the book · Founder, Studio of Phronesis";
+    const footer = isAR
+      ? "ستوديو فرونسيس · أبوظبي، الإمارات العربية المتحدة"
+      : "Studio of Phronesis · Abu Dhabi, United Arab Emirates";
+    const coverUrl = `${siteUrl}${bookCover}`;
+    const coverAlt = isAR ? `غلاف كتاب «${bookTitleAr}»` : `Cover of "${bookTitle}"`;
+
+    const html = `<!DOCTYPE html>
+<html lang="${isAR ? "ar" : "en"}" ${isAR ? 'dir="rtl"' : ""}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F5EFE4;font-family:Calibri,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1A1A1A;line-height:1.6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5EFE4;">
+    <tr>
+      <td align="center" style="padding:32px 20px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding:36px 40px 20px;text-align:center;border-bottom:3px solid #B48D3C;">
+              <div style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${escapeHtml(eyebrow)}</div>
+            </td>
+          </tr>
+
+          <!-- Cover + title -->
+          <tr>
+            <td style="padding:28px 40px 12px;text-align:center;">
+              <img src="${coverUrl}" alt="${escapeHtml(coverAlt)}" style="width:200px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.15);margin:0 auto 20px;display:block;" />
+              <h1 style="font-family:Cambria,Georgia,serif;font-size:30px;color:#1A1A1A;margin:0 0 6px;font-weight:normal;">${escapeHtml(t)}</h1>
+              <p style="font-family:Cambria,Georgia,serif;font-style:italic;font-size:17px;color:#0F5C5E;margin:0 0 0;line-height:1.4;">${escapeHtml(st)}</p>
+            </td>
+          </tr>
+
+          <!-- Greeting + hook -->
+          <tr>
+            <td style="padding:20px 40px;">
+              <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 16px;">${escapeHtml(greeting)}</p>
+              <p style="font-size:14px;color:#4A4A4A;line-height:1.7;margin:0;font-style:italic;">${escapeHtml(hook)}</p>
+            </td>
+          </tr>
+
+          <!-- CTAs -->
+          <tr>
+            <td style="padding:16px 40px 28px;text-align:center;">
+              <p style="margin:0 0 10px;">
+                <a href="${buyUrl}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:bold;font-family:Consolas,monospace;letter-spacing:0.05em;">${escapeHtml(buyLabelFull)}</a>
+              </p>
+              <p style="margin:0;">
+                <a href="${bookUrl}" style="display:inline-block;color:#0F5C5E;text-decoration:none;padding:10px 20px;font-size:13px;font-family:Consolas,monospace;letter-spacing:0.05em;border:1px solid #0F5C5E;border-radius:4px;">${escapeHtml(viewBookLabel)} →</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Closing + signature -->
+          <tr>
+            <td style="padding:0 40px 8px;">
+              <p style="font-size:12px;color:#8A8A8A;line-height:1.6;margin:0 0 20px;">${escapeHtml(closing)}</p>
+              <p style="font-size:14px;color:#4A4A4A;margin:0 0 4px;">${escapeHtml(signoff)}</p>
+              <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:600;">${escapeHtml(sigName)}</p>
+              <p style="font-size:12px;color:#8A8A8A;margin:2px 0 0;line-height:1.5;">${escapeHtml(sigTitle)}</p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 40px 28px;text-align:center;border-top:1px solid #EAE3D5;">
+              <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">${escapeHtml(footer)}</p>
+              <p style="font-size:11px;color:#8A8A8A;margin:6px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">${siteUrl.replace(/^https?:\/\//, "")}</a></p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+    const text = `${subject}
+
+${eyebrow}
+
+${t}
+${st}
+
+${greeting}
+
+${hook}
+
+${buyLabelFull}: ${buyUrl}
+${viewBookLabel}: ${bookUrl}
+
+${closing}
+
+${signoff}
+${sigName}
+${sigTitle}
+
+---
+${footer}
+${siteUrl}`;
+
+    try {
+      const result = await sendEmail({
+        to: sub.email,
+        subject,
+        html,
+        text,
+        replyTo,
+      });
+
+      if (result.rejected.includes(sub.email)) {
+        rejected.push(sub.email);
+        failed++;
+      } else {
+        sent++;
+      }
+
+      // Audit log
+      try {
+        await db.sentEmail.create({
+          data: {
+            toEmail: sub.email,
+            subject,
+            bodyText: text,
+            bodyHtml: html,
+          },
+        });
+      } catch (logErr) {
+        console.error("[book-announce] SentEmail log failed:", logErr);
+      }
+
+      // Rate limit: 5 emails/sec
+      await new Promise((r) => setTimeout(r, 200));
+    } catch (err) {
+      console.error(`[book-announce] Failed to send to ${sub.email}:`, err);
+      failed++;
+      rejected.push(sub.email);
+    }
+  }
+
+  console.log(`[book-announce] "${bookTitle}" — sent: ${sent}, failed: ${failed}, rejected: ${rejected.length}`);
+  return { sent, failed, rejected };
 }
