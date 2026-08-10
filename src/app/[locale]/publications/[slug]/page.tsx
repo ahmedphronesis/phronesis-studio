@@ -86,7 +86,6 @@ export default async function BookPage({
   const language = isAR ? book.languageAr : book.language;
   const formats = isAR ? book.formatsAr : book.formats;
   const publisher = isAR ? book.publisherAr : book.publisher;
-  const buyLabel = isAR ? book.buyLabelAr : book.buyLabel;
   const chapters = isAR ? book.chaptersAr : book.chapters;
   const extras = isAR ? book.extrasAr : book.extras;
   const audience = isAR ? book.audienceAr : book.audience;
@@ -163,23 +162,30 @@ export default async function BookPage({
                   {t("by")} {author}
                 </p>
 
-                {/* Buy button */}
-                <div className={`flex flex-wrap items-center gap-4 mb-8 p-5 rounded-2xl bg-paper-warm border border-teal/20 ${isAR ? "flex-row-reverse" : ""}`}>
-                  <div className={isAR ? "text-right" : ""}>
-                    <div className="text-2xl text-ink font-semibold" style={headingFont}>
-                      {book.price}
-                    </div>
-                    <div className="text-xs text-ink-dim">{t("availableGlobally")}</div>
+                {/* Editions + buy buttons */}
+                <div className={`flex flex-col gap-3 mb-8 p-5 rounded-2xl bg-paper-warm border border-teal/20 ${isAR ? "items-end" : "items-start"}`}>
+                  <div className={`text-xs text-ink-dim mb-1 ${isAR ? "text-right" : ""}`}>
+                    {t("availableGlobally")}
                   </div>
-                  <a
-                    href={book.buyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-6 py-3 rounded-full transition-colors`}
-                  >
-                    <ExternalLink size={16} />
-                    {buyLabel}
-                  </a>
+                  {book.editions.map((ed, i) => (
+                    <div key={i} className={`flex items-center gap-4 w-full ${isAR ? "flex-row-reverse" : ""}`}>
+                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
+                        {isAR ? ed.formatAr : ed.format}
+                      </span>
+                      <span className="text-lg text-ink font-semibold flex-shrink-0" style={headingFont}>
+                        {ed.price}
+                      </span>
+                      <a
+                        href={ed.buyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-5 py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                      >
+                        <ExternalLink size={14} />
+                        {isAR ? ed.buyLabelAr : ed.buyLabel}
+                      </a>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Spec grid */}
@@ -187,7 +193,7 @@ export default async function BookPage({
                   <Spec label={t("specIsbn")} value={book.isbn} isAR={isAR} />
                   <Spec label={t("specPages")} value={`${book.pages}`} isAR={isAR} />
                   <Spec label={t("specLanguage")} value={language} isAR={isAR} />
-                  <Spec label={t("specFormat")} value={formats.join(", ")} isAR={isAR} />
+                  <Spec label={t("specFormat")} value={book.editions.map((e) => isAR ? e.formatAr : e.format).join(", ")} isAR={isAR} />
                 </div>
 
                 {/* Publisher (added for completeness) */}
@@ -268,21 +274,33 @@ export default async function BookPage({
             {/* Final buy CTA */}
             <div className="max-w-4xl pt-8 border-t border-border">
               <div className={`p-6 md:p-8 rounded-2xl bg-gradient-to-br from-teal/5 to-transparent border border-teal/20 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
-                <h3 className="display text-ink text-xl md:text-2xl mb-2" style={headingFont}>
+                <h3 className="display text-ink text-xl md:text-2xl mb-4" style={headingFont}>
                   {t("buyTitle")}
                 </h3>
-                <p className="body-serif text-sm text-ink-soft mb-4">
-                  {book.price} · {t("availableGlobally")}
+                <div className="flex flex-col gap-3">
+                  {book.editions.map((ed, i) => (
+                    <div key={i} className={`flex items-center gap-4 ${isAR ? "flex-row-reverse" : ""}`}>
+                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
+                        {isAR ? ed.formatAr : ed.format}
+                      </span>
+                      <span className="text-base text-ink font-semibold flex-shrink-0" style={headingFont}>
+                        {ed.price}
+                      </span>
+                      <a
+                        href={ed.buyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-5 py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                      >
+                        <ExternalLink size={14} />
+                        {isAR ? ed.buyLabelAr : ed.buyLabel}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+                <p className="body-serif text-xs text-ink-dim mt-4">
+                  {t("availableGlobally")}
                 </p>
-                <a
-                  href={book.buyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-6 py-3 rounded-full transition-colors ${isAR ? "flex-row-reverse" : ""}`}
-                >
-                  <ExternalLink size={16} />
-                  {buyLabel}
-                </a>
               </div>
             </div>
 

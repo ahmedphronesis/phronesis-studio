@@ -75,7 +75,6 @@ export default async function PublicationsPage({
   const fEdition = isAR ? featured!.editionAr : featured!.edition;
   const fLanguage = isAR ? featured!.languageAr : featured!.language;
   const fFormats = isAR ? featured!.formatsAr : featured!.formats;
-  const fBuyLabel = isAR ? featured!.buyLabelAr : featured!.buyLabel;
 
   return (
     <MouseProvider>
@@ -147,21 +146,35 @@ export default async function PublicationsPage({
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                       <Spec label={t("specPages")} value={`${featured.pages}`} isAR={isAR} />
                       <Spec label={t("specLanguage")} value={fLanguage} isAR={isAR} />
-                      <Spec label={t("specFormat")} value={fFormats.join(", ")} isAR={isAR} />
+                      <Spec label={t("specFormat")} value={featured.editions.map((e) => isAR ? e.formatAr : e.format).join(", ")} isAR={isAR} />
                       <Spec label={t("specIsbn")} value={featured.isbn} isAR={isAR} />
                     </div>
 
-                    {/* Actions */}
-                    <div className={`flex flex-wrap items-center gap-4 ${isAR ? "justify-end" : ""}`}>
-                      <a
-                        href={featured.buyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-6 py-3 rounded-full transition-colors"
-                      >
-                        <ExternalLink size={16} />
-                        {fBuyLabel} — {featured.price}
-                      </a>
+                    {/* Editions + buy buttons */}
+                    <div className={`flex flex-col gap-3 ${isAR ? "items-end" : "items-start"} mb-4`}>
+                      {featured.editions.map((ed, i) => (
+                        <div key={i} className={`flex items-center gap-4 ${isAR ? "flex-row-reverse" : ""}`}>
+                          <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px]">
+                            {isAR ? ed.formatAr : ed.format}
+                          </span>
+                          <span className="text-sm font-semibold text-ink" style={{ fontFamily: "var(--font-cormorant)" }}>
+                            {ed.price}
+                          </span>
+                          <a
+                            href={ed.buyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-4 py-2 rounded-full transition-colors whitespace-nowrap"
+                          >
+                            <ExternalLink size={14} />
+                            {isAR ? ed.buyLabelAr : ed.buyLabel}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* View details link */}
+                    <div className={isAR ? "text-right" : ""}>
                       <Link
                         href={`/${locale}/publications/${featured.slug}`}
                         className="inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors"

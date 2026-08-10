@@ -9,6 +9,16 @@
  * When rendering, the page picks the field matching the current locale.
  */
 
+export type BookEdition = {
+  format: string;        // "Paperback", "eBook", "Hardcover"
+  formatAr: string;
+  price: string;         // "$19.99 USD"
+  buyUrl: string;        // purchase URL
+  buyLabel: string;      // "Buy on Amazon"
+  buyLabelAr: string;
+  available: boolean;
+};
+
 export type Book = {
   // ─── Language-neutral fields ────────────────────────────────────────────
   slug: string;
@@ -17,10 +27,11 @@ export type Book = {
   isbn: string;
   pages: number;
   publishYear: string;
-  price: string;
-  buyUrl: string;
   featured: boolean;
   forthcoming: boolean;
+
+  // ─── Editions (multiple formats with individual prices + buy links) ────
+  editions: BookEdition[];
 
   // ─── English fields ─────────────────────────────────────────────────────
   title: string;
@@ -61,10 +72,29 @@ export const BOOKS: Book[] = [
     isbn: "979-8-1913137-5-7",
     pages: 149,
     publishYear: "2026",
-    price: "$19.99 USD",
-    buyUrl: "https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HDMK7RGX",
     featured: true,
     forthcoming: false,
+
+    editions: [
+      {
+        format: "Paperback",
+        formatAr: "غلاف ورقي",
+        price: "$19.99 USD",
+        buyUrl: "https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HDMK7RGX",
+        buyLabel: "Buy on Amazon",
+        buyLabelAr: "الشراء من أمازون",
+        available: true,
+      },
+      {
+        format: "eBook",
+        formatAr: "كتاب إلكتروني",
+        price: "$9.99 USD",
+        buyUrl: "https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HDMK7RGX",
+        buyLabel: "Buy on Amazon",
+        buyLabelAr: "الشراء من أمازون",
+        available: true,
+      },
+    ],
 
     // ─── English ──────────────────────────────────────────────────────────
     title: "Depth of Knowledge",
