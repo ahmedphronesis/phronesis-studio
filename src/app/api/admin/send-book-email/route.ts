@@ -12,15 +12,16 @@ function escapeHtml(s: string): string {
 
 /**
  * POST /api/admin/send-book-email
- * Body: { email: "someone@example.com", token: "phronesis-book-send-2026" }
+ * Body: { email, token, locale? }
+ * locale: "en" (default) or "ar"
  *
- * Sends the book announcement email to a SINGLE specific email address.
+ * Sends the book announcement email to a SINGLE email in the specified locale.
  * Also adds them as a subscriber if they don't already exist.
  */
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email, token } = body;
+    const { email, token, locale = "en" } = body;
 
     if (token !== "phronesis-book-send-2026") {
       return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
@@ -34,6 +35,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "Email not configured" }, { status: 503 });
     }
 
+    const isAR = locale === "ar";
     const normalizedEmail = email.trim().toLowerCase();
     const siteUrl = "https://phronesis-studio.com";
     const replyTo = process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com";
@@ -47,60 +49,93 @@ export async function POST(req: NextRequest) {
     let addedAsSubscriber = false;
     if (!existing) {
       await db.subscriber.create({
-        data: { email: normalizedEmail, locale: "en" },
+        data: { email: normalizedEmail, locale: isAR ? "ar" : "en" },
       });
       addedAsSubscriber = true;
     }
 
-    // Build the book announcement email
-    const subject = "New Book: Depth of Knowledge — Ahmed Ali · Studio of Phronesis";
-    const bookTitle = "Depth of Knowledge";
-    const bookSubtitle = "A Practical Guide to Designing Rigorous Questions Without AI";
-    const excerpt = "A handbook that restores to educators the craft of writing cognitively demanding questions from lesson content alone, without relying on AI tools. Built on Norman Webb's Depth of Knowledge framework, with worked examples across seven subjects and a chapter tracing the principle through the Islamic intellectual tradition.";
     const buyUrl = "https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HDMK7RGX";
-    const bookUrl = `${siteUrl}/en/publications/depth-of-knowledge`;
+    const bookUrl = `${siteUrl}/${isAR ? "ar" : "en"}/publications/depth-of-knowledge`;
     const coverUrl = `${siteUrl}/publications/depth-of-knowledge-front.jpg`;
 
+    // ─── Build email content based on locale ─────────────────────────────
+    const subject = isAR
+      ? "كتابٌ جديد: العمق المعرفي — أحمد علي · ستوديو فرونسيس"
+      : "New Book: Depth of Knowledge — Ahmed Ali · Studio of Phronesis";
+
+    const eyebrow = isAR ? "كتابٌ جديد · ستوديو فرونسيس" : "NEW BOOK · STUDIO OF PHRONESIS";
+
+    const bookTitle = isAR ? "العمق المعرفي" : "Depth of Knowledge";
+    const bookSubtitle = isAR
+      ? "دليل عملي لتصميم أسئلة تُعمّق التفكير بلا ذكاء اصطناعي"
+      : "A Practical Guide to Designing Rigorous Questions Without AI";
+
+    const greeting = isAR
+      ? "يسعدني أن أُطالعك على صدور كتابي الأول، وأنت ممّن اختاروا أن يتابعوا أعمالي."
+      : "It is my pleasure to share with you the publication of my first book — and you are among the first to know.";
+
+    const excerpt = isAR
+      ? "كتابٌ يُعيد إلى المعلمين صناعةَ كتابة الأسئلة ذات المطالب المعرفية العالية من مادّة الدرس وحدها، دون الاعتماد على أدوات الذكاء الاصطناعي. مبنيٌّ على إطار العمق المعرفي (DOK) لنورمان ويب (Norman Webb)، بأمثلةٍ محلولةٍ في سبع مواد، وفصلٍ يتتبّع المبدأ في التراث الفكري الإسلامي."
+      : "A handbook that restores to educators the craft of writing cognitively demanding questions from lesson content alone, without relying on AI tools. Built on Norman Webb's Depth of Knowledge framework, with worked examples across seven subjects and a chapter tracing the principle through the Islamic intellectual tradition.";
+
+    const editionsLabel = isAR ? "متاح في نسختين:" : "Available in two editions:";
+    const paperbackLabel = isAR ? "نسخة ورقية" : "Paperback";
+    const ebookLabel = isAR ? "كتاب إلكتروني" : "eBook";
+    const buyLabel = isAR ? "الشراء من أمازون" : "Buy on Amazon";
+    const exploreLabel = isAR ? "تعرّف على الكتاب ←" : "Explore the book →";
+    const unsubscribeText = isAR
+      ? "إن رغبت في إلغاء الاشتراك، يكفي أن تردّ على هذه الرسالة بكتابة «إلغاء الاشتراك»."
+      : "If you wish to unsubscribe, simply reply to this email with the word \"unsubscribe\".";
+    const signoff = isAR ? "مع خالص التقدير،" : "With warm regards,";
+    const sigName = "Ahmed Ali";
+    const sigTitle = isAR
+      ? "مؤلِّفُ الكتاب · مؤسّس ستوديو فرونسيس"
+      : "Author of the book · Founder, Studio of Phronesis";
+    const footer = isAR
+      ? "ستوديو فرونسيس · أبوظبي، الإمارات العربية المتحدة"
+      : "Studio of Phronesis · Abu Dhabi, United Arab Emirates";
+    const coverAlt = isAR ? `غلاف كتاب «${bookTitle}»` : `Cover of "${bookTitle}"`;
+
     const html = `<!DOCTYPE html>
-<html lang="en">
+<html lang="${isAR ? "ar" : "en"}" ${isAR ? 'dir="rtl"' : ""}>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(subject)}</title></head>
 <body style="margin:0;padding:0;background-color:#F5EFE4;font-family:Calibri,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1A1A1A;line-height:1.6;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5EFE4;">
     <tr><td align="center" style="padding:32px 20px;">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
         <tr><td style="padding:36px 40px 20px;text-align:center;border-bottom:3px solid #B48D3C;">
-          <div style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">NEW BOOK · STUDIO OF PHRONESIS</div>
+          <div style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.2em;color:#0F5C5E;text-transform:uppercase;font-weight:bold;">${escapeHtml(eyebrow)}</div>
         </td></tr>
         <tr><td style="padding:28px 40px 12px;text-align:center;">
-          <img src="${coverUrl}" alt="Cover of ${escapeHtml(bookTitle)}" style="width:200px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.15);margin:0 auto 20px;display:block;" />
+          <img src="${coverUrl}" alt="${escapeHtml(coverAlt)}" style="width:200px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.15);margin:0 auto 20px;display:block;" />
           <h1 style="font-family:Cambria,Georgia,serif;font-size:30px;color:#1A1A1A;margin:0 0 6px;font-weight:normal;">${escapeHtml(bookTitle)}</h1>
           <p style="font-family:Cambria,Georgia,serif;font-style:italic;font-size:17px;color:#0F5C5E;margin:0;line-height:1.4;">${escapeHtml(bookSubtitle)}</p>
         </td></tr>
-        <tr><td style="padding:20px 40px;">
-          <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 16px;">It is my pleasure to share with you the publication of my first book — and you are among the first to know.</p>
+        <tr><td style="padding:20px 40px;" ${isAR ? 'dir="rtl"' : ""}>
+          <p style="font-size:15px;color:#1A1A1A;line-height:1.7;margin:0 0 16px;">${escapeHtml(greeting)}</p>
           <p style="font-size:14px;color:#4A4A4A;line-height:1.7;margin:0;font-style:italic;">${escapeHtml(excerpt)}</p>
         </td></tr>
-        <tr><td style="padding:16px 40px 12px;">
-          <p style="font-size:13px;color:#1A1A1A;margin:0 0 10px;font-weight:600;">Available in two editions:</p>
-          <p style="font-size:13px;color:#4A4A4A;margin:0 0 4px;"> Paperback — $19.99 USD</p>
-          <p style="font-size:13px;color:#4A4A4A;margin:0 0 16px;"> eBook — $9.99 USD</p>
+        <tr><td style="padding:8px 40px 12px;" ${isAR ? 'dir="rtl"' : ""}>
+          <p style="font-size:13px;color:#1A1A1A;margin:0 0 10px;font-weight:600;">${escapeHtml(editionsLabel)}</p>
+          <p style="font-size:13px;color:#4A4A4A;margin:0 0 4px;"> ${escapeHtml(paperbackLabel)} — $19.99 USD</p>
+          <p style="font-size:13px;color:#4A4A4A;margin:0 0 16px;"> ${escapeHtml(ebookLabel)} — $9.99 USD</p>
         </td></tr>
         <tr><td style="padding:8px 40px 28px;text-align:center;">
           <p style="margin:0 0 10px;">
-            <a href="${buyUrl}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:bold;font-family:Consolas,monospace;letter-spacing:0.05em;">Buy on Amazon</a>
+            <a href="${buyUrl}" style="display:inline-block;background-color:#0F5C5E;color:#FFFFFF;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:14px;font-weight:bold;font-family:Consolas,monospace;letter-spacing:0.05em;">${escapeHtml(buyLabel)}</a>
           </p>
           <p style="margin:0;">
-            <a href="${bookUrl}" style="display:inline-block;color:#0F5C5E;text-decoration:none;padding:10px 20px;font-size:13px;font-family:Consolas,monospace;letter-spacing:0.05em;border:1px solid #0F5C5E;border-radius:4px;">Explore the book →</a>
+            <a href="${bookUrl}" style="display:inline-block;color:#0F5C5E;text-decoration:none;padding:10px 20px;font-size:13px;font-family:Consolas,monospace;letter-spacing:0.05em;border:1px solid #0F5C5E;border-radius:4px;">${escapeHtml(exploreLabel)}</a>
           </p>
         </td></tr>
-        <tr><td style="padding:0 40px 8px;">
-          <p style="font-size:12px;color:#8A8A8A;line-height:1.6;margin:0 0 20px;">If you wish to unsubscribe, simply reply to this email with the word "unsubscribe".</p>
-          <p style="font-size:14px;color:#4A4A4A;margin:0 0 4px;">With warm regards,</p>
-          <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:600;">Ahmed Ali</p>
-          <p style="font-size:12px;color:#8A8A8A;margin:2px 0 0;line-height:1.5;">Author of the book · Founder, Studio of Phronesis</p>
+        <tr><td style="padding:0 40px 8px;" ${isAR ? 'dir="rtl"' : ""}>
+          <p style="font-size:12px;color:#8A8A8A;line-height:1.6;margin:0 0 20px;">${escapeHtml(unsubscribeText)}</p>
+          <p style="font-size:14px;color:#4A4A4A;margin:0 0 4px;">${escapeHtml(signoff)}</p>
+          <p style="font-family:Cambria,Georgia,serif;font-size:18px;color:#1A1A1A;margin:8px 0 0;font-weight:600;">${escapeHtml(sigName)}</p>
+          <p style="font-size:12px;color:#8A8A8A;margin:2px 0 0;line-height:1.5;">${escapeHtml(sigTitle)}</p>
         </td></tr>
         <tr><td style="padding:20px 40px 28px;text-align:center;border-top:1px solid #EAE3D5;">
-          <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">Studio of Phronesis · Abu Dhabi, United Arab Emirates</p>
+          <p style="font-family:Consolas,monospace;font-size:10px;letter-spacing:0.15em;color:#8A8A8A;text-transform:uppercase;margin:0;">${escapeHtml(footer)}</p>
           <p style="font-size:11px;color:#8A8A8A;margin:6px 0 0;"><a href="${siteUrl}" style="color:#0F5C5E;text-decoration:none;">phronesis-studio.com</a></p>
         </td></tr>
       </table>
@@ -110,30 +145,30 @@ export async function POST(req: NextRequest) {
 
     const text = `${subject}
 
-NEW BOOK · STUDIO OF PHRONESIS
+${eyebrow}
 
 ${bookTitle}
 ${bookSubtitle}
 
-It is my pleasure to share with you the publication of my first book — and you are among the first to know.
+${greeting}
 
 ${excerpt}
 
-Available in two editions:
-  Paperback — $19.99 USD
-  eBook — $9.99 USD
+${editionsLabel}
+  ${paperbackLabel} — $19.99 USD
+  ${ebookLabel} — $9.99 USD
 
-Buy on Amazon: ${buyUrl}
-Explore the book: ${bookUrl}
+${buyLabel}: ${buyUrl}
+${exploreLabel}: ${bookUrl}
 
-If you wish to unsubscribe, simply reply to this email with the word "unsubscribe".
+${unsubscribeText}
 
-With warm regards,
-Ahmed Ali
-Author of the book · Founder, Studio of Phronesis
+${signoff}
+${sigName}
+${sigTitle}
 
 ---
-Studio of Phronesis · Abu Dhabi, United Arab Emirates
+${footer}
 ${siteUrl}`;
 
     // Send to just this one email
@@ -162,6 +197,7 @@ ${siteUrl}`;
     return NextResponse.json({
       ok: true,
       email: normalizedEmail,
+      locale: isAR ? "ar" : "en",
       addedAsSubscriber,
       messageId: result.messageId,
       rejected: result.rejected,
