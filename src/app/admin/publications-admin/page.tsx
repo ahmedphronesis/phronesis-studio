@@ -5,7 +5,6 @@ import {
   Loader2, Send, AlertCircle, BookOpen, Globe, Mail,
   Check, Users, ChevronDown, Plus, X,
 } from "lucide-react";
-import { AdminShell } from "@/components/admin/AdminShell";
 
 type BookOption = {
   slug: string;
@@ -114,18 +113,15 @@ export default function PublicationsAdminPage() {
 
   if (loading) {
     return (
-      <AdminShell>
-        <div className="text-center py-16 text-[#999]">
-          <Loader2 size={24} className="animate-spin mx-auto mb-2" />
-          Loading publications...
-        </div>
-      </AdminShell>
+      <div className="text-center py-16 text-[#999]">
+        <Loader2 size={24} className="animate-spin mx-auto mb-2" />
+        Loading publications...
+      </div>
     );
   }
 
   return (
-    <AdminShell>
-      <div className="max-w-3xl">
+    <div className="max-w-3xl">
         {/* Header */}
         <div className="flex items-center gap-3 mb-2">
           <BookOpen size={24} className="text-[#0F5C5E]" />
@@ -336,7 +332,7 @@ export default function PublicationsAdminPage() {
           </button>
         </div>
       </div>
-    </AdminShell>
+    </div>
   );
 }
 
