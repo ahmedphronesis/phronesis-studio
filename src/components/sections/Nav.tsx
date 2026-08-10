@@ -37,43 +37,43 @@ export function Nav() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 overflow-x-hidden ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-paper/85 backdrop-blur-xl border-b border-border/60"
           : "bg-transparent"
       }`}
     >
-      <nav className="w-full px-4 md:px-6 lg:px-10 xl:px-16 h-20 flex items-center justify-between gap-4">
+      <nav className="w-full max-w-full px-4 md:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between gap-4 overflow-hidden">
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
           <img
             src="/logo-eagle.png"
             alt=""
             aria-hidden
-            className="h-8 md:h-9 w-8 md:w-9"
+            className="h-9 w-9"
           />
           <span className="flex flex-col leading-none">
             <span
-              className="text-sm md:text-base text-ink tracking-wide whitespace-nowrap"
+              className="text-base text-ink tracking-wide whitespace-nowrap"
               style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
             >
               Ahmed Ali
             </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-ink-dim mt-1 font-mono whitespace-nowrap">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-ink-dim mt-1 font-mono whitespace-nowrap">
               Studio of Phronesis
             </span>
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center min-w-0">
+        <ul className="hidden lg:flex items-center gap-5 xl:gap-7 flex-1 justify-center min-w-0">
           {LINKS.map((l) => {
             const isActive = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
             return (
               <li key={l.href} className="flex-shrink-0">
                 <Link
                   href={l.href}
-                  className={`text-xs xl:text-sm whitespace-nowrap transition-colors ${
+                  className={`text-sm whitespace-nowrap transition-colors ${
                     isActive
                       ? "text-teal"
                       : "text-ink-soft hover:text-teal"
@@ -91,7 +91,7 @@ export function Nav() {
           <LanguageSwitcher />
           <Link
             href="/correspondence"
-            className="inline-flex items-center gap-2 text-xs xl:text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-3 xl:px-5 py-2 xl:py-2.5 rounded-full font-medium whitespace-nowrap"
+            className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-4 xl:px-5 py-2 xl:py-2.5 rounded-full font-medium whitespace-nowrap"
           >
             {t("begin")}
           </Link>

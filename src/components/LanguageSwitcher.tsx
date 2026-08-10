@@ -12,6 +12,7 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [buttonRect, setButtonRect] = useState<DOMRect | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const t = useTranslations("language");
 
@@ -25,11 +26,33 @@ export function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
+  // Capture button position when opening so the dropdown can be positioned
+  // with position:fixed (escaping any overflow:hidden ancestors).
+  useEffect(() => {
+    if (open && ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setButtonRect(rect);
+    }
+  }, [open]);
+
   function onSelect(next: Locale) {
     setOpen(false);
     if (next === locale) return;
     router.replace(pathname, { locale: next });
   }
+
+  // Compute dropdown position from the button's bounding rect.
+  // Using position:fixed ensures the dropdown is never clipped by
+  // overflow:hidden on the nav or header.
+  const dropdownStyle: React.CSSProperties = buttonRect
+    ? {
+        position: "fixed",
+        top: buttonRect.bottom + 8,
+        right: typeof window !== "undefined" ? window.innerWidth - buttonRect.right : 16,
+        width: 224, // 14rem = w-56
+        maxHeight: "70vh",
+      }
+    : { position: "fixed", top: "5rem", right: 16, width: 224, maxHeight: "70vh" };
 
   return (
     <div ref={ref} className="relative">
@@ -52,7 +75,8 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed left-4 right-4 top-20 md:absolute md:left-auto md:right-0 md:top-auto md:mt-2 md:w-56 md:max-h-[70vh] max-h-[60vh] overflow-y-auto rounded-2xl bg-paper-warm border border-border shadow-xl z-[100] p-2"
+            style={dropdownStyle}
+            className="overflow-y-auto rounded-2xl bg-paper-warm border border-border shadow-xl z-[100] p-2"
           >
             <p className="text-[10px] uppercase tracking-[0.2em] text-ink-dim px-3 py-2 font-mono">
               {t("label")}
