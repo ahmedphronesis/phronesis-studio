@@ -1165,8 +1165,8 @@ export async function sendBookAnnouncement(opts: {
 
     const eyebrow = isAR ? "كتابٌ جديد · ستوديو فرونسيس" : "NEW BOOK · STUDIO OF PHRONESIS";
     const greeting = isAR
-      ? "يسعدني أن أُطالعك على صدور كتابي الأول، وأنت ممّن اختاروا أن يتابعوا أعمالي."
-      : "It is my pleasure to share with you the publication of my first book, and you are among the first to know.";
+      ? "يسعدني أن أُعلن صدور كتابي الأول، وإنه لمن الشرف أن تكون ممّن يصلهم هذا الخبر أولًا."
+      : "It is with great pleasure that I announce the publication of my first book, and I am honored that you are among the first to receive this news.";
     const hook = isAR ? excerptAr : excerpt;
     const t = isAR ? bookTitleAr : bookTitle;
     const st = isAR ? bookSubtitleAr : bookSubtitle;
