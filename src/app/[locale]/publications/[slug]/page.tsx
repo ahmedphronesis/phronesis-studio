@@ -227,7 +227,7 @@ export default async function BookPage({
                 {chapters.map((chapter, i) => (
                   <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-teal mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft leading-relaxed flex-1 text-right">{chapter}</span>
+                    <span className={`body-serif text-sm text-ink-soft leading-relaxed flex-1 ${isAR ? "text-right" : "text-left"}`}>{chapter}</span>
                   </div>
                 ))}
               </div>
@@ -240,7 +240,7 @@ export default async function BookPage({
                 {extras.map((extra, i) => (
                   <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-gold mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft leading-relaxed flex-1 text-right">{extra}</span>
+                    <span className={`body-serif text-sm text-ink-soft leading-relaxed flex-1 ${isAR ? "text-right" : "text-left"}`}>{extra}</span>
                   </div>
                 ))}
               </div>
@@ -255,7 +255,7 @@ export default async function BookPage({
                 {audience.map((item, i) => (
                   <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-teal mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft leading-relaxed flex-1 text-right">{item}</span>
+                    <span className={`body-serif text-sm text-ink-soft leading-relaxed flex-1 ${isAR ? "text-right" : "text-left"}`}>{item}</span>
                   </div>
                 ))}
               </div>
