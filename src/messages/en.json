@@ -2,7 +2,7 @@
   "metadata": {
     "home": {
       "title": "Ahmed Ali · Studio of Phronesis",
-      "description": "Ahmed Ali is a philosopher, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition."
+      "description": "Ahmed Ali is a philosopher, author, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, teaches, and is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI'. His practice inherits the polymath ideal of the classical Islamic tradition."
     },
     "about": {
       "title": "About Ahmed Ali",
@@ -99,6 +99,13 @@
       "thinker",
       "intellectual",
       "educator",
+      "author",
+      "writer",
+      "Depth of Knowledge",
+      "DOK handbook",
+      "Webb's Depth of Knowledge",
+      "rigorous question design",
+      "teaching without AI",
       "teacher",
       "tutor",
       "professor",
@@ -657,10 +664,11 @@
     "correspondence": "Correspondence",
     "begin": "Work with me",
     "vouches": "Endorsements",
-    "echoes": "Philosophy"
+    "echoes": "Philosophy",
+    "publications": "Publications"
   },
   "hero": {
-    "eyebrow": "Academician. Systems Architect. Leadership Advisor.",
+    "eyebrow": "Philosopher. Author. Systems Architect. Educator.",
     "name": "Studio of Phronesis",
     "subtitle": "Perceiving the gap between what is and what should be, and closing it with discipline.",
     "positioning": "I build custom software systems and educational platforms, publish philosophical work, and teach, for those who no longer accept the persistence of the gap.",
@@ -1429,5 +1437,32 @@
     "season1YoutubeUrl": "https://www.youtube.com/playlist?list=PLhjIMflidDWnK0xLbUbsidjVpAQyiMB7Y",
     "season2YoutubeUrl": "",
     "listenOnYoutube": "Listen on YouTube"
+  },
+  "publications": {
+    "eyebrow": "Books · Written Works",
+    "title": "Publications",
+    "intro": "Books by Ahmed Ali, published for educators, thinkers, and anyone who refuses to outsource their craft to a machine.",
+    "metaDescription": "Books by Ahmed Ali, author and educator. Including 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI'.",
+    "featuredLabel": "Featured",
+    "forthcomingLabel": "Forthcoming",
+    "forthcomingNote": "More publications forthcoming. The studio is currently preparing an Arabic edition of the DOK handbook and additional titles in philosophy and education.",
+    "moreTitle": "More Publications",
+    "by": "by",
+    "viewDetails": "View details",
+    "backToPublications": "All Publications",
+    "viewBackCover": "View back cover",
+    "aboutBook": "About the Book",
+    "whatsInside": "What's Inside",
+    "chaptersCount": "{count} chapters covering",
+    "extrasTitle": "Plus",
+    "whoFor": "Who This Book Is For",
+    "aboutAuthor": "About the Author",
+    "buyTitle": "Buy the Book",
+    "availableGlobally": "Available globally on all Amazon marketplaces",
+    "allRightsReserved": "All rights reserved",
+    "specIsbn": "ISBN",
+    "specPages": "Pages",
+    "specLanguage": "Language",
+    "specFormat": "Format"
   }
 }

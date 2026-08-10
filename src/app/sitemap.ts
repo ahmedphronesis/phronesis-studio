@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 
 const BASE_URL = "https://phronesis-studio.com";
 
-const STATIC_ROUTES = ["", "/about", "/work", "/philosophy", "/library", "/method", "/correspondence"];
+const STATIC_ROUTES = ["", "/about", "/work", "/philosophy", "/publications", "/library", "/method", "/correspondence"];
 
 // Guide slugs (must match library/[slug]/page.tsx)
 const GUIDE_SLUGS = [
@@ -32,6 +32,11 @@ const PROJECT_SLUGS = [
 // Extra Philosophy routes (besides the episode numbers and season-1)
 const ECHOES_EXTRA_ROUTES = [
   "history-of-philosophy",
+];
+
+// Publication slugs (book detail pages — must match BOOKS in src/lib/publications.ts)
+const PUBLICATION_SLUGS = [
+  "depth-of-knowledge",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -110,6 +115,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,
+      });
+    }
+
+    // Publication routes (book detail pages)
+    for (const slug of PUBLICATION_SLUGS) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/publications/${slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
       });
     }
   }
