@@ -163,8 +163,8 @@ export default async function BookPage({
                 </p>
 
                 {/* Editions + buy buttons */}
-                <div className={`flex flex-col gap-3 mb-8 p-5 rounded-2xl bg-paper-warm border border-teal/20 ${isAR ? "items-end" : "items-start"}`}>
-                  <div className={`text-xs text-ink-dim mb-1 ${isAR ? "text-right" : ""}`}>
+                <div className={`flex flex-col gap-3 mb-8 p-5 rounded-2xl bg-paper-warm border border-teal/20 ${isAR ? "items-end" : "items-start"}`} dir={isAR ? "rtl" : "ltr"}>
+                  <div className={`text-xs text-ink-dim mb-1 w-full ${isAR ? "text-right" : ""}`}>
                     {t("availableGlobally")}
                   </div>
                   {book.editions.map((ed, i) => (
@@ -225,9 +225,9 @@ export default async function BookPage({
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
                 {chapters.map((chapter, i) => (
-                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`}>
+                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-teal mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft">{chapter}</span>
+                    <span className="body-serif text-sm text-ink-soft leading-relaxed">{chapter}</span>
                   </div>
                 ))}
               </div>
@@ -238,9 +238,9 @@ export default async function BookPage({
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {extras.map((extra, i) => (
-                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`}>
+                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-gold mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft">{extra}</span>
+                    <span className="body-serif text-sm text-ink-soft leading-relaxed">{extra}</span>
                   </div>
                 ))}
               </div>
@@ -253,9 +253,9 @@ export default async function BookPage({
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {audience.map((item, i) => (
-                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse" : ""}`}>
+                  <div key={i} className={`flex items-start gap-2 p-3 rounded-lg bg-paper-warm/50 border border-border/40 ${isAR ? "flex-row-reverse text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                     <Check size={14} className="text-teal mt-0.5 flex-shrink-0" />
-                    <span className="body-serif text-sm text-ink-soft">{item}</span>
+                    <span className="body-serif text-sm text-ink-soft leading-relaxed">{item}</span>
                   </div>
                 ))}
               </div>
@@ -298,7 +298,7 @@ export default async function BookPage({
                     </div>
                   ))}
                 </div>
-                <p className="body-serif text-xs text-ink-dim mt-4">
+                <p className={`body-serif text-xs text-ink-dim mt-4 ${isAR ? "text-right" : ""}`}>
                   {t("availableGlobally")}
                 </p>
               </div>
