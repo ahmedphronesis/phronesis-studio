@@ -78,7 +78,7 @@ export const BOOKS: Book[] = [
     editions: [
       {
         format: "Paperback",
-        formatAr: "غلاف ورقي",
+        formatAr: "نسخة ورقية",
         price: "$19.99 USD",
         buyUrl: "https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HDMK7RGX",
         buyLabel: "Buy on Amazon",

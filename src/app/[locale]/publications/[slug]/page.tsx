@@ -172,7 +172,7 @@ export default async function BookPage({
                       <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
                         {isAR ? ed.formatAr : ed.format}
                       </span>
-                      <span className="text-lg text-ink font-semibold flex-shrink-0" style={headingFont}>
+                      <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
                         {ed.price}
                       </span>
                       <a
@@ -283,7 +283,7 @@ export default async function BookPage({
                       <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
                         {isAR ? ed.formatAr : ed.format}
                       </span>
-                      <span className="text-base text-ink font-semibold flex-shrink-0" style={headingFont}>
+                      <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
                         {ed.price}
                       </span>
                       <a

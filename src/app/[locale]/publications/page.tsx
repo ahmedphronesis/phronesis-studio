@@ -150,27 +150,29 @@ export default async function PublicationsPage({
                       <Spec label={t("specIsbn")} value={featured.isbn} isAR={isAR} />
                     </div>
 
-                    {/* Editions + buy buttons */}
-                    <div className={`flex flex-col gap-3 ${isAR ? "items-end" : "items-start"} mb-4`}>
-                      {featured.editions.map((ed, i) => (
-                        <div key={i} className={`flex items-center gap-4 ${isAR ? "flex-row-reverse" : ""}`}>
-                          <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px]">
-                            {isAR ? ed.formatAr : ed.format}
-                          </span>
-                          <span className="text-sm font-semibold text-ink" style={{ fontFamily: "var(--font-cormorant)" }}>
-                            {ed.price}
-                          </span>
-                          <a
-                            href={ed.buyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-4 py-2 rounded-full transition-colors whitespace-nowrap"
-                          >
-                            <ExternalLink size={14} />
-                            {isAR ? ed.buyLabelAr : ed.buyLabel}
-                          </a>
-                        </div>
-                      ))}
+                    {/* Editions + buy buttons — clean boxed layout matching the detail page */}
+                    <div className={`mb-4 p-4 rounded-xl bg-paper-warm border border-teal/20 ${isAR ? "text-right" : ""}`}>
+                      <div className={`flex flex-col gap-2.5`}>
+                        {featured.editions.map((ed, i) => (
+                          <div key={i} className={`flex items-center gap-3 ${isAR ? "flex-row-reverse" : ""}`}>
+                            <span className="text-[10px] uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[70px] flex-shrink-0">
+                              {isAR ? ed.formatAr : ed.format}
+                            </span>
+                            <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
+                              {ed.price}
+                            </span>
+                            <a
+                              href={ed.buyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-1.5 bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-3 py-1.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                            >
+                              <ExternalLink size={12} />
+                              {isAR ? ed.buyLabelAr : ed.buyLabel}
+                            </a>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {/* View details link */}
