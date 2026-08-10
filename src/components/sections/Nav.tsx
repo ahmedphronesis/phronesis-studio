@@ -43,14 +43,26 @@ export function Nav() {
           : "bg-transparent"
       }`}
     >
-      <nav className="w-full max-w-full px-4 md:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between gap-4 overflow-hidden">
+      {/*
+        Nav bar: uses flex with explicit flex-shrink/flex-grow values
+        instead of overflow-hidden to prevent cross-browser overlap.
+
+        - Logo: flex-shrink-0 (never shrinks)
+        - Links ul: flex-1 min-w-0 (grows to fill, can shrink, can truncate)
+        - Right side: flex-shrink-0 (never shrinks)
+
+        NO overflow-hidden on the nav — it clips the language dropdown in
+        Chrome/Firefox. Instead, we prevent horizontal scroll at the <html>
+        level via the root layout's overflow-x-hidden.
+      */}
+      <nav className="w-full px-4 md:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between gap-3 md:gap-4 lg:gap-6">
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
           <img
             src="/logo-eagle.png"
             alt=""
             aria-hidden
-            className="h-9 w-9"
+            className="h-9 w-9 flex-shrink-0"
           />
           <span className="flex flex-col leading-none">
             <span
@@ -65,7 +77,7 @@ export function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop links — hidden below lg (1024px) */}
         <ul className="hidden lg:flex items-center gap-5 xl:gap-7 flex-1 justify-center min-w-0">
           {LINKS.map((l) => {
             const isActive = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
@@ -86,7 +98,7 @@ export function Nav() {
           })}
         </ul>
 
-        {/* Right side: language + CTA */}
+        {/* Right side: language + CTA — hidden below lg (1024px) */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-4 flex-shrink-0">
           <LanguageSwitcher />
           <Link
@@ -97,7 +109,7 @@ export function Nav() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — visible below lg (1024px) */}
         <button
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden text-ink p-2 flex-shrink-0"
@@ -130,7 +142,7 @@ export function Nav() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2 flex items-center justify-between">
+              <li className="pt-2 flex items-center justify-between gap-4">
                 <LanguageSwitcher />
                 <Link
                   href="/correspondence"

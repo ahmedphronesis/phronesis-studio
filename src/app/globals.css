@@ -149,6 +149,10 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent horizontal scroll at the page level. This is the correct
+       place for overflow-x prevention — NOT on the header/nav, which
+       would clip fixed-position dropdowns (language switcher). */
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground;
