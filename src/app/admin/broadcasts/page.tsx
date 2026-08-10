@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Loader2, Send, AlertCircle, Mail, Users } from "lucide-react";
-import { AdminShell } from "@/components/admin/AdminShell";
 
 export default function BroadcastsPage() {
   const [subject, setSubject] = useState("");
@@ -89,12 +88,11 @@ You're receiving this because you subscribed at phronesis-studio.com. Reply with
   }
 
   return (
-    <AdminShell>
-      <div className="max-w-3xl">
-        <div className="flex items-center gap-3 mb-2">
-          <Mail size={24} className="text-[#0F5C5E]" />
-          <h1 className="text-2xl font-semibold text-[#1A1A1A]">Broadcast</h1>
-        </div>
+    <div className="max-w-3xl">
+      <div className="flex items-center gap-3 mb-2">
+        <Mail size={24} className="text-[#0F5C5E]" />
+        <h1 className="text-2xl font-semibold text-[#1A1A1A]">Broadcast</h1>
+      </div>
         <p className="text-sm text-[#666] mb-8">
           Compose a custom email and send it to all subscribers. Use this for
           announcements, newsletters, or any message that isn&apos;t tied to a
@@ -203,8 +201,7 @@ You're receiving this because you subscribed at phronesis-studio.com. Reply with
             </button>
           </div>
         </div>
-      </div>
-    </AdminShell>
+    </div>
   );
 }
 

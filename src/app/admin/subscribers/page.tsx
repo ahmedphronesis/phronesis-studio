@@ -5,7 +5,6 @@ import {
   Loader2, Trash2, Download, AlertCircle, Mail, Search,
   UserPlus, Check, X, Users, Globe,
 } from "lucide-react";
-import { AdminShell } from "@/components/admin/AdminShell";
 
 type Subscriber = {
   id: string;
@@ -125,10 +124,9 @@ export default function SubscribersPage() {
   }
 
   return (
-    <AdminShell>
-      <div className="max-w-5xl">
-        {/* Header */}
-        <div className="flex items-end justify-between gap-4 mb-6">
+    <div className="max-w-5xl">
+      {/* Header */}
+      <div className="flex items-end justify-between gap-4 mb-6">
           <div>
             <h1 className="text-2xl font-semibold text-[#1A1A1A]" style={{ fontFamily: "Georgia, serif" }}>
               Subscribers
@@ -355,8 +353,7 @@ export default function SubscribersPage() {
             </div>
           </div>
         )}
-      </div>
-    </AdminShell>
+    </div>
   );
 }
 
