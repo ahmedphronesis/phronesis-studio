@@ -18,8 +18,9 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "publications" });
   const title = `${t("title")} · Studio of Phronesis`;
   const description = t("metaDescription");
-  const ogImage = getFeaturedBook()?.coverFront
-    ? `https://phronesis-studio.com${getFeaturedBook()!.coverFront}`
+  const featured = getFeaturedBook();
+  const ogImage = featured
+    ? `https://phronesis-studio.com${featured.coverFront}`
     : "https://phronesis-studio.com/og-image.png";
 
   return {
@@ -37,7 +38,7 @@ export async function generateMetadata({
         secureUrl: ogImage,
         width: 1000,
         height: 1499,
-        alt: getFeaturedBook()?.title || "Studio of Phronesis Publications",
+        alt: featured ? (locale === "ar" ? featured.titleAr : featured.title) : "Studio of Phronesis Publications",
         type: "image/jpeg",
       }],
     },
@@ -66,6 +67,16 @@ export default async function PublicationsPage({
   const featured = getFeaturedBook();
   const otherBooks = BOOKS.filter((b) => b.slug !== featured?.slug);
 
+  // Pick locale-appropriate fields
+  const fTitle = isAR ? featured!.titleAr : featured!.title;
+  const fSubtitle = isAR ? featured!.subtitleAr : featured!.subtitle;
+  const fAuthor = isAR ? featured!.authorAr : featured!.author;
+  const fDescription = isAR ? featured!.descriptionAr : featured!.description;
+  const fEdition = isAR ? featured!.editionAr : featured!.edition;
+  const fLanguage = isAR ? featured!.languageAr : featured!.language;
+  const fFormats = isAR ? featured!.formatsAr : featured!.formats;
+  const fBuyLabel = isAR ? featured!.buyLabelAr : featured!.buyLabel;
+
   return (
     <MouseProvider>
       <div className="min-h-screen flex flex-col bg-background">
@@ -73,15 +84,15 @@ export default async function PublicationsPage({
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
             {/* Header */}
-            <div className="max-w-4xl mb-12">
-              <div className="flex items-center gap-4 mb-6">
+            <div className={`max-w-4xl mb-12 ${isAR ? "text-right" : ""}`}>
+              <div className={`flex items-center gap-4 mb-6 ${isAR ? "flex-row-reverse" : ""}`}>
                 <span className="h-px w-12 bg-teal/60" />
                 <span className="eyebrow">{t("eyebrow")}</span>
               </div>
-              <h1 className="display text-ink text-4xl md:text-6xl leading-[1.05] mb-4" style={{ fontFamily: "var(--font-cormorant)" }}>
+              <h1 className="display text-ink text-4xl md:text-6xl leading-[1.05] mb-4" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
                 {t("title")}
               </h1>
-              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-2xl">
+              <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-2xl" dir={isAR ? "rtl" : "ltr"}>
                 {t("intro")}
               </p>
             </div>
@@ -98,50 +109,50 @@ export default async function PublicationsPage({
                     >
                       <img
                         src={featured.coverFront}
-                        alt={`${featured.title} — front cover`}
+                        alt={`${fTitle} — ${isAR ? "الغلاف الأمامي" : "front cover"}`}
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </Link>
                   </div>
 
                   {/* Book details */}
-                  <div className="lg:col-span-8">
-                    <div className="flex items-center gap-2 mb-3">
+                  <div className={`lg:col-span-8 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
+                    <div className={`flex items-center gap-2 mb-3 ${isAR ? "flex-row-reverse" : ""}`}>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono px-2.5 py-1 rounded-full bg-teal/10 border border-teal/30">
                         {t("featuredLabel")}
                       </span>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">
-                        {featured.edition}
+                        {fEdition}
                       </span>
                     </div>
 
-                    <h2 className="display text-ink text-3xl md:text-4xl leading-[1.1] mb-2" style={{ fontFamily: "var(--font-cormorant)" }}>
-                      {featured.title}
+                    <h2 className="display text-ink text-3xl md:text-4xl leading-[1.1] mb-2" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
+                      {fTitle}
                     </h2>
                     <p className="display-italic text-teal text-lg md:text-xl mb-4 leading-snug">
-                      {featured.subtitle}
+                      {fSubtitle}
                     </p>
                     <p className="body-serif text-sm text-ink-dim mb-6">
-                      {t("by")} {featured.author}
+                      {t("by")} {fAuthor}
                     </p>
 
                     {/* Description (first 2 paragraphs) */}
                     <div className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mb-6 space-y-4">
-                      {featured.description.slice(0, 2).map((para, i) => (
+                      {fDescription.slice(0, 2).map((para, i) => (
                         <p key={i}>{para}</p>
                       ))}
                     </div>
 
                     {/* Quick specs */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                      <Spec label={t("specPages")} value={`${featured.pages}`} />
-                      <Spec label={t("specLanguage")} value={featured.language} />
-                      <Spec label={t("specFormat")} value={featured.formats.join(", ")} />
-                      <Spec label={t("specIsbn")} value={featured.isbn} />
+                      <Spec label={t("specPages")} value={`${featured.pages}`} isAR={isAR} />
+                      <Spec label={t("specLanguage")} value={fLanguage} isAR={isAR} />
+                      <Spec label={t("specFormat")} value={fFormats.join(", ")} isAR={isAR} />
+                      <Spec label={t("specIsbn")} value={featured.isbn} isAR={isAR} />
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className={`flex flex-wrap items-center gap-4 ${isAR ? "justify-end" : ""}`}>
                       <a
                         href={featured.buyUrl}
                         target="_blank"
@@ -149,7 +160,7 @@ export default async function PublicationsPage({
                         className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-6 py-3 rounded-full transition-colors"
                       >
                         <ExternalLink size={16} />
-                        {featured.buyLabel} — {featured.price}
+                        {fBuyLabel} — {featured.price}
                       </a>
                       <Link
                         href={`/${locale}/publications/${featured.slug}`}
@@ -167,27 +178,32 @@ export default async function PublicationsPage({
             {/* Other books (future publications) */}
             {otherBooks.length > 0 && (
               <div className="max-w-6xl mt-16 pt-12 border-t border-border">
-                <h3 className="display text-ink text-2xl md:text-3xl mb-6" style={{ fontFamily: "var(--font-cormorant)" }}>
+                <h3 className={`display text-ink text-2xl md:text-3xl mb-6 ${isAR ? "text-right" : ""}`} style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
                   {t("moreTitle")}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {otherBooks.map((book) => (
-                    <Link
-                      key={book.slug}
-                      href={`/${locale}/publications/${book.slug}`}
-                      className="group block p-6 rounded-2xl bg-paper border border-border hover:border-teal/40 transition-colors"
-                    >
-                      {book.forthcoming && (
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-mono mb-2 block">
-                          {t("forthcomingLabel")}
-                        </span>
-                      )}
-                      <h4 className="display text-ink text-xl mb-1 group-hover:text-teal transition-colors" style={{ fontFamily: "var(--font-cormorant)" }}>
-                        {book.title}
-                      </h4>
-                      <p className="body-serif text-sm text-ink-soft">{book.subtitle}</p>
-                    </Link>
-                  ))}
+                  {otherBooks.map((book) => {
+                    const bTitle = isAR ? book.titleAr : book.title;
+                    const bSubtitle = isAR ? book.subtitleAr : book.subtitle;
+                    return (
+                      <Link
+                        key={book.slug}
+                        href={`/${locale}/publications/${book.slug}`}
+                        className="group block p-6 rounded-2xl bg-paper border border-border hover:border-teal/40 transition-colors"
+                        dir={isAR ? "rtl" : "ltr"}
+                      >
+                        {book.forthcoming && (
+                          <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-mono mb-2 block">
+                            {t("forthcomingLabel")}
+                          </span>
+                        )}
+                        <h4 className="display text-ink text-xl mb-1 group-hover:text-teal transition-colors" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
+                          {bTitle}
+                        </h4>
+                        <p className="body-serif text-sm text-ink-soft">{bSubtitle}</p>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -195,7 +211,7 @@ export default async function PublicationsPage({
             {/* Empty future note */}
             {otherBooks.length === 0 && (
               <div className="max-w-6xl mt-16 pt-12 border-t border-border">
-                <div className="flex items-start gap-3 text-sm text-ink-dim body-serif italic">
+                <div className={`flex items-start gap-3 text-sm text-ink-dim body-serif italic ${isAR ? "flex-row-reverse text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                   <BookOpen size={16} className="text-gold/60 mt-0.5 flex-shrink-0" />
                   <p>{t("forthcomingNote")}</p>
                 </div>
@@ -209,9 +225,9 @@ export default async function PublicationsPage({
   );
 }
 
-function Spec({ label, value }: { label: string; value: string }) {
+function Spec({ label, value, isAR }: { label: string; value: string; isAR: boolean }) {
   return (
-    <div className="p-3 rounded-lg bg-paper-warm border border-border">
+    <div className={`p-3 rounded-lg bg-paper-warm border border-border ${isAR ? "text-right" : ""}`}>
       <div className="text-[10px] uppercase tracking-[0.15em] text-ink-dim font-mono mb-1">{label}</div>
       <div className="text-sm text-ink font-medium">{value}</div>
     </div>
