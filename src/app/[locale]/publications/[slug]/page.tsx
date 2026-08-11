@@ -179,8 +179,8 @@ export default async function BookPage({
                     {t("availableGlobally")}
                   </div>
                   {book.editions.map((ed, i) => (
-                    <div key={i} className={`flex items-center gap-4 w-full ${isAR ? "flex-row-reverse" : ""}`}>
-                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
+                    <div key={i} className={`flex items-center gap-2 sm:gap-4 w-full ${isAR ? "flex-row-reverse" : ""}`}>
+                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[56px] sm:min-w-[80px] flex-shrink-0">
                         {isAR ? ed.formatAr : ed.format}
                       </span>
                       <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
@@ -190,9 +190,9 @@ export default async function BookPage({
                         href={ed.buyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-5 py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-1.5 sm:gap-2 bg-teal hover:bg-teal-bright text-paper text-xs sm:text-sm font-medium px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
                       >
-                        <ExternalLink size={14} />
+                        <ExternalLink size={14} className="flex-shrink-0" />
                         {isAR ? ed.buyLabelAr : ed.buyLabel}
                       </a>
                     </div>
@@ -290,8 +290,8 @@ export default async function BookPage({
                 </h3>
                 <div className="flex flex-col gap-3">
                   {book.editions.map((ed, i) => (
-                    <div key={i} className={`flex items-center gap-4 ${isAR ? "flex-row-reverse" : ""}`}>
-                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[80px] flex-shrink-0">
+                    <div key={i} className={`flex items-center gap-2 sm:gap-4 ${isAR ? "flex-row-reverse" : ""}`}>
+                      <span className="text-xs uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[56px] sm:min-w-[80px] flex-shrink-0">
                         {isAR ? ed.formatAr : ed.format}
                       </span>
                       <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
@@ -301,9 +301,9 @@ export default async function BookPage({
                         href={ed.buyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-sm font-medium px-5 py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                        className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-1.5 sm:gap-2 bg-teal hover:bg-teal-bright text-paper text-xs sm:text-sm font-medium px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
                       >
-                        <ExternalLink size={14} />
+                        <ExternalLink size={14} className="flex-shrink-0" />
                         {isAR ? ed.buyLabelAr : ed.buyLabel}
                       </a>
                     </div>
