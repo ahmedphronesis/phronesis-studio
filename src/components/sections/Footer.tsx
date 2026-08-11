@@ -25,11 +25,18 @@ export function Footer() {
     { href: "/correspondence", label: t("correspondence") },
   ] as const;
 
+  // Academic work (internal, locale-aware) — priority over software systems
+  const ACADEMIC = [
+    { href: "/publications/depth-of-knowledge", label: "Depth of Knowledge (Book)" },
+    { href: "/philosophy", label: "Echoes of Wisdom Podcast" },
+  ] as const;
+
+  // External software systems / live platforms
   const EXTERNAL = [
+    { href: "https://alainroomforrent.com/", label: "Al Ain Real Estate" },
     { href: "https://real-estate-emperor.vercel.app", label: "Real Estate Emperor" },
     { href: "https://mscs-academy.vercel.app", label: "MSCS Academy" },
     { href: "https://mun-diplomatiq.vercel.app", label: "DiplomatiQ" },
-    { href: "https://linkedin.com/in/ahmedmahmoudsaeedahmedali", label: "LinkedIn" },
   ];
 
   async function onSubscribe(e: React.FormEvent) {
@@ -174,6 +181,18 @@ export function Footer() {
               {tf("liveWork")}
             </p>
             <ul className="space-y-3">
+              {/* Academic work first (internal, locale-aware) */}
+              {ACADEMIC.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="link-underline body-serif text-sm text-ink-soft hover:text-teal transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              {/* External software systems / live platforms */}
               {EXTERNAL.map((l) => (
                 <li key={l.href}>
                   <a
