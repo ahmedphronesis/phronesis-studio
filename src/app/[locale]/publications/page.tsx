@@ -154,18 +154,20 @@ export default async function PublicationsPage({
                     <div className={`mb-4 p-4 rounded-xl bg-paper-warm border border-teal/20 ${isAR ? "text-right" : ""}`}>
                       <div className={`flex flex-col gap-2.5`}>
                         {featured.editions.map((ed, i) => (
-                          <div key={i} className={`flex items-center gap-3 ${isAR ? "flex-row-reverse" : ""}`}>
-                            <span className="text-[10px] uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[70px] flex-shrink-0">
-                              {isAR ? ed.formatAr : ed.format}
-                            </span>
-                            <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
-                              {ed.price}
-                            </span>
+                          <div key={i} className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full ${isAR ? "sm:flex-row-reverse" : ""}`}>
+                            <div className={`flex items-center gap-3 sm:gap-3 ${isAR ? "flex-row-reverse" : ""}`}>
+                              <span className="text-[10px] uppercase tracking-[0.15em] text-ink-dim font-mono min-w-[70px] flex-shrink-0">
+                                {isAR ? ed.formatAr : ed.format}
+                              </span>
+                              <span className="text-sm text-ink font-medium font-mono flex-shrink-0">
+                                {ed.price}
+                              </span>
+                            </div>
                             <a
                               href={ed.buyUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`${isAR ? "mr-auto" : "ml-auto"} inline-flex items-center gap-1.5 bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-3 py-1.5 rounded-full transition-colors whitespace-nowrap flex-shrink-0`}
+                              className={`${isAR ? "sm:mr-auto" : "sm:ml-auto"} inline-flex items-center justify-center gap-1.5 bg-teal hover:bg-teal-bright text-paper text-xs font-medium px-3 py-1.5 rounded-full transition-colors whitespace-nowrap w-full sm:w-auto sm:flex-shrink-0`}
                             >
                               <ExternalLink size={12} />
                               {isAR ? ed.buyLabelAr : ed.buyLabel}
