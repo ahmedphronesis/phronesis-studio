@@ -109,7 +109,7 @@ export const BOOKS: Book[] = [
     edition: "First Edition, 2026",
     language: "English",
     formats: ["Paperback"],
-    publisher: "Self-published",
+    publisher: "Independently published",
     buyLabel: "Buy on Amazon",
     chapters: [
       "Chapter 1: Foundations (What Is Depth of Knowledge?)",
@@ -157,7 +157,7 @@ export const BOOKS: Book[] = [
     editionAr: "الطبعة الأولى، 2026",
     languageAr: "الإنجليزية",
     formatsAr: ["غلاف ورقي"],
-    publisherAr: "إصدار ذاتي",
+    publisherAr: "إصدار مستقل",
     buyLabelAr: "الشراء من أمازون",
     chaptersAr: [
       "الفصل الأول: الأسس (ما العمق المعرفي؟)",
