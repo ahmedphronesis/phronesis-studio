@@ -853,8 +853,8 @@
     "profileBody1": "As a Licensed UAE Educator and ADEK-Approved Moral, Social, and Cultural Studies and Islamic Education Teacher for Non-Arabic Speakers, I view teaching as a human art, a space where intellect, ethics, and empathy meet. My passion lies in guiding learners to think critically, act responsibly, and see knowledge not as information, but as a path to self-understanding and global awareness.",
     "profileBody2": "Before entering education, I worked extensively in leadership, management, and business development, experiences that strengthened my ability to connect with people, organize effectively, and lead with purpose. These transferable skills now inform my teaching, helping me create structured, inclusive, and motivating learning environments that value every student's voice.",
     "profileBody3": "Rooted in a background in philosophy and the humanities, I believe that education should awaken both the mind and the conscience. My goal is to cultivate in students the harmony between thought and action, the same harmony I continue to seek as an educator, learner, and human being.",
-    "profileSummary": "High-impact operations leader and educator with 8+ years of progressive experience across academia, retail, telecommunications, and family entertainment in the UAE, UK, and Egypt. ISO 9001 and 45001 Internal Auditor. 21% year-one revenue growth. Faculty Head for Model United Nations, coached students to Best School at MANORMUN V 2026.\n\nLINK:ahmed-ali-ops.vercel.app|View Full Professional Portfolio",
-    "profileTeachingExpertise": "Philosopher-educator licensed by ADEK in MSC and Islamic Education, teaching Grades 1 to 12 in the American Curriculum with subject mapping to IB MYP, Cambridge Global Perspectives, IB TOK, and A-Level Philosophy. BA in Philosophy (Alexandria University), PGDE (Al-Azhar University). Faculty Head for Model United Nations.\n\nLINK:mr-ahmed-ali.vercel.app|View Full Academic Portfolio",
+    "profileSummary": "High-impact operations leader and educator with 8+ years of progressive experience across academia, retail, telecommunications, and family entertainment in the UAE, UK, and Egypt. ISO 9001 and 45001 Internal Auditor. 21% year-one revenue growth. Faculty Head for Model United Nations, coached students to Best School at MANORMUN V 2026.\n\nLINK:ahmed-ali-ops.vercel.app|View Full Professional & Operations Portfolio",
+    "profileTeachingExpertise": "Philosopher-educator licensed by ADEK in MSC and Islamic Education, teaching Grades 1 to 12 in the American Curriculum with subject mapping to IB MYP, Cambridge Global Perspectives, IB TOK, and A-Level Philosophy. BA in Philosophy (Alexandria University), PGDE (Al-Azhar University). Faculty Head for Model United Nations.\n\nLINK:mr-ahmed-ali.vercel.app|View Full K-12 Teaching Portfolio",
     "experienceLabel": "Work Experience",
     "exp1Role": "English Social Studies Teacher",
     "exp1Org": "Al Nahda National School for Boys, Abu Dhabi, UAE",
@@ -1053,7 +1053,16 @@
     "itSkillsLabel": "IT Skills",
     "itSkills": "CompTIA (A+, Network+, Linux+), Microsoft Office Suite, Google Workspace, Educational Technology Platforms (HMH, Alef, Paradigm, MS Teams, Google Classroom, Canva, Teachy)",
     "sportsLabel": "Sports Coaching",
-    "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)"
+    "sports": "Strength and Conditioning Coach, Swift Football Academy, Al Ain (2023 to 2024)",
+    "portfoliosSectionTitle": "Three Portfolios, One Practice",
+    "portfoliosSectionIntro": "Ahmed Ali's work spans three domains — operations, K-12 education, and higher education and research. Each has its own portfolio, tailored to its audience, but all three are dimensions of a single professional identity grounded in philosophy, practical wisdom (phronesis), and the discipline of closing the gap between what is and what should be.",
+    "portfolioOpsTitle": "Professional & Operations Portfolio",
+    "portfolioOpsDesc": "For employers and clients: operations leadership, systems architecture, revenue growth, ISO compliance.",
+    "portfolioTeachTitle": "K-12 Teaching Portfolio",
+    "portfolioTeachDesc": "For schools and educational administrators: ADEK-approved instruction, curriculum design, MUN leadership, grades 1-12.",
+    "portfolioAcademicTitle": "Higher Education & Research Portfolio",
+    "portfolioAcademicDesc": "For universities and academic committees: philosophy instruction, scholarly research, publications, Emory research appointment.",
+    "portfolioVisitLabel": "Visit portfolio"
   },
   "workContent": {
     "visitSite": "Visit live site",

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Reveal, FadeUp, EASE } from "../anim";
 import {
   User, Briefcase, GraduationCap, Lightbulb, Award, type LucideIcon
@@ -106,7 +106,112 @@ export function About() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Three Portfolios, One Practice — explains the relationship between
+          the three portfolio sites (ops, K-12 teaching, higher ed & research)
+          so visitors understand they are dimensions of one professional
+          identity, not three competing CVs. */}
+      <ThreePortfoliosSection />
     </section>
+  );
+}
+
+/* ==================== THREE PORTFOLIOS SECTION ==================== */
+function ThreePortfoliosSection() {
+  const t = useTranslations("about");
+  const locale = useLocale();
+  const isAR = locale === "ar";
+
+  const portfolios = [
+    {
+      title: t("portfolioOpsTitle"),
+      desc: t("portfolioOpsDesc"),
+      href: "https://ahmed-ali-ops.vercel.app/",
+      label: t("portfolioVisitLabel"),
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 3h18v4H3z" />
+          <path d="M5 7v14h14V7" />
+          <path d="M9 11h6M9 15h6" />
+        </svg>
+      ),
+    },
+    {
+      title: t("portfolioTeachTitle"),
+      desc: t("portfolioTeachDesc"),
+      href: "https://mr-ahmed-ali.vercel.app/",
+      label: t("portfolioVisitLabel"),
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      ),
+    },
+    {
+      title: t("portfolioAcademicTitle"),
+      desc: t("portfolioAcademicDesc"),
+      href: "https://ahmed-ali-academic.vercel.app/",
+      label: t("portfolioVisitLabel"),
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <div className="relative w-full px-6 md:px-12 lg:px-20 py-16 md:py-20 border-t border-border">
+      <FadeUp>
+        <div className={`flex items-center gap-4 mb-6 ${isAR ? "flex-row-reverse" : ""}`}>
+          <span className="h-px w-12 bg-gold/60" />
+          <span className="eyebrow">{t("portfoliosSectionTitle")}</span>
+        </div>
+      </FadeUp>
+      <FadeUp delay={0.05}>
+        <h3 className="display text-ink text-2xl md:text-3xl mb-4" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
+          {t("portfoliosSectionTitle")}
+        </h3>
+      </FadeUp>
+      <FadeUp delay={0.1}>
+        <p className={`body-serif text-sm md:text-base text-ink-soft leading-relaxed max-w-3xl mb-10 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
+          {t("portfoliosSectionIntro")}
+        </p>
+      </FadeUp>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {portfolios.map((p, i) => (
+          <FadeUp key={i} delay={0.15 + i * 0.05}>
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group block h-full p-6 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors ${isAR ? "text-right" : ""}`}
+              dir={isAR ? "rtl" : "ltr"}
+            >
+              <div className={`flex items-center gap-3 mb-4 ${isAR ? "flex-row-reverse" : ""}`}>
+                <div className="w-10 h-10 rounded-xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal">
+                  {p.icon}
+                </div>
+                <h4 className="display text-ink text-lg leading-tight group-hover:text-teal transition-colors" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>
+                  {p.title}
+                </h4>
+              </div>
+              <p className="body-serif text-sm text-ink-soft leading-relaxed mb-4">
+                {p.desc}
+              </p>
+              <span className={`inline-flex items-center gap-1.5 text-xs text-teal font-mono uppercase tracking-wider ${isAR ? "flex-row-reverse" : ""}`}>
+                {p.label}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </span>
+            </a>
+          </FadeUp>
+        ))}
+      </div>
+    </div>
   );
 }
 
