@@ -257,61 +257,45 @@ function ProfileText({ text }: { text: string }) {
 function ProfileTab() {
   const t = useTranslations("about");
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-      <div className="lg:col-span-7">
-        {/* Portrait + tagline — stacked on mobile, side by side on desktop */}
-        <FadeUp delay={0.05}>
-          <div className="mb-8 flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 justify-center lg:justify-start text-center md:text-left">
-            {/* Circular portrait with gold ring */}
-            <div className="relative flex-shrink-0" style={{ width: "160px", height: "160px", minWidth: "160px" }}>
-              <div
-                className="absolute inset-0 rounded-full"
-                style={{ border: "3px solid var(--gold)", opacity: 0.5 }}
-              />
-              <div
-                className="absolute rounded-full"
-                style={{ inset: "6px", border: "1px solid var(--gold)", opacity: 0.3 }}
-              />
-              <img
-                src="/founder-portrait.jpg"
-                alt="Ahmed Ali — Founder of Studio of Phronesis"
-                className="absolute rounded-full object-cover"
-                style={{ inset: "10px", width: "calc(100% - 20px)", height: "calc(100% - 20px)" }}
-              />
-            </div>
-            {/* Tagline beside the photo (or below on mobile) */}
-            <div className="w-full md:w-auto flex-1">
-              <p className="display-italic text-teal leading-[1.2]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                {t("profileTitle")}
-              </p>
-            </div>
+    <div className="max-w-4xl">
+      {/* Portrait + tagline — stacked on mobile, side by side on desktop */}
+      <FadeUp delay={0.05}>
+        <div className="mb-8 flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 justify-center md:justify-start text-center md:text-left">
+          {/* Circular portrait with gold ring */}
+          <div className="relative flex-shrink-0" style={{ width: "160px", height: "160px", minWidth: "160px" }}>
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{ border: "3px solid var(--gold)", opacity: 0.5 }}
+            />
+            <div
+              className="absolute rounded-full"
+              style={{ inset: "6px", border: "1px solid var(--gold)", opacity: 0.3 }}
+            />
+            <img
+              src="/founder-portrait.jpg"
+              alt="Ahmed Ali — Founder of Studio of Phronesis"
+              className="absolute rounded-full object-cover"
+              style={{ inset: "10px", width: "calc(100% - 20px)", height: "calc(100% - 20px)" }}
+            />
           </div>
-        </FadeUp>
+          {/* Tagline beside the photo (or below on mobile) */}
+          <div className="w-full md:w-auto flex-1">
+            <p className="display-italic text-teal leading-[1.2]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+              {t("profileTitle")}
+            </p>
+          </div>
+        </div>
+      </FadeUp>
 
-        <FadeUp delay={0.1}>
-          <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mb-6">{t("profileBody1")}</p>
-        </FadeUp>
-        <FadeUp delay={0.15}>
-          <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mb-6">{t("profileBody2")}</p>
-        </FadeUp>
-        <FadeUp delay={0.2}>
-          <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">{t("profileBody3")}</p>
-        </FadeUp>
-      </div>
-      <div className="lg:col-span-5 space-y-6">
-        <FadeUp delay={0.25}>
-          <div className="p-6 md:p-7 rounded-2xl bg-paper-warm border border-border">
-            <p className="eyebrow mb-4">Professional Summary</p>
-            <ProfileText text={t("profileSummary")} />
-          </div>
-        </FadeUp>
-        <FadeUp delay={0.3}>
-          <div className="p-6 md:p-7 rounded-2xl bg-paper-warm border border-border">
-            <p className="eyebrow mb-4">Teaching Expertise</p>
-            <ProfileText text={t("profileTeachingExpertise")} />
-          </div>
-        </FadeUp>
-      </div>
+      <FadeUp delay={0.1}>
+        <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mb-6">{t("profileBody1")}</p>
+      </FadeUp>
+      <FadeUp delay={0.15}>
+        <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed mb-6">{t("profileBody2")}</p>
+      </FadeUp>
+      <FadeUp delay={0.2}>
+        <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed">{t("profileBody3")}</p>
+      </FadeUp>
     </div>
   );
 }
