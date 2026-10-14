@@ -8,6 +8,7 @@ import {
   X,
   AlertCircle,
   Check,
+  Paperclip,
 } from "lucide-react";
 
 type ComposeEmailModalProps = {
@@ -35,6 +36,7 @@ export function ComposeEmailModal({
   const [toName, setToName] = useState(initialToName);
   const [subject, setSubject] = useState(initialSubject);
   const [body, setBody] = useState(initialBody);
+  const [attachment, setAttachment] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -84,6 +86,7 @@ export function ComposeEmailModal({
           subject,
           body,
           leadId: leadId || undefined,
+          attachment: attachment || undefined,
         }),
       });
       const json = await res.json();
@@ -196,6 +199,26 @@ export function ComposeEmailModal({
                   placeholder="Email subject"
                   className="w-full bg-[#F5EFE4]/60 border border-[#E5DDD0] rounded-lg px-4 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#0F5C5E] focus:ring-1 focus:ring-[#0F5C5E]/40 transition-colors"
                 />
+              </div>
+
+              {/* Attachment */}
+              <div>
+                <label className="block text-[11px] uppercase tracking-[0.22em] text-[#0F5C5E] mb-2 font-mono">
+                  Attachment (file in public/ folder)
+                </label>
+                <div className="flex items-center gap-2">
+                  <Paperclip size={14} className="text-[#0F5C5E] flex-shrink-0" />
+                  <input
+                    type="text"
+                    value={attachment}
+                    onChange={(e) => setAttachment(e.target.value)}
+                    placeholder="e.g. Training_Proposal_CLIC.pdf (leave empty for no attachment)"
+                    className="flex-1 bg-[#F5EFE4]/60 border border-[#E5DDD0] rounded-lg px-4 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#0F5C5E] focus:ring-1 focus:ring-[#0F5C5E]/40 transition-colors"
+                  />
+                </div>
+                <p className="text-xs text-[#999] mt-1.5">
+                  Type the filename of a file stored in the website's public/ folder. The file will be attached to the email.
+                </p>
               </div>
 
               {/* Body */}

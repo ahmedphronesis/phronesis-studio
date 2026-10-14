@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
-import { sendEmail, isEmailConfigured } from "@/lib/email";
+import { sendEmail, isEmailConfigured, type EmailAttachment } from "@/lib/email";
 import { db } from "@/lib/db";
 import { z } from "zod";
+import fs from "fs";
+import path from "path";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,6 +15,7 @@ const SendSchema = z.object({
   subject: z.string().min(1, "Subject is required").max(200),
   body: z.string().min(1, "Body is required").max(20000),
   leadId: z.string().optional(),
+  attachment: z.string().optional(), // filename in public/ folder
 });
 
 /**
@@ -42,7 +45,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { to, toName, subject, body: bodyText, leadId } = parsed.data;
+    const { to, toName, subject, body: bodyText, leadId, attachment: attachmentFile } = parsed.data;
+
+    // Load attachment from public/ folder if specified
+    let attachments: EmailAttachment[] | undefined;
+    if (attachmentFile) {
+      const publicDir = path.join(process.cwd(), "public");
+      const filePath = path.join(publicDir, attachmentFile);
+      // Security: ensure the resolved path is inside public/
+      if (!filePath.startsWith(publicDir)) {
+        return NextResponse.json(
+          { ok: false, error: "Invalid attachment path" },
+          { status: 400 }
+        );
+      }
+      if (!fs.existsSync(filePath)) {
+        return NextResponse.json(
+          { ok: false, error: `Attachment file not found: ${attachmentFile}` },
+          { status: 400 }
+        );
+      }
+      const content = fs.readFileSync(filePath);
+      attachments = [{
+        filename: attachmentFile,
+        content,
+        contentType: attachmentFile.endsWith(".pdf") ? "application/pdf" : undefined,
+      }];
+    }
 
     // Convert plain text body to simple HTML for email clients that render HTML
     const htmlBody = bodyText
@@ -59,6 +88,7 @@ export async function POST(req: NextRequest) {
       text: bodyText,
       html: wrappedHtml,
       replyTo: process.env.CONTACT_EMAIL || "ahmed@phronesis-studio.com",
+      attachments,
     });
 
     // Log to database

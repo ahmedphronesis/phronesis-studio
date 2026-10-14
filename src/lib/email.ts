@@ -59,12 +59,19 @@ function getFrom(): { name: string; address: string } {
   return { name, address: email };
 }
 
+export type EmailAttachment = {
+  filename: string;
+  content: Buffer; // raw file bytes
+  contentType?: string;
+};
+
 export type EmailPayload = {
   to: string;
   subject: string;
   text?: string; // plain-text fallback
   html?: string; // rich HTML body
   replyTo?: string;
+  attachments?: EmailAttachment[]; // file attachments
 };
 
 /**
@@ -152,6 +159,13 @@ async function sendEmailViaApi(p: EmailPayload): Promise<EmailSendResult> {
   };
   if (p.html) body.htmlContent = p.html;
   if (p.text) body.textContent = p.text;
+  // Brevo API expects attachments as base64-encoded { content, name } objects
+  if (p.attachments && p.attachments.length > 0) {
+    body.attachment = p.attachments.map((a) => ({
+      name: a.filename,
+      content: a.content.toString("base64"),
+    }));
+  }
   if (p.replyTo) {
     const { address: replyAddress, name: replyName } = parseEmailAddress(p.replyTo);
     body.replyTo = { email: replyAddress, ...(replyName ? { name: replyName } : {}) };
@@ -208,6 +222,11 @@ async function sendEmailViaSmtp(p: EmailPayload): Promise<EmailSendResult> {
     text: p.text,
     html: p.html,
     replyTo: p.replyTo,
+    attachments: p.attachments?.map((a) => ({
+      filename: a.filename,
+      content: a.content,
+      contentType: a.contentType,
+    })),
   });
 
   const messageId = info.messageId
