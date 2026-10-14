@@ -18,22 +18,22 @@ export function OrganizationJsonLd() {
     logo: "https://phronesis-studio.com/favicon-512x512.png",
     image: "https://phronesis-studio.com/og-image.png",
     description:
-      "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher-educator-architect in Al Ain, UAE.",
+      "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher, author, educator, and systems architect in Central Visayas, Philippines.",
     slogan: "Perceiving the gap between what is and what should be, and closing it with discipline.",
     foundingDate: "2024",
     founder: {
       "@type": "Person",
       name: "Ahmed Ali",
-      jobTitle: "Philosopher, Educator, Architect",
+      jobTitle: "Philosopher, Author, Educator, Systems Architect",
       url: "https://phronesis-studio.com",
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Al Ain",
-      addressRegion: "Abu Dhabi",
-      addressCountry: "AE",
+      addressLocality: "Central Visayas",
+      addressRegion: "Central Visayas",
+      addressCountry: "PH",
     },
-    areaServed: "United Arab Emirates",
+    areaServed: "Worldwide",
     knowsLanguage: ["en", "ar"],
     sameAs: [
       "https://linkedin.com/in/ahmedmahmoudsaeedahmedali",
@@ -74,6 +74,34 @@ export function OrganizationJsonLd() {
         },
       },
     ],
+    author: {
+      "@type": "Person",
+      name: "Ahmed Ali",
+      url: "https://phronesis-studio.com",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Publications",
+      itemListElement: [
+        {
+          "@type": "Book",
+          name: "Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI",
+          author: {
+            "@type": "Person",
+            name: "Ahmed Ali",
+          },
+          isbn: "979-8-1913137-5-7",
+          datePublished: "2026",
+          numberOfPages: 149,
+          inLanguage: "en",
+          url: "https://phronesis-studio.com/en/publications/depth-of-knowledge",
+          publisher: {
+            "@type": "Organization",
+            name: "Independently published",
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -121,17 +149,18 @@ export function PersonJsonLd() {
     "@type": "Person",
     "@id": "https://phronesis-studio.com/#person",
     name: "Ahmed Ali",
-    jobTitle: "Philosopher, Educator, Architect",
+    jobTitle: "Philosopher, Author, Educator, Systems Architect",
     url: "https://phronesis-studio.com",
     image: "https://phronesis-studio.com/og-image.png",
+    description: "Philosopher, author, educator, and systems architect. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026). Founder of Studio of Phronesis. Based in Central Visayas, Philippines.",
     worksFor: {
       "@id": "https://phronesis-studio.com/#organization",
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Al Ain",
-      addressRegion: "Abu Dhabi",
-      addressCountry: "AE",
+      addressLocality: "Central Visayas",
+      addressRegion: "Central Visayas",
+      addressCountry: "PH",
     },
     knowsAbout: [
       "Philosophy",
@@ -141,9 +170,26 @@ export function PersonJsonLd() {
       "Leadership",
       "Aristotelian Ethics",
       "Phronesis",
+      "Depth of Knowledge",
+      "Norman Webb DOK",
+      "Islamic Philosophy",
+      "Ibn Khaldun",
+    ],
+    occupation: "Author and Educator",
+    authorOf: [
+      {
+        "@type": "Book",
+        name: "Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI",
+        isbn: "979-8-1913137-5-7",
+        datePublished: "2026",
+        numberOfPages: 149,
+        inLanguage: "en",
+        url: "https://phronesis-studio.com/en/publications/depth-of-knowledge",
+      },
     ],
     sameAs: [
       "https://linkedin.com/in/ahmedmahmoudsaeedahmedali",
+      "https://www.amazon.com/author/ahmed-ali",
     ],
   };
 

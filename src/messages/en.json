@@ -2,7 +2,7 @@
   "metadata": {
     "home": {
       "title": "Ahmed Ali · Studio of Phronesis",
-      "description": "Ahmed Ali is a philosopher, author, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, teaches, and is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI'. His practice inherits the polymath ideal of the classical Islamic tradition."
+      "description": "Ahmed Ali is a philosopher, author, educator, and systems architect based in Central Visayas, Philippines. He is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026), available globally on Amazon. He builds custom software systems, publishes bilingual philosophical work, teaches philosophy, and hosts the Echoes of Wisdom bilingual philosophy podcast. His practice inherits the polymath ideal of the classical Islamic tradition."
     },
     "about": {
       "title": "About Ahmed Ali",
@@ -31,9 +31,10 @@
     "seoKeywords": [
       "Ahmed Ali",
       "Ahmed Ali philosopher",
-      "Ahmed Ali UAE",
-      "Ahmed Ali Abu Dhabi",
-      "Ahmed Ali philosopher UAE",
+      "Ahmed Ali Philippines",
+      "Ahmed Ali Central Visayas",
+      "Ahmed Ali Bohol",
+      "Ahmed Ali Cebu",
       "Ahmed Ali systems architect",
       "Ahmed Ali educator",
       "Ahmed Ali polymath",
@@ -631,11 +632,11 @@
       "tutoring",
       "instruction",
       "training",
-      "custom software development UAE",
-      "software developer Abu Dhabi",
+      "custom software development Philippines",
+      "software developer Central Visayas",
       "software developer Al Ain",
-      "philosophy teacher UAE",
-      "philosophy tutor UAE",
+      "philosophy teacher Philippines",
+      "philosophy tutor Philippines",
       "استشارات",
       "استشارة",
       "إرشاد",
@@ -676,7 +677,7 @@
     "ctaPrimary": "Work with me",
     "ctaSecondary": "See selected work",
     "footnote": "Philosopher, author, systems architect, and educator. I contribute to building fitting systems, offering counsel, and training personnel, for institutions that no longer accept the persistence of the gap, and that seek to redress it.",
-    "location": "Abu Dhabi · UAE",
+    "location": "Central Visayas · Philippines",
     "enterPrompt": "Enter",
     "mottoWord": "ΦΡΟΝΗΣΙΣ",
     "mottoTransliteration": "",
@@ -812,7 +813,7 @@
     "engagementLabel": "Engagement structure",
     "engagementBody": "Every engagement begins with a conversation.\nCustom systems typically begin at $1,500, with licensing where applicable. Consultation may be hourly or project-based. Tutoring is available online or in person.",
     "locationLabel": "Location",
-    "location": "Abu Dhabi, UAE",
+    "location": "Central Visayas, Philippines",
     "linkedinLabel": "LinkedIn",
     "toastSuccess": "Inquiry received.",
     "toastSuccessDesc": "I read every message personally. Expect a reply within 48 hours.",
@@ -828,7 +829,7 @@
     "followWorkDesc": "Subscribe for updates on new publications, episodes, and guides.",
     "followWorkPlaceholder": "your@email.com",
     "followWorkButton": "Subscribe",
-    "location": "Abu Dhabi · United Arab Emirates"
+    "location": "Central Visayas · Philippines"
   },
   "language": {
     "label": "Language",
