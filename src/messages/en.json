@@ -10,7 +10,7 @@
     },
     "work": {
       "title": "Selected Work",
-      "description": "Production-grade software systems built by Ahmed Ali across education and real estate. Real Estate Emperor, MSCS Academy, DiplomatiQ, Al Ain Real Estate. Each built from diagnosis to deployment on one Aristotelian method."
+      "description": "Production-grade software systems built by Ahmed Ali across education and educational technology. MSCS Academy, DiplomatiQ, and bilingual educational platforms. Each built from diagnosis to deployment on one Aristotelian method."
     },
     "echoes": {
       "title": "Philosophy · Echoes of Wisdom",
@@ -147,10 +147,7 @@
       "تطوير الويب",
       "برمجيات مخصصة",
       "تصميم انظمة",
-      "Real Estate Emperor",
-      "MSCS Academy",
       "DiplomatiQ",
-      "Al Ain Real Estate",
       "Echoes of Wisdom",
       "أصداء الحكمة",
       "أصداء الحكمة بودكاست",
@@ -800,7 +797,7 @@
     "engagementsCTA": "Studio of Phronesis is available for on-site professional development, teacher training, and educational consultation wherever institutions invite it. Programs are custom-designed to each institution's curriculum standards, faculty profile, and diagnosed gaps. To request an engagement, write to ahmed@phronesis-studio.com.",
     "engagementsPhoto1Caption": "Module 1: Faculty group photo, CLIC Panglao, Friday 30 October 2026",
     "engagementsPhoto2Caption": "Module 1: Workshop session, teachers building 16-point lesson plans, 30 October 2026",
-    "engagementsPhoto3Caption": "Module 1: Trainer delivering the 16-point lesson structure, 30 October 2026",
+    "engagementsPhoto3Caption": "Module 1: Trainer delivering the Cognitive frameworks, 30 October 2026",
     "engagementsPhoto4Caption": "Module 2: Faculty group photo, CLIC Panglao, Monday 9 November 2026",
     "aboutEngagementsTitle": "Professional Engagements",
     "aboutEngagementsBody": "Studio of Phronesis delivers on-site professional development to educational institutions wherever the need arises. In October 2026, an 8-module teacher training program commenced at Creative Learning International Center, Panglao, Bohol, Philippines, grounded in Bloom's Taxonomy, Webb's DOK, Marzano's New Taxonomy, Understanding by Design, and the trainer's own book, Depth of Knowledge (2026), aligned to Philippine DepEd K to 3 standards. Modules 1 to 3 have been delivered; the program continues weekly through December 2026. The full case study, with proof photographs, is available on the Work page."
@@ -899,7 +896,7 @@
     "profileTitle": "A philosopher who teaches, builds, and leads.",
     "profileBody1": "My formation is philosophical before it is professional. I hold a Bachelor of Arts in Philosophy from Alexandria University, where my formation was shaped by the department's faculty, among them Prof. Dr. Ashraf Hassan Mansour, who now serves as Chair of the Department of Philosophy, and a Postgraduate Diploma in Education from Al-Azhar University. A research appointment at Emory University, under the supervision of Dr. Rahimjon Abdugafurov, trained me in the transcription and analysis of philosophical and theological manuscripts in Islamic civilization. I am the author of Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI (2026), a handbook that returns to Norman Webb's original 1997 and 2002 monographs as primary sources and traces the principle that recall is not reasoning through the Islamic intellectual tradition, from Al-Hasan al-Basri in the eighth century to Ibn Khaldun's four-level progression in the Muqaddimah. I am a Member of the British Philosophical Association, and I produce and host Echoes of Wisdom, a bilingual Arabic and English philosophy podcast with sixteen episodes across two seasons. My ambition is to contribute to philosophy instruction and research at the university level. This philosophical ground is the source of everything that follows.",
     "profileBody2": "From that ground, my work in education follows naturally. As a Licensed UAE Educator and ADEK-Approved Moral, Social, and Cultural Studies and Islamic Education Teacher in English Medium, I view teaching as a human art, a space where intellect, ethics, and empathy meet. My classroom practice spans Grades 1 to 12 in the American Curriculum, with direct subject mapping to IB MYP Individuals and Societies, Cambridge Global Perspectives, IB Diploma Theory of Knowledge, and A-Level Philosophy. My pedagogy is grounded in the Aristotelian concept of phronesis, practical wisdom, the trained capacity to perceive the right action in the right moment, which I cultivate in students through inquiry-based learning, structured differentiation for diverse learner profiles, and the integration of educational technology as an amplifier of personalised learning rather than a substitute for human judgement. As Faculty Head for Model United Nations, I coach students in diplomatic reasoning, research writing, and public speaking, and I led the school delegation to win Best School at MANORMUN V 2026.",
-    "profileBody3": "The same discipline extends to my work in operations and systems architecture. Across eight years in the UAE, the UK, and Egypt, I have led operations in academia, retail, contact centers, telecommunications, and family entertainment, achieving 21% year-one revenue growth despite declining footfall, earning four rapid promotions within a single organization, and introducing performance frameworks that became organizational benchmarks. With ISO 9001 and ISO 45001 internal audit training, and as the founder of Studio of Phronesis, which builds production-grade software platforms for education and real estate, I apply the same phronesis to organisations that I apply to classrooms: perceiving the gap between what is and what should be, and closing it with care. Whether the work is a manuscript, a classroom, or a system, the aim is the same: to cultivate the harmony between thought and action that I continue to seek as an educator, learner, and human being.",
+    "profileBody3": "The same discipline extends to my work in operations and systems architecture. Across eight years in the UAE, the UK, and Egypt, I have led operations in academia, retail, contact centers, telecommunications, and family entertainment, achieving 21% year-one revenue growth despite declining footfall, earning four rapid promotions within a single organization, and introducing performance frameworks that became organizational benchmarks. With ISO 9001 and ISO 45001 internal audit training, and as the founder of Studio of Phronesis, which builds production-grade software platforms for education, I apply the same phronesis to organisations that I apply to classrooms: perceiving the gap between what is and what should be, and closing it with care. Whether the work is a manuscript, a classroom, or a system, the aim is the same: to cultivate the harmony between thought and action that I continue to seek as an educator, learner, and human being.",
     "profileSummary": "High-impact operations leader and educator with 8+ years of progressive experience across academia, retail, telecommunications, and family entertainment in the UAE, UK, and Egypt. ISO 9001 and 45001 Internal Auditor. 21% year-one revenue growth. Faculty Head for Model United Nations, coached students to Best School at MANORMUN V 2026.\n\nLINK:ahmed-ali-ops.vercel.app|View Full Professional & Operations Portfolio",
     "profileTeachingExpertise": "Philosopher-educator licensed by ADEK in MSC and Islamic Education, teaching Grades 1 to 12 in the American Curriculum with subject mapping to IB MYP, Cambridge Global Perspectives, IB TOK, and A-Level Philosophy. BA in Philosophy (Alexandria University), PGDE (Al-Azhar University). Faculty Head for Model United Nations.\n\nLINK:mr-ahmed-ali.vercel.app|View Full K-12 Teaching Portfolio",
     "experienceLabel": "Work Experience",
@@ -1131,7 +1128,6 @@
       "clouds": {
         "realestate": {
           "domain": "Real Estate · Operations",
-          "name": "Real Estate Emperor",
           "desc": "A single ledger that cannot lie. 400+ units managed live.",
           "rationale": "Most property management software treats the landlord's problem as one of organization: arrange the units, list the tenants, send the receipts. I perceived it differently. The landlord's actual problem is epistemic: he does not trust his own numbers. The spreadsheet on his laptop disagrees with the receipt book in the receptionist's drawer, which disagrees with the memory in his accountant's head. Three ledgers, three truths, no decision. So I built the platform as a single ledger that cannot lie. Every payment entered once, allocated by rule, timestamped, and immutable. Every role sees the same truth at a different resolution: the owner sees the portfolio, the accountant sees the building, the receptionist sees the payment. The system's deepest function is not to manage property but to restore the precondition of judgement, which is trust in the facts beneath it. Aristotle would have recognized the move: phronesis is impossible where the perception of particulars has been corrupted. Before any decision about rent or sale or renovation, the mind must first see clearly. This platform is an instrument for seeing clearly."
         },
@@ -1161,7 +1157,6 @@
         },
         "alainroom": {
           "domain": "Real Estate · Listings",
-          "name": "Al Ain Real Estate",
           "desc": "A production real-estate listings website for a live broker client in Al Ain.",
           "rationale": "A broker's oldest problem is discovery: he has rooms to fill, tenants cannot find them, and the gap between them is filled by WhatsApp groups, hand-written signs on lamp posts, and intermediaries who take a month's rent for an introduction. I built Al Ain Real Estate as the shortest path between a broker with rooms to fill and a tenant who needs one. The site is lean on purpose: every screen answers one question. Listings carry the facts a tenant actually decides on — rent, location, room type, photos, contact. No accounts, no funnels, no noise. The platform is live in production today, serving a real broker client in Al Ain, and is the studio's proof that the same engineering care applied to a multi-role SaaS like Real Estate Emperor can be compressed into a single-purpose site that solves a single problem cleanly."
         }
@@ -1169,7 +1164,6 @@
     },
     "projects": {
       "p1": {
-        "name": "Real Estate Emperor",
         "category": "Property Management SaaS",
         "metricLabel": "units managed",
         "description": "Cloud-based property management platform running in production for a paying client in Al Ain. Rent collection with payment allocation, per-building P&L, role-based access, multi-language.",
@@ -1284,12 +1278,10 @@
     },
     "realEstate": {
       "category": "UAE Property Management · Cloud Platform",
-      "name": "Real Estate Emperor",
       "tagline": "The operating system for UAE property portfolios.",
       "description": "One dashboard for rent collection, tenant ledgers, building P&L, and multi-role operations, built for landlords managing 20 to 500 units across the Emirates.",
       "proofBody": "Real Estate Emperor is live in production, today, managing a real UAE portfolio. The client pays for it. They use it daily. Their accountant logs in every morning. Their receptionist enters payments in three languages. This is not a demo. This is a proven, production-grade platform.",
       "alAinRoomBadge": "Production Listings Site · Live Broker Client",
-      "alAinRoomName": "Al Ain Real Estate",
       "alAinRoomTagline": "The shortest path between a broker and a tenant.",
       "alAinRoomBody": "A lean, single-purpose listings website built for a real broker client in Al Ain and live in production today. Every screen answers one question: is this room right for me? Listings carry rent, location, room type, photos, and contact — nothing else. No accounts, no funnels, no noise.",
       "alAinRoomStats": [

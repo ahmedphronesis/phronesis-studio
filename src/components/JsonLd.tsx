@@ -149,10 +149,11 @@ export function PersonJsonLd() {
     "@type": "Person",
     "@id": "https://phronesis-studio.com/#person",
     name: "Ahmed Ali",
+    alternateName: "Ahmed Mahmoud Saeed Ahmed Ali",
     jobTitle: "Philosopher, Author, Educator, Systems Architect, Trainer",
     url: "https://phronesis-studio.com",
     image: "https://phronesis-studio.com/og-image.png",
-    description: "Philosopher, author, educator, and systems architect. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026). Founder of Studio of Phronesis. Based in Central Visayas, Philippines.",
+    description: "Ahmed Mahmoud Saeed Ahmed Ali is a philosopher, author, educator, systems architect, and professional trainer. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7). Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). Based in Central Visayas, Philippines. Delivers on-site teacher training and professional development internationally.",
     worksFor: {
       "@id": "https://phronesis-studio.com/#organization",
     },

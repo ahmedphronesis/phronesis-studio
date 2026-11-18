@@ -33,8 +33,6 @@ export function Footer() {
 
   // External software systems / live platforms
   const EXTERNAL = [
-    { href: "https://alainroomforrent.com/", label: "Al Ain Real Estate" },
-    { href: "https://real-estate-emperor.vercel.app", label: "Real Estate Emperor" },
     { href: "https://mscs-academy.vercel.app", label: "MSCS Academy" },
     { href: "https://mun-diplomatiq.vercel.app", label: "DiplomatiQ" },
   ];

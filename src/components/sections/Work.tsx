@@ -6,11 +6,11 @@ import { useTranslations, useLocale } from "next-intl";
 import { Reveal, FadeUp, EASE } from "../anim";
 import { NeuralWork } from "./NeuralWork";
 import {
-  ExternalLink, GraduationCap, Building2,
+  ExternalLink, GraduationCap,
   type LucideIcon
 } from "lucide-react";
 
-type TabId = "education" | "realestate";
+type TabId = "education";
 
 export function Work() {
   const t = useTranslations("work");
@@ -18,7 +18,6 @@ export function Work() {
 
   const tabs: { id: TabId; icon: LucideIcon; label: string; desc: string }[] = [
     { id: "education", icon: GraduationCap, label: t("tabEducation"), desc: t("tabEducationDesc") },
-    { id: "realestate", icon: Building2, label: t("tabRealEstate"), desc: t("tabRealEstateDesc") },
   ];
 
   return (
@@ -76,7 +75,7 @@ export function Work() {
         </Reveal>
       </div>
 
-      {/* Detailed breakdown tabs — Education, Real Estate */}
+      {/* Detailed breakdown tabs — Education */}
       <div className="relative w-full px-6 md:px-12 lg:px-20">
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
@@ -125,7 +124,6 @@ export function Work() {
             transition={{ duration: 0.5, ease: EASE }}
           >
             {activeTab === "education" && <EducationTab />}
-            {activeTab === "realestate" && <RealEstateTab />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -356,147 +354,10 @@ function EducationTab() {
   );
 }
 
-/* ==================== REAL ESTATE TAB ==================== */
-function RealEstateTab() {
-  const tc = useTranslations("workContent");
-  const pillars = tc.raw("realEstate.pillars") as { title: string; body: string; replaces: string }[];
-  const roi = tc.raw("realEstate.roi") as { role: string; win: string; metric: string }[];
-  const trust = tc.raw("realEstate.trust") as { t: string; d: string }[];
-  const stats = tc.raw("realEstate.stats") as { v: string; l: string }[];
-
-  return (
-    <div>
-      {/* Two-project summary — Al Ain Real Estate (production) + Real Estate Emperor (SaaS) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-6 md:py-8 border-t border-border/40">
-        <FadeUp>
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.4, ease: EASE }}
-            className="p-7 md:p-8 rounded-2xl bg-paper border border-teal/30 hover:border-teal/50 transition-colors h-full"
-          >
-            <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-2 font-mono">{tc("realEstate.alAinRoomBadge")}</p>
-            <h4 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight">{tc("realEstate.alAinRoomName")}</h4>
-            <p className="display-italic text-teal text-base md:text-lg mb-4">{tc("realEstate.alAinRoomTagline")}</p>
-            <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5">{tc("realEstate.alAinRoomBody")}</p>
-            <div className="flex items-center gap-3 mb-5 flex-wrap">
-              {(tc.raw("realEstate.alAinRoomStats") as string[]).map((s, i) => (
-                <span key={i} className="text-[10px] uppercase tracking-wider text-ink-dim border border-border rounded-full px-2.5 py-1 font-mono">
-                  {s}
-                </span>
-              ))}
-            </div>
-            <a
-              href="https://alainroomforrent.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium"
-            >
-              <ExternalLink size={14} />
-              {tc("realEstate.alAinRoomCta")}
-            </a>
-          </motion.div>
-        </FadeUp>
-        <FadeUp delay={0.05}>
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.4, ease: EASE }}
-            className="p-7 md:p-8 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors h-full"
-          >
-            <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-2 font-mono">{tc("realEstate.category")}</p>
-            <h4 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight">{tc("realEstate.name")}</h4>
-            <p className="display-italic text-teal text-base md:text-lg mb-4">{tc("realEstate.tagline")}</p>
-            <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5">{tc("realEstate.description")}</p>
-            <div className="flex items-center gap-3 mb-5 flex-wrap">
-              {stats.map((s, i) => (
-                <span key={i} className="text-[10px] uppercase tracking-wider text-ink-dim border border-border rounded-full px-2.5 py-1 font-mono">
-                  {s.v} {s.l}
-                </span>
-              ))}
-            </div>
-            <a
-              href="https://real-estate-emperor.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-teal border border-teal/40 hover:bg-teal/10 transition-colors px-5 py-3 rounded-full font-medium"
-            >
-              <ExternalLink size={14} />
-              {tc("visitDemo")}
-            </a>
-          </motion.div>
-        </FadeUp>
-      </div>
-
-      {/* Detailed breakdown — Real Estate Emperor */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 py-6 md:py-8 border-t border-border/40">
-        <div className="lg:col-span-5">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-teal mb-3 font-mono">{tc("realEstate.category")}</p>
-          <h3 className="display text-ink text-4xl md:text-6xl leading-[1.02]">{tc("realEstate.name")}</h3>
-          <p className="display-italic text-teal text-xl md:text-2xl mt-3">{tc("realEstate.tagline")}</p>
-          <p className="body-serif text-sm text-ink-dim mt-5">{tc("realEstate.description")}</p>
-          <a href="https://real-estate-emperor.vercel.app" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm text-paper bg-teal hover:bg-teal-bright transition-colors px-5 py-3 rounded-full font-medium">
-            <ExternalLink size={14} />
-            {tc("visitDemo")}
-          </a>
-        </div>
-        <div className="lg:col-span-7 lg:col-start-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((s, i) => (
-              <div key={i} className="p-5 rounded-xl bg-paper-warm border border-border">
-                <div className="display text-teal text-4xl md:text-5xl leading-none">{s.v}</div>
-                <div className="text-[10px] uppercase tracking-wider text-ink-dim mt-2 font-mono">{s.l}</div>
-              </div>
-            ))}
-          </div>
-          <p className="body-serif text-sm text-ink-soft leading-relaxed mt-8">{tc("realEstate.proofBody")}</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-6 md:py-8 border-t border-border/40">
-        {pillars.map((p, i) => (
-          <FadeUp key={i}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.4, ease: EASE }}
-              className="p-7 md:p-8 rounded-2xl bg-paper-warm border border-border hover:border-teal/40 transition-colors h-full"
-            >
-              <div className="flex items-baseline justify-between mb-5">
-                <span className="display text-teal/40 text-5xl md:text-6xl leading-none">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-ink-dim font-mono">{tc("pillar")} {i + 1}/04</span>
-              </div>
-              <h4 className="display text-ink text-2xl md:text-3xl mb-4">{p.title}</h4>
-              <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5">{p.body}</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-terracotta font-mono">{p.replaces}</p>
-            </motion.div>
-          </FadeUp>
-        ))}
-      </div>
-
-      <div className="py-6 md:py-8 border-t border-border/40">
-        <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("realEstate.roiTitle")}</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {roi.map((s, i) => (
-            <div key={i} className="p-5 rounded-xl border border-border bg-paper-warm">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-teal mb-2 font-mono">{s.role}</p>
-              <p className="body-serif text-xs text-ink-soft leading-relaxed mb-3">{s.win}</p>
-              <p className="display-italic text-terracotta text-sm">{s.metric}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="py-6 md:py-8 border-t border-border/40">
-        <h4 className="display text-ink text-3xl md:text-4xl mb-8">{tc("realEstate.trustTitle")}</h4>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {trust.map((s, i) => (
-            <div key={i} className="p-4 rounded-xl bg-paper-warm border border-border">
-              <p className="text-xs font-medium text-ink mb-1">{s.t}</p>
-              <p className="body-serif text-[11px] text-ink-dim leading-relaxed">{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+/* ==================== REAL ESTATE TAB — REMOVED ==================== */
+/* The Real Estate tab has been removed entirely. Real Estate Emperor and
+   Al Ain Real Estate are no longer featured on the Studio of Phronesis
+   website. The focus is now exclusively on educational and academic work.
 }
 
 /* ==================== FINANCE TAB — REMOVED ==================== */
