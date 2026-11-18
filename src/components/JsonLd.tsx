@@ -24,7 +24,7 @@ export function OrganizationJsonLd() {
     founder: {
       "@type": "Person",
       name: "Ahmed Ali",
-      jobTitle: "Philosopher, Author, Educator, Systems Architect",
+      jobTitle: "Philosopher, Author, Educator, Systems Architect, Trainer",
       url: "https://phronesis-studio.com",
     },
     address: {
@@ -149,7 +149,7 @@ export function PersonJsonLd() {
     "@type": "Person",
     "@id": "https://phronesis-studio.com/#person",
     name: "Ahmed Ali",
-    jobTitle: "Philosopher, Author, Educator, Systems Architect",
+    jobTitle: "Philosopher, Author, Educator, Systems Architect, Trainer",
     url: "https://phronesis-studio.com",
     image: "https://phronesis-studio.com/og-image.png",
     description: "Philosopher, author, educator, and systems architect. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026). Founder of Studio of Phronesis. Based in Central Visayas, Philippines.",
@@ -174,8 +174,12 @@ export function PersonJsonLd() {
       "Norman Webb DOK",
       "Islamic Philosophy",
       "Ibn Khaldun",
+      "Teacher Training",
+      "Professional Development",
+      "Curriculum Design",
+      "Educational Consulting",
     ],
-    occupation: "Author and Educator",
+    occupation: "Author, Educator, and Trainer",
     authorOf: [
       {
         "@type": "Book",
