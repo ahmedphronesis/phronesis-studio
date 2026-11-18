@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Reveal, FadeUp, EASE } from "../anim";
 import { NeuralWork } from "./NeuralWork";
@@ -10,15 +9,8 @@ import {
   type LucideIcon
 } from "lucide-react";
 
-type TabId = "education";
-
 export function Work() {
   const t = useTranslations("work");
-  const [activeTab, setActiveTab] = useState<TabId>("education");
-
-  const tabs: { id: TabId; icon: LucideIcon; label: string; desc: string }[] = [
-    { id: "education", icon: GraduationCap, label: t("tabEducation"), desc: t("tabEducationDesc") },
-  ];
 
   return (
     <section id="work" className="relative overflow-hidden">
@@ -75,57 +67,9 @@ export function Work() {
         </Reveal>
       </div>
 
-      {/* Detailed breakdown tabs — Education */}
-      <div className="relative w-full px-6 md:px-12 lg:px-20">
-        <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 rounded-2xl bg-paper-warm border border-border">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex flex-col items-start gap-2 p-4 md:p-5 rounded-xl transition-colors text-left ${
-                    isActive ? "bg-paper" : "hover:bg-paper-dark/50"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 rounded-xl border border-teal/30 bg-paper"
-                      transition={{ duration: 0.4, ease: EASE }}
-                      style={{ zIndex: 0 }}
-                    />
-                  )}
-                  <div className="relative z-10 flex items-center gap-2">
-                    <Icon size={18} strokeWidth={1.5} className={isActive ? "text-teal" : "text-ink-dim"} />
-                    <span className={`text-sm md:text-base font-medium ${isActive ? "text-teal" : "text-ink-soft"}`}>
-                      {tab.label}
-                    </span>
-                  </div>
-                  <p className="relative z-10 text-[10px] md:text-xs text-ink-dim leading-snug body-serif">
-                    {tab.desc}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </Reveal>
-      </div>
-
+      {/* Detailed breakdown — Education projects directly, no tab container */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            {activeTab === "education" && <EducationTab />}
-          </motion.div>
-        </AnimatePresence>
+        <EducationTab />
       </div>
     </section>
   );

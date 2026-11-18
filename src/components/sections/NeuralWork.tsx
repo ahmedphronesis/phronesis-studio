@@ -36,10 +36,10 @@ type Cloud = {
 // 16:9 viewBox (100 × 56.25). Clouds arranged in a wide oval, pushed outward
 // to accommodate the larger cloud sizes (scale 0.48) and the central Vitruvian Man.
 const CLOUDS: Cloud[] = [
-  { id: "mscs",       x: 50, y: 6,  hue: "gold",       nameKey: "neural.clouds.mscs.name",          descKey: "neural.clouds.mscs.desc",          rationaleKey: "neural.clouds.mscs.rationale",          url: "https://mscs-academy.vercel.app" },
-  { id: "diplomatiq", x: 90, y: 40, hue: "gold",       nameKey: "neural.clouds.diplomatiq.name",    descKey: "neural.clouds.diplomatiq.desc",    rationaleKey: "neural.clouds.diplomatiq.rationale",    url: "https://mun-diplomatiq.vercel.app" },
-  { id: "math",       x: 10, y: 40, hue: "gold",       nameKey: "neural.clouds.math.name",          descKey: "neural.clouds.math.desc",          rationaleKey: "neural.clouds.math.rationale" },
-  { id: "echoes",     x: 10, y: 18, hue: "forest",     nameKey: "neural.clouds.echoes.name",        descKey: "neural.clouds.echoes.desc",        rationaleKey: "neural.clouds.echoes.rationale" },
+  { id: "mscs",       x: 80, y: 12, hue: "gold",       nameKey: "neural.clouds.mscs.name",          descKey: "neural.clouds.mscs.desc",          rationaleKey: "neural.clouds.mscs.rationale",          url: "https://mscs-academy.vercel.app" },
+  { id: "diplomatiq", x: 80, y: 44, hue: "gold",       nameKey: "neural.clouds.diplomatiq.name",    descKey: "neural.clouds.diplomatiq.desc",    rationaleKey: "neural.clouds.diplomatiq.rationale",    url: "https://mun-diplomatiq.vercel.app" },
+  { id: "math",       x: 20, y: 44, hue: "gold",       nameKey: "neural.clouds.math.name",          descKey: "neural.clouds.math.desc",          rationaleKey: "neural.clouds.math.rationale" },
+  { id: "echoes",     x: 20, y: 12, hue: "forest",     nameKey: "neural.clouds.echoes.name",        descKey: "neural.clouds.echoes.desc",        rationaleKey: "neural.clouds.echoes.rationale" },
 ];
 
 const CENTER = { x: 50, y: 28 };

@@ -720,15 +720,15 @@ export const metadata = {
     alternateLocale: ["ar_AR"],
     url: "https://phronesis-studio.com/en",
     siteName: "Studio of Phronesis",
-    title: "Ahmed Ali · Studio of Phronesis",
+    title: "Ahmed Mahmoud Saeed Ahmed Ali · Studio of Phronesis",
     description:
-      "Ahmed Ali is a philosopher, educator, and systems architect based in Abu Dhabi, UAE. He builds custom software systems, publishes bilingual philosophical work, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
+      "Philosopher, author, educator, systems architect, and professional trainer. Author of 'Depth of Knowledge' (2026). Member of the British Philosophical Association. Delivers on-site teacher training internationally. Based in Central Visayas, Philippines.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Studio of Phronesis · Ahmed Ali",
+        alt: "Ahmed Ali · Studio of Phronesis · Philosopher, Author, Educator, Trainer",
       },
     ],
   },
@@ -736,7 +736,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Ahmed Ali: philosopher, educator, and systems architect in Abu Dhabi, UAE. Custom software, bilingual philosophical work, and teaching.",
+      "Philosopher, author, educator, and trainer. Author of 'Depth of Knowledge' (2026). BPA member. On-site professional development delivered internationally. Central Visayas, Philippines.",
     images: ["/og-image.png"],
   },
   robots: {
