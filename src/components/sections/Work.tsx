@@ -52,6 +52,12 @@ export function Work() {
         </div>
       </div>
 
+      {/* Professional Engagements — at the TOP, before the neural field,
+          because on-site practice is the proof that the method works.
+          The neural field below maps the studio's systems; the engagements
+          above show the human practice. */}
+      <EngagementsSection />
+
       {/* Neural Network Visualization — the hero centerpiece */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
         <NeuralWork />
@@ -123,9 +129,6 @@ export function Work() {
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Professional Engagements — on-site case studies with proof photos */}
-      <EngagementsSection />
     </section>
   );
 }
@@ -137,9 +140,14 @@ function EngagementsSection() {
   const isAR = locale === "ar";
 
   const modules = [
-    { title: t("engagementsModule1"), desc: t("engagementsModule1Desc") },
-    { title: t("engagementsModule2"), desc: t("engagementsModule2Desc") },
-    { title: t("engagementsModule3"), desc: t("engagementsModule3Desc") },
+    { title: t("engagementsModule1"), desc: t("engagementsModule1Desc"), date: t("engagementsModule1Date"), delivered: true },
+    { title: t("engagementsModule2"), desc: t("engagementsModule2Desc"), date: t("engagementsModule2Date"), delivered: true },
+    { title: t("engagementsModule3"), desc: t("engagementsModule3Desc"), date: t("engagementsModule3Date"), delivered: true },
+    { title: t("engagementsModule4"), desc: t("engagementsModule4Desc"), date: t("engagementsModule4Date"), delivered: false },
+    { title: t("engagementsModule5"), desc: t("engagementsModule5Desc"), date: t("engagementsModule5Date"), delivered: false },
+    { title: t("engagementsModule6"), desc: t("engagementsModule6Desc"), date: t("engagementsModule6Date"), delivered: false },
+    { title: t("engagementsModule7"), desc: t("engagementsModule7Desc"), date: t("engagementsModule7Date"), delivered: false },
+    { title: t("engagementsModule8"), desc: t("engagementsModule8Desc"), date: t("engagementsModule8Date"), delivered: false },
   ];
 
   const photos = [
@@ -227,13 +235,17 @@ function EngagementsSection() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono mb-4">{t("engagementsModulesLabel")}</p>
             <div className="space-y-4">
               {modules.map((m, i) => (
-                <div key={i} className={`flex flex-col md:flex-row gap-2 md:gap-4 p-4 rounded-xl bg-paper-warm/50 border border-border/40 ${isAR ? "md:flex-row-reverse" : ""}`}>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center text-teal text-xs font-mono font-bold">
-                    {i + 1}
+                <div key={i} className={`flex flex-col md:flex-row gap-2 md:gap-4 p-4 rounded-xl border ${m.delivered ? "bg-teal/5 border-teal/20" : "bg-paper-warm/50 border-border/40"} ${isAR ? "md:flex-row-reverse" : ""}`}>
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-mono font-bold ${m.delivered ? "bg-teal/10 border border-teal/30 text-teal" : "bg-gold/10 border border-gold/30 text-gold/70"}`}>
+                    {m.delivered ? "\u2713" : i + 1}
                   </div>
                   <div className="flex-1">
-                    <p className="display text-ink text-sm md:text-base font-medium" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>{m.title}</p>
+                    <div className={`flex items-center gap-2 flex-wrap ${isAR ? "flex-row-reverse" : ""}`}>
+                      <p className="display text-ink text-sm md:text-base font-medium" style={{ fontFamily: isAR ? "var(--font-amiri)" : "var(--font-cormorant)" }}>{m.title}</p>
+                      {m.delivered && <span className="text-[10px] uppercase tracking-wider text-teal font-mono bg-teal/10 px-2 py-0.5 rounded-full">Delivered</span>}
+                    </div>
                     <p className="body-serif text-xs md:text-sm text-ink-dim mt-1 leading-relaxed">{m.desc}</p>
+                    <p className={`text-[11px] text-ink-dim/70 font-mono mt-1.5 ${isAR ? "text-right" : ""}`}>{m.date}</p>
                   </div>
                 </div>
               ))}
