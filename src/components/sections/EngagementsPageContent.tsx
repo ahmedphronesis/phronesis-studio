@@ -136,21 +136,38 @@ export function EngagementsPageContent() {
           </div>
         </FadeUp>
 
-        {/* Photo gallery */}
+        {/* Photo gallery — horizontal auto-scroll carousel, pauses on hover/touch */}
         <FadeUp delay={0.3}>
-          <div className={`mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 ${isAR ? "text-right" : ""}`}>
-            {photos.slice(1).map((photo, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-border shadow-lg">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-48 md:h-56 object-cover"
-                />
-                <p className="body-serif text-xs text-ink-dim p-3 bg-paper-warm border-t border-border/40">
-                  {photo.caption}
-                </p>
-              </div>
-            ))}
+          <div
+            className="mt-8 overflow-hidden relative"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent)",
+            }}
+          >
+            <div
+              className="flex gap-4 w-max"
+              style={{
+                animation: "engagements-scroll 40s linear infinite",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; }}
+              onTouchStart={(e) => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; }}
+              onTouchEnd={(e) => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; }}
+            >
+              {[...photos, ...photos].map((photo, i) => (
+                <div key={i} className="flex-shrink-0 w-64 md:w-72 rounded-xl overflow-hidden border border-border shadow-lg">
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-44 md:h-48 object-cover"
+                  />
+                  <p className="body-serif text-xs text-ink-dim p-3 bg-paper-warm border-t border-border/40">
+                    {photo.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </FadeUp>
 
