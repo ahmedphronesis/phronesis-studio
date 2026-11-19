@@ -128,14 +128,6 @@ export function EngagementsPageContent() {
           </div>
         </FadeUp>
 
-        {/* Outcomes */}
-        <FadeUp delay={0.25}>
-          <div className={`mt-8 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-teal/5 to-transparent border border-teal/20 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono mb-3">{t("engagementsOutcomesLabel")}</p>
-            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{t("engagementsOutcomes")}</p>
-          </div>
-        </FadeUp>
-
         {/* Photo gallery — horizontal auto-scroll carousel, pauses on hover/touch */}
         <FadeUp delay={0.3}>
           <div
@@ -168,6 +160,14 @@ export function EngagementsPageContent() {
                 </div>
               ))}
             </div>
+          </div>
+        </FadeUp>
+
+        {/* Outcomes */}
+        <FadeUp delay={0.25}>
+          <div className={`mt-8 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-teal/5 to-transparent border border-teal/20 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono mb-3">{t("engagementsOutcomesLabel")}</p>
+            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{t("engagementsOutcomes")}</p>
           </div>
         </FadeUp>
 
