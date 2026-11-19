@@ -97,6 +97,7 @@ function EngagementsSection() {
     { src: "/engagements/clic-module1-training.jpg", caption: t("engagementsPhoto2Caption") },
     { src: "/engagements/clic-module1-workshop.jpg", caption: t("engagementsPhoto3Caption") },
     { src: "/engagements/clic-module2-group.jpg", caption: t("engagementsPhoto4Caption") },
+    { src: "/engagements/clic-module3-group.jpg", caption: t("engagementsPhoto5Caption") },
   ];
 
   return (
