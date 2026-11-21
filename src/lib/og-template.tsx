@@ -124,19 +124,25 @@ export function ogTemplate({
           src={backgroundImage}
           style={{
             position: "absolute",
-            inset: 0,
+            top: 0,
+            left: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
           }}
           alt=""
         />
+        {/* Single overlay div with all gradients combined into one
+            background declaration. Satori renders this reliably. */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             background:
-              "linear-gradient(95deg, rgba(8,40,42,0.94) 0%, rgba(8,40,42,0.82) 38%, rgba(8,40,42,0.55) 70%, rgba(8,40,42,0.30) 100%)",
+              "linear-gradient(95deg, rgba(8,40,42,0.92) 0%, rgba(8,40,42,0.80) 35%, rgba(8,40,42,0.50) 65%, rgba(8,40,42,0.25) 100%), linear-gradient(to top, rgba(8,40,42,0.75) 0%, transparent 45%), linear-gradient(to bottom, rgba(8,40,42,0.50) 0%, transparent 30%)",
           }}
         />
         <div
@@ -201,7 +207,7 @@ export function ogTemplate({
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", maxWidth: 880 }}>
+          <div style={{ display: "flex", flexDirection: "column", maxWidth: 720 }}>
             {badge && (
               <div
                 style={{
@@ -259,9 +265,9 @@ export function ogTemplate({
                   fontFamily: "Cormorant Garamond",
                   fontStyle: "italic",
                   fontSize: 26,
-                  color: "rgba(250,248,243,0.86)",
+                  color: "rgba(250,248,243,0.95)",
                   lineHeight: 1.3,
-                  maxWidth: 760,
+                  maxWidth: 680,
                 }}
               >
                 {subtitle}
@@ -277,6 +283,7 @@ export function ogTemplate({
               flexDirection: rtl ? "row-reverse" : "row",
               borderTop: "1px solid rgba(212,175,110,0.35)",
               paddingTop: 18,
+              width: "100%",
             }}
           >
             <div
