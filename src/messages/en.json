@@ -2,11 +2,11 @@
   "metadata": {
     "home": {
       "title": "Ahmed Ali · Studio of Phronesis",
-      "description": "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis. Author of 'Depth of Knowledge' (2026)."
+      "description": "Egyptian philosopher, author, and educator with an international background. Founder of Studio of Phronesis (Abu Dhabi, UAE). Author of 'Depth of Knowledge' (2026)."
     },
     "about": {
       "title": "About Ahmed Ali",
-      "description": "Philosopher by training, teacher by qualification, builder by practice. Founder of Studio of Phronesis."
+      "description": "Philosopher by training, teacher by qualification, builder by practice. Founder of Studio of Phronesis, established in Abu Dhabi, UAE."
     },
     "work": {
       "title": "Selected Work",
@@ -675,7 +675,7 @@
     "ctaPrimary": "Work with me",
     "ctaSecondary": "See selected work",
     "footnote": "Philosopher, author, systems architect, and educator. I contribute to building fitting systems, offering counsel, and training personnel, for institutions that no longer accept the persistence of the gap, and that seek to redress it.",
-    "location": "International",
+    "location": "Abu Dhabi, UAE",
     "enterPrompt": "Enter",
     "mottoWord": "ΦΡΟΝΗΣΙΣ",
     "mottoTransliteration": "",
@@ -858,7 +858,7 @@
     "engagementLabel": "Engagement structure",
     "engagementBody": "Every engagement begins with a conversation.\nCustom systems typically begin at $1,500, with licensing where applicable. Consultation may be hourly or project-based. Tutoring is available online or in person.",
     "locationLabel": "Location",
-    "location": "International",
+    "location": "Abu Dhabi, UAE",
     "linkedinLabel": "LinkedIn",
     "toastSuccess": "Inquiry received.",
     "toastSuccessDesc": "I read every message personally. Expect a reply within 48 hours.",
@@ -874,7 +874,7 @@
     "followWorkDesc": "Subscribe for updates on new publications, episodes, and guides.",
     "followWorkPlaceholder": "your@email.com",
     "followWorkButton": "Subscribe",
-    "location": "International"
+    "location": "Abu Dhabi, UAE"
   },
   "language": {
     "label": "Language",

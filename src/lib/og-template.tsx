@@ -15,6 +15,10 @@ export type OGParams = {
   footer?: string;
   /** Optional background image (data URL) for cover-style OGs */
   backgroundImage?: string;
+  /** CSS object-position for the background image (default: "center top") */
+  objectPosition?: string;
+  /** CSS object-fit for the background image (default: "cover"). Use "contain" to show the full image without cropping. */
+  objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
   /** Eagle logo data URL (passed from caller to avoid module-state issues) */
   eagle: string;
   /** When true, layout flips for RTL (Arabic) */
@@ -101,6 +105,8 @@ export function ogTemplate({
   badge,
   footer,
   backgroundImage,
+  objectPosition = "center top",
+  objectFit = "cover" as "cover" | "contain" | "fill" | "none" | "scale-down",
   eagle,
   rtl = false,
   cover = false,
@@ -128,7 +134,8 @@ export function ogTemplate({
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: objectFit,
+            objectPosition: objectPosition,
           }}
           alt=""
         />

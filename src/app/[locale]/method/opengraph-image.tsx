@@ -43,6 +43,8 @@ export default async function Image({
       badge: c.badge,
       footer: c.footer,
       backgroundImage: bg,
+      objectFit: "contain",
+      objectPosition: "center center",
       cover: true,
       eagle: assets.eagle,
       rtl: isAR,

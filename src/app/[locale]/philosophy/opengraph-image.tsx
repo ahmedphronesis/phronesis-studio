@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Philosophy · Podcast",
-    title: "Echoes of Wisdom",
-    subtitle: "A bilingual philosophy podcast by Ahmed Ali. Sixteen episodes across two seasons.",
-    badge: "Listen to episodes",
+    kicker: "Philosophy",
+    title: "Echoes of Wisdom & History of Philosophy",
+    subtitle: "A bilingual podcast and a comprehensive history of philosophy project — from A to Z.",
+    badge: "Explore both projects",
     footer: "phronesis-studio.com/philosophy",
   },
   ar: {
-    kicker: "الفلسفة · بودكاست",
-    title: "أصداء الحكمة",
-    subtitle: "بودكاست فلسفي ثنائي اللغة لأحمد علي. ستة عشر حلقة في موسمين.",
-    badge: "استمع للحلقات",
+    kicker: "الفلسفة",
+    title: "أصداء الحكمة وتاريخ الفلسفة",
+    subtitle: "بودكاست ثنائي اللغة ومشروع شامل لتاريخ الفلسفة — من الألف إلى الياء.",
+    badge: "استكشف المشروعين",
     footer: "phronesis-studio.com/ar/philosophy",
   },
 };
@@ -43,6 +43,7 @@ export default async function Image({
       badge: c.badge,
       footer: c.footer,
       backgroundImage: bg,
+      objectPosition: "center center",
       cover: true,
       eagle: assets.eagle,
       rtl: isAR,

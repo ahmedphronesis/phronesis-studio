@@ -59,7 +59,7 @@ export const metadata = {
     },
   },
   description:
-    "Egyptian philosopher, author, educator, and systems architect with an international background. Author of 'Depth of Knowledge' (2026). Founder of Studio of Phronesis.",
+    "Egyptian philosopher, author, and educator with an international background. Founder of Studio of Phronesis (Abu Dhabi, UAE). Author of 'Depth of Knowledge' (2026).",
   keywords: [
       "Ahmed Ali",
       "Ahmed Mahmoud Saeed Ahmed Ali",
@@ -722,13 +722,13 @@ export const metadata = {
     siteName: "Studio of Phronesis",
     title: "Ahmed Mahmoud Saeed Ahmed Ali · Studio of Phronesis",
     description:
-      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis. Author of 'Depth of Knowledge' (2026).",
+      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis (Abu Dhabi, UAE). Author of 'Depth of Knowledge' (2026).",
   },
   twitter: {
     card: "summary_large_image",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis. Author of 'Depth of Knowledge' (2026).",
+      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis (Abu Dhabi, UAE). Author of 'Depth of Knowledge' (2026).",
   },
   robots: {
     index: true,
