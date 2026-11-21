@@ -201,7 +201,7 @@ export function ClicPopup() {
             }}
           >
             {isAR
-              ? "تدريب المعلمين في فرونسيس ستوديو"
+              ? "أحمد علي يُقدّم تدريب المعلمين الآن"
               : "Training teachers right now"}
           </div>
 
@@ -216,7 +216,7 @@ export function ClicPopup() {
             }}
           >
             <span style={{ fontWeight: 600, color: "#0F5C5E" }}>
-              {isAR ? "مركز الإبداع للتعلّم الدولي (CLIC)" : "Creative Learning International Center (CLIC)"}
+              {isAR ? "مركز التعلّم الإبداعي الدولي (CLIC)" : "Creative Learning International Center (CLIC)"}
             </span>
             <br />
             {isAR
@@ -286,7 +286,7 @@ export function ClicPopup() {
                 color: "#777",
               }}
             >
-              {isAR ? "حتى ٣١ ديسمبر ٢٠٢٦" : "Through 31 Dec 2026"}
+              {isAR ? "من خلال ستوديو فرونسيس" : "Through 31 Dec 2026"}
             </div>
           </div>
         </div>
