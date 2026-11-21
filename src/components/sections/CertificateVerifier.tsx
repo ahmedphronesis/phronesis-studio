@@ -38,28 +38,27 @@ type CertRecord = {
 // This will be populated when actual teacher names are confirmed.
 // For now, it's a template showing the structure.
 const CERTIFICATES: CertRecord[] = [
-  // Example record (will be replaced with actual data):
-  // {
-  //   id: "SOP-CLIC-2026-001",
-  //   teacherName: "[TEACHER NAME]",
-  //   program: "From Routine to Learning Design",
-  //   institution: "Creative Learning International Center (CLIC)",
-  //   location: "Kalipayan Road, Danao, Panglao, 6340 Bohol, Philippines",
-  //   duration: "October to December 2026",
-  //   modules: [
-  //     { name: "Lesson Planning Fundamentals", date: "30 Oct 2026" },
-  //     { name: "Cognitive Frameworks for Early Childhood", date: "9 Nov 2026" },
-  //     { name: "Formative Assessment with Technology", date: "16 Nov 2026" },
-  //     { name: "21st-Century Learning Methodology", date: "23 Nov 2026" },
-  //     { name: "Differentiated Instruction for Diverse Learners", date: "30 Nov 2026" },
-  //     { name: "Classroom and Behavior Management", date: "7 Dec 2026" },
-  //     { name: "Cross-Curricular and Real-Life Links (Philippines Context)", date: "14 Dec 2026" },
-  //     { name: "Lesson Plan Clinic: Putting It All Together", date: "21 Dec 2026" },
-  //   ],
-  //   completionDate: "21 December 2026",
-  //   trainer: "Ahmed Mahmoud Saeed Ahmed Ali",
-  //   trainerTitle: "Author, Depth of Knowledge (2026) · Founder, Studio of Phronesis · Member, British Philosophical Association (BPA)",
-  // },
+  {
+    id: "SOP-CLIC-2026-001",
+    teacherName: "Erlinda Logroño Howell",
+    program: "From Routine to Learning Design",
+    institution: "Creative Learning International Center (CLIC)",
+    location: "Kalipayan Road, Danao, Panglao, 6340 Bohol, Philippines",
+    duration: "October to December 2026",
+    modules: [
+      { name: "Lesson Planning Fundamentals", date: "30 Oct 2026" },
+      { name: "Cognitive Frameworks for Early Childhood", date: "9 Nov 2026" },
+      { name: "Formative Assessment with Technology", date: "16 Nov 2026" },
+      { name: "21st-Century Learning Methodology", date: "23 Nov 2026" },
+      { name: "Differentiated Instruction for Diverse Learners", date: "30 Nov 2026" },
+      { name: "Classroom and Behavior Management", date: "7 Dec 2026" },
+      { name: "Cross-Curricular and Real-Life Links (Philippines Context)", date: "14 Dec 2026" },
+      { name: "Lesson Plan Clinic: Putting It All Together", date: "21 Dec 2026" },
+    ],
+    completionDate: "21 December 2026",
+    trainer: "Ahmed Mahmoud Saeed Ahmed Ali",
+    trainerTitle: "Author, Depth of Knowledge (2026) · Founder, Studio of Phronesis · Member, British Philosophical Association (BPA)",
+  },
 ];
 
 export function CertificateVerifier() {
