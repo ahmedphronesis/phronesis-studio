@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Search, ShieldCheck, AlertCircle, GraduationCap, Check, ExternalLink } from "lucide-react";
+import { Search, ShieldCheck, AlertCircle, GraduationCap, Check, ExternalLink, Sparkles } from "lucide-react";
+import confetti from "canvas-confetti";
 
 /**
- * CertificateVerifier — allows anyone to verify a Studio of Phronesis
- * professional development certificate by entering its certificate ID.
+ * CertificateVerifier — allows anyone to verify a certificate issued by
+ * Ahmed Ali through Studio of Phronesis by entering its certificate ID.
  *
  * The QR code on each certificate links to:
  *   phronesis-studio.com/en/verify?id=SOP-CLIC-2026-001
@@ -65,6 +66,42 @@ export function CertificateVerifier() {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<CertRecord | null | "not_found">(null);
   const [searching, setSearching] = useState(false);
+  const celebratedRef = useRef<string | null>(null);
+
+  // Fire a tasteful brand-colored confetti burst when a certificate is
+  // successfully verified. Uses the studio palette (teal + gold + cream + ink)
+  // and fires only once per successful result so re-renders don't retrigger it.
+  useEffect(() => {
+    if (result && result !== "not_found") {
+      if (celebratedRef.current === result.id) return;
+      celebratedRef.current = result.id;
+
+      const colors = ["#0F5C5E", "#B48D3C", "#FAF8F3", "#1D1D1D"];
+      const common = {
+        spread: 70,
+        startVelocity: 38,
+        ticks: 220,
+        zIndex: 9999,
+        colors,
+        scalar: 1,
+        shapes: ["square", "circle"] as ("square" | "circle")[],
+        disableForReducedMotion: true,
+      };
+
+      // Two-corner burst (left + right) for a balanced, academic celebration.
+      confetti({ ...common, particleCount: 60, origin: { x: 0.18, y: 0.62 }, angle: 60, gravity: 0.9 });
+      confetti({ ...common, particleCount: 60, origin: { x: 0.82, y: 0.62 }, angle: 120, gravity: 0.9 });
+
+      // A softer second wave a touch later for a refined, layered feel.
+      const t = setTimeout(() => {
+        confetti({ ...common, particleCount: 35, startVelocity: 28, origin: { x: 0.5, y: 0.58 }, angle: 90, gravity: 0.85 });
+      }, 280);
+
+      return () => clearTimeout(t);
+    } else {
+      celebratedRef.current = null;
+    }
+  }, [result]);
 
   // Check URL for ?id= parameter (from QR code scan)
   if (typeof window !== "undefined" && !query && !result) {
@@ -119,7 +156,7 @@ export function CertificateVerifier() {
             Verify a Certificate
           </h1>
           <p className="body-serif text-base md:text-lg text-ink-soft leading-relaxed max-w-3xl mb-8">
-            Enter the certificate ID printed on any Studio of Phronesis professional development certificate to verify its authenticity, the teacher's name, and the modules completed.
+            Enter the certificate ID printed on any certificate issued by Ahmed Ali, Founder of Studio of Phronesis, to verify its authenticity, the recipient's name, and the modules completed under his training.
           </p>
         </motion.div>
       </div>
@@ -139,7 +176,7 @@ export function CertificateVerifier() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && onSearch()}
-              placeholder="e.g., SOP-CLIC-2026-001"
+              placeholder="Enter certificate ID"
               className="w-full bg-paper-warm border border-border rounded-xl pl-12 pr-4 py-3 text-sm text-ink placeholder:text-ink-dim/50 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/30 transition-colors body-serif"
             />
           </div>
@@ -182,9 +219,12 @@ export function CertificateVerifier() {
                 <div className="w-10 h-10 rounded-full bg-teal/10 border border-teal/30 flex items-center justify-center">
                   <ShieldCheck className="text-teal" size={20} />
                 </div>
-                <div>
-                  <p className="font-medium text-teal">Certificate Verified</p>
-                  <p className="text-xs text-ink-dim">This certificate is authentic and was issued by Studio of Phronesis.</p>
+                <div className="flex-1">
+                  <p className="font-medium text-teal flex items-center gap-2">
+                    Certificate Verified
+                    <Sparkles size={14} className="text-gold" />
+                  </p>
+                  <p className="text-xs text-ink-dim">This certificate is authentic and was issued by Ahmed Ali through Studio of Phronesis.</p>
                 </div>
               </div>
 

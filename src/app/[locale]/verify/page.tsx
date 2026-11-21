@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const title = "Certificate Verification · Studio of Phronesis";
-  const description = "Verify the authenticity of a Studio of Phronesis professional development certificate. Enter the certificate ID or scan the QR code on the certificate to confirm attendance and completion.";
+  const description = "Verify the authenticity of a certificate issued by Ahmed Ali through Studio of Phronesis. Enter the certificate ID or scan the QR code to confirm the recipient's name and the modules completed under his training.";
 
   return {
     title,
