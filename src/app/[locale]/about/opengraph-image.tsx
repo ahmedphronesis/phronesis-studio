@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "About",
+    kicker: "The Founder",
     title: "Ahmed Ali",
-    subtitle: "Philosopher by training. Teacher by qualification. Builder by practice. Founder of Studio of Phronesis.",
+    subtitle: "Philosopher by training, teacher by qualification, builder by practice. Founder of Studio of Phronesis, established in Abu Dhabi, UAE.",
     badge: "Meet the founder",
     footer: "phronesis-studio.com/about",
   },
   ar: {
-    kicker: "نبذة",
-    title: "أحمد علي",
-    subtitle: "فيلسوف تكويناً. معلم تأهيلاً. باني ممارسة. مؤسس ستوديو فرونسيس.",
-    badge: "تعرّف على المؤسس",
+    kicker: "The Founder",
+    title: "Ahmed Ali",
+    subtitle: "Philosopher by training, teacher by qualification, builder by practice. Founder of Studio of Phronesis, established in Abu Dhabi, UAE.",
+    badge: "Meet the founder",
     footer: "phronesis-studio.com/ar/about",
   },
 };

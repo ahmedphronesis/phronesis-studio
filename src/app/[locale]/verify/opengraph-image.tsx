@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Verify",
-    title: "Certificate Verification",
-    subtitle: "Confirm the authenticity of any Studio of Phronesis certificate.",
+    kicker: "Certificate Verification",
+    title: "Verify a Certificate",
+    subtitle: "Confirm the authenticity of any Studio of Phronesis professional development certificate.",
     badge: "Verify now",
     footer: "phronesis-studio.com/verify",
   },
   ar: {
-    kicker: "تثبيت",
-    title: "التحقق من الشهادات",
-    subtitle: "أكّد صحة أي شهادة من ستوديو فرونسيس.",
-    badge: "تحقّق الآن",
+    kicker: "Certificate Verification",
+    title: "Verify a Certificate",
+    subtitle: "Confirm the authenticity of any Studio of Phronesis professional development certificate.",
+    badge: "Verify now",
     footer: "phronesis-studio.com/ar/verify",
   },
 };

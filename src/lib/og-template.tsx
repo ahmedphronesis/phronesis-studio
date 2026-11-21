@@ -37,6 +37,7 @@ export type LoadedAssets = {
     cormorantSemiBold: Buffer;
     cormorantBold: Buffer;
     cormorantItalic: Buffer;
+    notoSansArabic: Buffer;
   };
   eagle: string;
 };
@@ -50,6 +51,7 @@ export async function loadAssets(): Promise<LoadedAssets> {
   const [
     interRegular, interSemiBold,
     cgRegular, cgSemiBold, cgBold, cgItalic,
+    notoArabic,
     eagle,
   ] = await Promise.all([
     fs.readFile(path.join(ROOT, "fonts", "Inter-Regular.ttf")),
@@ -58,6 +60,7 @@ export async function loadAssets(): Promise<LoadedAssets> {
     fs.readFile(path.join(ROOT, "fonts", "CormorantGaramond-SemiBold.ttf")),
     fs.readFile(path.join(ROOT, "fonts", "CormorantGaramond-Bold.ttf")),
     fs.readFile(path.join(ROOT, "fonts", "CormorantGaramond-Italic.ttf")),
+    fs.readFile(path.join(ROOT, "fonts", "NotoSansArabic-Regular.ttf")),
     fs.readFile(path.join(ROOT, "logo-eagle.png")),
   ]);
   return {
@@ -68,6 +71,7 @@ export async function loadAssets(): Promise<LoadedAssets> {
       cormorantSemiBold: cgSemiBold,
       cormorantBold: cgBold,
       cormorantItalic: cgItalic,
+      notoSansArabic: notoArabic,
     },
     eagle: `data:image/png;base64,${eagle.toString("base64")}`,
   };
@@ -81,6 +85,7 @@ export function fontsFromAssets(a: LoadedAssets) {
     { name: "Cormorant Garamond", data: a.fonts.cormorantSemiBold, weight: 600 as const, style: "normal" as const },
     { name: "Cormorant Garamond", data: a.fonts.cormorantBold, weight: 700 as const, style: "normal" as const },
     { name: "Cormorant Garamond", data: a.fonts.cormorantItalic, weight: 400 as const, style: "italic" as const },
+    { name: "Noto Sans Arabic", data: a.fonts.notoSansArabic, weight: 400 as const, style: "normal" as const },
   ];
 }
 
@@ -112,10 +117,15 @@ export function ogTemplate({
   cover = false,
 }: OGParams): ReactElement {
   const isCover = cover && backgroundImage;
+  // For Arabic (RTL), use Noto Sans Arabic for body text and a bold weight
+  // for headings. Cormorant Garamond and Inter don't support Arabic glyphs.
+  const fBody = rtl ? "Noto Sans Arabic" : "Inter";
+  const fHead = rtl ? "Noto Sans Arabic" : "Cormorant Garamond";
 
   if (isCover) {
     return (
       <div
+        lang={rtl ? "ar" : "en"}
         style={{
           width: "100%",
           height: "100%",
@@ -123,7 +133,8 @@ export function ogTemplate({
           flexDirection: "column",
           position: "relative",
           background: "#0a3537",
-          fontFamily: "Inter",
+          fontFamily: fBody,
+          direction: rtl ? "rtl" : "ltr",
         }}
       >
         <img
@@ -170,7 +181,6 @@ export function ogTemplate({
             justifyContent: "space-between",
             padding: "56px 64px",
             position: "relative",
-            zIndex: 1,
             height: "100%",
             textAlign: rtl ? "right" : "left",
             alignItems: rtl ? "flex-end" : "flex-start",
@@ -188,7 +198,7 @@ export function ogTemplate({
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div
                 style={{
-                  fontFamily: "Cormorant Garamond",
+                  fontFamily: fHead,
                   fontSize: 28,
                   fontWeight: 700,
                   color: "#FAF8F3",
@@ -201,7 +211,7 @@ export function ogTemplate({
               </div>
               <div
                 style={{
-                  fontFamily: "Cormorant Garamond",
+                  fontFamily: fHead,
                   fontStyle: "italic",
                   fontSize: 16,
                   color: "#D4AF6E",
@@ -226,7 +236,7 @@ export function ogTemplate({
                   borderRadius: 999,
                   background: "#B48D3C",
                   color: "#1a1a1a",
-                  fontFamily: "Inter",
+                  fontFamily: fBody,
                   fontWeight: 700,
                   fontSize: 14,
                   letterSpacing: 2,
@@ -241,7 +251,7 @@ export function ogTemplate({
             {kicker && (
               <div
                 style={{
-                  fontFamily: "Inter",
+                  fontFamily: fBody,
                   fontWeight: 600,
                   fontSize: 18,
                   color: "#D4AF6E",
@@ -255,7 +265,7 @@ export function ogTemplate({
             )}
             <div
               style={{
-                fontFamily: "Cormorant Garamond",
+                fontFamily: fHead,
                 fontWeight: 700,
                 fontSize: 64,
                 color: "#FAF8F3",
@@ -269,7 +279,7 @@ export function ogTemplate({
             {subtitle && (
               <div
                 style={{
-                  fontFamily: "Cormorant Garamond",
+                  fontFamily: fHead,
                   fontStyle: "italic",
                   fontSize: 26,
                   color: "rgba(250,248,243,0.95)",
@@ -295,7 +305,7 @@ export function ogTemplate({
           >
             <div
               style={{
-                fontFamily: "Inter",
+                fontFamily: fBody,
                 fontSize: 16,
                 color: "rgba(250,248,243,0.78)",
                 letterSpacing: 1,
@@ -305,7 +315,7 @@ export function ogTemplate({
             </div>
             <div
               style={{
-                fontFamily: "Inter",
+                fontFamily: fBody,
                 fontSize: 13,
                 color: "#D4AF6E",
                 letterSpacing: 2,
@@ -324,6 +334,7 @@ export function ogTemplate({
   // Default variant: cream paper, teal type, gold accents, eagle watermark
   return (
     <div
+      lang={rtl ? "ar" : "en"}
       style={{
         width: "100%",
         height: "100%",
@@ -331,7 +342,8 @@ export function ogTemplate({
         flexDirection: "column",
         position: "relative",
         background: "#F4EDE0",
-        fontFamily: "Inter",
+        fontFamily: fBody,
+        direction: rtl ? "rtl" : "ltr",
       }}
     >
       <img
@@ -396,7 +408,6 @@ export function ogTemplate({
           justifyContent: "space-between",
           padding: "64px 80px",
           position: "relative",
-          zIndex: 1,
           height: "100%",
           textAlign: rtl ? "right" : "left",
           alignItems: rtl ? "flex-end" : "flex-start",
@@ -414,7 +425,7 @@ export function ogTemplate({
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
-                fontFamily: "Cormorant Garamond",
+                fontFamily: fHead,
                 fontSize: 24,
                 fontWeight: 700,
                 color: "#0F5C5E",
@@ -427,7 +438,7 @@ export function ogTemplate({
             </div>
             <div
               style={{
-                fontFamily: "Cormorant Garamond",
+                fontFamily: fHead,
                 fontStyle: "italic",
                 fontSize: 14,
                 color: "#B48D3C",
@@ -451,7 +462,7 @@ export function ogTemplate({
           {kicker && (
             <div
               style={{
-                fontFamily: "Inter",
+                fontFamily: fBody,
                 fontWeight: 600,
                 fontSize: 18,
                 color: "#B48D3C",
@@ -465,7 +476,7 @@ export function ogTemplate({
           )}
           <div
             style={{
-              fontFamily: "Cormorant Garamond",
+              fontFamily: fHead,
               fontWeight: 700,
               fontSize: 76,
               color: "#0F5C5E",
@@ -479,7 +490,7 @@ export function ogTemplate({
           {subtitle && (
             <div
               style={{
-                fontFamily: "Cormorant Garamond",
+                fontFamily: fHead,
                 fontStyle: "italic",
                 fontSize: 28,
                 color: "#3d3d3d",
@@ -505,7 +516,7 @@ export function ogTemplate({
         >
           <div
             style={{
-              fontFamily: "Inter",
+              fontFamily: fBody,
               fontSize: 16,
               color: "#555",
               letterSpacing: 1,
@@ -515,7 +526,7 @@ export function ogTemplate({
           </div>
           <div
             style={{
-              fontFamily: "Inter",
+              fontFamily: fBody,
               fontSize: 13,
               color: "#0F5C5E",
               letterSpacing: 2,

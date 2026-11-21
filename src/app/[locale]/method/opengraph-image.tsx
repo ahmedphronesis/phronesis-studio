@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Method",
+    kicker: "The Method",
     title: "Phronesis",
-    subtitle: "Four movements applied to a system instead of a soul: Perceive, Diagnose, Close, Embed.",
+    subtitle: "Four movements. The same discipline Aristotle described, applied to a system instead of a soul.",
     badge: "See the method",
     footer: "phronesis-studio.com/method",
   },
   ar: {
-    kicker: "المنهج",
-    title: "فرونسيس",
-    subtitle: "أربع حركات مطبّقة على نظام: الإدراك، التشخيص، الإغلاق، التضمين.",
-    badge: "شاهد المنهج",
+    kicker: "The Method",
+    title: "Phronesis",
+    subtitle: "Four movements. The same discipline Aristotle described, applied to a system instead of a soul.",
+    badge: "See the method",
     footer: "phronesis-studio.com/ar/method",
   },
 };

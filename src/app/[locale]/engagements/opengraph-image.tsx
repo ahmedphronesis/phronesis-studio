@@ -13,19 +13,19 @@ const COPY: Record<"en" | "ar", {
   footer: string;
 }> = {
   en: {
-    kicker: "Current Engagement",
-    title: "From Routine to Learning Design",
+    kicker: "Professional Engagements",
+    title: "Professional Development & Teacher Training",
     subtitle:
-      "On-site teacher training at Creative Learning International Center, Panglao, Bohol. An eight-module professional development program.",
+      "On-site teacher training at Creative Learning International Center, Panglao, Bohol. An eight-module program grounded in Bloom, Webb DOK, Marzano, and UbD.",
     badge: "Live Now",
     footer: "phronesis-studio.com/en/engagements",
   },
   ar: {
-    kicker: "النشاط الحالي",
-    title: "من الروتين إلى تصميم التعلّم",
+    kicker: "Professional Engagements",
+    title: "Professional Development & Teacher Training",
     subtitle:
-      "تدريب المعلمين في مركز الإبداع للتعلّم الدولي، بانجلاو، بوهول، الفلبين.",
-    badge: "جارٍ الآن",
+      "On-site teacher training at Creative Learning International Center, Panglao, Bohol. An eight-module program grounded in Bloom, Webb DOK, Marzano, and UbD.",
+    badge: "Live Now",
     footer: "phronesis-studio.com/ar/engagements",
   },
 };

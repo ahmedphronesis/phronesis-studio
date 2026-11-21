@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Correspondence",
-    title: "Begin a Conversation",
-    subtitle: "Describe the gap as you see it. Every enquiry receives a personal reply.",
+    kicker: "Work with me",
+    title: "Start a Conversation",
+    subtitle: "A single line or a brief paragraph will suffice. Describe the gap as you see it.",
     badge: "Start a conversation",
     footer: "phronesis-studio.com/correspondence",
   },
   ar: {
-    kicker: "مراسلات",
-    title: "ابدأ الحوار",
-    subtitle: "صف الفجوة كما تراها. كل رسالة تلقى رداً شخصياً.",
-    badge: "ابدأ الحوار",
+    kicker: "Work with me",
+    title: "Start a Conversation",
+    subtitle: "A single line or a brief paragraph will suffice. Describe the gap as you see it.",
+    badge: "Start a conversation",
     footer: "phronesis-studio.com/ar/correspondence",
   },
 };

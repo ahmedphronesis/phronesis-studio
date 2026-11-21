@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Library",
+    kicker: "The Library · Original Works",
     title: "Original Curriculum",
     subtitle: "A bilingual library of original curricula, built from first principles.",
     badge: "Browse the library",
     footer: "phronesis-studio.com/library",
   },
   ar: {
-    kicker: "المكتبة",
-    title: "مناهج أصيلة",
-    subtitle: "مكتبة ثنائية اللغة من المناهج الأصيلة، مبنية من المبادئ الأولى.",
-    badge: "تصفّح المكتبة",
+    kicker: "The Library · Original Works",
+    title: "Original Curriculum",
+    subtitle: "A bilingual library of original curricula, built from first principles.",
+    badge: "Browse the library",
     footer: "phronesis-studio.com/ar/library",
   },
 };

@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Publications",
+    kicker: "Books · Written Works",
     title: "Depth of Knowledge",
     subtitle: "A Practical Guide to Designing Rigorous Questions Without AI. By Ahmed Ali. 2026.",
     badge: "Read the book",
     footer: "phronesis-studio.com/publications",
   },
   ar: {
-    kicker: "إصدارات",
-    title: "عمق المعرفة",
-    subtitle: "دليل عملي لتصميم الأسئلة الصارمة دون الذكاء الاصطناعي. تأليف أحمد علي. ٢٠٢٦.",
-    badge: "اقرأ الكتاب",
+    kicker: "Books · Written Works",
+    title: "Depth of Knowledge",
+    subtitle: "A Practical Guide to Designing Rigorous Questions Without AI. By Ahmed Ali. 2026.",
+    badge: "Read the book",
     footer: "phronesis-studio.com/ar/publications",
   },
 };

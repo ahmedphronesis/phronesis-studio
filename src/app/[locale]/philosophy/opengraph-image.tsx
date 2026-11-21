@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Philosophy",
+    kicker: "Original Philosophy",
     title: "Echoes of Wisdom & History of Philosophy",
-    subtitle: "A bilingual podcast and a comprehensive history of philosophy project — from A to Z.",
+    subtitle: "Original philosophical projects bridging academic thought and public discourse. A bilingual podcast and a comprehensive history of philosophy — from A to Z.",
     badge: "Explore both projects",
     footer: "phronesis-studio.com/philosophy",
   },
   ar: {
-    kicker: "الفلسفة",
-    title: "أصداء الحكمة وتاريخ الفلسفة",
-    subtitle: "بودكاست ثنائي اللغة ومشروع شامل لتاريخ الفلسفة — من الألف إلى الياء.",
-    badge: "استكشف المشروعين",
+    kicker: "Original Philosophy",
+    title: "Echoes of Wisdom & History of Philosophy",
+    subtitle: "Original philosophical projects bridging academic thought and public discourse. A bilingual podcast and a comprehensive history of philosophy — from A to Z.",
+    badge: "Explore both projects",
     footer: "phronesis-studio.com/ar/philosophy",
   },
 };

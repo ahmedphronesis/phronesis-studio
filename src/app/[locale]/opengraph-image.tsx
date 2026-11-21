@@ -7,17 +7,17 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Philosopher · Author · Educator · Trainer",
+    kicker: "Philosopher. Author. Systems Architect. Educator.",
     title: "Studio of Phronesis",
-    subtitle: "Practical wisdom applied to systems, classrooms, and the examined life.",
+    subtitle: "Perceiving the gap between what is and what should be, and closing it with discipline.",
     badge: "Explore the practice",
     footer: "phronesis-studio.com",
   },
   ar: {
-    kicker: "فيلسوف · كاتب · معلم · مدرّب",
-    title: "ستوديو فرونسيس",
-    subtitle: "الحكمة العملية مطبّقة على الأنظمة والفصول والحياة المتأمّلة.",
-    badge: "استكشف الممارسة",
+    kicker: "Philosopher. Author. Systems Architect. Educator.",
+    title: "Studio of Phronesis",
+    subtitle: "Perceiving the gap between what is and what should be, and closing it with discipline.",
+    badge: "Explore the practice",
     footer: "phronesis-studio.com",
   },
 };

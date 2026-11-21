@@ -9,15 +9,15 @@ const COPY = {
   en: {
     kicker: "Selected Work",
     title: "The Workshop",
-    subtitle: "Production-grade systems across education, operations, and software.",
+    subtitle: "Four systems, one method. Production-grade platforms across education, operations, and software.",
     badge: "View the systems",
     footer: "phronesis-studio.com/work",
   },
   ar: {
-    kicker: "أعمال مختارة",
-    title: "الورشة",
-    subtitle: "أنظمة إنتاجية في التعليم والعمليات والبرمجيات.",
-    badge: "شاهد الأنظمة",
+    kicker: "Selected Work",
+    title: "The Workshop",
+    subtitle: "Four systems, one method. Production-grade platforms across education, operations, and software.",
+    badge: "View the systems",
     footer: "phronesis-studio.com/ar/work",
   },
 };
