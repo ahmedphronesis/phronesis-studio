@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { HtmlLangSetter } from "@/components/HtmlLangSetter";
 import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
+import { ClicPopup } from "@/components/sections/ClicPopup";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -58,7 +59,7 @@ export const metadata = {
     },
   },
   description:
-    "Ahmed Mahmoud Saeed Ahmed Ali is a philosopher, author, educator, systems architect, and professional trainer based in Central Visayas, Philippines. He is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7), available on Amazon. Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). He delivers on-site teacher training and professional development internationally, builds custom software systems for education, publishes bilingual philosophical work, hosts the Echoes of Wisdom philosophy podcast, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
+    "Ahmed Mahmoud Saeed Ahmed Ali is an Egyptian philosopher, author, educator, systems architect, and professional trainer with an international background and outlook. He is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7), available on Amazon. Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). He delivers on-site teacher training and professional development internationally, builds custom software systems for education, publishes bilingual philosophical work, hosts the Echoes of Wisdom philosophy podcast, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
   keywords: [
       "Ahmed Ali",
       "Ahmed Mahmoud Saeed Ahmed Ali",
@@ -69,10 +70,10 @@ export const metadata = {
       "Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI",
       "Studio of Phronesis",
       "Phronesis Studio",
-      "Ahmed Ali Philippines",
-      "Ahmed Ali Central Visayas",
-      "Ahmed Ali Bohol",
-      "Ahmed Ali Cebu",
+      "Ahmed Ali Egypt",
+      "Ahmed Ali Egyptian philosopher",
+      "Ahmed Ali international educator",
+      "Ahmed Ali international consultant",
       "Ahmed Ali systems architect",
       "Ahmed Ali educator",
       "Ahmed Ali trainer",
@@ -651,11 +652,10 @@ export const metadata = {
       "إدارة الخزانة",
       "تكنولوجيا التعليم",
       "منصة تعلم",
-      "Central Visayas",
-      "Philippines",
-      "Bohol",
-      "Cebu",
       "Egypt",
+      "Egyptian philosopher",
+      "international educator",
+      "international consultant",
       "Alexandria",
       "Cairo",
       "العين",
@@ -682,10 +682,10 @@ export const metadata = {
       "tutoring",
       "instruction",
       "training",
-      "custom software development UAE",
-      "software developer Abu Dhabi",
-      "philosophy teacher UAE",
-      "philosophy tutor UAE",
+      "custom software development international",
+      "software developer international",
+      "philosophy teacher international",
+      "philosophy tutor international",
       "استشارات",
       "استشارة",
       "إرشاد",
@@ -722,7 +722,7 @@ export const metadata = {
     siteName: "Studio of Phronesis",
     title: "Ahmed Mahmoud Saeed Ahmed Ali · Studio of Phronesis",
     description:
-      "Philosopher, author, educator, systems architect, and professional trainer. Author of 'Depth of Knowledge' (2026). Member of the British Philosophical Association. Delivers on-site teacher training internationally. Based in Central Visayas, Philippines.",
+      "Egyptian philosopher, author, educator, systems architect, and professional trainer with an international background. Author of 'Depth of Knowledge' (2026). Member of the British Philosophical Association. Delivers on-site teacher training and professional development internationally. Founder of Studio of Phronesis.",
     images: [
       {
         url: "/og-image.png",
@@ -736,7 +736,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Philosopher, author, educator, and trainer. Author of 'Depth of Knowledge' (2026). BPA member. On-site professional development delivered internationally. Central Visayas, Philippines.",
+      "Egyptian philosopher, author, educator, and trainer with an international background. Author of 'Depth of Knowledge' (2026). BPA member. On-site professional development delivered internationally. Founder of Studio of Phronesis.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -796,6 +796,7 @@ export default async function LocaleLayout({
       <PersonJsonLd />
       <NextIntlClientProvider>
         {children}
+        <ClicPopup />
       </NextIntlClientProvider>
       <Toaster />
       <SonnerToaster position="bottom-right" />

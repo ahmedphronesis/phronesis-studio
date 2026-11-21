@@ -18,7 +18,7 @@ export function OrganizationJsonLd() {
     logo: "https://phronesis-studio.com/favicon-512x512.png",
     image: "https://phronesis-studio.com/og-image.png",
     description:
-      "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher, author, educator, and systems architect in Central Visayas, Philippines.",
+      "Perceiving the gap between what is and what should be, and closing it with discipline. Custom software, educational platforms, and operational systems built by a philosopher, author, educator, and systems architect. The studio works internationally across education, scholarship, and software.",
     slogan: "Perceiving the gap between what is and what should be, and closing it with discipline.",
     foundingDate: "2024",
     founder: {
@@ -26,12 +26,6 @@ export function OrganizationJsonLd() {
       name: "Ahmed Ali",
       jobTitle: "Philosopher, Author, Educator, Systems Architect, Trainer",
       url: "https://phronesis-studio.com",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Central Visayas",
-      addressRegion: "Central Visayas",
-      addressCountry: "PH",
     },
     areaServed: "Worldwide",
     knowsLanguage: ["en", "ar"],
@@ -153,15 +147,9 @@ export function PersonJsonLd() {
     jobTitle: "Philosopher, Author, Educator, Systems Architect, Trainer",
     url: "https://phronesis-studio.com",
     image: "https://phronesis-studio.com/og-image.png",
-    description: "Ahmed Mahmoud Saeed Ahmed Ali is a philosopher, author, educator, systems architect, and professional trainer. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7). Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). Based in Central Visayas, Philippines. Delivers on-site teacher training and professional development internationally.",
+    description: "Ahmed Mahmoud Saeed Ahmed Ali is a philosopher, author, educator, systems architect, and professional trainer. Author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7). Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). An Egyptian educator with an international background, he delivers on-site teacher training and professional development internationally and works across education, scholarship, and software.",
     worksFor: {
       "@id": "https://phronesis-studio.com/#organization",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Central Visayas",
-      addressRegion: "Central Visayas",
-      addressCountry: "PH",
     },
     knowsAbout: [
       "Philosophy",
