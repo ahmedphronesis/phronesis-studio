@@ -227,7 +227,7 @@ export function ogTemplate({
                   marginBottom: 22,
                 }}
               >
-                <span style={{ fontSize: 16, lineHeight: 1 }}>●</span>
+                <span style={{ fontSize: 12, lineHeight: 1, color: "#0a3537", marginRight: 4 }}>→</span>
                 {badge}
               </div>
             )}

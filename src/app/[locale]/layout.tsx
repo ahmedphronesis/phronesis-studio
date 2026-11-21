@@ -59,7 +59,7 @@ export const metadata = {
     },
   },
   description:
-    "Ahmed Mahmoud Saeed Ahmed Ali is an Egyptian philosopher, author, educator, systems architect, and professional trainer with an international background and outlook. He is the author of 'Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI' (2026, ISBN 979-8-1913137-5-7), available on Amazon. Founder of Studio of Phronesis. Member of the British Philosophical Association (BPA). He delivers on-site teacher training and professional development internationally, builds custom software systems for education, publishes bilingual philosophical work, hosts the Echoes of Wisdom philosophy podcast, and teaches. His practice inherits the polymath ideal of the classical Islamic tradition.",
+    "Egyptian philosopher, author, educator, and systems architect with an international background. Author of 'Depth of Knowledge' (2026). Founder of Studio of Phronesis.",
   keywords: [
       "Ahmed Ali",
       "Ahmed Mahmoud Saeed Ahmed Ali",
@@ -722,22 +722,13 @@ export const metadata = {
     siteName: "Studio of Phronesis",
     title: "Ahmed Mahmoud Saeed Ahmed Ali · Studio of Phronesis",
     description:
-      "Egyptian philosopher, author, educator, systems architect, and professional trainer with an international background. Author of 'Depth of Knowledge' (2026). Member of the British Philosophical Association. Delivers on-site teacher training and professional development internationally. Founder of Studio of Phronesis.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ahmed Ali · Studio of Phronesis · Philosopher, Author, Educator, Trainer",
-      },
-    ],
+      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis. Author of 'Depth of Knowledge' (2026).",
   },
   twitter: {
     card: "summary_large_image",
     title: "Ahmed Ali · Studio of Phronesis",
     description:
-      "Egyptian philosopher, author, educator, and trainer with an international background. Author of 'Depth of Knowledge' (2026). BPA member. On-site professional development delivered internationally. Founder of Studio of Phronesis.",
-    images: ["/og-image.png"],
+      "Egyptian philosopher, author, and educator. Founder of Studio of Phronesis. Author of 'Depth of Knowledge' (2026).",
   },
   robots: {
     index: true,

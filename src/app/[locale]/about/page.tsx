@@ -18,14 +18,14 @@ export async function generateMetadata({
     openGraph: {
       title: t("title"),
       description: t("description"),
-      images: [
-        {
-          url: "/og-about.png",
-          width: 1200,
-          height: 630,
-          alt: "Studio of Phronesis — The Founder",
-        },
-      ],
+      siteName: "Studio of Phronesis",
+      type: "website",
+      url: `https://phronesis-studio.com/${locale}/about`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
     },
     alternates: {
       canonical: `/${locale}/about`,

@@ -18,10 +18,6 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "publications" });
   const title = `${t("title")} · Studio of Phronesis`;
   const description = t("metaDescription");
-  const featured = getFeaturedBook();
-  const ogImage = featured
-    ? `https://phronesis-studio.com${featured.coverFront}`
-    : "https://phronesis-studio.com/og-image.png";
 
   return {
     title,
@@ -33,20 +29,11 @@ export async function generateMetadata({
       url: `https://phronesis-studio.com/${locale}/publications`,
       siteName: "Studio of Phronesis",
       locale: locale === "ar" ? "ar_AR" : "en_US",
-      images: [{
-        url: ogImage,
-        secureUrl: ogImage,
-        width: 1000,
-        height: 1499,
-        alt: featured ? (locale === "ar" ? featured.titleAr : featured.title) : "Studio of Phronesis Publications",
-        type: "image/jpeg",
-      }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
     },
     alternates: {
       canonical: `/${locale}/publications`,

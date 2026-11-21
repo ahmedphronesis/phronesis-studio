@@ -1,4 +1,5 @@
-import { renderDefaultOG } from "@/lib/og-render";
+import { ImageResponse } from "next/og";
+import { ogTemplate, loadAssets, fontsFromAssets, readPublicImageAsDataUrl } from "@/lib/og-template";
 
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
@@ -8,15 +9,15 @@ const COPY = {
   en: {
     kicker: "Verify",
     title: "Certificate Verification",
-    subtitle:
-      "Confirm the authenticity of any Studio of Phronesis professional development certificate. Enter the certificate ID or scan the QR code.",
+    subtitle: "Confirm the authenticity of any Studio of Phronesis certificate.",
+    badge: "Verify now",
     footer: "phronesis-studio.com/verify",
   },
   ar: {
     kicker: "تثبيت",
     title: "التحقق من الشهادات",
-    subtitle:
-      "أكّد صحة أي شهادة تطوير مهني من ستوديو فرونسيس. أدخل رقم الشهادة أو امسح رمز الاستجابة السريعة.",
+    subtitle: "أكّد صحة أي شهادة من ستوديو فرونسيس.",
+    badge: "تحقّق الآن",
     footer: "phronesis-studio.com/ar/verify",
   },
 };
@@ -26,5 +27,29 @@ export default async function Image({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  return renderDefaultOG(params, COPY);
+  const { locale } = await params;
+  const isAR = locale === "ar";
+  const c = COPY[isAR ? "ar" : "en"];
+  const [bg, assets] = await Promise.all([
+    readPublicImageAsDataUrl("engagements/clic-module1-workshop.jpg"),
+    loadAssets(),
+  ]);
+
+  return new ImageResponse(
+    ogTemplate({
+      kicker: c.kicker,
+      title: c.title,
+      subtitle: c.subtitle,
+      badge: c.badge,
+      footer: c.footer,
+      backgroundImage: bg,
+      cover: true,
+      eagle: assets.eagle,
+      rtl: isAR,
+    }),
+    {
+      ...size,
+      fonts: fontsFromAssets(assets),
+    }
+  );
 }
