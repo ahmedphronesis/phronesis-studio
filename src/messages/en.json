@@ -1536,5 +1536,13 @@
     "endorsementLetter1DateLocation": "Abu Dhabi, November 2026",
     "endorsementDownloadFull": "Download the full letter (PDF)",
     "endorsementQuote": "The very subtitle of the book serves as a salutary provocation in an age when the capacity for independent thought is in danger of being lost. The author — an Egyptian philosopher and experienced educator in the UAE — cannot be praised highly enough for this ingenious choice of title alone."
+  },
+  "endorsements": {
+    "eyebrow": "Endorsement",
+    "title": "Letter of Endorsement",
+    "intro": "Scholarly reviews of Ahmed Ali's work by philosophers and educators who have read it in full.",
+    "downloadPdf": "Download the full letter (PDF)",
+    "viewBookPage": "View the book page",
+    "backToBook": "Back to the book"
   }
 }
