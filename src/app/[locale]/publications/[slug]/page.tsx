@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
-import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, ExternalLink, BookOpen, Check, Download } from "lucide-react";
 import { BOOKS, getBookBySlug } from "@/lib/publications";
 import { EndorsementJsonLd } from "@/components/JsonLd";
@@ -300,13 +299,11 @@ export default async function BookPage({
                   {t("endorsementTitle")}
                 </h2>
 
-                <motion.a
+                <a
                   href="/endorsements/Endorsement_Hoselbarth_2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="group block max-w-2xl p-7 rounded-2xl bg-paper-warm border border-gold/30 hover:border-gold/60 transition-colors"
                 >
                   <div className={`flex items-center gap-3 mb-3 ${isAR ? "flex-row-reverse" : ""}`}>
@@ -337,7 +334,7 @@ export default async function BookPage({
                     <Download size={12} />
                     <span className="link-underline">{t("endorsementDownloadFull")}</span>
                   </div>
-                </motion.a>
+                </a>
               </div>
             )}
 
