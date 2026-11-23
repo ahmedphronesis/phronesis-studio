@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
-import { ArrowRight, ArrowLeft, ExternalLink, BookOpen, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, ExternalLink, BookOpen, Check, Quote, FileText } from "lucide-react";
 import { BOOKS, getBookBySlug } from "@/lib/publications";
+import { EndorsementJsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 
 export const runtime = "nodejs";
@@ -28,7 +29,11 @@ export async function generateMetadata({
   const title = isAR
     ? `${book.titleAr}: ${book.subtitleAr} · Studio of Phronesis`
     : `${book.title}: ${book.subtitle} · Studio of Phronesis`;
-  const description = isAR ? book.descriptionAr[0] : book.description[0];
+  const baseDesc = isAR ? book.descriptionAr[0] : book.description[0];
+  const endorsementClause = isAR
+    ? " حظي الكتابُ بتزكيةٍ علميةٍ من د. فرانك هوزلبارث."
+    : " Endorsed by Dr. Frank Höselbarth, philosopher and author of 'The Education Revolution in the Gulf and the German Industry' (2026).";
+  const description = baseDesc + endorsementClause;
   const ogImage = `https://phronesis-studio.com${book.coverFront}`;
 
   return {
@@ -99,6 +104,7 @@ export default async function BookPage({
   return (
     <MouseProvider>
       <div className="min-h-screen flex flex-col bg-background">
+        {slug === "depth-of-knowledge" && <EndorsementJsonLd />}
         <Nav />
         <main className="flex-1">
           <div className="relative w-full px-6 md:px-12 lg:px-20 pt-20 md:pt-28 pb-12">
@@ -281,6 +287,50 @@ export default async function BookPage({
                 {aboutAuthor}
               </p>
             </div>
+
+            {/* Endorsement */}
+            {book.slug === "depth-of-knowledge" && (
+              <div className={`max-w-4xl mb-12 pt-8 border-t border-border ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
+                <div className={`flex items-center gap-4 mb-6 ${isAR ? "flex-row-reverse" : ""}`}>
+                  <span className="h-px w-12 bg-gold/60" />
+                  <span className="eyebrow text-gold">{t("endorsementEyebrow")}</span>
+                </div>
+                <h2 className="display text-ink text-2xl md:text-3xl mb-6" style={headingFont}>
+                  {t("endorsementTitle")}
+                </h2>
+
+                <div className="relative p-6 md:p-8 rounded-2xl bg-paper-warm border border-gold/30">
+                  <Quote className={`absolute ${isAR ? "left-6" : "right-6"} top-6 text-gold/30`} size={40} />
+                  <blockquote className={`body-serif text-base md:text-lg text-ink leading-relaxed ${isAR ? "text-right" : ""}`}>
+                    {t("endorsementQuote")}
+                  </blockquote>
+                  <div className={`mt-6 pt-4 border-t border-gold/20 ${isAR ? "text-right" : ""}`}>
+                    <p className="display text-ink text-lg font-medium" style={headingFont}>
+                      {t("endorsementAttribution")}
+                    </p>
+                    <p className="body-serif text-xs text-ink-dim mt-1 leading-relaxed">
+                      {t("endorsementTitleLine")}
+                    </p>
+                    <p className="body-serif text-xs text-ink-dim mt-2 italic">
+                      {t("endorsementDateLocation")}
+                    </p>
+                  </div>
+                </div>
+
+                <div className={`mt-4 ${isAR ? "text-right" : ""}`}>
+                  <a
+                    href="/endorsements/Endorsement_Hoselbarth_2026.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className={`inline-flex items-center gap-2 text-sm text-teal hover:text-teal-bright transition-colors ${isAR ? "flex-row-reverse" : ""}`}
+                  >
+                    <FileText size={14} />
+                    {t("endorsementReadFull")} · {t("endorsementDownload")}
+                  </a>
+                </div>
+              </div>
+            )}
 
             {/* Final buy CTA */}
             <div className="max-w-4xl pt-8 border-t border-border">
