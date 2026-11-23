@@ -48,15 +48,16 @@ export async function generateMetadata({
   if (!e) return {};
 
   const isAR = locale === "ar";
+  // Note: layout.tsx has title.template = "%s · Studio of Phronesis", so we
+  // must NOT include "Studio of Phronesis" in the title string here, or
+  // it will be doubled.
   const title = isAR
-    ? `${e.labelAr} · ${e.authorAr} · Studio of Phronesis`
-    : `${e.labelEn} · ${e.author} · Studio of Phronesis`;
+    ? `${e.labelAr} · ${e.authorAr}`
+    : `${e.labelEn} · ${e.author}`;
   const description = isAR
     ? `تزكيةٌ علميةٌ لكتاب «${e.bookTitleAr}» من ${e.authorAr}. ${e.dateLocationAr}.`
     : `Scholarly endorsement of "${e.bookTitleEn}" by ${e.author}. ${e.dateLocation}.`;
-  const ogTitle = isAR
-    ? `${e.labelAr} · ${e.authorAr}`
-    : `${e.labelEn} · ${e.author}`;
+  const ogTitle = title;
 
   return {
     title,
