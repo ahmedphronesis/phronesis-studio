@@ -17,7 +17,7 @@ export function EngagementsPageContent() {
     { title: t("engagementsModule1"), desc: t("engagementsModule1Desc"), date: t("engagementsModule1Date"), delivered: true },
     { title: t("engagementsModule2"), desc: t("engagementsModule2Desc"), date: t("engagementsModule2Date"), delivered: true },
     { title: t("engagementsModule3"), desc: t("engagementsModule3Desc"), date: t("engagementsModule3Date"), delivered: true },
-    { title: t("engagementsModule4"), desc: t("engagementsModule4Desc"), date: t("engagementsModule4Date"), delivered: false },
+    { title: t("engagementsModule4"), desc: t("engagementsModule4Desc"), date: t("engagementsModule4Date"), delivered: true },
     { title: t("engagementsModule5"), desc: t("engagementsModule5Desc"), date: t("engagementsModule5Date"), delivered: false },
     { title: t("engagementsModule6"), desc: t("engagementsModule6Desc"), date: t("engagementsModule6Date"), delivered: false },
     { title: t("engagementsModule7"), desc: t("engagementsModule7Desc"), date: t("engagementsModule7Date"), delivered: false },
