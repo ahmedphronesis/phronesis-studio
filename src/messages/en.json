@@ -1518,13 +1518,13 @@
     "specPages": "Pages",
     "specLanguage": "Language",
     "specFormat": "Format",
-    "endorsementEyebrow": "Endorsement",
-    "endorsementTitle": "Scholarly Endorsement",
-    "endorsementQuote": "The very subtitle of the book serves as a salutary provocation in an age when the capacity for independent thought is in danger of being lost. The author — an Egyptian philosopher and experienced educator in the UAE — cannot be praised highly enough for this ingenious choice of title alone.",
-    "endorsementAttribution": "Dr. Frank Höselbarth",
-    "endorsementTitleLine": "Philosopher · Author of The Education Revolution in the Gulf and the German Industry (2026) · Founder of Nxtgn-Academic-Industrial-Cooperations Ltd., Abu Dhabi",
-    "endorsementDateLocation": "Abu Dhabi, November 2026",
-    "endorsementReadFull": "Read the full letter of endorsement",
-    "endorsementDownload": "Download PDF"
+    "endorsementEyebrow": "Formal Letters of Recommendation",
+    "endorsementTitle": "Formal Letters of Recommendation",
+    "endorsementIntro": "Scholarly reviews of this book by philosophers and educators who have read it in full.",
+    "endorsementLetter1Label": "Letter of Endorsement",
+    "endorsementLetter1Attribution": "Dr. Frank Höselbarth",
+    "endorsementLetter1TitleLine": "Philosopher · Author of The Education Revolution in the Gulf and the German Industry (2026) · Founder of Nxtgn-Academic-Industrial-Cooperations Ltd., Abu Dhabi",
+    "endorsementLetter1DateLocation": "Abu Dhabi, November 2026",
+    "endorsementDownloadFull": "Download the full letter (PDF)"
   }
 }

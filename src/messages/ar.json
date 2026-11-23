@@ -1528,13 +1528,13 @@
     "specPages": "الصفحات",
     "specLanguage": "اللغة",
     "specFormat": "الصيغة",
-    "endorsementEyebrow": "تزكية",
-    "endorsementTitle": "تزكيةٌ علمية",
-    "endorsementQuote": "إنّ عنوان الكتاب الفرعيّ نفسَه ليُعدّ استفزازًا مفيدًا في عصرٍ باتت فيه قدرةُ التفكير المستقلّ مُهدَّدةً بالضياع. ولا تكفي الثناءَ كلهُ كلمتُه على هذا الاختيار العبقريّ للعنوان وحده، وهو فيلسوفٌ مصريٌّ ومربٍّ خبيرٌ في الإمارات.",
-    "endorsementAttribution": "د. فرانك هوزلبارث",
-    "endorsementTitleLine": "فيلسوف · مؤلِّف كتاب «الثورة التعليمية في الخليج والصناعة الألمانية» (2026) · مؤسِّس شركة Nxtgn-Academic-Industrial-Cooperations Ltd.، أبوظبي",
-    "endorsementDateLocation": "أبوظبي، نوفمبر 2026",
-    "endorsementReadFull": "اقرأ رسالة التزكية كاملةً",
-    "endorsementDownload": "تنزيل ملف PDF"
+    "endorsementEyebrow": "رسائلُ توصيةٍ رسمية",
+    "endorsementTitle": "رسائلُ توصيةٍ رسمية",
+    "endorsementIntro": "مراجعاتٌ علميةٌ لهذا الكتاب من فيلسوفٍ ومربّينَ قرؤوه من أوّلِه إلى آخرِه.",
+    "endorsementLetter1Label": "رسالةُ تزكية",
+    "endorsementLetter1Attribution": "د. فرانك هوزلبارث",
+    "endorsementLetter1TitleLine": "فيلسوف · مؤلِّف كتاب «الثورة التعليمية في الخليج والصناعة الألمانية» (2026) · مؤسِّس شركة Nxtgn-Academic-Industrial-Cooperations Ltd.، أبوظبي",
+    "endorsementLetter1DateLocation": "أبوظبي، نوفمبر 2026",
+    "endorsementDownloadFull": "تنزيل الرسالة كاملةً (PDF)"
   }
 }
