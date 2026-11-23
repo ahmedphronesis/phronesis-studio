@@ -49,17 +49,20 @@ export async function generateMetadata({
 
   const isAR = locale === "ar";
   const title = isAR
-    ? `${e.labelAr} — ${e.authorAr} · Studio of Phronesis`
-    : `${e.labelEn} — ${e.author} · Studio of Phronesis`;
+    ? `${e.labelAr} · ${e.authorAr} · Studio of Phronesis`
+    : `${e.labelEn} · ${e.author} · Studio of Phronesis`;
   const description = isAR
     ? `تزكيةٌ علميةٌ لكتاب «${e.bookTitleAr}» من ${e.authorAr}. ${e.dateLocationAr}.`
     : `Scholarly endorsement of "${e.bookTitleEn}" by ${e.author}. ${e.dateLocation}.`;
+  const ogTitle = isAR
+    ? `${e.labelAr} · ${e.authorAr}`
+    : `${e.labelEn} · ${e.author}`;
 
   return {
     title,
     description,
     openGraph: {
-      title,
+      title: ogTitle,
       description,
       type: "article",
       url: `https://phronesis-studio.com/${locale}/endorsements/${slug}`,
@@ -71,14 +74,14 @@ export async function generateMetadata({
           width: 1200,
           height: 630,
           alt: isAR
-            ? `${e.labelAr} — ${e.authorAr}`
-            : `${e.labelEn} — ${e.author}`,
+            ? `${e.labelAr} · ${e.authorAr}`
+            : `${e.labelEn} · ${e.author}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: ogTitle,
       description,
       images: [
         `https://phronesis-studio.com/${locale}/endorsements/${slug}/opengraph-image`,
@@ -186,7 +189,7 @@ export default async function EndorsementPage({
               <div className="bg-white">
                 <iframe
                   src={`${e.pdf}#view=FitH&toolbar=1&navpanes=0`}
-                  title={`${label} — ${author}`}
+                  title={`${label} · ${author}`}
                   className="w-full"
                   style={{ height: "780px", border: "0", display: "block" }}
                 />

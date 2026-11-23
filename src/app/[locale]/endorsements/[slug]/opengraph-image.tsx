@@ -7,16 +7,16 @@ export const contentType = "image/png";
 
 const COPY = {
   en: {
-    kicker: "Letter of Endorsement",
-    title: "Depth of Knowledge",
-    subtitle: "A scholarly endorsement by Dr. Frank Höselbarth, philosopher and author of The Education Revolution in the Gulf and the German Industry (2026).",
+    kicker: "Dr. Frank Höselbarth",
+    title: "Letter of Endorsement",
+    subtitle: "For Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI (2026). Philosopher and author of The Education Revolution in the Gulf and the German Industry.",
     badge: "Read the letter",
     footer: "phronesis-studio.com/endorsements/dr-frank-hoselbarth",
   },
   ar: {
-    kicker: "Letter of Endorsement",
-    title: "Depth of Knowledge",
-    subtitle: "A scholarly endorsement by Dr. Frank Höselbarth, philosopher and author of The Education Revolution in the Gulf and the German Industry (2026).",
+    kicker: "Dr. Frank Höselbarth",
+    title: "Letter of Endorsement",
+    subtitle: "For Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI (2026). Philosopher and author of The Education Revolution in the Gulf and the German Industry.",
     badge: "Read the letter",
     footer: "phronesis-studio.com/ar/endorsements/dr-frank-hoselbarth",
   },
