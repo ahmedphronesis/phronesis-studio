@@ -331,7 +331,6 @@ export default async function BookPage({
                       title={`${t("endorsementLetter1Label")} — ${t("endorsementLetter1Attribution")}`}
                       className="w-full"
                       style={{ height: "780px", border: "0", display: "block" }}
-                      loading="lazy"
                     />
                   </div>
 
