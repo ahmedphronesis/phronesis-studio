@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { ogTemplate, loadAssets, fontsFromAssets, readPublicImageAsDataUrl } from "@/lib/og-template";
+import { ogTemplate, loadAssets, fontsFromAssets, readPublicImageAsDataUrl, serveArabicOG } from "@/lib/og-template";
 
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
@@ -28,6 +28,12 @@ export default async function Image({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
+  // Serve pre-generated Arabic OG (Satori doesn't support Arabic letter joining)
+  if (locale === "ar") {
+    return serveArabicOG("library");
+  }
+
   const isAR = locale === "ar";
   const c = COPY[isAR ? "ar" : "en"];
   const [bg, assets] = await Promise.all([

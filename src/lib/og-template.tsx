@@ -29,6 +29,33 @@ export type OGParams = {
 
 const ROOT = path.join(process.cwd(), "public");
 
+/**
+ * Serve a pre-generated Arabic OG image (PNG) from /public/og-ar/{name}.png.
+ *
+ * Satori (the engine behind next/og ImageResponse) doesn't support Arabic
+ * letter joining — a known limitation (vercel/next.js#92111 still in draft).
+ * So Arabic OGs are pre-rendered with PIL + arabic_reshaper, and we serve
+ * the static PNG here instead of trying to render Arabic text via Satori.
+ *
+ * Returns a Response with the PNG bytes, which Next.js's opengraph-image
+ * convention accepts in place of an ImageResponse.
+ *
+ * @param name - file basename in /public/og-ar/ (without .png extension)
+ *               e.g. "home", "about", "work", "publications", "library",
+ *               "method", "philosophy", "correspondence", "verify",
+ *               "engagements"
+ */
+export async function serveArabicOG(name: string): Promise<Response> {
+  const pngPath = path.join(ROOT, "og-ar", `${name}.png`);
+  const buffer = await fs.readFile(pngPath);
+  return new Response(buffer, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800",
+    },
+  });
+}
+
 export type LoadedAssets = {
   fonts: {
     interRegular: Buffer;
