@@ -240,8 +240,8 @@ export function ClicPopup() {
             }}
           >
             {isAR
-              ? "الوحدات ١–٣ مكتملة · الوحدات ٤–٨ جارية أسبوعياً حتى ديسمبر ٢٠٢٦"
-              : "Modules 1–3 delivered · Modules 4–8 ongoing weekly through Dec 2026"}
+              ? "الوحدات ١–٤ مكتملة · الوحدات ٥–٨ جارية أسبوعياً حتى ديسمبر ٢٠٢٦"
+              : "Modules 1–4 delivered · Modules 5–8 ongoing weekly through Dec 2026"}
           </div>
 
           {/* CTA */}
