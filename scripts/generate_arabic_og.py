@@ -193,24 +193,80 @@ def generate_cover_og(
     else:
         bg = load_image_as_rgba(bg_full, (W, H))
 
-    # Apply dark teal gradient overlay (left-weighted)
-    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    overlay_draw = ImageDraw.Draw(overlay)
-    # Left-to-right gradient: dark on left, transparent on right
-    for x in range(W):
-        # Alpha goes from ~230 (left) to ~30 (right)
-        alpha = int(230 - (x / W) * 200)
-        overlay_draw.line([(x, 0), (x, H)], fill=(8, 40, 42, alpha))
-    # Bottom gradient
-    for y in range(H // 2, H):
-        alpha = int(((y - H // 2) / (H // 2)) * 180)
-        overlay_draw.line([(0, y), (W, y)], fill=(8, 40, 42, alpha))
-    # Top gradient
-    for y in range(H // 4):
-        alpha = int(80 - (y / (H // 4)) * 80)
-        overlay_draw.line([(0, y), (W, y)], fill=(8, 40, 42, alpha))
+    # Apply dark teal gradient overlay.
+    #
+    # The English Satori version composites THREE CSS gradients:
+    #   1. linear-gradient(95deg, dark 92% -> dark 25%): left-weighted horizontal
+    #   2. linear-gradient(to top, dark 75% -> transparent): bottom-up
+    #   3. linear-gradient(to bottom, dark 50% -> transparent): top-down
+    # Each gradient is alpha-blended on top of the previous, so they stack.
+    #
+    # In PIL, drawing multiple gradients on a single overlay layer causes
+    # each line() to OVERWRITE the previous one (only the last gradient
+    # drawn affects any given pixel). The fix: create a separate overlay
+    # for each gradient and alpha_composite them one at a time, exactly
+    # mirroring how Satori composites CSS gradients.
+    #
+    # For RTL (Arabic), the horizontal gradient is MIRRORED so the dark
+    # side is on the RIGHT (where the Arabic text is), matching how the
+    # Satori version would visually need to look for RTL.
+    is_rtl = True  # All Arabic OGs are RTL by definition
 
-    bg = Image.alpha_composite(bg, overlay)
+    # Layer 1: left-to-right (or right-to-left for RTL) horizontal gradient.
+    # 95deg in CSS: starts at 0% (left edge) and ends at 100% (right edge),
+    # with waypoints 0%→92%, 35%→80%, 65%→50%, 100%→25%.
+    overlay_lr = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od_lr = ImageDraw.Draw(overlay_lr)
+    for x in range(W):
+        # Map x to 0-100% progress
+        progress = x / W
+        # Interpolate alpha through the same waypoints as the English Satori version
+        if progress < 0.35:
+            # 0% -> 35%: alpha goes from 0.92 (235) to 0.80 (204)
+            t = progress / 0.35
+            alpha = int(235 - t * (235 - 204))
+        elif progress < 0.65:
+            # 35% -> 65%: alpha goes from 0.80 (204) to 0.50 (128)
+            t = (progress - 0.35) / 0.30
+            alpha = int(204 - t * (204 - 128))
+        else:
+            # 65% -> 100%: alpha goes from 0.50 (128) to 0.25 (64)
+            t = (progress - 0.65) / 0.35
+            alpha = int(128 - t * (128 - 64))
+        # For RTL, mirror the gradient: dark on the right, light on the left
+        if is_rtl:
+            draw_x = W - 1 - x
+        else:
+            draw_x = x
+        od_lr.line([(draw_x, 0), (draw_x, H)], fill=(8, 40, 42, alpha))
+    bg = Image.alpha_composite(bg, overlay_lr)
+
+    # Layer 2: bottom-up gradient (dark at bottom, transparent at top).
+    # CSS: linear-gradient(to top, rgba(8,40,42,0.75) 0%, transparent 45%)
+    # → from y=H (bottom) fading up to y=H*0.55
+    overlay_bot = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od_bot = ImageDraw.Draw(overlay_bot)
+    fade_start = int(H * 0.55)  # below this y, gradient kicks in
+    for y in range(fade_start, H):
+        # progress 0 at fade_start, 1 at H
+        t = (y - fade_start) / (H - fade_start)
+        # alpha goes from 0 (transparent) at top of gradient to 0.75 (191) at bottom
+        alpha = int(t * 191)
+        od_bot.line([(0, y), (W, y)], fill=(8, 40, 42, alpha))
+    bg = Image.alpha_composite(bg, overlay_bot)
+
+    # Layer 3: top-down gradient (dark at top, transparent below).
+    # CSS: linear-gradient(to bottom, rgba(8,40,42,0.50) 0%, transparent 30%)
+    # → from y=0 (top) fading down to y=H*0.30
+    overlay_top = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od_top = ImageDraw.Draw(overlay_top)
+    fade_end = int(H * 0.30)
+    for y in range(0, fade_end):
+        # progress 1 at top (alpha 128 = 0.50), 0 at fade_end
+        t = 1 - (y / fade_end)
+        alpha = int(t * 128)
+        od_top.line([(0, y), (W, y)], fill=(8, 40, 42, alpha))
+    bg = Image.alpha_composite(bg, overlay_top)
 
     # Add gold top rule
     draw = ImageDraw.Draw(bg)
@@ -220,28 +276,41 @@ def generate_cover_og(
     eagle = Image.open(str(ROOT / eagle_path)).convert("RGBA")
     eagle_small = eagle.resize((48, 48), Image.LANCZOS)
 
-    # ── Header: eagle + studio name ──
+    # ── Header: eagle + studio name (RTL: top-RIGHT, with eagle on the right) ──
     padding = 56
-    # Eagle
-    bg.paste(eagle_small, (padding, padding), eagle_small)
-    # Studio name
+    # Compute studio text width first to position correctly
     font_studio = get_font("Amiri-Regular.ttf", 28)
     studio_text = "ستوديو فرونسيس"
     shaped_studio = shape_arabic(studio_text)
     studio_w = text_width(draw, shaped_studio, font_studio)
-    draw.text((padding + 48 + 10, padding + 5), shaped_studio, font=font_studio, fill=(250, 248, 243, 255))
-    # Greek motto
     font_motto = get_greek_font(16)
     motto_text = "ΦΡΟΝΗΣΙΣ · Practical Wisdom"
-    draw.text((padding + 48 + 10, padding + 38), motto_text, font=font_motto, fill=(212, 175, 110, 255))
+    motto_w = text_width(draw, motto_text, font_motto)
+    # For RTL: header sits at top-RIGHT. Layout: [text-block] [gap] [eagle], right-aligned.
+    # So eagle is at the rightmost position, text block to its LEFT.
+    eagle_size = 48
+    header_gap = 16  # spacing between eagle and text block
+    # The rightmost edge of the header block is at W - padding
+    eagle_x = W - padding - eagle_size
+    eagle_y = padding
+    bg.paste(eagle_small, (eagle_x, eagle_y), eagle_small)
+    # Text block to the left of the eagle, right-aligned to eagle_x - header_gap
+    text_block_right = eagle_x - header_gap
+    # Studio name: right-aligned ending at text_block_right
+    studio_x = text_block_right - studio_w
+    draw.text((studio_x, padding + 2), shaped_studio, font=font_studio, fill=(250, 248, 243, 255))
+    # Greek motto: right-aligned ending at text_block_right, below studio name with comfortable spacing
+    motto_x = text_block_right - motto_w
+    draw.text((motto_x, padding + 36), motto_text, font=font_motto, fill=(212, 175, 110, 255))
 
-    # ── Badge ──
+    # ── Badge (positioned below header, on the same side as the text block) ──
     if badge:
         font_badge = get_font("Amiri-Regular.ttf", 14)
         shaped_badge = shape_arabic(badge)
         badge_w = text_width(draw, shaped_badge, font_badge) + 40
-        badge_x = W - padding - badge_w
-        badge_y = padding + 60
+        # For RTL: badge sits above the title block, right-aligned (matching how English badge sits above title, left-aligned)
+        badge_x = W - padding - badge_w  # right-aligned
+        badge_y = padding + 90  # below the header block (eagle is 48px + motto is 16px below)
         # Gold pill background
         draw.rounded_rectangle(
             [(badge_x, badge_y), (badge_x + badge_w, badge_y + 32)],
@@ -254,7 +323,7 @@ def generate_cover_og(
     # ── Kicker ──
     font_kicker = get_font("Amiri-Regular.ttf", 18)
     shaped_kicker = shape_arabic(kicker)
-    kicker_y = padding + 200
+    kicker_y = padding + 165  # below the badge (badge ends at padding+90+32=padding+122, add 43px gap)
     kicker_w = text_width(draw, shaped_kicker, font_kicker)
     draw.text((W - padding - kicker_w, kicker_y), shaped_kicker, font=font_kicker, fill=(212, 175, 110, 255))
 
@@ -439,7 +508,7 @@ PAGES = {
         "subtitle": "إدراكُ موضعِ الخلل فيما هو كائن، وإيصاله إلى ما ينبغي أن يكون، على مقتضى الإحكام والانضباط.",
         "badge": "استكشف الممارسة",
         "footer": "phronesis-studio.com",
-        "bg": None,  # default variant
+        "bg": "hero-athens-poster.jpg",  # cover variant — matches English home OG
     },
     "about": {
         "kicker": "المؤسّس",
@@ -465,6 +534,7 @@ PAGES = {
         "badge": "تصفّح المكتبة",
         "footer": "phronesis-studio.com/ar/library",
         "bg": "library/mathematics.jpg",
+        "object_fit": "contain",  # matches English library OG
     },
     "method": {
         "kicker": "المنهج",
