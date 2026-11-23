@@ -17,6 +17,15 @@ export function Vouches() {
     file: string;
   }[];
 
+  const bookEndorsements = (t.raw("bookEndorsements") || []) as {
+    label: string;
+    author: string;
+    authorTitle: string;
+    date: string;
+    excerpt: string;
+    file: string;
+  }[];
+
   const linkedIn = {
     quote: t("linkedin.quote"),
     author: t("linkedin.author"),
@@ -99,6 +108,80 @@ export function Vouches() {
           </div>
         </FadeUp>
       </div>
+
+      {/* Book endorsements — embedded PDF viewers */}
+      {bookEndorsements.length > 0 && (
+        <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
+          <Reveal>
+            <div className="flex items-center gap-4 mb-4">
+              <span className="h-px w-12 bg-gold/60" />
+              <span className="eyebrow text-gold">{t("bookEndorsementsTitle")}</span>
+            </div>
+            <h3 className="display text-ink text-2xl md:text-3xl mb-3">
+              {t("bookEndorsementsTitle")}
+            </h3>
+            <p className="body-serif text-sm text-ink-dim mb-8 max-w-2xl leading-relaxed">
+              {t("bookEndorsementsIntro")}
+            </p>
+          </Reveal>
+
+          <div className="space-y-8">
+            {bookEndorsements.map((letter, i) => (
+              <FadeUp key={i} delay={i * 0.1}>
+                <div className="rounded-2xl overflow-hidden border border-gold/30 bg-paper shadow-[0_20px_60px_-20px_rgba(15,92,94,0.25)]">
+                  {/* Header strip */}
+                  <div className="flex items-start justify-between gap-3 px-5 md:px-7 py-4 border-b border-gold/20 bg-gradient-to-r from-teal/5 to-transparent">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-mono mb-1">
+                        {letter.label}
+                      </p>
+                      <p className="display text-ink text-lg md:text-xl font-medium">{letter.author}</p>
+                      <p className="body-serif text-xs text-ink-dim mt-1 leading-relaxed max-w-2xl">
+                        {letter.authorTitle}
+                      </p>
+                    </div>
+                    <p className="body-serif text-xs text-ink-dim italic whitespace-nowrap flex-shrink-0">
+                      {letter.date}
+                    </p>
+                  </div>
+
+                  {/* Pull-quote */}
+                  <div className="relative px-5 md:px-7 py-4 border-b border-gold/20 bg-paper-warm/40">
+                    <Quote className="absolute top-3 right-5 text-gold/20" size={28} strokeWidth={1.5} />
+                    <blockquote className="body-serif text-sm md:text-base text-ink-soft leading-relaxed italic pr-8">
+                      &ldquo;{letter.excerpt}&rdquo;
+                    </blockquote>
+                  </div>
+
+                  {/* Embedded PDF viewer */}
+                  <div className="bg-white">
+                    <iframe
+                      src={`${letter.file}#view=FitH&toolbar=1&navpanes=0`}
+                      title={`${letter.label} — ${letter.author}`}
+                      className="w-full"
+                      style={{ height: "780px", border: "0", display: "block" }}
+                    />
+                  </div>
+
+                  {/* Download button footer */}
+                  <div className="flex items-center justify-end gap-3 px-5 md:px-7 py-4 border-t border-gold/20 bg-paper-warm">
+                    <a
+                      href={letter.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-xs sm:text-sm font-medium px-4 sm:px-5 py-2.5 rounded-full transition-colors whitespace-nowrap"
+                    >
+                      <Download size={14} className="flex-shrink-0" />
+                      {t("readFullLetter")} · PDF
+                    </a>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Formal recommendation letters — downloadable cards */}
       <div className="relative w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-16">
