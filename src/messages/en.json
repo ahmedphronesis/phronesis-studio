@@ -1412,6 +1412,15 @@
     },
     "letters": [
       {
+        "title": "Depth of Knowledge (2026)",
+        "subtitle": "Letter of Endorsement",
+        "author": "Dr. Frank Höselbarth",
+        "authorTitle": "Philosopher · Author of The Education Revolution in the Gulf and the German Industry (2026) · Founder of Nxtgn-Academic-Industrial-Cooperations Ltd., Abu Dhabi",
+        "date": "Abu Dhabi, November 2026",
+        "excerpt": "The very subtitle of the book serves as a salutary provocation in an age when the capacity for independent thought is in danger of being lost. The author — an Egyptian philosopher and experienced educator in the UAE — cannot be praised highly enough for this ingenious choice of title alone.",
+        "file": "/endorsements/Endorsement_Hoselbarth_2026.pdf"
+      },
+      {
         "title": "Emory University",
         "subtitle": "Academic Recommendation",
         "author": "Dr. Rahimjon Abdugafurov, Ph.D. in Islamic Civilization Studies",
@@ -1456,20 +1465,7 @@
         "excerpt": "Mr. Ahmed is a highly innovative professional who is deeply dedicated to completing every task with absolute perfection. Beyond his exceptional classroom instruction, he took on the responsibility of monitoring and supporting other non-Arabic teachers. He successfully managed our Model United Nations program and was a pillar of emotional and social support for our students, universally loved across the campus.",
         "file": "/references/Reference - AAKPS - Vice Principal.pdf"
       }
-    ],
-    "bookEndorsementsTitle": "Book endorsements",
-    "bookEndorsementsIntro": "Scholarly reviews of Depth of Knowledge: A Practical Guide to Designing Rigorous Questions Without AI.",
-    "bookEndorsements": [
-      {
-        "label": "Letter of Endorsement",
-        "author": "Dr. Frank Höselbarth",
-        "authorTitle": "Philosopher · Author of The Education Revolution in the Gulf and the German Industry (2026) · Founder of Nxtgn-Academic-Industrial-Cooperations Ltd., Abu Dhabi",
-        "date": "Abu Dhabi, November 2026",
-        "excerpt": "The very subtitle of the book serves as a salutary provocation in an age when the capacity for independent thought is in danger of being lost. The author — an Egyptian philosopher and experienced educator in the UAE — cannot be praised highly enough for this ingenious choice of title alone.",
-        "file": "/endorsements/Endorsement_Hoselbarth_2026.pdf"
-      }
-    ],
-    "readFullLetter": "Read full letter"
+    ]
   },
   "echoes": {
     "eyebrow": "Original Philosophy",
@@ -1538,6 +1534,7 @@
     "endorsementLetter1Attribution": "Dr. Frank Höselbarth",
     "endorsementLetter1TitleLine": "Philosopher · Author of The Education Revolution in the Gulf and the German Industry (2026) · Founder of Nxtgn-Academic-Industrial-Cooperations Ltd., Abu Dhabi",
     "endorsementLetter1DateLocation": "Abu Dhabi, November 2026",
-    "endorsementDownloadFull": "Download the full letter (PDF)"
+    "endorsementDownloadFull": "Download the full letter (PDF)",
+    "endorsementQuote": "The very subtitle of the book serves as a salutary provocation in an age when the capacity for independent thought is in danger of being lost. The author — an Egyptian philosopher and experienced educator in the UAE — cannot be praised highly enough for this ingenious choice of title alone."
   }
 }

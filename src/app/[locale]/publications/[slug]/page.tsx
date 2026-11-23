@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
+import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, ExternalLink, BookOpen, Check, Download } from "lucide-react";
 import { BOOKS, getBookBySlug } from "@/lib/publications";
 import { EndorsementJsonLd } from "@/components/JsonLd";
@@ -288,66 +289,55 @@ export default async function BookPage({
               </p>
             </div>
 
-            {/* Formal Letters of Recommendation */}
+            {/* Letter of Endorsement */}
             {book.slug === "depth-of-knowledge" && (
               <div className={`max-w-4xl mb-12 pt-8 border-t border-border ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
                 <div className={`flex items-center gap-4 mb-6 ${isAR ? "flex-row-reverse" : ""}`}>
                   <span className="h-px w-12 bg-gold/60" />
                   <span className="eyebrow text-gold">{t("endorsementEyebrow")}</span>
                 </div>
-                <h2 className="display text-ink text-2xl md:text-3xl mb-3" style={headingFont}>
+                <h2 className="display text-ink text-2xl md:text-3xl mb-8" style={headingFont}>
                   {t("endorsementTitle")}
                 </h2>
-                <p className="body-serif text-sm text-ink-dim mb-8 leading-relaxed">
-                  {t("endorsementIntro")}
-                </p>
 
-                {/* Letter 1 — Dr. Frank Höselbarth */}
-                <div className="rounded-2xl overflow-hidden border border-gold/30 bg-paper-warm shadow-[0_20px_60px_-20px_rgba(15,92,94,0.25)]">
-                  {/* Letter header strip */}
-                  <div className={`flex items-center justify-between gap-3 px-5 md:px-7 py-4 border-b border-gold/20 bg-gradient-to-r from-teal/5 to-transparent ${isAR ? "flex-row-reverse" : ""}`}>
-                    <div className={isAR ? "text-right" : ""}>
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-mono mb-1">
-                        {t("endorsementLetter1Label")}
-                      </p>
-                      <p className="display text-ink text-lg font-medium" style={headingFont}>
-                        {t("endorsementLetter1Attribution")}
-                      </p>
-                      <p className="body-serif text-xs text-ink-dim mt-1 leading-relaxed">
-                        {t("endorsementLetter1TitleLine")}
-                      </p>
+                <motion.a
+                  href="/endorsements/Endorsement_Hoselbarth_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="group block max-w-2xl p-7 rounded-2xl bg-paper-warm border border-gold/30 hover:border-gold/60 transition-colors"
+                >
+                  <div className={`flex items-center gap-3 mb-3 ${isAR ? "flex-row-reverse" : ""}`}>
+                    <div className="w-11 h-11 rounded-xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                      <Download size={18} strokeWidth={1.5} />
                     </div>
-                    <div className={isAR ? "text-left" : "text-right"} style={isAR ? { direction: "ltr" } : undefined}>
-                      <p className="body-serif text-xs text-ink-dim italic">
-                        {t("endorsementLetter1DateLocation")}
-                      </p>
-                    </div>
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-ink-dim font-mono leading-snug">
+                      {t("endorsementLetter1Label")}
+                    </span>
                   </div>
 
-                  {/* Embedded PDF viewer — shows the full letter visibly on the page */}
-                  <div className="bg-white">
-                    <iframe
-                      src="/endorsements/Endorsement_Hoselbarth_2026.pdf#view=FitH&toolbar=1&navpanes=0"
-                      title={`${t("endorsementLetter1Label")} — ${t("endorsementLetter1Attribution")}`}
-                      className="w-full"
-                      style={{ height: "780px", border: "0", display: "block" }}
-                    />
+                  <h3 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight" style={headingFont}>
+                    {t("endorsementLetter1Attribution")}
+                  </h3>
+
+                  <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5 italic">
+                    &ldquo;{t("endorsementQuote")}&rdquo;
+                  </p>
+
+                  <div className="pt-5 border-t border-border">
+                    <p className="text-xs text-ink-dim body-serif mt-1 leading-relaxed">
+                      {t("endorsementLetter1TitleLine")}
+                    </p>
+                    <p className="text-xs text-ink-dim body-serif mt-2">{t("endorsementLetter1DateLocation")}</p>
                   </div>
 
-                  {/* Download button footer */}
-                  <div className={`flex items-center ${isAR ? "justify-start flex-row-reverse" : "justify-end"} gap-3 px-5 md:px-7 py-4 border-t border-gold/20 bg-paper-warm`}>
-                    <a
-                      href="/endorsements/Endorsement_Hoselbarth_2026.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download
-                      className={`inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-xs sm:text-sm font-medium px-4 sm:px-5 py-2.5 rounded-full transition-colors whitespace-nowrap ${isAR ? "flex-row-reverse" : ""}`}
-                    >
-                      <Download size={14} className="flex-shrink-0" />
-                      {t("endorsementDownloadFull")}
-                    </a>
+                  <div className={`mt-5 inline-flex items-center gap-2 text-xs text-teal group-hover:text-teal-bright transition-colors ${isAR ? "flex-row-reverse" : ""}`}>
+                    <Download size={12} />
+                    <span className="link-underline">{t("endorsementDownloadFull")}</span>
                   </div>
-                </div>
+                </motion.a>
               </div>
             )}
 
