@@ -209,16 +209,9 @@ export function Contact() {
 
           <Reveal className="lg:col-span-4" delay={0.18}>
             <div className="lg:sticky lg:top-32 space-y-10">
-              {/* Portrait photo */}
-              <div className="relative rounded-2xl overflow-hidden border border-gold/30 shadow-[0_20px_50px_-20px_rgba(15,92,94,0.3)] aspect-square">
-                <img
-                  src="/founder-portrait-correspondence.jpg"
-                  alt="Ahmed Ali — Founder of Studio of Phronesis"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                {/* Subtle bottom gradient for depth */}
-                <div className="absolute inset-x-0 bottom-0 h-1/4" style={{ background: "linear-gradient(to top, rgba(8,40,42,0.35), transparent)" }} />
-              </div>
+              {/* Note: founder-portrait-correspondence.jpg is intentionally NOT shown
+                  here as page content. It is used exclusively as the OG image for
+                  the Correspondence page (see /correspondence/opengraph-image.tsx). */}
 
               <div>
                 <p className="text-[10px] uppercase tracking-[0.25em] text-ink-dim mb-4 font-mono">{t("preferEmail")}</p>

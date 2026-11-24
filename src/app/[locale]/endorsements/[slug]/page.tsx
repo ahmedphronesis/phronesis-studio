@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MouseProvider } from "@/components/anim";
-import { Download, ExternalLink, Quote, FileText } from "lucide-react";
+import { Download } from "lucide-react";
 import Link from "next/link";
 
 export const runtime = "nodejs";
@@ -149,76 +149,44 @@ export default async function EndorsementPage({
               {t("intro")}
             </p>
 
-            {/* Endorsement card */}
-            <div className="max-w-4xl rounded-2xl overflow-hidden border border-gold/30 bg-paper-warm shadow-[0_20px_60px_-20px_rgba(15,92,94,0.25)]">
-              {/* Header strip */}
-              <div
-                className={`flex items-start justify-between gap-3 px-5 md:px-7 py-5 border-b border-gold/20 bg-gradient-to-r from-teal/5 to-transparent ${isAR ? "flex-row-reverse" : ""}`}
-                dir={dir}
+            {/* Endorsement card, matching the Vouches section design */}
+            <div className="max-w-4xl">
+              <a
+                href={e.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="group block max-w-2xl p-7 rounded-2xl bg-paper-warm border border-gold/30 hover:border-gold/60 transition-colors"
               >
-                <div className={isAR ? "text-right" : ""}>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-mono mb-2">
+                <div className={`flex items-center gap-3 mb-3 ${isAR ? "flex-row-reverse" : ""}`}>
+                  <div className="w-11 h-11 rounded-xl bg-teal/10 border border-teal/30 flex items-center justify-center text-teal flex-shrink-0">
+                    <Download size={18} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-ink-dim font-mono leading-snug">
                     {label}
-                  </p>
-                  <p className="display text-ink text-xl md:text-2xl font-medium" style={headingFont}>
-                    {author}
-                  </p>
-                  <p className="body-serif text-xs md:text-sm text-ink-dim mt-2 leading-relaxed max-w-2xl">
+                  </span>
+                </div>
+
+                <h2 className="display text-ink text-2xl md:text-3xl mb-3 leading-tight" style={headingFont}>
+                  {author}
+                </h2>
+
+                <p className="body-serif text-sm text-ink-soft leading-relaxed mb-5 italic">
+                  &ldquo;{excerpt}&rdquo;
+                </p>
+
+                <div className="pt-5 border-t border-border">
+                  <p className="text-xs text-ink-dim body-serif mt-1 leading-relaxed">
                     {titleLine}
                   </p>
+                  <p className="text-xs text-ink-dim body-serif mt-2">{dateLocation}</p>
                 </div>
-                <p className="body-serif text-xs text-ink-dim italic whitespace-nowrap flex-shrink-0">
-                  {dateLocation}
-                </p>
-              </div>
 
-              {/* Pull-quote */}
-              <div className="relative px-5 md:px-7 py-6 border-b border-gold/20 bg-paper-warm/40" dir={dir}>
-                <Quote
-                  className={`absolute ${isAR ? "left-5" : "right-5"} top-5 text-gold/20`}
-                  size={40}
-                  strokeWidth={1}
-                />
-                <blockquote
-                  className={`body-serif text-base md:text-lg text-ink leading-relaxed italic ${isAR ? "text-right" : ""} pr-12`}
-                >
-                  &ldquo;{excerpt}&rdquo;
-                </blockquote>
-              </div>
-
-              {/* Embedded PDF viewer */}
-              <div className="bg-white">
-                <iframe
-                  src={`${e.pdf}#view=FitH&toolbar=1&navpanes=0`}
-                  title={`${label} · ${author}`}
-                  className="w-full"
-                  style={{ height: "780px", border: "0", display: "block" }}
-                />
-              </div>
-
-              {/* Download button footer */}
-              <div
-                className={`flex items-center justify-between gap-3 px-5 md:px-7 py-5 border-t border-gold/20 bg-paper-warm flex-wrap ${isAR ? "flex-row-reverse" : ""}`}
-                dir={dir}
-              >
-                <a
-                  href={e.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  className="inline-flex items-center gap-2 bg-teal hover:bg-teal-bright text-paper text-xs sm:text-sm font-medium px-4 sm:px-5 py-2.5 rounded-full transition-colors whitespace-nowrap"
-                >
-                  <Download size={14} className="flex-shrink-0" />
-                  {t("downloadPdf")}
-                </a>
-                <Link
-                  href={`/${locale}/publications/${e.bookSlug}`}
-                  className={`inline-flex items-center gap-2 text-xs sm:text-sm text-teal hover:text-teal-bright transition-colors ${isAR ? "flex-row-reverse" : ""}`}
-                >
-                  <FileText size={14} />
-                  {t("viewBookPage")}
-                </Link>
-              </div>
+                <div className={`mt-5 inline-flex items-center gap-2 text-xs text-teal group-hover:text-teal-bright transition-colors ${isAR ? "flex-row-reverse" : ""}`}>
+                  <Download size={12} />
+                  <span className="link-underline">{t("downloadPdf")}</span>
+                </div>
+              </a>
             </div>
           </div>
         </main>

@@ -569,7 +569,7 @@ PAGES = {
         "subtitle": "بيّن لي موضع الخلل كما تراه، وسأبحث في جوهره قبل اقتراح ما يصلحه. أقرأ كل رسالة بنفسي.",
         "badge": "ابدأ الحوار",
         "footer": "phronesis-studio.com/ar/correspondence",
-        "bg": "founder-portrait.jpg",
+        "bg": "founder-portrait-correspondence.jpg",
         "object_position": "center 20%",
     },
     "verify": {

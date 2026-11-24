@@ -37,7 +37,8 @@ export default async function Image({
   const isAR = locale === "ar";
   const c = COPY[isAR ? "ar" : "en"];
   const [bg, assets] = await Promise.all([
-    readPublicImageAsDataUrl("founder-portrait.jpg"),
+    // Use the dedicated correspondence photograph (NOT the generic founder-portrait.jpg)
+    readPublicImageAsDataUrl("founder-portrait-correspondence.jpg"),
     loadAssets(),
   ]);
 
