@@ -169,7 +169,15 @@ export function EngagementsPageContent() {
         <FadeUp delay={0.25}>
           <div className={`mt-8 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-teal/5 to-transparent border border-teal/20 ${isAR ? "text-right" : ""}`} dir={isAR ? "rtl" : "ltr"}>
             <p className="text-[10px] uppercase tracking-[0.2em] text-teal font-mono mb-3">{t("engagementsOutcomesLabel")}</p>
-            <p className="body-serif text-sm md:text-base text-ink-soft leading-relaxed">{t("engagementsOutcomes")}</p>
+            <div>
+              {t("engagementsOutcomes")
+                .split("\n\n")
+                .map((chunk, i) => (
+                  <p key={i} className="body-serif text-sm md:text-base text-ink-soft leading-relaxed mb-3 last:mb-0">
+                    {chunk}
+                  </p>
+                ))}
+            </div>
           </div>
         </FadeUp>
 
